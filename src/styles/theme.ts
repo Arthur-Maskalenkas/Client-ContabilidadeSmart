@@ -23,11 +23,11 @@ export default {
     }
   },
   colors: {
-    primary: '#FAF3F3',
-    secondary: '#E1E5EA',
-    tertiary: 'A7BBC7',
+    primary: '#FFFFFF',
+    secondary: '#F66A3E',
+    tertiary: '#202020',
     lightBg: '#F2F2F2',
-    mainBg: '#DA7F8F',
+    mainBg: '#F9F9F9',
     white: '#FAFAFA',
     black: '#050706',
     lightGray: '#EAEAEA',
