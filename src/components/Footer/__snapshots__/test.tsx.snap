@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> should render 4 column topics 1`] = `
+.c4 {
+  color: #050706;
+  font-size: 1.6rem;
+}
+
+.c4::after {
+  width: 3rem;
+}
+
+.c6 {
+  color: #050706;
+}
+
+.c0 .c3 {
+  text-transform: uppercase;
+}
+
+.c1 {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 3.2rem;
+  margin-top: 3.2rem;
+}
+
+.c2 a,
+.c2 span {
+  display: block;
+  color: #8F8F8F;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+}
+
+.c2 a:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7 {
+  color: #8F8F8F;
+  font-size: 1.2rem;
+  margin-top: 4.0rem;
+  margin-bottom: 3.2rem;
+  text-align: center;
+}
+
+.c5 {
+  margin-bottom: 2.4rem;
+}
+
+@media (min-width:768px) {
+  .c1 {
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+
+<footer
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      aria-labelledby="column-contact"
+      class="c2"
+    >
+      <h2
+        class="c3 c4 c5"
+        color="black"
+      >
+        Contact Us
+      </h2>
+      <a
+        href="mailto:sac@wongames.com"
+      >
+        mm@mm.com
+      </a>
+    </div>
+    <div
+      aria-labelledby="social-media"
+      class="c2"
+    >
+      <h2
+        class="c3 c6 c5"
+        color="black"
+      >
+        Follow us
+      </h2>
+      <nav>
+        <a
+          href="https://www.instagram.com/mixeria-milionaria"
+          rel="noopenner, noreferrer"
+          target="_blank"
+        >
+          Instagram
+        </a>
+        <a
+          href="https://www.twitter.com/mixeria-milionaria"
+          rel="noopenner, noreferrer"
+          target="_blank"
+        >
+          Twitter
+        </a>
+        <a
+          href="https://www.youtube.com/mixeria-milionaria"
+          rel="noopenner, noreferrer"
+          target="_blank"
+        >
+          Youtube
+        </a>
+        <a
+          href="https://www.facebook.com/mixeria-milionaria"
+          rel="noopenner, noreferrer"
+          target="_blank"
+        >
+          Facebook
+        </a>
+      </nav>
+    </div>
+    <div
+      aria-labelledby="footer-resources"
+      class="c2"
+    >
+      <h2
+        class="c3 c6 c5"
+        color="black"
+      >
+        Links
+      </h2>
+      <nav>
+        <a
+          href="/"
+        >
+          Inicio
+        </a>
+        <a
+          href="/mixarias"
+        >
+          Mixarias
+        </a>
+        <a
+          href="/buscar"
+        >
+          Buscar
+        </a>
+      </nav>
+    </div>
+    <div
+      aria-labelledby="footer-contact"
+      class="c2"
+    >
+      <h2
+        class="c3 c6 c5"
+        color="black"
+      >
+        Location
+      </h2>
+      <span>
+        Lorem ipsum dolor sit.
+      </span>
+      <span>
+        Lorem Ipsum
+      </span>
+      <span>
+        Lorem, ipsum dolor.
+      </span>
+    </div>
+  </div>
+  <div
+    class="c7"
+  >
+    Mixaria Milionaria 2021 © All rights reserved.
+  </div>
+</footer>
+`;
