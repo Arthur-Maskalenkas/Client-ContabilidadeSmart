@@ -14,12 +14,12 @@ export default {
     bold: 600,
     sizes: {
       xsmall: '1.2rem',
-      small: '1.4rem',
-      medium: '1.6rem',
-      large: '1.8rem',
-      xlarge: '2.0rem',
-      xxlarge: '2.8rem',
-      huge: '5.2rem'
+      small: '2rem',
+      medium: '2.8rem',
+      large: '3.6rem',
+      xlarge: '4.2rem',
+      xxlarge: '5rem',
+      huge: '7rem'
     }
   },
   colors: {
