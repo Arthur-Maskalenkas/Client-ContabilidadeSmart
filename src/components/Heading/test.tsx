@@ -39,10 +39,35 @@ describe('<Heading />', () => {
 
       expect(texto).toHaveStyle({ color: theme.colors.secondary })
     })
+
+    it('Vai renderizar  com a cor preta', () => {
+      render(<Heading color="black">um texto</Heading>)
+
+      const texto = screen.getByRole('heading', { name: /um texto/i })
+
+      expect(texto).toHaveStyle({ color: theme.colors.black })
+    })
   })
 
   describe('<Heading /> lines', () => {
-    it('Vai renderizar com a borda esquerda |', () => {})
-    it('Vai renderizar com a borda direita ---', () => {})
+    it('Vai renderizar com a borda esquerda |', () => {
+      render(<Heading lineLeft={true}>um texto</Heading>)
+
+      const texto = screen.getByRole('heading', { name: /um texto/i })
+
+      expect(texto).toHaveStyle({ borderLeft: `0.7rem solid ${theme.colors.secondary}` })
+    })
+
+    it('Vai renderizar com a borda direita ---', () => {
+      render(<Heading lineRight={true}>um texto</Heading>)
+
+      const texto = screen.getByRole('heading', { name: /um texto/i })
+
+      expect(texto).toHaveStyleRule(
+        'border-bottom',
+        `0.3rem solid ${theme.colors.secondary}`,
+        { modifier: '::after' }
+      )
+    })
   })
 })
