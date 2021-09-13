@@ -2,6 +2,8 @@ import Button from 'components/Button'
 import React from 'react'
 import * as S from './styles'
 
+import { ArrowRightCircleFill } from '@styled-icons/bootstrap'
+
 export type TextDirectionType = 'left' | 'right' | 'center'
 
 export type BannerProps = {
@@ -28,7 +30,7 @@ const Banner = ({
     <S.Caption>
       <S.Title>{title}</S.Title>
       <S.Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
-      <Button href={buttonLink} size="small">
+      <Button icon={<ArrowRightCircleFill />} href={buttonLink} size="small">
         {buttonLabel}
       </Button>
     </S.Caption>

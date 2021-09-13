@@ -2,6 +2,8 @@ import styled, { css, DefaultTheme } from 'styled-components'
 import media from 'styled-media-query'
 import { TextDirectionType } from '.'
 
+import * as ButtonStyles from 'components/Button/styles'
+
 const wrapperModifiers = {
   left: () => css`
     grid-template-columns: 1fr 1fr;
@@ -63,6 +65,20 @@ export const Wrapper = styled.main<WrapperProps>`
     }
 
     ${!!textDirection && wrapperModifiers[textDirection]()}
+
+    ${media.greaterThan('medium')`
+      padding: 0 30rem;
+
+      ${ButtonStyles.Wrapper} {
+        height: 5rem;
+        font-size: ${theme.font.sizes.medium};
+        padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};}
+
+        svg {
+          width: 2rem;
+          margin-left: ${theme.spacings.small}
+        }
+    `}
   `}
 `
 
@@ -82,6 +98,10 @@ export const Title = styled.h2`
     font-weight: ${theme.font.family.raleway.weight.normal};
 
     color: ${theme.colors.white};
+
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.huge};
+    `}
   `}
 `
 
@@ -91,5 +111,9 @@ export const Subtitle = styled.h3`
     font-size: ${theme.font.sizes.xsmall};
     font-weight: ${theme.font.family.poppins.weight.normal};
     margin-bottom: ${theme.spacings.xsmall};
+
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.medium};
+    `}
   `}
 `
