@@ -5,14 +5,17 @@ type ButtonTypes =
   | AnchorHTMLAttributes<HTMLAnchorElement>
   | ButtonHTMLAttributes<HTMLButtonElement>
 
+export type sizeTypes = 'small' | 'medium' | 'large'
+
 export type ButtonProps = {
   children: React.ReactNode
   icon?: JSX.Element
+  size?: sizeTypes
   as?: React.ElementType
 } & ButtonTypes
 
-const Button = ({ children, icon, ...props }: ButtonProps) => (
-  <S.Wrapper hasIcon={!!icon} {...props}>
+const Button = ({ children, icon, size = 'medium', ...props }: ButtonProps) => (
+  <S.Wrapper hasIcon={!!icon} {...props} size={size}>
     {icon}
     {children}
   </S.Wrapper>

@@ -1,4 +1,5 @@
 import styled, { css, DefaultTheme } from 'styled-components'
+import { sizeTypes } from '.'
 
 const wrapperModifiers = {
   withIcon: (theme: DefaultTheme) => css`
@@ -7,15 +8,31 @@ const wrapperModifiers = {
       width: 1.5rem;
       margin-left: ${theme.spacings.xxsmall};
     }
+  `,
+
+  small: (theme: DefaultTheme) => css`
+    height: 3rem;
+    font-size: ${theme.font.sizes.xsmall};
+  `,
+  medium: (theme: DefaultTheme) => css`
+    height: 4rem;
+    font-size: ${theme.font.sizes.small};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.medium};
+  `,
+  large: (theme: DefaultTheme) => css`
+    height: 5rem;
+    font-size: ${theme.font.sizes.medium};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
   `
 }
 
 type WrapperProps = {
   hasIcon?: boolean
+  size?: sizeTypes
 }
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, hasIcon }) => css`
+  ${({ theme, hasIcon, size }) => css`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,6 +70,7 @@ export const Wrapper = styled.button<WrapperProps>`
       transform: scale(2);
     }
 
+    ${!!size && wrapperModifiers[size](theme)};
     ${hasIcon && wrapperModifiers.withIcon(theme)}
   `}
 `

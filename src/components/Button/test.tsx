@@ -36,4 +36,29 @@ describe('<Button />', () => {
       '/link'
     )
   })
+
+  describe('<Button/> tamanhos', () => {
+    it('vai renderizar com o tamanho small', () => {
+      render(<Button size="small">Buy now</Button>)
+
+      const button = screen.getByRole('button', { name: /Buy now/i })
+
+      expect(button).toHaveStyle({
+        height: '3rem',
+        'font-size': '1.2rem'
+      })
+    })
+
+    it('vai renderizar com o tamanho grande', () => {
+      render(<Button size="large">Buy now</Button>)
+
+      const button = screen.getByRole('button', { name: /Buy now/i })
+
+      expect(button).toHaveStyle({
+        height: '5rem',
+        'font-size': '2.8rem',
+        padding: '0.8rem 4.8rem'
+      })
+    })
+  })
 })
