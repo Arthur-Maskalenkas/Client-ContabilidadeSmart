@@ -22,6 +22,18 @@ describe('<Button />', () => {
 
     expect(button).toBeInTheDocument()
     expect(screen.getByTitle(/arrow right/i)).toBeInTheDocument()
-    expect(screen.getByTitle(/arrow right/i)).toHaveStyle({ width: '1.5rem' })
+  })
+
+  it('vai ter link', () => {
+    render(
+      <Button as="a" href="/link">
+        Buy now
+      </Button>
+    )
+
+    expect(screen.getByRole('link', { name: /buy now/i })).toHaveAttribute(
+      'href',
+      '/link'
+    )
   })
 })

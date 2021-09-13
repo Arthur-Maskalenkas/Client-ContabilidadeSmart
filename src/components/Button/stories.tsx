@@ -18,9 +18,29 @@ Default.args = {
   children: 'Clique aqui!'
 }
 
+Default.argTypes = {
+  icon: {
+    control: false
+  },
+
+  as: {
+    control: false
+  }
+}
+
 export const WithIcon: Story<ButtonProps> = (args) => <Button {...args} />
 
 WithIcon.args = {
   children: 'Clique aqui!',
   icon: <ArrowRightCircleFill />
+}
+
+WithIcon.argTypes = {
+  icon: {
+    control: false
+  },
+
+  as: {
+    control: false
+  }
 }
