@@ -37,6 +37,24 @@ const GlobalStyles: GlobalStyleComponent<
     src: local('Poppins SemiBold'), local('Poppins-SemiBold'),
         url('/fonts/poppins-v12-latin-600.woff2') format('woff2');
   }
+
+  @font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/raleway-v22-latin-300.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/raleway-v22-latin-300.woff2') format('woff2'); /* Super Modern Browsers */
+}
+  @font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/raleway-v22-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+        url('/fonts/raleway-v22-latin-regular.woff2') format('woff2'); /* Super Modern Browsers */
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -53,7 +71,7 @@ const GlobalStyles: GlobalStyleComponent<
       font-size: 62.5%;
     }
     body {
-      font-family: ${theme.font.family};
+      font-family: ${theme.font.family.poppins.font};
       font-size: ${theme.font.sizes.medium};
       ${!removeBg &&
       css`
