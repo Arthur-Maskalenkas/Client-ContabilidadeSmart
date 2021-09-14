@@ -20,7 +20,8 @@ export default {
         font: "Raleway, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
         weight: {
           light: 300,
-          normal: 400
+          normal: 400,
+          bold: 800
         }
       }
     },
