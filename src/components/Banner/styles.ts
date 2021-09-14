@@ -75,12 +75,34 @@ export const Wrapper = styled.main<WrapperProps>`
   `}
 `
 
-export const Caption = styled.div`
-  ${({ theme }) => css`
+const captionModifiers = {
+  open: () => css`
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  `,
+
+  close: () => css`
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50rem);
+  `
+}
+
+type CaptionProps = {
+  isOpen?: boolean
+}
+
+export const Caption = styled.div<CaptionProps>`
+  ${({ theme, isOpen }) => css`
     position: relative;
     display: flex;
     flex-direction: column;
     z-index: ${theme.layers.base};
+
+    transition: transform 1.2s ease-in, opacity 2s;
+
+    ${isOpen ? captionModifiers.open() : captionModifiers.close()}
   `}
 `
 
