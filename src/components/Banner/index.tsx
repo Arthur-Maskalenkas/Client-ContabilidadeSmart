@@ -30,11 +30,19 @@ const Banner = ({
   textDirection = 'left',
   isOpen = false
 }: BannerProps) => (
-  <S.Wrapper src={img} role="img" aria-label={titleImage} textDirection={textDirection}>
-    <S.Caption isOpen={isOpen}>
-      <S.Title>{title}</S.Title>
-      {!!titleWithColor && <S.TitleWithColor>{titleWithColor}</S.TitleWithColor>}
-      <S.Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
+  <S.Wrapper
+    src={img}
+    role="img"
+    aria-label={titleImage}
+    textDirection={textDirection}
+    isOpen={isOpen}
+  >
+    <S.Caption>
+      <S.Title isOpen={isOpen}>{title}</S.Title>
+      {!!titleWithColor && (
+        <S.TitleWithColor isOpen={isOpen}>{titleWithColor}</S.TitleWithColor>
+      )}
+      <S.Subtitle isOpen={isOpen} dangerouslySetInnerHTML={{ __html: subtitle }} />
       <Button icon={<ArrowRightCircleFill />} href={buttonLink} size="small">
         {buttonLabel}
       </Button>

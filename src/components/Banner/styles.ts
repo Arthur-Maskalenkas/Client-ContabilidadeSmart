@@ -4,6 +4,52 @@ import { TextDirectionType } from '.'
 
 import * as ButtonStyles from 'components/Button/styles'
 
+type GenericProps = {
+  isOpen?: boolean
+}
+
+const subtitleEffect = {
+  open: () => css`
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  `,
+
+  close: () => css`
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20rem);
+  `
+}
+
+const titleEffect = {
+  open: () => css`
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  `,
+
+  close: () => css`
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20rem);
+  `
+}
+
+const buttonEffect = {
+  open: () => css`
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  `,
+
+  close: () => css`
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(5rem);
+  `
+}
+
 const wrapperModifiers = {
   left: () => css`
     grid-template-columns: 1fr 1fr;
@@ -38,10 +84,11 @@ const wrapperModifiers = {
 type WrapperProps = {
   src: string
   textDirection?: TextDirectionType
+  isOpen?: boolean
 }
 
 export const Wrapper = styled.main<WrapperProps>`
-  ${({ theme, src, textDirection }) => css`
+  ${({ theme, src, textDirection, isOpen }) => css`
     position: relative;
     display: grid;
     width: 100%;
@@ -49,6 +96,23 @@ export const Wrapper = styled.main<WrapperProps>`
     background-image: url(${src});
     background-position: center center;
     background-size: cover;
+
+    /* Efeitos */
+    ${Title} {
+      transition: transform 0.7s ease-in, opacity 1s;
+      ${isOpen ? titleEffect.open() : titleEffect.close()}
+    }
+
+    ${Subtitle} {
+      transition: transform 0.7s ease-in, opacity 1s;
+      ${isOpen ? subtitleEffect.open() : subtitleEffect.close()}
+    }
+
+    ${ButtonStyles.Wrapper} {
+      transition: transform 0.8s ease-in, opacity 3s;
+      ${isOpen ? buttonEffect.open() : buttonEffect.close()}
+    }
+
     /* Overlay */
     &::after {
       content: '';
@@ -75,43 +139,22 @@ export const Wrapper = styled.main<WrapperProps>`
   `}
 `
 
-const captionModifiers = {
-  open: () => css`
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  `,
-
-  close: () => css`
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-50rem);
-  `
-}
-
-type CaptionProps = {
-  isOpen?: boolean
-}
-
-export const Caption = styled.div<CaptionProps>`
-  ${({ theme, isOpen }) => css`
+export const Caption = styled.div`
+  ${({ theme }) => css`
     position: relative;
     display: flex;
     flex-direction: column;
     z-index: ${theme.layers.base};
-
-    transition: transform 1.2s ease-in, opacity 2s;
-
-    ${isOpen ? captionModifiers.open() : captionModifiers.close()}
   `}
 `
 
-export const Title = styled.h2`
+export const Title = styled.h2<GenericProps>`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.small};
     font-family: ${theme.font.family.raleway.font};
     font-weight: ${theme.font.family.raleway.weight.normal};
     color: ${theme.colors.white};
+
     ${media.greaterThan('large')`
       font-size: ${theme.font.sizes.huge};
     `}
@@ -130,8 +173,8 @@ export const TitleWithColor = styled(Title)`
   `}
 `
 
-export const Subtitle = styled.p`
-  ${({ theme }) => css`
+export const Subtitle = styled.p<GenericProps>`
+  ${({ theme, isOpen }) => css`
     color: ${theme.colors.white};
     font-size: ${theme.font.sizes.xsmall};
     font-weight: ${theme.font.family.poppins.weight.normal};
