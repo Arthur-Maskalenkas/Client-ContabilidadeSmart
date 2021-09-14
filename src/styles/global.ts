@@ -61,7 +61,7 @@ const GlobalStyles: GlobalStyleComponent<
   font-weight: 800;
   src: url('/fonts/raleway-v22-latin-800.eot'); /* IE9 Compat Modes */
   src: local(''),
-       url('/fonts/raleway-v22-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/raleway-v22-latin-800.woff2') format('woff2'); /* Super Modern Browsers */
 }
 
   * {
