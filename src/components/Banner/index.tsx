@@ -7,7 +7,7 @@ import { ArrowRightCircleFill } from '@styled-icons/bootstrap'
 export type TextDirectionType = 'left' | 'right' | 'center'
 
 export type BannerProps = {
-  isOpen: boolean
+  isOpen?: boolean
   img: string
   title: string
   titleWithColor?: string
