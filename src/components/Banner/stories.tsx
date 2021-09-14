@@ -5,12 +5,6 @@ import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 export default {
   title: 'Banner',
   component: Banner,
-  args: {
-    img: 'img/index/Pessoa-Física-votuporanga.jpg',
-    title: 'Sua empresa preparada',
-    subtitle: 'Venha fazer uma parceria de sucesso integrando ao novo normal',
-    buttonLabel: 'Veja mais'
-  },
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
@@ -20,19 +14,37 @@ export default {
 } as Meta
 
 export const Desktop: Story<BannerProps> = (args) => (
-  <div style={{ width: '100%', height: '130vh' }}>
+  <div style={{ width: '100%' }}>
     <Banner {...args} />
   </div>
 )
 
+Desktop.args = {
+  img: 'img/index/Fiscal-e-Tributária-votuporanga.jpg',
+  title: 'Uma contabilidade ',
+  titleWithColor: 'Reinventando dinamicamente',
+  subtitle:
+    'Youtubers, Produtores, Coprodutores, Especialistas, Afiliados, Gerente de Afiliados, Eugência, Agência de Lançamentos, Gestor de Tráfego, Redator, Copywriter, Designer Gráfico e Video Maker são como Profissões do Futuro.',
+  buttonLabel: 'Veja mais',
+  buttonLink: '',
+  textDirection: 'center'
+}
+
 export const Mobile: Story<BannerProps> = (args) => (
-  <div style={{ width: '100vw', height: '280px' }}>
+  <div style={{ width: '100vw' }}>
     <Banner {...args} />
   </div>
 )
 
 Mobile.args = {
-  textDirection: 'right'
+  img: 'img/index/Fiscal-e-Tributária-votuporanga.jpg',
+  title: 'Uma contabilidade ',
+  titleWithColor: 'Reinventando dinamicamente',
+  subtitle:
+    'Youtubers, Produtores, Coprodutores, Especialistas, Afiliados, Gerente de Afiliados, Eugência, Agência de Lançamentos, Gestor de Tráfego, Redator, Copywriter, Designer Gráfico e Video Maker são como Profissões do Futuro.',
+  buttonLabel: 'Veja mais',
+  buttonLink: '',
+  textDirection: 'center'
 }
 
 Mobile.parameters = {

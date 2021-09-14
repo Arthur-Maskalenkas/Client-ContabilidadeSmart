@@ -9,6 +9,7 @@ export type TextDirectionType = 'left' | 'right' | 'center'
 export type BannerProps = {
   img: string
   title: string
+  titleWithColor?: string
   titleImage: string
   subtitle: string
   buttonLabel: string
@@ -20,6 +21,7 @@ export type BannerProps = {
 const Banner = ({
   img,
   title,
+  titleWithColor,
   subtitle,
   buttonLabel,
   buttonLink,
@@ -29,6 +31,7 @@ const Banner = ({
   <S.Wrapper src={img} role="img" aria-label={titleImage} textDirection={textDirection}>
     <S.Caption>
       <S.Title>{title}</S.Title>
+      {!!titleWithColor && <S.TitleWithColor>{titleWithColor}</S.TitleWithColor>}
       <S.Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
       <Button icon={<ArrowRightCircleFill />} href={buttonLink} size="small">
         {buttonLabel}

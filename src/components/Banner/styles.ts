@@ -9,7 +9,7 @@ const wrapperModifiers = {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     ${Caption} {
-      left: 1rem;
+      left: 2rem;
       align-items: flex-start;
     }
   `,
@@ -28,7 +28,7 @@ const wrapperModifiers = {
     align-items: center;
     text-align: end;
     ${Caption} {
-      right: 1rem;
+      right: 2rem;
       grid-column: 2;
       align-items: flex-end;
     }
@@ -45,7 +45,7 @@ export const Wrapper = styled.main<WrapperProps>`
     position: relative;
     display: grid;
     width: 100%;
-    height: 100%;
+    height: 28rem;
     background-image: url(${src});
     background-position: center center;
     background-size: cover;
@@ -60,6 +60,8 @@ export const Wrapper = styled.main<WrapperProps>`
     ${!!textDirection && wrapperModifiers[textDirection]()}
     ${media.greaterThan('medium')`
       padding: 0 30rem;
+      height: 130vh;
+
       ${ButtonStyles.Wrapper} {
         height: 5rem;
         font-size: ${theme.font.sizes.medium};
@@ -93,14 +95,38 @@ export const Title = styled.h2`
   `}
 `
 
-export const Subtitle = styled.h3`
+export const TitleWithColor = styled(Title)`
+  ${({ theme }) => css`
+    color: ${theme.colors.secondary};
+    text-transform: uppercase;
+    font-weight: ${theme.font.family.raleway.weight.bold};
+
+    ${media.greaterThan('medium')`
+      font-weight: ${theme.font.family.raleway.weight.bold};
+    `}
+  `}
+`
+
+export const Subtitle = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.white};
     font-size: ${theme.font.sizes.xsmall};
     font-weight: ${theme.font.family.poppins.weight.normal};
     margin-bottom: ${theme.spacings.xsmall};
+
+    /* Colocando os 3 pontos */
+    max-width: 25ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
     ${media.greaterThan('medium')`
+      max-width: initial;
+      overflow: auto;
+      text-overflow: initial;
+      white-space: initial;
       font-size: ${theme.font.sizes.medium};
+      margin-bottom: ${theme.spacings.xlarge};
     `}
   `}
 `
