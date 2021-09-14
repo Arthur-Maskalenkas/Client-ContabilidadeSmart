@@ -58,7 +58,8 @@ export const Wrapper = styled.main<WrapperProps>`
       background-color: rgba(0, 0, 0, 0.6);
     }
     ${!!textDirection && wrapperModifiers[textDirection]()}
-    ${media.greaterThan('medium')`
+
+    ${media.greaterThan('large')`
       padding: 0 30rem;
       height: 130vh;
 
@@ -89,7 +90,7 @@ export const Title = styled.h2`
     font-family: ${theme.font.family.raleway.font};
     font-weight: ${theme.font.family.raleway.weight.normal};
     color: ${theme.colors.white};
-    ${media.greaterThan('medium')`
+    ${media.greaterThan('large')`
       font-size: ${theme.font.sizes.huge};
     `}
   `}
@@ -101,7 +102,7 @@ export const TitleWithColor = styled(Title)`
     text-transform: uppercase;
     font-weight: ${theme.font.family.raleway.weight.bold};
 
-    ${media.greaterThan('medium')`
+    ${media.greaterThan('large')`
       font-weight: ${theme.font.family.raleway.weight.bold};
     `}
   `}
@@ -115,16 +116,14 @@ export const Subtitle = styled.p`
     margin-bottom: ${theme.spacings.xsmall};
 
     /* Colocando os 3 pontos */
-    max-width: 25ch;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    ${media.lessThan('medium')`
+      max-width: 25ch;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    `}
 
-    ${media.greaterThan('medium')`
-      max-width: initial;
-      overflow: auto;
-      text-overflow: initial;
-      white-space: initial;
+    ${media.greaterThan('large')`
       font-size: ${theme.font.sizes.medium};
       margin-bottom: ${theme.spacings.xlarge};
     `}
