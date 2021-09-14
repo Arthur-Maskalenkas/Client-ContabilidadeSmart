@@ -20,7 +20,7 @@ export default {
 } as Meta
 
 export const Desktop: Story<BannerProps> = (args) => (
-  <div style={{ width: '100vw', height: '130vh' }}>
+  <div style={{ width: '100%', height: '130vh' }}>
     <Banner {...args} />
   </div>
 )

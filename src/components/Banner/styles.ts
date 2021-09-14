@@ -8,7 +8,6 @@ const wrapperModifiers = {
   left: () => css`
     grid-template-columns: 1fr 1fr;
     align-items: center;
-
     ${Caption} {
       left: 1rem;
       align-items: flex-start;
@@ -18,7 +17,6 @@ const wrapperModifiers = {
   center: () => css`
     grid-template-columns: 1fr 3fr 1fr;
     align-items: center;
-
     ${Caption} {
       grid-column: 2;
       text-align: center;
@@ -29,7 +27,6 @@ const wrapperModifiers = {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     text-align: end;
-
     ${Caption} {
       right: 1rem;
       grid-column: 2;
@@ -47,14 +44,11 @@ export const Wrapper = styled.main<WrapperProps>`
   ${({ theme, src, textDirection }) => css`
     position: relative;
     display: grid;
-
     width: 100%;
     height: 100%;
-
     background-image: url(${src});
     background-position: center center;
     background-size: cover;
-
     /* Overlay */
     &::after {
       content: '';
@@ -63,17 +57,13 @@ export const Wrapper = styled.main<WrapperProps>`
       height: 100%;
       background-color: rgba(0, 0, 0, 0.6);
     }
-
     ${!!textDirection && wrapperModifiers[textDirection]()}
-
     ${media.greaterThan('medium')`
       padding: 0 30rem;
-
       ${ButtonStyles.Wrapper} {
         height: 5rem;
         font-size: ${theme.font.sizes.medium};
         padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};}
-
         svg {
           width: 2rem;
           margin-left: ${theme.spacings.small}
@@ -96,9 +86,7 @@ export const Title = styled.h2`
     font-size: ${theme.font.sizes.small};
     font-family: ${theme.font.family.raleway.font};
     font-weight: ${theme.font.family.raleway.weight.normal};
-
     color: ${theme.colors.white};
-
     ${media.greaterThan('medium')`
       font-size: ${theme.font.sizes.huge};
     `}
@@ -111,7 +99,6 @@ export const Subtitle = styled.h3`
     font-size: ${theme.font.sizes.xsmall};
     font-weight: ${theme.font.family.poppins.weight.normal};
     margin-bottom: ${theme.spacings.xsmall};
-
     ${media.greaterThan('medium')`
       font-size: ${theme.font.sizes.medium};
     `}
