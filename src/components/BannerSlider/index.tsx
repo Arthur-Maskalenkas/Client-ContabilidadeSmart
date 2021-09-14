@@ -12,8 +12,16 @@ export type BannerSliderProps = {
 
 const settings: SliderSettings = {
   arrows: true,
-  vertical: false,
   infinite: true,
+
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        arrows: false
+      }
+    }
+  ],
 
   nextArrow: <ArrowRight aria-label="next" />,
   prevArrow: <ArrowLeft aria-label="previous" />

@@ -12,7 +12,8 @@ export default [
   },
   {
     img: 'img/index/Fiscal-e-Tributária-votuporanga.jpg',
-    title: 'Uma contabilidade  Reinventanto dinamicamente ',
+    title: 'Uma contabilidade ',
+    titleWithColor: 'Reinventando dinamicamente',
     subtitle:
       'Youtubers, Produtores, Coprodutores, Especialistas, Afiliados, Gerente de Afiliados, Eugência, Agência de Lançamentos, Gestor de Tráfego, Redator, Copywriter, Designer Gráfico e Video Maker são como Profissões do Futuro.',
     buttonLabel: 'Veja mais',

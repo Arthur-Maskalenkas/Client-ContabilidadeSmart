@@ -9,18 +9,19 @@ import * as BannerStyles from 'components/Banner/styles'
 
 export const Wrapper = styled.section`
   ${({ theme }) => css`
-    ${media.lessThan('huge')`
-      overflow-x: hidden;
-    `}
+    /* Fazendo com que não crie barra caso ocupe mais espaço do que deveria */
+    overflow-x: hidden;
+
+    width: 100%;
+
     .slick-track,
     .slick-list {
       display: flex;
     }
     .slick-slide > div {
-      /* Retirando o espaço entre as imagens e fazendo elas ocuparem totalmente o espaço do height*/
+      /* Retirando o espaço entre as imagens e fazendo elas ocuparem totalmente*/
       margin: 0 0 !important;
       flex: 1 0 auto;
-      height: 100vh;
     }
     .slick-list {
       margin: 0 -${theme.spacings.xxsmall};
