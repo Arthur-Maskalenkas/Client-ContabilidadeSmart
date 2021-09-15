@@ -4,9 +4,8 @@ import BannerSlider, { BannerSliderProps } from '.'
 import items from './mock'
 
 export default {
-  title: 'BannerSlider',
+  title: 'Slides/BannerSlider',
   component: BannerSlider,
-  args: { items },
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
@@ -20,3 +19,13 @@ export const Default: Story<BannerSliderProps> = (args) => (
     <BannerSlider {...args} />
   </div>
 )
+
+Default.args = {
+  items
+}
+
+Default.argTypes = {
+  items: {
+    control: false
+  }
+}

@@ -11,6 +11,17 @@ export default {
     backgrounds: {
       default: 'mm-light'
     }
+  },
+  argTypes: {
+    buttonLink: {
+      control: false
+    },
+    img: {
+      control: false
+    },
+    titleImage: {
+      control: false
+    }
   }
 } as Meta
 

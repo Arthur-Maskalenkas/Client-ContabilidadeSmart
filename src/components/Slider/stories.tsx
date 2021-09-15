@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Slider from '.'
 
 export default {
-  title: 'Slider',
+  title: 'Slides/Slider',
   component: Slider
 } as Meta
 
