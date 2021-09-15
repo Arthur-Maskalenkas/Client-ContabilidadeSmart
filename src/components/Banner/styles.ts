@@ -123,18 +123,34 @@ export const Wrapper = styled.main<WrapperProps>`
     }
     ${!!textDirection && wrapperModifiers[textDirection]()}
 
+    ${ButtonStyles.Wrapper} {
+      border-radius: 5rem;
+      font-family: ${theme.font.family.raleway.font};
+      font-size: 1.7rem;
+      font-weight: ${theme.font.family.raleway.weight.normal};
+      padding: ${theme.spacings.xxsmall} ${theme.spacings.small};
+
+      svg {
+        width: 1.5rem;
+        margin-left: ${theme.spacings.xsmall};
+      }
+
+      ${media.greaterThan('large')`
+        font-size: ${theme.font.sizes.medium};
+        font-weight: ${theme.font.family.raleway.weight.normal};
+        padding: ${theme.spacings.small} ${theme.spacings.medium};
+
+        svg {
+          width: 2.5rem;
+          margin-left: ${theme.spacings.xsmall};
+        }
+
+      `}
+    }
+
     ${media.greaterThan('large')`
       padding: 0 30rem;
       height: 130vh;
-
-      ${ButtonStyles.Wrapper} {
-        height: 5rem;
-        font-size: ${theme.font.sizes.medium};
-        padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};}
-        svg {
-          width: 2rem;
-          margin-left: ${theme.spacings.small}
-        }
     `}
   `}
 `

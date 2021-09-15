@@ -20,9 +20,7 @@ describe('<Banner />', () => {
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', {
-        name: /Venha fazer uma parceria de sucesso integrando ao novo normal/i
-      })
+      screen.getByText(/Venha fazer uma parceria de sucesso integrando ao novo normal/i)
     ).toBeInTheDocument()
 
     expect(

@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import Banner, { BannerProps } from '.'
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { ArrowRightS } from '@styled-icons/remix-fill'
 
 export default {
   title: 'Banner',
@@ -27,7 +28,9 @@ Desktop.args = {
     'Youtubers, Produtores, Coprodutores, Especialistas, Afiliados, Gerente de Afiliados, Eugência, Agência de Lançamentos, Gestor de Tráfego, Redator, Copywriter, Designer Gráfico e Video Maker são como Profissões do Futuro.',
   buttonLabel: 'Veja mais',
   buttonLink: '',
-  textDirection: 'center'
+  textDirection: 'center',
+  titleImage: 't',
+  isOpen: true
 }
 
 export const Mobile: Story<BannerProps> = (args) => (
@@ -44,7 +47,9 @@ Mobile.args = {
     'Youtubers, Produtores, Coprodutores, Especialistas, Afiliados, Gerente de Afiliados, Eugência, Agência de Lançamentos, Gestor de Tráfego, Redator, Copywriter, Designer Gráfico e Video Maker são como Profissões do Futuro.',
   buttonLabel: 'Veja mais',
   buttonLink: '',
-  textDirection: 'center'
+  textDirection: 'center',
+  titleImage: 't',
+  isOpen: true
 }
 
 Mobile.parameters = {
