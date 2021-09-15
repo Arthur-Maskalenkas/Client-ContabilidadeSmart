@@ -1,52 +1,61 @@
-import 'match-media-mock';
-import { screen } from '@testing-library/react';
-import { renderWithTheme } from 'utils/tests/helpers';
+import '../../../setupTests'
 
-import BannerSlider from '.';
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helpers'
 
-const items = [
+import BannerSlider from '.'
+import { BannerProps } from 'components/Banner'
+
+const items: BannerProps[] = [
   {
-    img: 'https://source.unsplash.com/user/willianjusten/1042x580',
-    title: 'Defy death 1',
-    subtitle: '<p>Play the new <strong>CrashLands</strong> season',
-    buttonLabel: 'Buy now',
-    buttonLink: '/games/defy-death',
-    ribbon: 'Bestselling',
+    img: 'img/index/Pessoa-Física-votuporanga.jpg',
+    title: 'Revisão Tributária',
+    subtitle:
+      'Assim, garantindo que as atividades de nossos parceiros estejam de acordo com as exigências legais de seu ramo de atuação. ',
+    buttonLabel: 'Veja mais',
+    buttonLink: '/',
+    textDirection: 'left',
+    titleImage: 'Um casa planejando as contas'
   },
   {
-    img: 'https://source.unsplash.com/user/willianjusten/1042x582',
-    title: 'Defy death 2',
-    subtitle: '<p>Play the new <strong>CrashLands</strong> season',
-    buttonLabel: 'Buy now',
-    buttonLink: '/games/defy-death',
-  },
-];
+    img: 'img/index/Fiscal-e-Tributária-votuporanga.jpg',
+    title: 'Uma contabilidade',
+    titleWithColor: 'Reinventando dinamicamente',
+    subtitle:
+      'Youtubers, Produtores, Coprodutores, Especialistas, Afiliados, Gerente de Afiliados, Eugência, Agência de Lançamentos, Gestor de Tráfego, Redator, Copywriter, Designer Gráfico e Video Maker são como Profissões do Futuro.',
+    buttonLabel: 'Veja mais',
+    buttonLink: '',
+    textDirection: 'center',
+    titleImage: 'Contadores fazendo as contas'
+  }
+]
 
 describe('<BannerSlider />', () => {
   it('should render vertical slider', () => {
-    const { container } = renderWithTheme(<BannerSlider items={items} />);
+    const { container } = renderWithTheme(<BannerSlider items={items} />)
 
-    expect(container.querySelector('.slick-vertical')).toBeInTheDocument();
-  });
+    expect(container.querySelector('.slick-slider')).toBeInTheDocument()
+  })
 
   it('should render with 1 active item', () => {
-    const { container } = renderWithTheme(<BannerSlider items={items} />);
+    const { container } = renderWithTheme(<BannerSlider items={items} />)
 
-    expect(container.querySelectorAll('.slick-slide')).toHaveLength(2);
-    expect(container.querySelectorAll('li.slick-active')).toHaveLength(1);
-
-    expect(
-      screen.getByRole('heading', { name: /defy death 1/i, hidden: false }),
-    ).toBeInTheDocument();
+    expect(container.querySelectorAll('.slick-slide')).toHaveLength(5)
+    expect(container.querySelectorAll('.slick-active')).toHaveLength(1)
 
     expect(
-      screen.getByRole('heading', { name: /defy death 2/i, hidden: true }),
-    ).toBeInTheDocument();
-  });
+      screen.getByRole('heading', { name: /Revisão Tributária/i, hidden: false })
+    ).toBeInTheDocument()
 
-  it('should render with the dots', () => {
-    const { container } = renderWithTheme(<BannerSlider items={items} />);
+    expect(
+      screen.getAllByRole('heading', { name: 'Uma contabilidade', hidden: true })
+    ).toHaveLength(3)
+  })
 
-    expect(container.querySelector('.slick-dots')).toBeInTheDocument();
-  });
-});
+  it('deve renderizar com setinhas', () => {
+    const { container } = renderWithTheme(<BannerSlider items={items} />)
+
+    expect(container.querySelector('.slick-prev')).toBeInTheDocument()
+    expect(container.querySelector('.slick-next')).toBeInTheDocument()
+  })
+})

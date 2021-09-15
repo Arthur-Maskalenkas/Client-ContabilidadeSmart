@@ -17,7 +17,6 @@ const BannerSlider = ({ items }: BannerSliderProps) => {
 
   function afterChangeHandler(currentSlider: number) {
     setActiveState(items[currentSlider].title)
-    console.log(activeState)
   }
 
   const settings: SliderSettings = {

@@ -37,12 +37,12 @@ export const Wrapper = styled.section`
     .slick-prev,
     .slick-next {
       display: block;
-      color: ${theme.colors.green};
+      color: ${theme.colors.white};
       cursor: pointer;
       position: absolute;
       top: 50%;
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 4.5rem;
+      height: 4.5rem;
       padding: 0;
       transform: translate(0, -50%);
     }
