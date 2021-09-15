@@ -22,6 +22,7 @@ const BannerSlider = ({ items }: BannerSliderProps) => {
   const settings: SliderSettings = {
     arrows: true,
     infinite: true,
+    lazyLoad: 'progressive',
     afterChange: (current) => afterChangeHandler(current),
 
     responsive: [
