@@ -7,7 +7,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
-      default: 'won-dark'
+      default: 'mm-dark'
     }
   }
 } as Meta
@@ -17,4 +17,10 @@ export const Default: Story<DropdownProps> = (args) => <Dropdown {...args} />
 Default.args = {
   title: 'Clique aqui',
   children: 'Conteudo'
+}
+
+Default.parameters = {
+  backgrounds: {
+    default: 'mm-dark'
+  }
 }
