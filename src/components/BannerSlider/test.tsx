@@ -15,7 +15,7 @@ const items: BannerProps[] = [
     buttonLabel: 'Veja mais',
     buttonLink: '/',
     textDirection: 'left',
-    titleImage: 'Um casa planejando as contas'
+    titleImage: 'Um casal planejando as contas'
   },
   {
     img: 'img/index/Fiscal-e-Tributária-votuporanga.jpg',
@@ -47,9 +47,7 @@ describe('<BannerSlider />', () => {
       screen.getByRole('heading', { name: /Revisão Tributária/i, hidden: false })
     ).toBeInTheDocument()
 
-    expect(
-      screen.getAllByRole('heading', { name: 'Uma contabilidade', hidden: true })
-    ).toHaveLength(3)
+    expect(screen.getAllByLabelText(/um casal planejando as contas/i)).toHaveLength(2)
   })
 
   it('deve renderizar com setinhas', () => {

@@ -7,7 +7,9 @@ module.exports = {
     '!src/**/stories.tsx',
     '!src/pages/**/**',
     '!src/styles/**',
-    '!src/types/**'
+    '!src/types/**',
+    '!src/components/**/mock.ts',
+    '!src/templates/**'
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
   modulePaths: ['<rootDir>/src/']
