@@ -42,7 +42,8 @@ const Banner = ({
       {!!titleWithColor && (
         <S.TitleWithColor isOpen={isOpen}>{titleWithColor}</S.TitleWithColor>
       )}
-      <S.Subtitle isOpen={isOpen} dangerouslySetInnerHTML={{ __html: subtitle }} />
+      <S.Subtitle isOpen={isOpen}>{subtitle}</S.Subtitle>
+
       <Button icon={<ArrowRightCircleFill />} href={buttonLink} size="small">
         {buttonLabel}
       </Button>
