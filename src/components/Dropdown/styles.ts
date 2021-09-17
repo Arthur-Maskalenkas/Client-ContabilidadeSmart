@@ -21,7 +21,7 @@ type WrapperProps = {
   isOpen?: boolean
 }
 
-export const Wrapper = styled.main<WrapperProps>`
+export const Wrapper = styled.ul<WrapperProps>`
   ${({ theme, isOpen }) => css`
     position: relative;
     width: max-content;
@@ -53,19 +53,8 @@ export const Content = styled.div`
     flex-direction: column;
     background: ${theme.colors.white};
     color: ${theme.colors.black};
-    margin-top: ${theme.spacings.small};
+    margin-top: ${theme.spacings.xsmall};
     position: absolute;
-    right: 0;
-
-    /* Setinha */
-    &::before {
-      content: '';
-      position: absolute;
-      border-right: 1.2rem solid transparent;
-      border-left: 1.2rem solid transparent;
-      border-bottom: 1.2rem solid ${theme.colors.white};
-      top: -1.2rem;
-      right: 2.4rem;
-    }
+    left: -3rem;
   `}
 `
