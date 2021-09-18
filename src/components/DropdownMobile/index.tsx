@@ -13,11 +13,13 @@ export type DropDownMobileProps = {
   title: string
 }
 const DropdownMobile = ({ dropdownOptions, title }: DropDownMobileProps) => {
-  const [isOpen, setIsOpen] = useState(!false)
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <S.Wrapper isOpen={isOpen}>
-      <S.Title onClick={() => setIsOpen(!isOpen)}>{title}</S.Title>
+      <S.TitleWrapper>
+        <S.Title onClick={() => setIsOpen(!isOpen)}>{title}</S.Title>
+      </S.TitleWrapper>
 
       <S.DropdownList aria-hidden={!isOpen} aria-label="dropdown">
         {dropdownOptions.map((item, index) => (

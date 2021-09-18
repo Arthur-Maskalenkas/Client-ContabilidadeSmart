@@ -11,6 +11,7 @@ const wrapperModifiers = {
     transform: translateY(0);
   `,
   close: () => css`
+    position: absolute;
     opacity: 0;
     pointer-events: none;
     /* Falando que quando estiver fechado, ele vai estar 2rem para baixo */
@@ -26,7 +27,6 @@ export const Wrapper = styled.ul<WrapperProps>`
   ${({ theme, isOpen }) => css`
     position: relative;
     width: 100vw;
-
     ${DropdownList} {
       /* Auxiliando a transformação da propriedade transform */
       transition: transform 0.2s ease-in, opacity ${theme.transition.default};
@@ -37,7 +37,7 @@ export const Wrapper = styled.ul<WrapperProps>`
   `}
 `
 
-export const Title = styled.div`
+export const Title = styled.h2`
   ${({ theme }) => css`
     position: relative;
     margin-left: ${theme.spacings.xsmall};
@@ -52,22 +52,24 @@ export const Title = styled.div`
   `}
 `
 
+export const TitleWrapper = styled.div`
+  ${({ theme }) => css`
+    border-bottom: 1px solid ${theme.colors.gray};
+  `}
+`
+
 export const DropdownList = styled.ul`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-
-    & > :first-child {
-      border-top: 1px solid ${theme.colors.gray};
-    }
-
-    & > ${DropdownItemWrapper} {
-      border-bottom: 1px solid ${theme.colors.gray};
-    }
   `}
 `
 
-export const DropdownItemWrapper = styled.li``
+export const DropdownItemWrapper = styled.li`
+  ${({ theme }) => css`
+    border-bottom: 1px solid ${theme.colors.gray};
+  `}
+`
 
 export const DropdownItem = styled.a`
   ${({ theme }) => css`
@@ -77,7 +79,7 @@ export const DropdownItem = styled.a`
     font-size: ${theme.font.sizes.small};
     line-height: 5.5rem;
     font-weight: ${theme.font.family.poppins.weight.normal};
-    margin-left: ${theme.spacings.small};
+    margin-left: ${theme.spacings.medium};
 
     transition: 0.4s all;
 
