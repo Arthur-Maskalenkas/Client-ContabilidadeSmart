@@ -12,6 +12,7 @@ const wrapperModifiers = {
   `,
   close: () => css`
     position: absolute;
+    width: 100vw;
     opacity: 0;
     pointer-events: none;
     /* Falando que quando estiver fechado, ele vai estar 2rem para baixo */
@@ -39,22 +40,27 @@ export const Wrapper = styled.ul<WrapperProps>`
 
 export const Title = styled.h2`
   ${({ theme }) => css`
-    position: relative;
-    margin-left: ${theme.spacings.xsmall};
-    align-items: center;
-    cursor: pointer;
     color: ${theme.colors.black};
-    line-height: 5.5rem;
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.family.poppins.weight.normal};
-    display: flex;
-    padding-right: 2.4rem;
   `}
 `
 
 export const TitleWrapper = styled.div`
   ${({ theme }) => css`
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.xsmall};
+
     border-bottom: 1px solid ${theme.colors.gray};
+
+    svg {
+      color: ${theme.colors.secondary};
+      width: 2.5rem;
+    }
   `}
 `
 

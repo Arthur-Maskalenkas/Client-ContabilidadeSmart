@@ -9,25 +9,33 @@ type dropDownTypes = {
 }
 
 export type DropDownMobileProps = {
-  dropdownOptions: dropDownTypes[]
+  dropdownOptions?: dropDownTypes[]
   title: string
+  hasDropdown?: boolean
 }
-const DropdownMobile = ({ dropdownOptions, title }: DropDownMobileProps) => {
+const DropdownMobile = ({
+  dropdownOptions,
+  title,
+  hasDropdown = !!dropdownOptions
+}: DropDownMobileProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <S.Wrapper isOpen={isOpen}>
-      <S.TitleWrapper>
-        <S.Title onClick={() => setIsOpen(!isOpen)}>{title}</S.Title>
+      <S.TitleWrapper onClick={() => setIsOpen(!isOpen)}>
+        <S.Title>{title}</S.Title>
+        {hasDropdown && <ArrowDownCircleFill />}
       </S.TitleWrapper>
 
-      <S.DropdownList aria-hidden={!isOpen} aria-label="dropdown">
-        {dropdownOptions.map((item, index) => (
-          <S.DropdownItemWrapper key={index}>
-            <S.DropdownItem>{item.title}</S.DropdownItem>
-          </S.DropdownItemWrapper>
-        ))}
-      </S.DropdownList>
+      {hasDropdown && (
+        <S.DropdownList aria-hidden={!isOpen} aria-label="dropdown">
+          {dropdownOptions!.map((item, index) => (
+            <S.DropdownItemWrapper key={index}>
+              <S.DropdownItem>{item.title}</S.DropdownItem>
+            </S.DropdownItemWrapper>
+          ))}
+        </S.DropdownList>
+      )}
     </S.Wrapper>
   )
 }
