@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import Banner, { BannerProps } from '.'
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
-import { ArrowRightS } from '@styled-icons/remix-fill'
 
 export default {
   title: 'Banner',
