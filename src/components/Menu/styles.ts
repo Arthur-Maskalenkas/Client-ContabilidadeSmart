@@ -59,3 +59,42 @@ export const MenuLink = styled.a`
     margin-left: ${theme.spacings.small};
   `}
 `
+
+type MenuFullProps = {
+  isOpen: boolean
+}
+
+export const MenuFull = styled.nav<MenuFullProps>`
+  ${({ theme, isOpen }) => css`
+    display: flex;
+    flex-direction: column;
+    background: ${theme.colors.white};
+    position: fixed;
+    z-index: ${theme.layers.menu};
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out;
+    opacity: ${isOpen ? 1 : 0};
+    pointer-events: ${isOpen ? 'all' : 'none'};
+
+    > svg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: ${theme.spacings.xsmall};
+      cursor: pointer;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  `}
+`
+
+export const MenuFullContent = styled.div`
+  ${({ theme }) => css`
+    margin-top: ${theme.spacings.large};
+  `}
+`
