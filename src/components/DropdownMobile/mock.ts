@@ -1,7 +1,7 @@
-import { DropDownDesktopProps } from '.'
+import { DropDownMobileProps } from '.'
 
-const mock: DropDownDesktopProps = {
-  children: 'menu title',
+const mock: DropDownMobileProps = {
+  title: 'Premium',
   dropdownOptions: [
     {
       title: 'Aceleradora',

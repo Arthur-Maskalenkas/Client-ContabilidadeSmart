@@ -3,21 +3,29 @@ import * as S from './styles'
 import { ArrowDownCircleFill } from '@styled-icons/bootstrap/ArrowDownCircleFill'
 import { useState } from 'react'
 
-export type DropdownMobileProps = {
-  title: React.ReactNode
-  children: React.ReactNode
+type dropDownTypes = {
+  title: string
+  link: string
 }
 
-const DropdownMobile = ({ title, children }: DropdownMobileProps) => {
-  const [isOpen, setIsOpen] = useState(false)
+export type DropDownMobileProps = {
+  dropdownOptions: dropDownTypes[]
+  title: string
+}
+const DropdownMobile = ({ dropdownOptions, title }: DropDownMobileProps) => {
+  const [isOpen, setIsOpen] = useState(!false)
 
   return (
     <S.Wrapper isOpen={isOpen}>
       <S.Title onClick={() => setIsOpen(!isOpen)}>{title}</S.Title>
 
-      <S.Content aria-hidden={!isOpen} aria-label="dropdown">
-        {children}
-      </S.Content>
+      <S.DropdownList aria-hidden={!isOpen} aria-label="dropdown">
+        {dropdownOptions.map((item, index) => (
+          <S.DropdownItemWrapper key={index}>
+            <S.DropdownItem>{item.title}</S.DropdownItem>
+          </S.DropdownItemWrapper>
+        ))}
+      </S.DropdownList>
     </S.Wrapper>
   )
 }

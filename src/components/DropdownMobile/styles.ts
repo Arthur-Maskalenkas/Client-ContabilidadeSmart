@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 
 const wrapperModifiers = {
   open: () => css`
+    position: relative;
     opacity: 1;
     pointer-events: auto;
     /* Falando que quando estiver aberto, ele volta a posição original */
@@ -24,9 +25,9 @@ type WrapperProps = {
 export const Wrapper = styled.ul<WrapperProps>`
   ${({ theme, isOpen }) => css`
     position: relative;
-    width: max-content;
+    width: 100vw;
 
-    ${Content} {
+    ${DropdownList} {
       /* Auxiliando a transformação da propriedade transform */
       transition: transform 0.2s ease-in, opacity ${theme.transition.default};
 
@@ -38,23 +39,50 @@ export const Wrapper = styled.ul<WrapperProps>`
 
 export const Title = styled.div`
   ${({ theme }) => css`
-    cursor: pointer;
-    color: ${theme.colors.white};
     position: relative;
-    display: flex;
+    margin-left: ${theme.spacings.xsmall};
     align-items: center;
+    cursor: pointer;
+    color: ${theme.colors.black};
+    line-height: 5.5rem;
+    font-size: ${theme.font.sizes.small};
+    font-weight: ${theme.font.family.poppins.weight.normal};
+    display: flex;
     padding-right: 2.4rem;
   `}
 `
 
-export const Content = styled.div`
+export const DropdownList = styled.ul`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-    background: ${theme.colors.white};
+
+    & > :first-child {
+      border-top: 1px solid ${theme.colors.gray};
+    }
+
+    & > ${DropdownItemWrapper} {
+      border-bottom: 1px solid ${theme.colors.gray};
+    }
+  `}
+`
+
+export const DropdownItemWrapper = styled.li``
+
+export const DropdownItem = styled.a`
+  ${({ theme }) => css`
+    position: relative;
+    cursor: pointer;
     color: ${theme.colors.black};
-    margin-top: ${theme.spacings.xsmall};
-    position: absolute;
-    left: -3rem;
+    font-size: ${theme.font.sizes.small};
+    line-height: 5.5rem;
+    font-weight: ${theme.font.family.poppins.weight.normal};
+    margin-left: ${theme.spacings.small};
+
+    transition: 0.4s all;
+
+    &:hover {
+      color: ${theme.colors.secondary};
+    }
   `}
 `
