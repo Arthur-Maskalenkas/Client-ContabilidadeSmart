@@ -11,7 +11,6 @@ const wrapperModifiers = {
     transform: translateY(0);
   `,
   close: () => css`
-    position: absolute;
     width: 100vw;
     opacity: 0;
     pointer-events: none;
@@ -22,10 +21,11 @@ const wrapperModifiers = {
 
 type WrapperProps = {
   isOpen?: boolean
+  quantityDropdown: number
 }
 
 export const Wrapper = styled.ul<WrapperProps>`
-  ${({ theme, isOpen }) => css`
+  ${({ theme, isOpen, quantityDropdown }) => css`
     position: relative;
     width: 100vw;
     ${DropdownList} {
@@ -34,6 +34,11 @@ export const Wrapper = styled.ul<WrapperProps>`
 
       ${isOpen && wrapperModifiers.open()}
       ${!isOpen && wrapperModifiers.close()}
+    }
+
+    /* Se ele se encontra fechado, o elemento irmão tem - 5.6 * quantidade dele */
+    & + * {
+      margin-top: ${quantityDropdown}rem;
     }
   `}
 `

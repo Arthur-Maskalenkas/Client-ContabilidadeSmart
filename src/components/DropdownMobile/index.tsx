@@ -21,8 +21,11 @@ const DropdownMobile = ({
 }: DropDownMobileProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
+  // Tamanho de cada menu
+  const quantityItemsDropdown = dropdownOptions && dropdownOptions?.length * -5.6
+
   return (
-    <S.Wrapper isOpen={isOpen}>
+    <S.Wrapper isOpen={isOpen} quantityDropdown={quantityItemsDropdown as number}>
       <S.TitleWrapper onClick={() => setIsOpen(!isOpen)}>
         <S.Title>{title}</S.Title>
         {hasDropdown && <ArrowDownCircleFill />}
