@@ -16,6 +16,16 @@ const wrapperModifiers = {
     pointer-events: none;
     /* Falando que quando estiver fechado, ele vai estar 2rem para baixo */
     transform: translateY(-2rem);
+  `,
+  moveParentUp: (quantityDropdown: number) => css`
+    & + * {
+      margin-top: ${quantityDropdown}rem;
+    }
+  `,
+  moveParentDown: (quantityDropdown: number) => css`
+    & + * {
+      margin-top: + ${quantityDropdown}rem;
+    }
   `
 }
 
@@ -37,9 +47,8 @@ export const Wrapper = styled.ul<WrapperProps>`
     }
 
     /* Se ele se encontra fechado, o elemento irmão tem - 5.6 * quantidade dele */
-    & + * {
-      margin-top: ${quantityDropdown}rem;
-    }
+    ${!isOpen && wrapperModifiers.moveParentUp(quantityDropdown)}
+    ${isOpen && wrapperModifiers.moveParentDown(quantityDropdown)}
   `}
 `
 
