@@ -96,5 +96,6 @@ export const MenuFull = styled.nav<MenuFullProps>`
 export const MenuFullContent = styled.div`
   ${({ theme }) => css`
     margin-top: ${theme.spacings.large};
+    overflow: auto;
   `}
 `
