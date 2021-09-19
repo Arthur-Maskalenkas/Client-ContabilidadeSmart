@@ -4,29 +4,31 @@ import styled, { css, DefaultTheme } from 'styled-components'
 
 const wrapperModifiers = {
   open: () => css`
-    position: relative;
-    opacity: 1;
-    pointer-events: auto;
-    /* Falando que quando estiver aberto, ele volta a posição original */
-    transform: translateX(0);
+    ${DropdownList} {
+      position: relative;
+      opacity: 1;
+      pointer-events: auto;
+      /* Falando que quando estiver aberto, ele volta a posição original */
+      transform: translateX(0);
+    }
   `,
   close: () => css`
-    width: 100vw;
-    opacity: 0;
-    pointer-events: none;
-    /* Falando que quando estiver fechado, ele vai estar 2rem para baixo */
-    transform: translateX(-15rem);
-    transition: transform 0.7s, 0.2s opacity;
+    ${DropdownList} {
+      width: 100vw;
+      opacity: 0;
+      pointer-events: none;
+      /* Falando que quando estiver fechado, ele vai estar 2rem para baixo */
+      transform: translateX(-15rem);
+      transition: transform 0.7s, 0.2s opacity;
+    }
   `,
   moveParentUp: (itemsDropdownHeight: number) => css`
     & + * {
       margin-top: ${itemsDropdownHeight}rem;
     }
-
     svg {
       animation: ArrowToRight 1s;
     }
-
     @keyframes ArrowToRight {
       0% {
         transform: rotate(90deg);
@@ -40,12 +42,10 @@ const wrapperModifiers = {
     & + * {
       margin-top: + ${itemsDropdownHeight}rem;
     }
-
     svg {
       animation: ArrowToDown 1s;
       animation-fill-mode: both;
     }
-
     @keyframes ArrowToDown {
       0% {
         transform: rotate(0deg);
@@ -59,6 +59,18 @@ const wrapperModifiers = {
     ${Title} {
       color: ${theme.colors.secondary};
     }
+  `,
+
+  dropdownIsOpen: (theme: DefaultTheme, itemsDropdownHeight: number) => css`
+    ${wrapperModifiers.modifierColorTitle(theme)}
+    /* Modificando a abertura dos menus (premium -> aceledora | bpo financeiro) */
+    ${wrapperModifiers.moveParentDown(itemsDropdownHeight)}
+      /* MOdificando a transição DO MENU (premium, nosso trabalho.. */
+    ${wrapperModifiers.open()}
+  `,
+  dropdownIsClose: (itemsDropdownHeight: number) => css`
+    ${wrapperModifiers.moveParentUp(itemsDropdownHeight)}
+    ${wrapperModifiers.close()}
   `
 }
 
@@ -69,24 +81,19 @@ type WrapperProps = {
 }
 
 export const Wrapper = styled.ul<WrapperProps>`
-  ${({ isOpen, itemsDropdownHeight, timeToDownItemsMenu }) => css`
+  ${({ theme, isOpen, itemsDropdownHeight, timeToDownItemsMenu }) => css`
     position: relative;
     list-style: none;
     width: 100vw;
 
-    /* Modificando a abertura dos menus (premium -> aceledora | bpo financeiro) */
+    transition: ${`${timeToDownItemsMenu}s`} all;
     ${DropdownList} {
       transition: transform 0.7s, opacity 1.9s;
-
-      ${isOpen && wrapperModifiers.open()}
-      ${!isOpen && wrapperModifiers.close()}
     }
 
-    /* MOdificando a transição DO MENU (premium, nosso trabalho.. */
-    /* Se ele se encontra fechado, o elemento irmão tem - 5.6 * quantidade dele */
-    ${!isOpen && wrapperModifiers.moveParentUp(itemsDropdownHeight)}
-    ${isOpen && wrapperModifiers.moveParentDown(itemsDropdownHeight)}
-    transition: ${`${timeToDownItemsMenu}s`} all;
+    /* Funções Controllers*/
+    ${isOpen && wrapperModifiers.dropdownIsOpen(theme, itemsDropdownHeight)}
+    ${!isOpen && wrapperModifiers.dropdownIsClose(itemsDropdownHeight)}
   `}
 `
 
@@ -105,9 +112,7 @@ export const TitleWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: ${theme.spacings.xxsmall} ${theme.spacings.xsmall};
-
     border-bottom: 1px solid ${theme.colors.gray};
-
     svg {
       color: ${theme.colors.secondary};
       width: 2.5rem;
@@ -137,7 +142,6 @@ export const DropdownItem = styled.a`
     line-height: 5.5rem;
     font-weight: ${theme.font.family.poppins.weight.normal};
     margin-left: ${theme.spacings.medium};
-
     &:hover {
       color: ${theme.colors.secondary};
     }

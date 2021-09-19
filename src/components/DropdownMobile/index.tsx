@@ -20,9 +20,10 @@ const DropdownMobile = ({ dropdownOptions, title, titleLink }: DropDownMobilePro
   const hasDropdown = !!dropdownOptions
 
   // Tamanho de cada menu (56px)
+  // Vai modificar o elemento irmão, tendo 5.6 * a quantidade de opções dele
   const itemsDropdownHeight = dropdownOptions && dropdownOptions?.length * -5.6
 
-  const timeToDownItemsMenu = (dropdownOptions?.length || 1) > 4 ? 0.4 : 0.7
+  const timeToDownItemsMenu = (dropdownOptions?.length || 1) > 4 ? 0.4 : 0.5
 
   return (
     <S.Wrapper

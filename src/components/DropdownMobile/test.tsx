@@ -1,7 +1,10 @@
 import userEvent from '@testing-library/user-event'
+import theme from 'styles/theme'
 import { render, screen } from 'utils/test-utils'
 
 import DropdownMobile from '.'
+
+import * as S from './styles'
 
 import items from './mock'
 
@@ -27,6 +30,18 @@ describe('<DropdownMobile />', () => {
     userEvent.click(screen.getByText(/Premium/i))
     expect(dropdownElement.getAttribute('aria-hidden')).toBe('true')
     expect(dropdownElement).toHaveStyle({ opacity: 0 })
+  })
+
+  it('Vai mudar a cor do titulo ao clicar nele', () => {
+    render(<DropdownMobile {...items} />)
+
+    const titleElement = screen.getByText(/premium/i)
+
+    expect(titleElement).not.toHaveStyle({ color: theme.colors.secondary })
+
+    userEvent.click(titleElement)
+    expect(titleElement).toHaveStyle({ color: theme.colors.secondary })
+    screen.logTestingPlaygroundURL
   })
 
   describe('O titulo vai ter a possibilidade de ser um link ou um heading', () => {
