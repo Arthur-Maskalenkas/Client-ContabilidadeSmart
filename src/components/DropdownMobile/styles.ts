@@ -8,23 +8,51 @@ const wrapperModifiers = {
     opacity: 1;
     pointer-events: auto;
     /* Falando que quando estiver aberto, ele volta a posição original */
-    transform: translateY(0);
+    transform: translateX(0);
   `,
   close: () => css`
     width: 100vw;
     opacity: 0;
     pointer-events: none;
     /* Falando que quando estiver fechado, ele vai estar 2rem para baixo */
-    transform: translateY(-2rem);
+    transform: translateX(-15rem);
+    transition: transform 0.7s, 0.2s opacity;
   `,
   moveParentUp: (quantityDropdown: number) => css`
     & + * {
       margin-top: ${quantityDropdown}rem;
     }
+
+    svg {
+      animation: ArrowToRight 1s;
+    }
+
+    @keyframes ArrowToRight {
+      0% {
+        transform: rotate(90deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
   `,
   moveParentDown: (quantityDropdown: number) => css`
     & + * {
       margin-top: + ${quantityDropdown}rem;
+    }
+
+    svg {
+      animation: ArrowToDown 1s;
+      animation-fill-mode: both;
+    }
+
+    @keyframes ArrowToDown {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(90deg);
+      }
     }
   `
 }
@@ -38,17 +66,21 @@ export const Wrapper = styled.ul<WrapperProps>`
   ${({ theme, isOpen, quantityDropdown }) => css`
     position: relative;
     width: 100vw;
+
+    /* Modificando a abertura dos menus */
     ${DropdownList} {
       /* Auxiliando a transformação da propriedade transform */
-      transition: transform 0.2s ease-in, opacity ${theme.transition.default};
+      transition: transform 0.7s, opacity 1.9s;
 
       ${isOpen && wrapperModifiers.open()}
       ${!isOpen && wrapperModifiers.close()}
     }
 
+    /* MOdificando a transição DO MENU */
     /* Se ele se encontra fechado, o elemento irmão tem - 5.6 * quantidade dele */
     ${!isOpen && wrapperModifiers.moveParentUp(quantityDropdown)}
     ${isOpen && wrapperModifiers.moveParentDown(quantityDropdown)}
+    transition: 0.9s all;
   `}
 `
 
@@ -63,7 +95,6 @@ export const Title = styled.h2`
 export const TitleWrapper = styled.div`
   ${({ theme }) => css`
     cursor: pointer;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -100,8 +131,6 @@ export const DropdownItem = styled.a`
     line-height: 5.5rem;
     font-weight: ${theme.font.family.poppins.weight.normal};
     margin-left: ${theme.spacings.medium};
-
-    transition: 0.4s all;
 
     &:hover {
       color: ${theme.colors.secondary};

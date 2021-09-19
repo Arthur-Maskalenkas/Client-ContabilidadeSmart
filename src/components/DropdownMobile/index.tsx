@@ -1,6 +1,6 @@
 import * as S from './styles'
 
-import { ArrowDownCircleFill } from '@styled-icons/bootstrap/ArrowDownCircleFill'
+import { ArrowRight } from '@styled-icons/fa-solid'
 import { useState } from 'react'
 
 type dropDownTypes = {
@@ -12,23 +12,20 @@ export type DropDownMobileProps = {
   dropdownOptions?: dropDownTypes[]
   title: string
   titleLink?: string
-  hasDropdown?: boolean
 }
-const DropdownMobile = ({
-  dropdownOptions,
-  title,
-  hasDropdown = !!dropdownOptions
-}: DropDownMobileProps) => {
+const DropdownMobile = ({ dropdownOptions, title }: DropDownMobileProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  // Tamanho de cada menu
+  const hasDropdown = !!dropdownOptions
+
+  // Tamanho de cada menu (56px)
   const quantityItemsDropdown = dropdownOptions && dropdownOptions?.length * -5.6
 
   return (
     <S.Wrapper isOpen={isOpen} quantityDropdown={quantityItemsDropdown as number}>
       <S.TitleWrapper onClick={() => setIsOpen(!isOpen)}>
         <S.Title>{title}</S.Title>
-        {hasDropdown && <ArrowDownCircleFill />}
+        {hasDropdown && <ArrowRight />}
       </S.TitleWrapper>
 
       {hasDropdown && (
