@@ -14,31 +14,34 @@ export type DropDownMobileProps = {
   titleLink?: string
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
-const DropdownMobile = ({
-  dropdownOptions,
-  title,
-  titleLink,
-  ...props
-}: DropDownMobileProps) => {
+const DropdownMobile = ({ dropdownOptions, title, titleLink }: DropDownMobileProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const hasDropdown = !!dropdownOptions
 
   // Tamanho de cada menu (56px)
-  const quantityItemsDropdown = dropdownOptions && dropdownOptions?.length * -5.6
+  const itemsDropdownHeight = dropdownOptions && dropdownOptions?.length * -5.6
+
+  const opacityItemsTime = (dropdownOptions?.length || 1) > 4 ? 4.2 : 1.9
 
   return (
-    <S.Wrapper isOpen={isOpen} quantityDropdown={quantityItemsDropdown as number}>
+    <S.Wrapper
+      as={hasDropdown ? 'ul' : 'li'}
+      isOpen={isOpen}
+      quantityDropdown={itemsDropdownHeight as number}
+      opacityItemsTime={opacityItemsTime as number}
+    >
       <S.TitleWrapper onClick={() => setIsOpen(!isOpen)}>
         {hasDropdown ? (
-          <S.Title>{title}</S.Title>
+          <>
+            <S.Title>{title}</S.Title>
+            <ArrowRight />
+          </>
         ) : (
           <S.Title href={titleLink} as="a" role="link">
             {title}
           </S.Title>
         )}
-
-        {hasDropdown && <ArrowRight />}
       </S.TitleWrapper>
 
       {hasDropdown && (

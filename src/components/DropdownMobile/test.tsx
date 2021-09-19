@@ -20,28 +20,47 @@ describe('<DropdownMobile />', () => {
     expect(dropdownElement.getAttribute('aria-hidden')).toBe('false')
     expect(dropdownElement).toHaveStyle({ opacity: 1 })
 
+    // Verifica se a quantidade de opções passadas é a mesma presente
+    expect(screen.getAllByText(/aceleradora/i)).toHaveLength(2)
+
     // Verifica se caso eu clique no titulo novamente o dropdown é fechado
     userEvent.click(screen.getByText(/Premium/i))
     expect(dropdownElement.getAttribute('aria-hidden')).toBe('true')
     expect(dropdownElement).toHaveStyle({ opacity: 0 })
   })
 
-  it('o titulo vai virar um link caso não passe o dropdown', () => {
-    render(<DropdownMobile title="Contabilidade" titleLink="/link" />)
+  describe('O titulo vai ter a possibilidade de ser um link ou um heading', () => {
+    it('o titulo vai virar um link caso não passe o dropdown', () => {
+      render(<DropdownMobile title="Contabilidade" titleLink="/link" />)
 
-    expect(screen.getByRole('link', { name: /Contabilidade/i })).toHaveAttribute(
-      'href',
-      '/link'
-    )
+      expect(screen.getByRole('link', { name: /Contabilidade/i })).toHaveAttribute(
+        'href',
+        '/link'
+      )
 
-    expect(
-      screen.queryByRole('heading', { name: /contabilidade/i })
-    ).not.toBeInTheDocument()
+      expect(
+        screen.queryByRole('heading', { name: /contabilidade/i })
+      ).not.toBeInTheDocument()
+    })
+
+    it('o titulo vai virar um heading caso não passe o dropdown', () => {
+      render(<DropdownMobile {...items} title="Contabilidade" />)
+
+      expect(screen.getByRole('heading', { name: /contabilidade/i })).toBeInTheDocument()
+    })
   })
 
-  it('o titulo vai virar um heading caso não passe o dropdown', () => {
-    render(<DropdownMobile {...items} title="Contabilidade" />)
+  describe('O wrapper vai ter a possibilidade de ser um ul ou um li', () => {
+    it('Vai ser um li caso não tenha dropdown', () => {
+      render(<DropdownMobile title="Contabilidade" titleLink="/link" />)
 
-    expect(screen.getByRole('heading', { name: /contabilidade/i })).toBeInTheDocument()
+      expect(screen.getByRole('listitem')).toBeInTheDocument()
+    })
+
+    it('Vai ser um ul caso tenha dropdown', () => {
+      render(<DropdownMobile {...items} title="Contabilidade" />)
+
+      expect(screen.getByRole('list')).toBeInTheDocument()
+    })
   })
 })

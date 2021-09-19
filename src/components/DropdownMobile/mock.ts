@@ -8,7 +8,7 @@ const mock: DropDownMobileProps = {
       link: 'link 2'
     },
     {
-      title: 'BPO financeiro',
+      title: 'Aceleradora',
       link: 'BPO financeiro'
     }
   ]

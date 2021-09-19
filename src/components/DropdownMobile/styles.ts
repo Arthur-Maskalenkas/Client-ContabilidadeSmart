@@ -60,17 +60,19 @@ const wrapperModifiers = {
 type WrapperProps = {
   isOpen?: boolean
   quantityDropdown: number
+  opacityItemsTime: number
 }
 
 export const Wrapper = styled.ul<WrapperProps>`
-  ${({ theme, isOpen, quantityDropdown }) => css`
+  ${({ isOpen, quantityDropdown, opacityItemsTime }) => css`
     position: relative;
+    list-style: none;
     width: 100vw;
 
     /* Modificando a abertura dos menus */
     ${DropdownList} {
       /* Auxiliando a transformação da propriedade transform */
-      transition: transform 0.7s, opacity 1.9s;
+      transition: transform 0.7s, opacity ${`${opacityItemsTime}s`};
 
       ${isOpen && wrapperModifiers.open()}
       ${!isOpen && wrapperModifiers.close()}
