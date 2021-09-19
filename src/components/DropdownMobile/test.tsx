@@ -25,4 +25,13 @@ describe('<DropdownMobile />', () => {
     expect(dropdownElement.getAttribute('aria-hidden')).toBe('true')
     expect(dropdownElement).toHaveStyle({ opacity: 0 })
   })
+
+  it('vai virar um link o titulo caso não passe o dropdown', () => {
+    render(<DropdownMobile title="Contabilidade" titleLink="/link" />)
+
+    expect(screen.getByRole('link', { name: /Contabilidade/i })).toHaveAttribute(
+      'href',
+      '/link'
+    )
+  })
 })

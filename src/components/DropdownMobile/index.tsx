@@ -11,6 +11,7 @@ type dropDownTypes = {
 export type DropDownMobileProps = {
   dropdownOptions?: dropDownTypes[]
   title: string
+  titleLink?: string
   hasDropdown?: boolean
 }
 const DropdownMobile = ({
