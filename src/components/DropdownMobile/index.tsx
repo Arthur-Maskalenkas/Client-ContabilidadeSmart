@@ -22,14 +22,14 @@ const DropdownMobile = ({ dropdownOptions, title, titleLink }: DropDownMobilePro
   // Tamanho de cada menu (56px)
   const itemsDropdownHeight = dropdownOptions && dropdownOptions?.length * -5.6
 
-  const opacityItemsTime = (dropdownOptions?.length || 1) > 4 ? 4.2 : 1.9
+  const timeToDownItemsMenu = (dropdownOptions?.length || 1) > 4 ? 0.4 : 0.7
 
   return (
     <S.Wrapper
       as={hasDropdown ? 'ul' : 'li'}
       isOpen={isOpen}
-      quantityDropdown={itemsDropdownHeight as number}
-      opacityItemsTime={opacityItemsTime as number}
+      itemsDropdownHeight={itemsDropdownHeight as number}
+      timeToDownItemsMenu={timeToDownItemsMenu as number}
     >
       <S.TitleWrapper onClick={() => setIsOpen(!isOpen)}>
         {hasDropdown ? (

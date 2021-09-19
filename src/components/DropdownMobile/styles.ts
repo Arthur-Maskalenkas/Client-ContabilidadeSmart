@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 
 // Conforme o conteudo de wrapper vai crescendo, o <content> por ser absoluto e width: 0; ele vai acompnahando tbm
 
@@ -18,9 +18,9 @@ const wrapperModifiers = {
     transform: translateX(-15rem);
     transition: transform 0.7s, 0.2s opacity;
   `,
-  moveParentUp: (quantityDropdown: number) => css`
+  moveParentUp: (itemsDropdownHeight: number) => css`
     & + * {
-      margin-top: ${quantityDropdown}rem;
+      margin-top: ${itemsDropdownHeight}rem;
     }
 
     svg {
@@ -36,9 +36,9 @@ const wrapperModifiers = {
       }
     }
   `,
-  moveParentDown: (quantityDropdown: number) => css`
+  moveParentDown: (itemsDropdownHeight: number) => css`
     & + * {
-      margin-top: + ${quantityDropdown}rem;
+      margin-top: + ${itemsDropdownHeight}rem;
     }
 
     svg {
@@ -54,35 +54,39 @@ const wrapperModifiers = {
         transform: rotate(90deg);
       }
     }
+  `,
+  modifierColorTitle: (theme: DefaultTheme) => css`
+    ${Title} {
+      color: ${theme.colors.secondary};
+    }
   `
 }
 
 type WrapperProps = {
   isOpen?: boolean
-  quantityDropdown: number
-  opacityItemsTime: number
+  itemsDropdownHeight: number
+  timeToDownItemsMenu: number
 }
 
 export const Wrapper = styled.ul<WrapperProps>`
-  ${({ isOpen, quantityDropdown, opacityItemsTime }) => css`
+  ${({ isOpen, itemsDropdownHeight, timeToDownItemsMenu }) => css`
     position: relative;
     list-style: none;
     width: 100vw;
 
-    /* Modificando a abertura dos menus */
+    /* Modificando a abertura dos menus (premium -> aceledora | bpo financeiro) */
     ${DropdownList} {
-      /* Auxiliando a transformação da propriedade transform */
-      transition: transform 0.7s, opacity ${`${opacityItemsTime}s`};
+      transition: transform 0.7s, opacity 1.9s;
 
       ${isOpen && wrapperModifiers.open()}
       ${!isOpen && wrapperModifiers.close()}
     }
 
-    /* MOdificando a transição DO MENU */
+    /* MOdificando a transição DO MENU (premium, nosso trabalho.. */
     /* Se ele se encontra fechado, o elemento irmão tem - 5.6 * quantidade dele */
-    ${!isOpen && wrapperModifiers.moveParentUp(quantityDropdown)}
-    ${isOpen && wrapperModifiers.moveParentDown(quantityDropdown)}
-    transition: 0.9s all;
+    ${!isOpen && wrapperModifiers.moveParentUp(itemsDropdownHeight)}
+    ${isOpen && wrapperModifiers.moveParentDown(itemsDropdownHeight)}
+    transition: ${`${timeToDownItemsMenu}s`} all;
   `}
 `
 
