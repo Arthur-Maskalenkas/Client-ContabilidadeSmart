@@ -1,7 +1,7 @@
 import * as S from './styles'
 
 import { ArrowRight } from '@styled-icons/fa-solid'
-import { useState } from 'react'
+import { AnchorHTMLAttributes, useState } from 'react'
 
 type dropDownTypes = {
   title: string
@@ -12,8 +12,14 @@ export type DropDownMobileProps = {
   dropdownOptions?: dropDownTypes[]
   title: string
   titleLink?: string
-}
-const DropdownMobile = ({ dropdownOptions, title }: DropDownMobileProps) => {
+} & AnchorHTMLAttributes<HTMLAnchorElement>
+
+const DropdownMobile = ({
+  dropdownOptions,
+  title,
+  titleLink,
+  ...props
+}: DropDownMobileProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const hasDropdown = !!dropdownOptions
@@ -24,7 +30,14 @@ const DropdownMobile = ({ dropdownOptions, title }: DropDownMobileProps) => {
   return (
     <S.Wrapper isOpen={isOpen} quantityDropdown={quantityItemsDropdown as number}>
       <S.TitleWrapper onClick={() => setIsOpen(!isOpen)}>
-        <S.Title>{title}</S.Title>
+        {hasDropdown ? (
+          <S.Title>{title}</S.Title>
+        ) : (
+          <S.Title href={titleLink} as="a" role="link">
+            {title}
+          </S.Title>
+        )}
+
         {hasDropdown && <ArrowRight />}
       </S.TitleWrapper>
 

@@ -26,12 +26,22 @@ describe('<DropdownMobile />', () => {
     expect(dropdownElement).toHaveStyle({ opacity: 0 })
   })
 
-  it('vai virar um link o titulo caso não passe o dropdown', () => {
+  it('o titulo vai virar um link caso não passe o dropdown', () => {
     render(<DropdownMobile title="Contabilidade" titleLink="/link" />)
 
     expect(screen.getByRole('link', { name: /Contabilidade/i })).toHaveAttribute(
       'href',
       '/link'
     )
+
+    expect(
+      screen.queryByRole('heading', { name: /contabilidade/i })
+    ).not.toBeInTheDocument()
+  })
+
+  it('o titulo vai virar um heading caso não passe o dropdown', () => {
+    render(<DropdownMobile {...items} title="Contabilidade" />)
+
+    expect(screen.getByRole('heading', { name: /contabilidade/i })).toBeInTheDocument()
   })
 })
