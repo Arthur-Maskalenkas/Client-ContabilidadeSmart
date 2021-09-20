@@ -1,12 +1,10 @@
 import userEvent from '@testing-library/user-event'
 import theme from 'styles/theme'
-import { render, screen } from 'utils/test-utils'
+import { render, screen, waitFor } from 'utils/test-utils'
 
 import DropdownMobile from '.'
 
-import * as S from './styles'
-
-import items from './mock'
+import items, { mock2 } from './mock'
 
 describe('<DropdownMobile />', () => {
   it('vai abrir e fechar o dropdown quando clica no titulo', () => {
@@ -32,16 +30,30 @@ describe('<DropdownMobile />', () => {
     expect(dropdownElement).toHaveStyle({ opacity: 0 })
   })
 
-  it('Vai mudar a cor do titulo ao clicar nele', () => {
+  it('Vai mudar a cor do titulo ao clicar nele', async () => {
     render(<DropdownMobile {...items} />)
 
-    const titleElement = screen.getByText(/premium/i)
+    const titleElement = screen.getByRole('heading', {
+      name: /premium/i
+    })
 
     expect(titleElement).not.toHaveStyle({ color: theme.colors.secondary })
 
     userEvent.click(titleElement)
+
     expect(titleElement).toHaveStyle({ color: theme.colors.secondary })
-    screen.logTestingPlaygroundURL
+  })
+
+  it('Vai calcular cada opção por 56px e vai dar margin ao elemento filho no abre/fecha', async () => {
+    render(
+      <>
+        <DropdownMobile {...items} />
+        <DropdownMobile title="mock 2" />
+      </>
+    )
+    const titleElementAdjacente = screen.getByRole('listitem')
+
+    expect(titleElementAdjacente).toHaveStyle('margin-top: -11.2rem')
   })
 
   describe('O titulo vai ter a possibilidade de ser um link ou um heading', () => {

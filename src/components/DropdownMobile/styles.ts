@@ -1,11 +1,12 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 
-// Conforme o conteudo de wrapper vai crescendo, o <content> por ser absoluto e width: 0; ele vai acompnahando tbm
+// A lista sempre existe, o que eu faço é colocar como opacity 0 a lista e jogar o elemento adjacente (no caso o proximo wrapper) para cima com margin-top: -numero
+
+type ColorTypes = 'secondary' | 'black'
 
 const wrapperModifiers = {
   open: () => css`
     ${DropdownList} {
-      position: relative;
       opacity: 1;
       pointer-events: auto;
       /* Falando que quando estiver aberto, ele volta a posição original */
@@ -55,20 +56,21 @@ const wrapperModifiers = {
       }
     }
   `,
-  modifierColorTitle: (theme: DefaultTheme) => css`
+  modifierColorTitle: (theme: DefaultTheme, color: ColorTypes) => css`
     ${Title} {
-      color: ${theme.colors.secondary};
+      color: ${theme.colors[color]};
     }
   `,
 
   dropdownIsOpen: (theme: DefaultTheme, itemsDropdownHeight: number) => css`
-    ${wrapperModifiers.modifierColorTitle(theme)}
+    ${wrapperModifiers.modifierColorTitle(theme, 'secondary')}
     /* Modificando a abertura dos menus (premium -> aceledora | bpo financeiro) */
     ${wrapperModifiers.moveParentDown(itemsDropdownHeight)}
       /* MOdificando a transição DO MENU (premium, nosso trabalho.. */
     ${wrapperModifiers.open()}
   `,
-  dropdownIsClose: (itemsDropdownHeight: number) => css`
+  dropdownIsClose: (theme: DefaultTheme, itemsDropdownHeight: number) => css`
+    ${wrapperModifiers.modifierColorTitle(theme, 'black')}
     ${wrapperModifiers.moveParentUp(itemsDropdownHeight)}
     ${wrapperModifiers.close()}
   `
@@ -93,13 +95,12 @@ export const Wrapper = styled.ul<WrapperProps>`
 
     /* Funções Controllers*/
     ${isOpen && wrapperModifiers.dropdownIsOpen(theme, itemsDropdownHeight)}
-    ${!isOpen && wrapperModifiers.dropdownIsClose(itemsDropdownHeight)}
+    ${!isOpen && wrapperModifiers.dropdownIsClose(theme, itemsDropdownHeight)}
   `}
 `
 
 export const Title = styled.h2`
   ${({ theme }) => css`
-    color: ${theme.colors.black};
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.family.poppins.weight.normal};
   `}
