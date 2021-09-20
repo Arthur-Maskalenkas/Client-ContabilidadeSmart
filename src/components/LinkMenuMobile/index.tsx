@@ -8,13 +8,13 @@ type dropDownTypes = {
   link: string
 }
 
-export type DropDownMobileProps = {
+export type LinkMenuMobileProps = {
   dropdownOptions?: dropDownTypes[]
   title: string
   titleLink?: string
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
-const DropdownMobile = ({ dropdownOptions, title, titleLink }: DropDownMobileProps) => {
+const LinkMenuMobile = ({ dropdownOptions, title, titleLink }: LinkMenuMobileProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const hasDropdown = !!dropdownOptions
@@ -58,4 +58,4 @@ const DropdownMobile = ({ dropdownOptions, title, titleLink }: DropDownMobilePro
   )
 }
 
-export default DropdownMobile
+export default LinkMenuMobile

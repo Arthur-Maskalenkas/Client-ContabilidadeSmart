@@ -1,6 +1,6 @@
-import { DropDownMobileProps } from 'components/DropdownMobile'
+import { LinkMenuMobileProps } from 'components/LinkMenuMobile'
 
-export const DropPremiumMock: DropDownMobileProps = {
+export const DropPremiumMock: LinkMenuMobileProps = {
   title: 'Premium',
   dropdownOptions: [
     {
@@ -14,7 +14,7 @@ export const DropPremiumMock: DropDownMobileProps = {
   ]
 }
 
-export const DropNossoTrabalhoMock: DropDownMobileProps = {
+export const DropNossoTrabalhoMock: LinkMenuMobileProps = {
   title: 'Nosso Trabalho',
   dropdownOptions: [
     { title: 'Contabil', link: '#' },
@@ -26,7 +26,7 @@ export const DropNossoTrabalhoMock: DropDownMobileProps = {
   ]
 }
 
-export const DropBlogMock: DropDownMobileProps = {
+export const DropBlogMock: LinkMenuMobileProps = {
   title: 'Nosso Trabalho',
   dropdownOptions: [
     { title: 'infoproduto', link: '#' },

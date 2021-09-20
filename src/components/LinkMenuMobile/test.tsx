@@ -2,13 +2,13 @@ import userEvent from '@testing-library/user-event'
 import theme from 'styles/theme'
 import { render, screen, waitFor } from 'utils/test-utils'
 
-import DropdownMobile from '.'
+import LinkMenuMobile from '.'
 
 import items, { mock2 } from './mock'
 
-describe('<DropdownMobile />', () => {
+describe('<LinkMenuMobile />', () => {
   it('vai abrir e fechar o dropdown quando clica no titulo', () => {
-    render(<DropdownMobile {...items} />)
+    render(<LinkMenuMobile {...items} />)
 
     const dropdownElement = screen.getByLabelText(/dropdown/i)
 
@@ -31,7 +31,7 @@ describe('<DropdownMobile />', () => {
   })
 
   it('Vai mudar a cor do titulo ao clicar nele', async () => {
-    render(<DropdownMobile {...items} />)
+    render(<LinkMenuMobile {...items} />)
 
     const titleElement = screen.getByRole('heading', {
       name: /premium/i
@@ -47,8 +47,8 @@ describe('<DropdownMobile />', () => {
   it('Vai calcular cada opção por 56px e vai dar margin ao elemento filho no abre/fecha', async () => {
     render(
       <>
-        <DropdownMobile {...items} />
-        <DropdownMobile title="mock 2" />
+        <LinkMenuMobile {...items} />
+        <LinkMenuMobile title="mock 2" />
       </>
     )
     const titleElementAdjacente = screen.getByRole('listitem')
@@ -58,7 +58,7 @@ describe('<DropdownMobile />', () => {
 
   describe('O titulo vai ter a possibilidade de ser um link ou um heading', () => {
     it('o titulo vai virar um link caso não passe o dropdown', () => {
-      render(<DropdownMobile title="Contabilidade" titleLink="/link" />)
+      render(<LinkMenuMobile title="Contabilidade" titleLink="/link" />)
 
       expect(screen.getByRole('link', { name: /Contabilidade/i })).toHaveAttribute(
         'href',
@@ -71,7 +71,7 @@ describe('<DropdownMobile />', () => {
     })
 
     it('o titulo vai virar um heading caso não passe o dropdown', () => {
-      render(<DropdownMobile {...items} title="Contabilidade" />)
+      render(<LinkMenuMobile {...items} title="Contabilidade" />)
 
       expect(screen.getByRole('heading', { name: /contabilidade/i })).toBeInTheDocument()
     })
@@ -79,13 +79,13 @@ describe('<DropdownMobile />', () => {
 
   describe('O wrapper vai ter a possibilidade de ser um ul ou um li', () => {
     it('Vai ser um li caso não tenha dropdown', () => {
-      render(<DropdownMobile title="Contabilidade" titleLink="/link" />)
+      render(<LinkMenuMobile title="Contabilidade" titleLink="/link" />)
 
       expect(screen.getByRole('listitem')).toBeInTheDocument()
     })
 
     it('Vai ser um ul caso tenha dropdown', () => {
-      render(<DropdownMobile {...items} title="Contabilidade" />)
+      render(<LinkMenuMobile {...items} title="Contabilidade" />)
 
       expect(screen.getByRole('list')).toBeInTheDocument()
     })

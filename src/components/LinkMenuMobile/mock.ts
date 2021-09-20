@@ -1,6 +1,6 @@
-import { DropDownMobileProps } from '.'
+import { LinkMenuMobileProps } from '.'
 
-const mock: DropDownMobileProps = {
+const mock: LinkMenuMobileProps = {
   title: 'Premium',
   dropdownOptions: [
     {
@@ -14,7 +14,7 @@ const mock: DropDownMobileProps = {
   ]
 }
 
-const mock2: DropDownMobileProps = {
+const mock2: LinkMenuMobileProps = {
   title: 'mock 2',
   dropdownOptions: [
     {

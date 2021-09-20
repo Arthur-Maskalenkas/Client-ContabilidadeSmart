@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 import * as S from './styles'
 
-import DropdownMobile from 'components/DropdownMobile'
+import LinkMenuMobile from 'components/LinkMenuMobile'
 import * as mockMenu from './mock'
 
 const Menu = () => {
@@ -40,12 +40,12 @@ const Menu = () => {
         <CloseIcon aria-label="Close Menu" onClick={() => setIsOpen(false)} />
 
         <S.MenuFullContent>
-          <DropdownMobile title="Infoprodutores" />
-          <DropdownMobile {...mockMenu.DropPremiumMock} />
-          <DropdownMobile {...mockMenu.DropNossoTrabalhoMock} />
-          <DropdownMobile title="Sobre nós" />
-          <DropdownMobile {...mockMenu.DropBlogMock} />
-          <DropdownMobile title="Home" />
+          <LinkMenuMobile title="Infoprodutores" />
+          <LinkMenuMobile {...mockMenu.DropPremiumMock} />
+          <LinkMenuMobile {...mockMenu.DropNossoTrabalhoMock} />
+          <LinkMenuMobile title="Sobre nós" />
+          <LinkMenuMobile {...mockMenu.DropBlogMock} />
+          <LinkMenuMobile title="Home" />
         </S.MenuFullContent>
       </S.MenuFull>
     </S.Wrapper>
