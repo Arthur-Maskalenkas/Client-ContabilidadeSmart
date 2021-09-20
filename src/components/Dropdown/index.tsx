@@ -1,21 +1,40 @@
-import { useState } from 'react'
+import { AnchorHTMLAttributes, useState } from 'react'
 import * as S from './styles'
 
-export type DropdownProps = {
-  title: React.ReactNode
-  children: React.ReactNode
+import { ArrowIosDownwardOutline } from '@styled-icons/evaicons-outline'
+
+type dropdownTypes = {
+  title: string
+  link: string
 }
 
-const Dropdown = ({ title, children }: DropdownProps) => {
-  const [isOpen, setIsOpen] = useState(false)
+export type DropdownProps = {
+  title: string
+  dropdownOptions?: dropdownTypes[]
+  titleLink?: string
+} & AnchorHTMLAttributes<HTMLAnchorElement>
+
+const Dropdown = ({ dropdownOptions, title, titleLink }: DropdownProps) => {
+  const [isOpen, setIsOpen] = useState(!false)
+
+  const hasDropdown = !!dropdownOptions
 
   return (
     <S.Wrapper isOpen={isOpen}>
-      <S.Title onClick={() => setIsOpen(!isOpen)}>{title}</S.Title>
+      <S.TitleWrapper onClick={() => setIsOpen(!isOpen)}>
+        <S.Title>{title}</S.Title>
+        <ArrowIosDownwardOutline />
+      </S.TitleWrapper>
 
-      <S.Content aria-hidden={!isOpen} aria-label="dropdown">
-        {children}
-      </S.Content>
+      {hasDropdown && (
+        <S.Content aria-hidden={!isOpen} aria-label="dropdown">
+          {dropdownOptions!.map((item, index) => (
+            <S.DropdownTitleWrapper key={index}>
+              <S.DropdownTitle>{item.title}</S.DropdownTitle>
+            </S.DropdownTitleWrapper>
+          ))}
+        </S.Content>
+      )}
     </S.Wrapper>
   )
 }

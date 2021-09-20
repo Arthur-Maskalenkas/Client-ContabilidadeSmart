@@ -22,7 +22,7 @@ describe('<Dropdown />', () => {
     expect(dropdownElement.getAttribute('aria-hidden')).toBe('true')
     expect(dropdownElement).toHaveStyle({ opacity: 0 })
 
-    // Verifica se caso clicar no titulo o dropdown é aberto
+    // LMebrar de colocar parent
     userEvent.click(screen.getByText(/um titulo/i))
     expect(dropdownElement.getAttribute('aria-hidden')).toBe('false')
     expect(dropdownElement).toHaveStyle({ opacity: 1 })

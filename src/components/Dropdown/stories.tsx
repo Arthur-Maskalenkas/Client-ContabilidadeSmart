@@ -1,6 +1,8 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import Dropdown, { DropdownProps } from '.'
 
+import items from './mock'
+
 export default {
   title: 'Dropdown',
   component: Dropdown,
@@ -12,11 +14,14 @@ export default {
   }
 } as Meta
 
-export const Default: Story<DropdownProps> = (args) => <Dropdown {...args} />
+export const Default: Story<DropdownProps> = (args) => (
+  <div style={{ marginLeft: '400px', marginRight: 'auto', width: '100vw' }}>
+    <Dropdown {...args} />
+  </div>
+)
 
 Default.args = {
-  title: 'Clique aqui',
-  children: 'Conteudo'
+  ...items
 }
 
 Default.parameters = {
