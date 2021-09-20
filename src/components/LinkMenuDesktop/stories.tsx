@@ -6,6 +6,17 @@ import items from './mock'
 export default {
   title: 'LinkMenu/LinkMenuDesktop',
   component: LinkMenuDesktop,
+  argTypes: {
+    LinkMenuDesktopOptions: {
+      control: false
+    },
+    dropdownOptions: {
+      control: false
+    },
+    titleLink: {
+      control: false
+    }
+  },
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
