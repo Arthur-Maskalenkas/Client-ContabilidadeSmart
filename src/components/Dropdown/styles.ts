@@ -1,16 +1,36 @@
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
+
+type colorTypes = 'white' | 'secondary'
 
 const wrapperModifiers = {
-  open: () => css`
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
+  openDropdown: () => css`
+    ${Content} {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
   `,
-  close: () => css`
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(5rem);
-  `
+  closeDropdown: () => css`
+    ${Content} {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(5rem);
+    }
+  `,
+  changeColorTitle: (theme: DefaultTheme, color: colorTypes) => css`
+    ${TitleWrapper} > * {
+      color: ${theme.colors[color]};
+    }
+  `,
+  isOpen: (theme: DefaultTheme) => css`
+    ${wrapperModifiers.openDropdown()}
+    ${wrapperModifiers.changeColorTitle(theme, 'secondary')}
+  `,
+  isClose: (theme: DefaultTheme) =>
+    css`
+      ${wrapperModifiers.closeDropdown()}
+      ${wrapperModifiers.changeColorTitle(theme, 'white')}
+    `
 }
 
 type WrapperProps = {
@@ -18,44 +38,48 @@ type WrapperProps = {
 }
 
 export const Wrapper = styled.ul<WrapperProps>`
-  ${({ isOpen }) => css`
+  ${({ theme, isOpen }) => css`
     position: relative;
     width: max-content;
 
     ${Content} {
-      /* Auxiliando a transformação da propriedade transform */
       transition: transform 0.4s ease-in-out, opacity 0.4s;
+    }
 
-      ${isOpen && wrapperModifiers.open()}
-      ${!isOpen && wrapperModifiers.close()}
+    /* Funções controllers */
+    ${isOpen && wrapperModifiers.isOpen(theme)}
+    ${!isOpen && wrapperModifiers.isClose(theme)}
     }
   `}
 `
 
-export const Title = styled.div`
+export const Title = styled.p`
   ${({ theme }) => css`
     position: relative;
     letter-spacing: '3px';
     font-size: ${theme.font.sizes.xsmall};
-    color: ${theme.colors.white};
     display: flex;
     align-items: center;
   `}
 `
 
 export const TitleWrapper = styled.div`
-  display: flex;
-  cursor: pointer;
+  ${({ theme }) => css`
+    display: flex;
+    cursor: pointer;
 
-  & > svg {
-    width: 1.5rem;
-    color: white;
-  }
+    & > svg {
+      width: 1.5rem;
+      margin-left: ${theme.spacings.xxsmall};
+      color: white;
+    }
+  `}
 `
 
 export const Content = styled.ul`
   ${({ theme }) => css`
     position: absolute;
+    top: 2rem;
     cursor: pointer;
     background-color: ${theme.colors.white};
 
