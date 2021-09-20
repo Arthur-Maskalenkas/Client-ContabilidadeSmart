@@ -5,7 +5,7 @@ import items from './mock'
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 export default {
-  title: 'LinkMenuMobile',
+  title: 'LinkMenu/LinkMenuMobile',
   component: LinkMenuMobile
 } as Meta
 export const Default: Story<LinkMenuMobileProps> = (args) => (
