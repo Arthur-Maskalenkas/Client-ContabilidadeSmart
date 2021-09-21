@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+import * as LinkMenuDesktopStyles from 'components/LinkMenuDesktop/styles'
+
 export const Wrapper = styled.menu`
   ${({ theme }) => css`
     display: flex;
@@ -45,10 +47,16 @@ export const IconWrapper = styled.div`
 `
 
 export const MenuNav = styled.div`
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-end;
-  align-items: center;
+  ${({ theme }) => css`
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+
+    & > ${LinkMenuDesktopStyles.Wrapper} {
+      margin-right: ${theme.spacings.medium};
+    }
+  `}
 `
 
 export const MenuLink = styled.a`

@@ -9,6 +9,7 @@ import * as S from './styles'
 
 import LinkMenuMobile from 'components/LinkMenuMobile'
 import * as mockMenu from './mock'
+import LinkMenuDesktop from 'components/LinkMenuDesktop'
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -27,12 +28,12 @@ const Menu = () => {
 
       <MediaWatch greaterThan="medium">
         <S.MenuNav>
-          <S.MenuLink>Infoprodutores</S.MenuLink>
-          <S.MenuLink>Premium</S.MenuLink>
-          <S.MenuLink>Nosso trabalho</S.MenuLink>
-          <S.MenuLink>Sobre nós</S.MenuLink>
-          <S.MenuLink>Blog</S.MenuLink>
-          <S.MenuLink>Home</S.MenuLink>
+          <LinkMenuDesktop title="Infoprodutores" />
+          <LinkMenuDesktop {...mockMenu.DropPremiumMockDesktop} />
+          <LinkMenuDesktop {...mockMenu.DropNossoTrabalhoMockDesktop} />
+          <LinkMenuDesktop title="Sobre nós" />
+          <LinkMenuDesktop {...mockMenu.DropBlogMockDesktop} />
+          <LinkMenuDesktop title="Home" />
         </S.MenuNav>
       </MediaWatch>
 
@@ -41,10 +42,10 @@ const Menu = () => {
 
         <S.MenuFullContent>
           <LinkMenuMobile title="Infoprodutores" />
-          <LinkMenuMobile {...mockMenu.DropPremiumMock} />
-          <LinkMenuMobile {...mockMenu.DropNossoTrabalhoMock} />
+          <LinkMenuMobile {...mockMenu.DropPremiumMockMobile} />
+          <LinkMenuMobile {...mockMenu.DropNossoTrabalhoMockMobile} />
           <LinkMenuMobile title="Sobre nós" />
-          <LinkMenuMobile {...mockMenu.DropBlogMock} />
+          <LinkMenuMobile {...mockMenu.DropBlogMockMobile} />
           <LinkMenuMobile title="Home" />
         </S.MenuFullContent>
       </S.MenuFull>
