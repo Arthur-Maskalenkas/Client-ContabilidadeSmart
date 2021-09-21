@@ -4,6 +4,7 @@ import { AnchorHTMLAttributes, useState } from 'react'
 import * as S from './styles'
 
 import { ArrowIosDownwardOutline } from '@styled-icons/evaicons-outline'
+import { useEffect } from 'react'
 
 // Caso não tenha LinkMenuDesktop
 // <ul> (menu)
@@ -27,29 +28,45 @@ export type LinkMenuDesktopProps = {
   LinkMenuDesktopOptions?: LinkMenuDesktopTypes[]
   slug?: string
   isSelected?: boolean
+  takeTitle?: (valueTitle: string) => void
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
 const LinkMenuDesktop = ({
   LinkMenuDesktopOptions,
   title,
   slug,
-  isSelected = false
+  isSelected = false,
+  takeTitle
 }: LinkMenuDesktopProps) => {
   const [isOpen, setIsOpen] = useState(isSelected)
 
   const hasLinkMenuDesktop = !!LinkMenuDesktopOptions
+
+  useEffect(() => {
+    setIsOpen(isSelected)
+  }, [isOpen, setIsOpen, isSelected])
+
+  function returnTitle(stringValue: string) {
+    if (takeTitle) {
+      takeTitle(stringValue)
+    }
+  }
 
   return (
     <S.Wrapper isOpen={isOpen} as={hasLinkMenuDesktop ? 'ul' : 'li'}>
       <S.TitleWrapper>
         {hasLinkMenuDesktop ? (
           <>
-            <S.Title>{title}</S.Title>
-            <ArrowIosDownwardOutline title="Ver opções" role="svg" />
+            <S.Title onClick={() => returnTitle(title)}>{title}</S.Title>
+            <ArrowIosDownwardOutline
+              onClick={() => returnTitle(title)}
+              title="Ver opções"
+              role="svg"
+            />
           </>
         ) : (
           <Link passHref href={`posts/${slug}`}>
-            <S.Title as="a" role="link">
+            <S.Title as="a" role="link" onClick={() => returnTitle(title)}>
               {title}
             </S.Title>
           </Link>

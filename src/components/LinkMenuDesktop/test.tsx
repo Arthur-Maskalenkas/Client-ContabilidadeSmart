@@ -1,10 +1,20 @@
-import { render, screen } from 'utils/test-utils'
-import userEvent from '@testing-library/user-event'
+import { fireEvent, render, screen } from 'utils/test-utils'
 
 import mock from './mock'
 
 import LinkMenuDesktop from '.'
-import theme from 'styles/theme'
+import userEvent from '@testing-library/user-event'
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+const push = jest.fn()
+
+useRouter.mockImplementation(() => ({
+  push,
+  query: '',
+  asPath: '',
+  route: '/'
+}))
 
 describe('<LinkMenuDesktop />', () => {
   it('vai renderizar o componente', () => {
@@ -15,12 +25,46 @@ describe('<LinkMenuDesktop />', () => {
     expect(screen.getByRole('svg', { name: /ver opções/i })).toBeInTheDocument()
   })
 
-  it('Vai mudar a cor do titulo quando ele estiver selecionado', () => {
-    render(<LinkMenuDesktop {...mock} isSelected={true} />)
+  describe('Vai retornar o titulo do elemento quando clicarem sobre ele, ou sobre o icone dele', () => {
+    it('Vai retornar o titulo do elemento quando ele for clicado', () => {
+      const takeTitle = jest.fn()
 
-    const premiumText = screen.getByText(/premium/i)
+      render(<LinkMenuDesktop {...mock} takeTitle={takeTitle} isSelected={true} />)
 
-    expect(premiumText).toHaveStyle({ color: theme.colors.secondary })
+      const premiumText = screen.getByText(/premium/i)
+
+      fireEvent.click(premiumText)
+
+      expect(takeTitle).toBeCalledWith('Premium')
+    })
+
+    it('Vai retornar o titulo do elemento quando ele for clicado', () => {
+      const takeTitle = jest.fn()
+
+      render(<LinkMenuDesktop title="Premium" takeTitle={takeTitle} isSelected={true} />)
+
+      const premiumText = screen.getByText(/Premium/i)
+
+      fireEvent.click(premiumText)
+
+      expect(takeTitle).toBeCalledWith('Premium')
+    })
+
+    it('Vai retornar o titulo do elemento quando clicarem sob o icone dele', () => {
+      const takeTitle = jest.fn()
+
+      render(<LinkMenuDesktop {...mock} takeTitle={takeTitle} isSelected={true} />)
+
+      const premiumText = screen.getByRole('svg', { name: /ver opções/i })
+
+      fireEvent.click(premiumText)
+
+      expect(takeTitle).toBeCalledWith('Premium')
+    })
+  })
+
+  it('Vai retornar o titulo quando clicar nele', () => {
+    render(<LinkMenuDesktop {...mock} />)
   })
 
   describe('O conteudo vai ter a opção de renderizar com o conteudo aberto ou fechado', () => {
@@ -29,7 +73,6 @@ describe('<LinkMenuDesktop />', () => {
 
       const LinkMenuDesktopElement = screen.getByLabelText(/LinkMenuDesktop/i)
 
-      // Verifica se o drop esta escondido
       expect(LinkMenuDesktopElement.getAttribute('aria-hidden')).not.toBe('true')
       expect(LinkMenuDesktopElement).not.toHaveStyle({ opacity: 0 })
 
@@ -42,10 +85,8 @@ describe('<LinkMenuDesktop />', () => {
 
       const LinkMenuDesktopElement = screen.getByLabelText(/LinkMenuDesktop/i)
 
-      // Verifica se o drop esta escondido
       expect(LinkMenuDesktopElement.getAttribute('aria-hidden')).toBe('true')
       expect(LinkMenuDesktopElement).toHaveStyle({ opacity: 0 })
-
       expect(LinkMenuDesktopElement.getAttribute('aria-hidden')).not.toBe('false')
       expect(LinkMenuDesktopElement).not.toHaveStyle({ opacity: 1 })
     })
