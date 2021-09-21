@@ -24,20 +24,22 @@ export type LinkMenuDesktopProps = {
   title: string
   LinkMenuDesktopOptions?: LinkMenuDesktopTypes[]
   titleLink?: string
+  isSelected?: boolean
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
 const LinkMenuDesktop = ({
   LinkMenuDesktopOptions,
   title,
-  titleLink
+  titleLink,
+  isSelected = false
 }: LinkMenuDesktopProps) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(isSelected)
 
   const hasLinkMenuDesktop = !!LinkMenuDesktopOptions
 
   return (
     <S.Wrapper isOpen={isOpen} as={hasLinkMenuDesktop ? 'ul' : 'li'}>
-      <S.TitleWrapper onClick={() => setIsOpen(!isOpen)}>
+      <S.TitleWrapper>
         {hasLinkMenuDesktop ? (
           <>
             <S.Title>{title}</S.Title>

@@ -15,36 +15,40 @@ describe('<LinkMenuDesktop />', () => {
     expect(screen.getByRole('svg', { name: /ver opções/i })).toBeInTheDocument()
   })
 
-  it('vai abrir e fechar o LinkMenuDesktop quando clica no titulo', () => {
-    render(<LinkMenuDesktop {...mock} />)
-
-    const LinkMenuDesktopElement = screen.getByLabelText(/LinkMenuDesktop/i)
-
-    // Verifica se o drop esta escondido
-    expect(LinkMenuDesktopElement.getAttribute('aria-hidden')).toBe('true')
-    expect(LinkMenuDesktopElement).toHaveStyle({ opacity: 0 })
-
-    // LMebrar de colocar parent
-    userEvent.click(screen.getByText(/premium/i))
-    expect(LinkMenuDesktopElement.getAttribute('aria-hidden')).toBe('false')
-    expect(LinkMenuDesktopElement).toHaveStyle({ opacity: 1 })
-
-    // Verifica se caso eu clique no titulo novamente o LinkMenuDesktop é fechado
-    userEvent.click(screen.getByText(/premium/i))
-    expect(LinkMenuDesktopElement.getAttribute('aria-hidden')).toBe('true')
-    expect(LinkMenuDesktopElement).toHaveStyle({ opacity: 0 })
-  })
-
-  it('Vai mudar a cor do titulo ao clicar nele', () => {
-    render(<LinkMenuDesktop {...mock} />)
+  it('Vai mudar a cor do titulo quando ele estiver selecionado', () => {
+    render(<LinkMenuDesktop {...mock} isSelected={true} />)
 
     const premiumText = screen.getByText(/premium/i)
 
-    expect(premiumText).not.toHaveStyle({ color: theme.colors.secondary })
-
-    userEvent.click(premiumText)
-
     expect(premiumText).toHaveStyle({ color: theme.colors.secondary })
+  })
+
+  describe('O conteudo vai ter a opção de renderizar com o conteudo aberto ou fechado', () => {
+    it('vai renderizar com as opções abertas', () => {
+      render(<LinkMenuDesktop {...mock} isSelected={true} />)
+
+      const LinkMenuDesktopElement = screen.getByLabelText(/LinkMenuDesktop/i)
+
+      // Verifica se o drop esta escondido
+      expect(LinkMenuDesktopElement.getAttribute('aria-hidden')).not.toBe('true')
+      expect(LinkMenuDesktopElement).not.toHaveStyle({ opacity: 0 })
+
+      expect(LinkMenuDesktopElement.getAttribute('aria-hidden')).toBe('false')
+      expect(LinkMenuDesktopElement).toHaveStyle({ opacity: 1 })
+    })
+
+    it('vai renderizar com as opções fechadas', () => {
+      render(<LinkMenuDesktop {...mock} isSelected={false} />)
+
+      const LinkMenuDesktopElement = screen.getByLabelText(/LinkMenuDesktop/i)
+
+      // Verifica se o drop esta escondido
+      expect(LinkMenuDesktopElement.getAttribute('aria-hidden')).toBe('true')
+      expect(LinkMenuDesktopElement).toHaveStyle({ opacity: 0 })
+
+      expect(LinkMenuDesktopElement.getAttribute('aria-hidden')).not.toBe('false')
+      expect(LinkMenuDesktopElement).not.toHaveStyle({ opacity: 1 })
+    })
   })
 
   describe('O titulo vai ter a possibilidade de ser um link ou um heading', () => {
