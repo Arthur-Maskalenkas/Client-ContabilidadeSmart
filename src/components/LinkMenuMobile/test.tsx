@@ -58,7 +58,7 @@ describe('<LinkMenuMobile />', () => {
 
   describe('O titulo vai ter a possibilidade de ser um link ou um heading', () => {
     it('o titulo vai virar um link caso não passe o dropdown', () => {
-      render(<LinkMenuMobile title="Contabilidade" titleLink="/link" />)
+      render(<LinkMenuMobile title="Contabilidade" slug="/link" />)
 
       expect(screen.getByRole('link', { name: /Contabilidade/i })).toHaveAttribute(
         'href',
@@ -79,7 +79,7 @@ describe('<LinkMenuMobile />', () => {
 
   describe('O wrapper vai ter a possibilidade de ser um ul ou um li', () => {
     it('Vai ser um li caso não tenha dropdown', () => {
-      render(<LinkMenuMobile title="Contabilidade" titleLink="/link" />)
+      render(<LinkMenuMobile title="Contabilidade" slug="/link" />)
 
       expect(screen.getByRole('listitem')).toBeInTheDocument()
     })

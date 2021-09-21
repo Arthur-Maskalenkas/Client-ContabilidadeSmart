@@ -66,6 +66,7 @@ export const Title = styled.p`
   ${({ theme }) => css`
     position: relative;
     letter-spacing: '3px';
+    text-decoration: none;
     font-size: ${theme.font.sizes.xsmall};
     display: flex;
     align-items: center;

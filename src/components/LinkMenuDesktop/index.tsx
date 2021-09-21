@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { AnchorHTMLAttributes, useState } from 'react'
 import * as S from './styles'
 
@@ -17,20 +19,20 @@ import { ArrowIosDownwardOutline } from '@styled-icons/evaicons-outline'
 
 type LinkMenuDesktopTypes = {
   title: string
-  link: string
+  slug: string
 }
 
 export type LinkMenuDesktopProps = {
   title: string
   LinkMenuDesktopOptions?: LinkMenuDesktopTypes[]
-  titleLink?: string
+  slug?: string
   isSelected?: boolean
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
 const LinkMenuDesktop = ({
   LinkMenuDesktopOptions,
   title,
-  titleLink,
+  slug,
   isSelected = false
 }: LinkMenuDesktopProps) => {
   const [isOpen, setIsOpen] = useState(isSelected)
@@ -46,9 +48,11 @@ const LinkMenuDesktop = ({
             <ArrowIosDownwardOutline title="Ver opções" role="svg" />
           </>
         ) : (
-          <S.Title href={titleLink} as="a" role="link">
-            {title}
-          </S.Title>
+          <Link passHref href={`posts/${slug}`}>
+            <S.Title as="a" role="link">
+              {title}
+            </S.Title>
+          </Link>
         )}
       </S.TitleWrapper>
 
@@ -56,7 +60,9 @@ const LinkMenuDesktop = ({
         <S.Content aria-hidden={!isOpen} aria-label="LinkMenuDesktop">
           {LinkMenuDesktopOptions!.map((item, index) => (
             <S.LinkMenuDesktopTitleWrapper key={index}>
-              <S.LinkMenuDesktopTitle>{item.title}</S.LinkMenuDesktopTitle>
+              <Link passHref href={`posts/${item.slug}`}>
+                <S.LinkMenuDesktopTitle>{item.title}</S.LinkMenuDesktopTitle>
+              </Link>
             </S.LinkMenuDesktopTitleWrapper>
           ))}
         </S.Content>

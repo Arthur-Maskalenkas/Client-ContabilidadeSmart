@@ -53,12 +53,11 @@ describe('<LinkMenuDesktop />', () => {
 
   describe('O titulo vai ter a possibilidade de ser um link ou um heading', () => {
     it('o titulo vai virar um link caso não passe o LinkMenuDesktop', () => {
-      render(<LinkMenuDesktop title="premium" titleLink="/link" />)
+      render(<LinkMenuDesktop title="premium" slug="link" />)
 
-      expect(screen.getByRole('link', { name: /premium/i })).toHaveAttribute(
-        'href',
-        '/link'
-      )
+      const titlePremium = screen.getByRole('link', { name: /premium/i })
+
+      expect(titlePremium).toHaveAttribute('href', '/posts/link')
     })
 
     it('o titulo vai virar um heading caso não passe o LinkMenuDesktop', () => {
@@ -70,7 +69,7 @@ describe('<LinkMenuDesktop />', () => {
 
   describe('O wrapper vai ter a possibilidade de ser um ul ou um li', () => {
     it('Vai ser um li caso não tenha LinkMenuDesktop', () => {
-      render(<LinkMenuDesktop title="Contabilidade" titleLink="/link" />)
+      render(<LinkMenuDesktop title="Contabilidade" slug="link" />)
 
       expect(screen.getByRole('listitem')).toBeInTheDocument()
     })

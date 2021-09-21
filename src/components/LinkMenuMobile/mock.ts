@@ -5,11 +5,11 @@ const mock: LinkMenuMobileProps = {
   dropdownOptions: [
     {
       title: 'Aceleradora',
-      link: 'link 2'
+      slug: 'link 2'
     },
     {
       title: 'Aceleradora',
-      link: 'BPO financeiro'
+      slug: 'BPO financeiro'
     }
   ]
 }
@@ -19,11 +19,11 @@ const mock2: LinkMenuMobileProps = {
   dropdownOptions: [
     {
       title: 'Aceleradora',
-      link: 'link 2'
+      slug: 'link 2'
     },
     {
       title: 'Aceleradora',
-      link: 'BPO financeiro'
+      slug: 'BPO financeiro'
     }
   ]
 }

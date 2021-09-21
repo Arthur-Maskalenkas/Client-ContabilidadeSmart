@@ -5,16 +5,16 @@ import { AnchorHTMLAttributes, useState } from 'react'
 
 type dropDownTypes = {
   title: string
-  link: string
+  slug: string
 }
 
 export type LinkMenuMobileProps = {
   dropdownOptions?: dropDownTypes[]
   title: string
-  titleLink?: string
+  slug?: string
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
-const LinkMenuMobile = ({ dropdownOptions, title, titleLink }: LinkMenuMobileProps) => {
+const LinkMenuMobile = ({ dropdownOptions, title, slug }: LinkMenuMobileProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const hasDropdown = !!dropdownOptions
@@ -39,7 +39,7 @@ const LinkMenuMobile = ({ dropdownOptions, title, titleLink }: LinkMenuMobilePro
             <ArrowRight />
           </>
         ) : (
-          <S.Title href={titleLink} as="a" role="link">
+          <S.Title href={slug} as="a" role="link">
             {title}
           </S.Title>
         )}
