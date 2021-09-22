@@ -59,15 +59,6 @@ export const MenuNav = styled.div`
   `}
 `
 
-export const MenuLink = styled.a`
-  ${({ theme }) => css`
-    color: ${theme.colors.white};
-    text-decoration: none;
-    font-size: ${theme.font.sizes.small};
-    margin-left: ${theme.spacings.small};
-  `}
-`
-
 type MenuFullProps = {
   isOpen: boolean
 }

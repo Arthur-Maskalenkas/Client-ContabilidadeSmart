@@ -38,7 +38,7 @@ describe('<LinkMenuDesktop />', () => {
       expect(takeTitle).toBeCalledWith('Premium')
     })
 
-    it('Vai retornar o titulo do elemento quando ele for clicado', () => {
+    it('Vai retornar o titulo do elemento quando o titulo for clicado', () => {
       const takeTitle = jest.fn()
 
       render(<LinkMenuDesktop title="Premium" takeTitle={takeTitle} isSelected={true} />)
@@ -61,10 +61,6 @@ describe('<LinkMenuDesktop />', () => {
 
       expect(takeTitle).toBeCalledWith('Premium')
     })
-  })
-
-  it('Vai retornar o titulo quando clicar nele', () => {
-    render(<LinkMenuDesktop {...mock} />)
   })
 
   describe('O conteudo vai ter a opção de renderizar com o conteudo aberto ou fechado', () => {
