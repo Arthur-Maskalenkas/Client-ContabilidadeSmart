@@ -6,11 +6,11 @@ export const DropPremiumMockMobile: LinkMenuMobileProps = {
   dropdownOptions: [
     {
       title: 'Aceleradora',
-      link: 'link 2'
+      slug: 'aceleradora'
     },
     {
       title: 'BPO financeiro',
-      link: 'BPO financeiro'
+      slug: 'bpo_financeiro'
     }
   ]
 }
@@ -18,58 +18,55 @@ export const DropPremiumMockMobile: LinkMenuMobileProps = {
 export const DropNossoTrabalhoMockMobile: LinkMenuMobileProps = {
   title: 'Nosso Trabalho',
   dropdownOptions: [
-    { title: 'Contabil', link: '#' },
-    { title: 'Legalização', link: 'BPO financeiro' },
-    { title: 'Departamento Pessoal', link: '#' },
-    { title: 'Fiscal e Tributária', link: '#' },
-    { title: 'Pessoa Fisica', link: '#' },
-    { title: 'Certificado Digital', link: '#' }
+    { title: 'Contabil', slug: 'contabil' },
+    { title: 'Legalização', slug: 'legalizacao' },
+    { title: 'Departamento Pessoal', slug: 'departamento_pessoal' },
+    { title: 'Fiscal e Tributária', slug: 'fiscal_e_tributaria' },
+    { title: 'Pessoa Fisica', slug: 'pessoa_fisica' },
+    { title: 'Certificado Digital', slug: 'certificado_digital' }
   ]
 }
 
 export const DropBlogMockMobile: LinkMenuMobileProps = {
-  title: 'Nosso Trabalho',
+  title: 'Blog',
   dropdownOptions: [
-    { title: 'infoproduto', link: '#' },
-    { title: 'Midias Sociais', link: 'BPO financeiro' },
-    { title: 'Tendencias', link: '#' },
-    { title: 'Noticias', link: '#' },
-    { title: 'Mei', link: '#' },
-    { title: 'Contabilidade', link: '#' }
+    { title: 'infoproduto', slug: 'infoproduto' },
+    { title: 'Midias Sociais', slug: 'midias_sociais' },
+    { title: 'Tendencias', slug: 'tendencias' },
+    { title: 'Noticias', slug: 'noticias' },
+    { title: 'Mei', slug: 'mei' },
+    { title: 'Contabilidade', slug: 'contabilidade' }
   ]
 }
 
 export const DropPremiumMockDesktop: LinkMenuDesktopProps = {
   title: 'Premium',
   LinkMenuDesktopOptions: [
-    { title: 'Aceleradora', link: 'link 2' },
-    {
-      title: 'BPO financeiro',
-      link: 'BPO financeiro'
-    }
+    { title: 'Aceleradora', slug: 'link 2' },
+    { title: 'BPO financeiro', slug: 'BPO financeiro' }
   ]
 }
 
 export const DropNossoTrabalhoMockDesktop: LinkMenuDesktopProps = {
   title: 'Nosso Trabalho',
   LinkMenuDesktopOptions: [
-    { title: 'Contabil', link: '#' },
-    { title: 'Legalização', link: 'BPO financeiro' },
-    { title: 'Departamento Pessoal', link: '#' },
-    { title: 'Fiscal e Tributária', link: '#' },
-    { title: 'Pessoa Fisica', link: '#' },
-    { title: 'Certificado Digital', link: '#' }
+    { title: 'Contabil', slug: 'contabil' },
+    { title: 'Legalização', slug: 'legalizacao' },
+    { title: 'Departamento Pessoal', slug: 'departamento_pessoal' },
+    { title: 'Fiscal e Tributária', slug: 'fiscal_e_tributaria' },
+    { title: 'Pessoa Fisica', slug: 'pessoa_fisica' },
+    { title: 'Certificado Digital', slug: 'certificado_digital' }
   ]
 }
 
 export const DropBlogMockDesktop: LinkMenuDesktopProps = {
-  title: 'Nosso Trabalho',
+  title: 'Blog',
   LinkMenuDesktopOptions: [
-    { title: 'infoproduto', link: '#' },
-    { title: 'Midias Sociais', link: 'BPO financeiro' },
-    { title: 'Tendencias', link: '#' },
-    { title: 'Noticias', link: '#' },
-    { title: 'Mei', link: '#' },
-    { title: 'Contabilidade', link: '#' }
+    { title: 'infoproduto', slug: 'infoproduto' },
+    { title: 'Midias Sociais', slug: 'midias_sociais' },
+    { title: 'Tendencias', slug: 'tendencias' },
+    { title: 'Noticias', slug: 'noticias' },
+    { title: 'Mei', slug: 'mei' },
+    { title: 'Contabilidade', slug: 'contabilidade' }
   ]
 }

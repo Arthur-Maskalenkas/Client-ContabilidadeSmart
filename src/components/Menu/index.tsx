@@ -7,12 +7,29 @@ import { useState } from 'react'
 
 import * as S from './styles'
 
+// Vai passar o menuselect para o linkmenudesktop, e la ele vai tratar
+
 import LinkMenuMobile from 'components/LinkMenuMobile'
 import * as mockMenu from './mock'
 import LinkMenuDesktop from 'components/LinkMenuDesktop'
 
-const Menu = () => {
-  const [isOpen, setIsOpen] = useState(false)
+type MenuProps = {
+  handleMenuSelect?: (value: string) => void
+}
+
+const Menu = ({ handleMenuSelect }: MenuProps) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [menuSelect, setMenuSelect] = useState<string>('')
+
+  const onChangeMenuSelect = (titleCatch: string) => {
+    const noIsNew = menuSelect == titleCatch
+
+    noIsNew ? setMenuSelect('') : setMenuSelect(titleCatch)
+
+    if (handleMenuSelect) {
+      handleMenuSelect(noIsNew ? '' : titleCatch)
+    }
+  }
 
   return (
     <S.Wrapper>
@@ -28,12 +45,38 @@ const Menu = () => {
 
       <MediaWatch greaterThan="medium">
         <S.MenuNav>
-          <LinkMenuDesktop title="Infoprodutores" />
-          <LinkMenuDesktop {...mockMenu.DropPremiumMockDesktop} />
-          <LinkMenuDesktop {...mockMenu.DropNossoTrabalhoMockDesktop} />
-          <LinkMenuDesktop title="Sobre nós" />
-          <LinkMenuDesktop {...mockMenu.DropBlogMockDesktop} />
-          <LinkMenuDesktop title="Home" />
+          <LinkMenuDesktop
+            title="Infoprodutores"
+            takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
+            isSelected={menuSelect == 'Infoprodutores'}
+          />
+
+          <LinkMenuDesktop
+            {...mockMenu.DropPremiumMockDesktop}
+            takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
+            isSelected={menuSelect == 'Premium'}
+          />
+          <LinkMenuDesktop
+            {...mockMenu.DropNossoTrabalhoMockDesktop}
+            takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
+            isSelected={menuSelect == 'Nosso Trabalho'}
+          />
+          <LinkMenuDesktop
+            title="Sobre nós"
+            takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
+            isSelected={menuSelect == 'Sobre nós'}
+          />
+          <LinkMenuDesktop
+            {...mockMenu.DropBlogMockDesktop}
+            takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
+            isSelected={menuSelect == 'Blog'}
+          />
+          <LinkMenuDesktop
+            title="Home"
+            slug="Home"
+            takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
+            isSelected={menuSelect == 'Home'}
+          />
         </S.MenuNav>
       </MediaWatch>
 
