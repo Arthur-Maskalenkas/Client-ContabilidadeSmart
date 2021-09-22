@@ -1,23 +1,30 @@
-import MediaWatch from 'components/MediaWatch'
+import { useState } from 'react'
 
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 
-import { useState } from 'react'
-
 import * as S from './styles'
 
-// Vai passar o menuselect para o linkmenudesktop, e la ele vai tratar
-
+import MediaWatch from 'components/MediaWatch'
 import LinkMenuMobile from 'components/LinkMenuMobile'
-import * as mockMenu from './mock'
 import LinkMenuDesktop from 'components/LinkMenuDesktop'
 
-type MenuProps = {
-  handleMenuSelect?: (value: string) => void
+type menuOptions = {
+  titleOption: string
+  slug: string
 }
 
-const Menu = ({ handleMenuSelect }: MenuProps) => {
+type menu = {
+  title: string
+  options?: menuOptions[]
+}
+
+export type MenuProps = {
+  handleMenuSelect?: (value: string) => void
+  menuSelects: menu[]
+}
+
+const Menu = ({ handleMenuSelect, menuSelects }: MenuProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [menuSelect, setMenuSelect] = useState<string>('')
 
@@ -45,54 +52,38 @@ const Menu = ({ handleMenuSelect }: MenuProps) => {
 
       <MediaWatch greaterThan="medium">
         <S.MenuNav>
-          <LinkMenuDesktop
-            title="Infoprodutores"
-            takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
-            isSelected={menuSelect == 'Infoprodutores'}
-          />
-
-          <LinkMenuDesktop
-            {...mockMenu.DropPremiumMockDesktop}
-            takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
-            isSelected={menuSelect == 'Premium'}
-          />
-          <LinkMenuDesktop
-            {...mockMenu.DropNossoTrabalhoMockDesktop}
-            takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
-            isSelected={menuSelect == 'Nosso Trabalho'}
-          />
-          <LinkMenuDesktop
-            title="Sobre nós"
-            takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
-            isSelected={menuSelect == 'Sobre nós'}
-          />
-          <LinkMenuDesktop
-            {...mockMenu.DropBlogMockDesktop}
-            takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
-            isSelected={menuSelect == 'Blog'}
-          />
-          <LinkMenuDesktop
-            title="Home"
-            slug="Home"
-            takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
-            isSelected={menuSelect == 'Home'}
-          />
+          {menuSelects.map((item, index) => (
+            <LinkMenuDesktop
+              key={index}
+              title={item.title}
+              dropdownOptions={item.options}
+              takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
+              isSelected={menuSelect == item.title}
+            />
+          ))}
         </S.MenuNav>
       </MediaWatch>
 
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
         <CloseIcon aria-label="Close Menu" onClick={() => setIsOpen(false)} />
-
         <S.MenuFullContent>
-          <LinkMenuMobile title="Infoprodutores" />
-          <LinkMenuMobile {...mockMenu.DropPremiumMockMobile} />
-          <LinkMenuMobile {...mockMenu.DropNossoTrabalhoMockMobile} />
-          <LinkMenuMobile title="Sobre nós" />
-          <LinkMenuMobile {...mockMenu.DropBlogMockMobile} />
-          <LinkMenuMobile title="Home" />
+          {menuSelects.map((item, index) => (
+            <LinkMenuMobile
+              key={index}
+              title={item.title}
+              dropdownOptions={item.options}
+            />
+          ))}
         </S.MenuFullContent>
       </S.MenuFull>
     </S.Wrapper>
   )
 }
 export default Menu
+
+// <LinkMenuDesktop
+// {...mockMenu.DropNossoTrabalhoMockDesktop}
+// takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
+// isSelected={menuSelect == 'Nosso Trabalho'}
+// />
+// <LinkMenuMobile title="Infoprodutores" />

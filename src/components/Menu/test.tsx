@@ -2,6 +2,8 @@ import userEvent from '@testing-library/user-event'
 import theme from 'styles/theme'
 import { fireEvent, render, screen } from 'utils/test-utils'
 
+import mock from './mock'
+
 import Menu from '.'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -20,7 +22,7 @@ useRouter.mockImplementation(() => ({
 
 describe('<Menu />', () => {
   it('Deve abrir/fechar o menu', () => {
-    render(<Menu />)
+    render(<Menu {...mock} />)
 
     // selecionar o nosso MenuFull
     const fullMenuElement = screen.getByRole('navigation', { hidden: true })
@@ -41,7 +43,7 @@ describe('<Menu />', () => {
   })
 
   it('Deve renderizar todas as opções', () => {
-    render(<Menu />)
+    render(<Menu {...mock} />)
 
     // 1 no desktop e outra no mobile
     expect(screen.getAllByText(/infoprodutores/i)).toHaveLength(2)
@@ -53,7 +55,7 @@ describe('<Menu />', () => {
   })
 
   it('Deve mudar a cor do menu ao abrir ele no desktop', () => {
-    render(<Menu />)
+    render(<Menu {...mock} />)
 
     const premiumWithDropdown = screen.getAllByText(/Premium/i)[0]
 
@@ -63,7 +65,7 @@ describe('<Menu />', () => {
   })
 
   it('Deve mudar a cor do menu ao abrir ele no desktop, e desmarcar caso aperte novamente ', () => {
-    render(<Menu />)
+    render(<Menu {...mock} />)
 
     const premiumWithDropdown = screen.getAllByText(/Premium/i)[0]
 
@@ -79,7 +81,7 @@ describe('<Menu />', () => {
   it('Deve passar o menu Premium para o menuSelect caso aperte no menu Premium ', async () => {
     const handleMenuSelect = jest.fn()
 
-    render(<Menu handleMenuSelect={handleMenuSelect} />)
+    render(<Menu {...mock} handleMenuSelect={handleMenuSelect} />)
 
     const premiumWithDropdown = screen.getAllByText(/Premium/i)[0]
 
@@ -92,7 +94,7 @@ describe('<Menu />', () => {
   it('Deve passar o menu Premium para o menuSelect caso aperte no menu Premium e retornar um menuSelect vazio caso aperte novamente, para que ele desmarque', () => {
     const handleMenuSelect = jest.fn()
 
-    render(<Menu handleMenuSelect={handleMenuSelect} />)
+    render(<Menu {...mock} handleMenuSelect={handleMenuSelect} />)
 
     const premiumWithDropdown = screen.getAllByText(/Premium/i)[0]
 

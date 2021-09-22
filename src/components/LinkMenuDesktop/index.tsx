@@ -19,20 +19,20 @@ import { useEffect } from 'react'
 //        <li>
 
 type LinkMenuDesktopTypes = {
-  title: string
+  titleOption: string
   slug: string
 }
 
 export type LinkMenuDesktopProps = {
   title: string
-  LinkMenuDesktopOptions?: LinkMenuDesktopTypes[]
+  dropdownOptions?: LinkMenuDesktopTypes[]
   slug?: string
   isSelected?: boolean
   takeTitle?: (valueTitle: string) => void
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
 const LinkMenuDesktop = ({
-  LinkMenuDesktopOptions,
+  dropdownOptions,
   title,
   slug,
   isSelected = false,
@@ -40,7 +40,7 @@ const LinkMenuDesktop = ({
 }: LinkMenuDesktopProps) => {
   const [isOpen, setIsOpen] = useState(isSelected)
 
-  const hasLinkMenuDesktop = !!LinkMenuDesktopOptions
+  const hasLinkMenuDesktop = !!dropdownOptions
 
   useEffect(() => {
     setIsOpen(isSelected)
@@ -75,10 +75,10 @@ const LinkMenuDesktop = ({
 
       {hasLinkMenuDesktop && (
         <S.Content aria-hidden={!isOpen} aria-label="LinkMenuDesktop">
-          {LinkMenuDesktopOptions!.map((item, index) => (
+          {dropdownOptions!.map((item, index) => (
             <S.LinkMenuDesktopTitleWrapper key={index}>
               <Link passHref href={`posts/${item.slug}`}>
-                <S.LinkMenuDesktopTitle>{item.title}</S.LinkMenuDesktopTitle>
+                <S.LinkMenuDesktopTitle>{item.titleOption}</S.LinkMenuDesktopTitle>
               </Link>
             </S.LinkMenuDesktopTitleWrapper>
           ))}

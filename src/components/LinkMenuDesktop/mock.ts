@@ -4,11 +4,11 @@ const mock: LinkMenuDesktopProps = {
   title: 'Premium',
   LinkMenuDesktopOptions: [
     {
-      title: 'Aceleradora',
+      titleOption: 'Aceleradora',
       slug: 'link 2'
     },
     {
-      title: 'BPO financeiro',
+      titleOption: 'BPO financeiro',
       slug: 'BPO financeiro'
     }
   ]

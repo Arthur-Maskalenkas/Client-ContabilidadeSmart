@@ -4,7 +4,7 @@ import { ArrowRight } from '@styled-icons/fa-solid'
 import { AnchorHTMLAttributes, useState } from 'react'
 
 type dropDownTypes = {
-  title: string
+  titleOption: string
   slug: string
 }
 
@@ -49,7 +49,7 @@ const LinkMenuMobile = ({ dropdownOptions, title, slug }: LinkMenuMobileProps) =
         <S.DropdownList aria-hidden={!isOpen} aria-label="dropdown">
           {dropdownOptions!.map((item, index) => (
             <S.DropdownItemWrapper key={index}>
-              <S.DropdownItem>{item.title}</S.DropdownItem>
+              <S.DropdownItem>{item.titleOption}</S.DropdownItem>
             </S.DropdownItemWrapper>
           ))}
         </S.DropdownList>
