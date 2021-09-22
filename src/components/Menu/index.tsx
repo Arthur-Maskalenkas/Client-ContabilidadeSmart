@@ -80,10 +80,3 @@ const Menu = ({ handleMenuSelect, menuSelects }: MenuProps) => {
   )
 }
 export default Menu
-
-// <LinkMenuDesktop
-// {...mockMenu.DropNossoTrabalhoMockDesktop}
-// takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
-// isSelected={menuSelect == 'Nosso Trabalho'}
-// />
-// <LinkMenuMobile title="Infoprodutores" />
