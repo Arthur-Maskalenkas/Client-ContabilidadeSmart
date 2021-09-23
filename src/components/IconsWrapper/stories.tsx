@@ -23,8 +23,11 @@ export default {
         options: ['1rem', '3rem', '6rem', '9rem']
       }
     },
-    colorNoDefault: {
-      control: 'color'
+    hoverColor: {
+      control: {
+        type: 'inline-radio',
+        options: ['secondary', 'white']
+      }
     }
   }
 } as Meta
@@ -32,8 +35,9 @@ export default {
 export const Default: Story<IconsProps> = (args) => <IconsWrapper {...args} />
 
 Default.args = {
-  size: '9rem',
+  size: '6rem',
   icon: 'Whatsapp',
   color: 'secondary',
-  hoverColor: 'white'
+  hoverColor: 'white',
+  borderColor: 'white'
 }

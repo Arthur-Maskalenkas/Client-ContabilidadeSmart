@@ -32,15 +32,51 @@ const wrapperModifiers = {
       }
   `}
   `,
-  relativeYMod: (relativeY: string) => css`
-    ${StyledIconBase} {
-      top: ${relativeY};
-    }
+
+  borderColor: (theme: DefaultTheme, borderColor: colorTypes, hoverColor: boolean) => css`
+    width: max-content;
+    border-radius: 50%;
+    padding: ${theme.spacings.xxsmall};
+    transition: 0.6s all;
+
+    ${borderColor == 'white'
+      ? css`
+          background-color: ${theme.colors.white};
+          ${StyledIconBase} {
+            color: ${theme.colors.secondary};
+          }
+
+          ${hoverColor &&
+          css`
+            &:hover {
+              background-color: ${theme.colors.secondary};
+              ${StyledIconBase} {
+                color: ${theme.colors.white};
+              }
+            }
+          `}
+        `
+      : css`
+          background-color: ${theme.colors.secondary};
+          ${StyledIconBase} {
+            color: ${theme.colors.white};
+          }
+
+          ${hoverColor &&
+          css`
+            &:hover {
+              background-color: ${theme.colors.white};
+              ${StyledIconBase} {
+                color: ${theme.colors.secondary};
+              }
+            }
+          `}
+        `}
   `
 }
 
 export const Wrapper = styled.div<Omit<IconsProps, 'icon'>>`
-  ${({ theme, size, color, hoverColor, isScale, sizeMedia, relativeY }) => css`
+  ${({ theme, size, color, hoverColor, isScale, sizeMedia, borderColor }) => css`
     > ${StyledIconBase} {
       width: ${size};
       color: ${theme.colors[color!]};
@@ -52,6 +88,6 @@ export const Wrapper = styled.div<Omit<IconsProps, 'icon'>>`
     ${!!hoverColor && wrapperModifiers.hoverColorMod(theme, hoverColor)}
     ${!!isScale && wrapperModifiers.scaleMod()}
     ${!!sizeMedia && wrapperModifiers.sizeMediaMod(sizeMedia)}
-    ${!!relativeY && wrapperModifiers.relativeYMod(relativeY)}
+    ${!!borderColor && wrapperModifiers.borderColor(theme, borderColor, !!hoverColor)}
   `}
 `

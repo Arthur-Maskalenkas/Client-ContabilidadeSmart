@@ -28,10 +28,6 @@ exports[`<IconsWrapper /> Deve renderizar o icone e testar hover, size, e color,
   transition: all 0.2s;
 }
 
-.c0 .c1 {
-  top: 1rem;
-}
-
 @media (max-width:768px) {
   .c0 .c1 {
     width: 2rem;

@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@styled-icons/bootstrap": "^10.34.0",
+    "@styled-icons/boxicons-logos": "^10.38.0",
     "@styled-icons/evaicons-outline": "^10.34.0",
     "@styled-icons/fa-solid": "^10.34.0",
     "@styled-icons/material-outlined": "^10.34.0",

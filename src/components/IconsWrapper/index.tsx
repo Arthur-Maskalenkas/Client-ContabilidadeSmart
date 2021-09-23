@@ -14,7 +14,7 @@ export type IconsProps = {
   color?: colorTypes
   hoverColor?: colorTypes
   isScale?: boolean
-  relativeY?: string
+  borderColor?: colorTypes
 }
 
 const IconsWrapper = ({
@@ -24,7 +24,7 @@ const IconsWrapper = ({
   color,
   hoverColor,
   isScale,
-  relativeY
+  borderColor
 }: IconsProps) => (
   <S.Wrapper
     size={size}
@@ -32,7 +32,7 @@ const IconsWrapper = ({
     color={color}
     hoverColor={hoverColor}
     isScale={isScale}
-    relativeY={relativeY}
+    borderColor={borderColor}
   >
     {IconsDefault[icon]}
   </S.Wrapper>
