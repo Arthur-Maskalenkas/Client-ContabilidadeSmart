@@ -35,6 +35,9 @@ const wrapperModifiers = {
 
   borderColor: (theme: DefaultTheme, borderColor: colorTypes, hoverColor: boolean) => css`
     width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
     padding: ${theme.spacings.xxsmall};
     transition: 0.6s all;
