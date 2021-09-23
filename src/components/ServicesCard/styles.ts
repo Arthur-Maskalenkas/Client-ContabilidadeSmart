@@ -1,11 +1,18 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.article`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
     padding: ${theme.spacings.large};
+
     box-shadow: 0px 0px 50px -2px rgba(0, 0, 0, 0.52);
+
+    ${media.greaterThan('large')`
+
+    box-shadow: 0px 0px 50px -2px rgba(0, 0, 0, 0.25);
+    `}
   `}
 `
 
@@ -33,7 +40,7 @@ export const Description = styled.p`
   `}
 `
 
-export const SaibaMais = styled.p`
+export const SaibaMais = styled.a`
   ${({ theme }) => css`
     color: ${theme.colors.black};
     font-size: 1.5rem;

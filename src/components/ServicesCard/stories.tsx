@@ -2,13 +2,29 @@ import { Story, Meta } from '@storybook/react'
 import ServicesCard, { ServicesCardProps } from '.'
 
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { Container } from 'components/Container'
 
 export default {
   title: 'ServicesCard',
   component: ServicesCard
 } as Meta
 
-export const Default: Story<ServicesCardProps> = (args) => <ServicesCard {...args} />
+export const Default: Story<ServicesCardProps> = (args) => (
+  <Container>
+    <div
+      style={{
+        marginTop: '50px',
+        display: 'grid',
+        gridTemplateColumns: '1fr  1fr 1fr',
+        gap: '5rem'
+      }}
+    >
+      <ServicesCard {...args} icon="Facebook" />
+      <ServicesCard {...args} icon="Instagram" />
+      <ServicesCard {...args} icon="Whatsapp" />
+    </div>
+  </Container>
+)
 
 Default.args = {
   title: 'Infoproduto',
