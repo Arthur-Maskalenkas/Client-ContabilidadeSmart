@@ -1,7 +1,16 @@
 import * as S from './styles'
 import { IconsDefault } from './icons'
 
-export type IconTypes = 'Whatsapp' | 'Instagram' | 'Facebook'
+export type IconTypes =
+  | 'Whatsapp'
+  | 'Instagram'
+  | 'Facebook'
+  | 'Cubes'
+  | 'Cog'
+  | 'AmericanSignLanguageInterpreting'
+  | 'ChartArea'
+  | 'Coffee'
+  | 'Child'
 
 type colorTypes = 'secondary' | 'white'
 
