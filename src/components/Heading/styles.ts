@@ -14,6 +14,10 @@ const wrapperModifiers = {
     font-size: ${theme.font.sizes.huge};
   `,
 
+  small: (theme: DefaultTheme) => css`
+    font-size: ${theme.font.sizes.small};
+  `,
+
   lineLeft: (theme: DefaultTheme) => css`
     padding-left: ${theme.spacings.xxsmall};
     border-left: 0.7rem solid ${theme.colors.secondary};

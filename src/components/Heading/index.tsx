@@ -1,7 +1,7 @@
 import React from 'react'
 import * as S from './styles'
 
-export type SizeTypes = 'medium' | 'xlarge' | 'huge'
+export type SizeTypes = 'medium' | 'xlarge' | 'huge' | 'small'
 export type ColorTypes = 'primary' | 'secondary' | 'black'
 
 export type HeadingProps = {
