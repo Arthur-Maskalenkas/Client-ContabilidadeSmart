@@ -50,7 +50,8 @@ export default {
     yellow: 'F2BB05',
     green: '#32A09A',
     lightGreen: '#80CFCF',
-    darkGreen: '#278282'
+    darkGreen: '#278282',
+    brown: '#1d1a1a'
   },
   spacings: {
     xxxsmall: '0.4rem',

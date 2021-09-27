@@ -2,6 +2,8 @@ import { Container } from 'components/Container'
 import Footer from 'components/Footer'
 import Menu from 'components/Menu'
 
+import mockMenu from 'components/Menu/mock'
+
 import * as S from './styles'
 
 export type BaseTemplateProps = {
@@ -11,7 +13,7 @@ export type BaseTemplateProps = {
 const Base = ({ children }: BaseTemplateProps) => (
   <S.Wrapper>
     <Container>
-      <Menu />
+      <Menu menuSelects={mockMenu.menuSelects} />
     </Container>
 
     <S.Content>{children}</S.Content>
