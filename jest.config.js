@@ -8,8 +8,7 @@ module.exports = {
     '!src/pages/**/**',
     '!src/styles/**',
     '!src/types/**',
-    '!src/components/**/mock.ts',
-    '!src/templates/**'
+    '!src/components/**/mock.ts'
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
   modulePaths: ['<rootDir>/src/']

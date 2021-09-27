@@ -2,15 +2,9 @@ import { LinkMenuDesktopProps } from '.'
 
 const mock: LinkMenuDesktopProps = {
   title: 'Premium',
-  LinkMenuDesktopOptions: [
-    {
-      titleOption: 'Aceleradora',
-      slug: 'link 2'
-    },
-    {
-      titleOption: 'BPO financeiro',
-      slug: 'BPO financeiro'
-    }
+  dropdownOptions: [
+    { titleOption: 'Opçao 1', slug: 'Opçao 1' },
+    { titleOption: 'opçao 2', slug: 'opçao 2' }
   ]
 }
 

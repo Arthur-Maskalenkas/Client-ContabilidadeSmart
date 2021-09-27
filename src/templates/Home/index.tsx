@@ -3,7 +3,9 @@ import * as S from './styles'
 
 const Home = () => (
   <Base>
-    <S.Wrapper></S.Wrapper>
+    <S.Wrapper>
+      <h1>oi</h1>
+    </S.Wrapper>
   </Base>
 )
 
