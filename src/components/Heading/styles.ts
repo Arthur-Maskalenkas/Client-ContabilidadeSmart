@@ -25,6 +25,7 @@ const wrapperModifiers = {
 
   lineRight: (theme: DefaultTheme) => css`
     position: relative;
+    width: max-content;
 
     &::after {
       content: '';

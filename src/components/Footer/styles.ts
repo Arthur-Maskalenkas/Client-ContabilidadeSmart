@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.footer`
   ${({ theme }) => css`
@@ -30,5 +31,17 @@ export const IconWrapper = styled.div<IconWrapperProps>`
       width: 4rem;
       color: white;
     }
+
+    ${media.lessThan('medium')`
+    padding: ${theme.spacings.xxsmall};
+
+    &:not(:last-child) {
+      margin-right: ${theme.spacings.small};
+    }
+
+      & > svg {
+        width: 3.5rem;
+      }
+    `}
   `}
 `

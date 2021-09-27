@@ -11,7 +11,6 @@ export const Wrapper = styled.menu`
     padding: 0 ${theme.spacings.medium};
     justify-content: space-between;
     z-index: ${theme.layers.menu};
-    border-bottom: solid 0.5rem ${theme.colors.secondary};
 
     ${media.greaterThan('large')`
       position: absolute;
