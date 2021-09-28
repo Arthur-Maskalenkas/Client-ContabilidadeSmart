@@ -1,10 +1,11 @@
-import { Facebook, Whatsapp, Instagram } from '@styled-icons/boxicons-logos'
+import { Facebook, Whatsapp, Instagram, Youtube } from '@styled-icons/boxicons-logos'
 
 import {
   Cubes,
   Cog,
   AmericanSignLanguageInterpreting,
   ChartArea,
+  Laptop,
   Coffee,
   Child
 } from '@styled-icons/fa-solid'
@@ -23,5 +24,7 @@ export const IconsDefault = {
   ),
   ChartArea: <ChartArea title="ChartArea" role="svg" />,
   Coffee: <Coffee title="Coffee" role="svg" />,
-  Child: <Child title="Child" role="svg" />
+  Child: <Child title="Child" role="svg" />,
+  Youtube: <Youtube title="Youtube" role="svg" />,
+  Laptop: <Laptop title="Laptop" role="svg" />
 }

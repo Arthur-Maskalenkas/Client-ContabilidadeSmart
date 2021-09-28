@@ -1,4 +1,5 @@
 import styled, { css, DefaultTheme } from 'styled-components'
+import media from 'styled-media-query'
 import { ColorTypes, SizeTypes } from '.'
 
 const wrapperModifiers = {
@@ -8,6 +9,10 @@ const wrapperModifiers = {
 
   xlarge: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.xlarge};
+
+    ${media.lessThan('medium')`
+      font-size: ${theme.font.sizes.medium};
+    `}
   `,
 
   huge: (theme: DefaultTheme) => css`
@@ -25,16 +30,19 @@ const wrapperModifiers = {
 
   lineRight: (theme: DefaultTheme) => css`
     position: relative;
+
+    ${media.greaterThan('medium')`
     width: max-content;
 
-    &::after {
-      content: '';
-      position: absolute;
-      right: -12.5rem;
-      top: 30%;
-      width: 7rem;
-      border-bottom: 0.3rem solid ${theme.colors.secondary};
-    }
+      &::after {
+        content: '';
+        position: absolute;
+        right: -12.5rem;
+        top: 30%;
+        width: 7rem;
+        border-bottom: 0.3rem solid ${theme.colors.secondary};
+      }
+`}
   `
 }
 

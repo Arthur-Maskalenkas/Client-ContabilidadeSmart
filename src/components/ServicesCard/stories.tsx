@@ -5,7 +5,7 @@ import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { Container } from 'components/Container'
 
 export default {
-  title: 'ServicesCard',
+  title: 'Cards/ServicesCard',
   component: ServicesCard
 } as Meta
 
@@ -20,8 +20,6 @@ export const Default: Story<ServicesCardProps> = (args) => (
       }}
     >
       <ServicesCard {...args} icon="Facebook" />
-      <ServicesCard {...args} icon="Instagram" />
-      <ServicesCard {...args} icon="Whatsapp" />
     </div>
   </Container>
 )

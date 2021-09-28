@@ -11,7 +11,8 @@ export type IconTypes =
   | 'ChartArea'
   | 'Coffee'
   | 'Child'
-
+  | 'Youtube'
+  | 'Laptop'
 type colorTypes = 'secondary' | 'white'
 
 export type sizeTypes = 'small' | 'medium' | 'xlarge' | 'xxlarge' | 'xxxlarge' | 'large'

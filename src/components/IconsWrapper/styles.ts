@@ -39,7 +39,7 @@ const wrapperModifiers = {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    padding: ${theme.spacings.xxsmall};
+    padding: ${theme.spacings.xsmall};
     transition: 0.6s all;
 
     ${borderColor == 'white'

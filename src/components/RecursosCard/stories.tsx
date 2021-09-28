@@ -6,9 +6,25 @@ import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 import mock from './mock'
 
 export default {
-  title: 'RecursosCard',
+  title: 'Cards/RecursosCard',
   component: RecursosCard
 } as Meta
+
+export const Default: Story<RecursosCardProps> = (args) => (
+  <div style={{ width: '38rem' }}>
+    <RecursosCard {...args} />
+  </div>
+)
+
+Default.args = {
+  ...mock
+}
+
+Default.parameters = {
+  backgrounds: {
+    default: 'mm-light'
+  }
+}
 
 export const Mobile: Story<RecursosCardProps> = (args) => (
   <div style={{ padding: '1.5rem' }}>
