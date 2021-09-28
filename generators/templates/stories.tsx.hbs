@@ -1,9 +1,35 @@
 import { Story, Meta } from '@storybook/react'
 import {{pascalCase name}} from '.'
 
+import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
+
 export default {
   title: '{{pascalCase name}}',
   component: {{pascalCase name}}
 } as Meta
 
 export const Default: Story = () => <{{pascalCase name}} />
+
+/*
+Default.args = {
+
+}
+*/
+
+/*
+export const Mobile: Story = () => <{{pascalCase name}} />
+
+Mobile.args = {
+
+}
+
+Mobile.parameters = {
+  backgrounds: {
+    default: 'mm-light'
+  },
+  viewport: {
+    viewports: MINIMAL_VIEWPORTS,
+    defaultViewport: 'mobile1'
+  }
+}
+*/

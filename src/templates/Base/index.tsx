@@ -12,9 +12,11 @@ export type BaseTemplateProps = {
 
 const Base = ({ children }: BaseTemplateProps) => (
   <S.Wrapper>
-    <Container>
-      <Menu menuSelects={mockMenu.menuSelects} />
-    </Container>
+    <S.MenuContainer>
+      <Container>
+        <Menu menuSelects={mockMenu.menuSelects} />
+      </Container>
+    </S.MenuContainer>
 
     <S.Content>{children}</S.Content>
 

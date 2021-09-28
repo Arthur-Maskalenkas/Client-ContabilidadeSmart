@@ -1,15 +1,13 @@
-import Home, { HomeTemplateProps } from 'templates/Home'
+import Home from 'templates/Home'
 
-import mockGallery from 'components/Gallery/mock'
-
-export default function sobre(props: HomeTemplateProps) {
-  return <Home {...props} />
+export default function sobre() {
+  return <Home />
 }
 
 export function getStaticProps() {
   return {
     props: {
-      gallery: { items: mockGallery }
+      ola: 'dsadsa'
     }
   }
 }

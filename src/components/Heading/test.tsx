@@ -63,10 +63,11 @@ describe('<Heading />', () => {
 
       const texto = screen.getByRole('heading', { name: /um texto/i })
 
+      // Usando o min-width ja que tem uma regra que só aparece para desktop a borda direita
       expect(texto).toHaveStyleRule(
         'border-bottom',
         `0.3rem solid ${theme.colors.secondary}`,
-        { modifier: '::after' }
+        { modifier: '::after', media: '(min-width: 768px)' }
       )
     })
   })
