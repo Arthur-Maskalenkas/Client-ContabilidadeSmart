@@ -1,8 +1,12 @@
 import * as S from './styles'
 
-const Artigo = () => (
+export type ArtigoTemplateProps = {
+  title: string
+}
+
+const Artigo = ({ title }: ArtigoTemplateProps) => (
   <S.Wrapper>
-    <h1>Artigo</h1>
+    <h1>{title}</h1>
   </S.Wrapper>
 )
 
