@@ -67,7 +67,7 @@ export const Title = styled.p`
     position: relative;
     letter-spacing: '3px';
     text-decoration: none;
-    font-size: ${theme.font.sizes.xsmall};
+    font-size: ${theme.font.sizes.small};
     display: flex;
     align-items: center;
   `}
@@ -89,7 +89,7 @@ export const TitleWrapper = styled.div`
 export const Content = styled.ul`
   ${({ theme }) => css`
     position: absolute;
-    top: 2rem;
+    top: 3rem;
     cursor: pointer;
     background-color: ${theme.colors.white};
 
@@ -102,7 +102,7 @@ export const Content = styled.ul`
 export const LinkMenuDesktopTitle = styled.a`
   ${({ theme }) => css`
     color: ${theme.colors.black};
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: ${theme.font.family.poppins.weight.light};
     margin-left: ${theme.spacings.xsmall};
     text-decoration: none;
