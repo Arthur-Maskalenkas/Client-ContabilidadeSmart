@@ -32,13 +32,13 @@ const Menu = ({ menuSelects }: MenuProps) => {
         <img src="img/index/logo.png" alt="logo Contabilidade Smart" />
       </S.LogoWrapper>
 
-      <MediaWatch lessThan="medium">
+      <MediaWatch lessThan="large">
         <S.IconWrapper onClick={() => setIsOpen(true)}>
           <MenuIcon aria-label="Open Menu" />
         </S.IconWrapper>
       </MediaWatch>
 
-      <MediaWatch greaterThan="medium">
+      <MediaWatch greaterThan="large">
         <S.MenuNav>
           {menuSelects.map((item, index) => (
             <LinkMenuDesktop
