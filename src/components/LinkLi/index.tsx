@@ -4,7 +4,7 @@ import * as S from './styles'
 
 export type LinkLiProps = {
   title: string
-  slug: string
+  slug?: string
   moreWeight?: boolean
 }
 
