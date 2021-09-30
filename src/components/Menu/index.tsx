@@ -20,23 +20,11 @@ type menu = {
 }
 
 export type MenuProps = {
-  handleMenuSelect?: (value: string) => void
   menuSelects: menu[]
 }
 
-const Menu = ({ handleMenuSelect, menuSelects }: MenuProps) => {
+const Menu = ({ menuSelects }: MenuProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [menuSelect, setMenuSelect] = useState<string>('')
-
-  const onChangeMenuSelect = (titleCatch: string) => {
-    const noIsNew = menuSelect == titleCatch
-
-    noIsNew ? setMenuSelect('') : setMenuSelect(titleCatch)
-
-    if (handleMenuSelect) {
-      handleMenuSelect(noIsNew ? '' : titleCatch)
-    }
-  }
 
   return (
     <S.Wrapper>
@@ -57,8 +45,6 @@ const Menu = ({ handleMenuSelect, menuSelects }: MenuProps) => {
               key={index}
               title={item.title}
               dropdownOptions={item.options}
-              takeTitle={(titleCatch) => onChangeMenuSelect(titleCatch)}
-              isSelected={menuSelect == item.title}
             />
           ))}
         </S.MenuNav>

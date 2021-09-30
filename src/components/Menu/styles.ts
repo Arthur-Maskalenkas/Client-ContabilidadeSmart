@@ -5,8 +5,8 @@ import * as LinkMenuDesktopStyles from 'components/LinkMenuDesktop/styles'
 
 export const Wrapper = styled.menu`
   ${({ theme }) => css`
-    display: flex;
     position: relative;
+    display: flex;
     align-items: center;
     padding: 0 ${theme.spacings.medium};
     justify-content: space-between;

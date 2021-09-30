@@ -1,45 +1,4 @@
-import styled, { css, DefaultTheme } from 'styled-components'
-
-import { lighten, darken } from 'polished'
-
-type colorTypes = 'white' | 'secondary'
-
-const wrapperModifiers = {
-  openLinkMenuDesktop: () => css`
-    ${Content} {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-  `,
-  closeLinkMenuDesktop: () => css`
-    ${Content} {
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(5rem);
-    }
-  `,
-  changeColorTitle: (theme: DefaultTheme, color: colorTypes) => css`
-    ${TitleWrapper} > * {
-      color: ${theme.colors[color]};
-    }
-  `,
-  addHoverTitle: (theme: DefaultTheme) => css`
-    ${TitleWrapper}:hover > * {
-      color: ${darken(0.2, theme.colors.white)};
-    }
-  `,
-  isOpen: (theme: DefaultTheme) => css`
-    ${wrapperModifiers.openLinkMenuDesktop()}
-    ${wrapperModifiers.changeColorTitle(theme, 'secondary')}
-  `,
-  isClose: (theme: DefaultTheme) =>
-    css`
-      ${wrapperModifiers.closeLinkMenuDesktop()}
-      ${wrapperModifiers.changeColorTitle(theme, 'white')}
-      ${wrapperModifiers.addHoverTitle(theme)}
-    `
-}
+import styled, { css } from 'styled-components'
 
 type WrapperProps = {
   isOpen?: boolean
@@ -55,9 +14,18 @@ export const Wrapper = styled.ul<WrapperProps>`
       transition: transform 0.4s ease-in-out, opacity 0.4s;
     }
 
-    /* Funções controllers */
-    ${isOpen && wrapperModifiers.isOpen(theme)}
-    ${!isOpen && wrapperModifiers.isClose(theme)}
+
+    & ${Content} {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(5rem);
+    }
+
+    &:hover ${Content} {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
     }
   `}
 `
@@ -65,6 +33,7 @@ export const Wrapper = styled.ul<WrapperProps>`
 export const Title = styled.p`
   ${({ theme }) => css`
     position: relative;
+    color: ${theme.colors.white};
     letter-spacing: '3px';
     text-decoration: none;
     font-size: ${theme.font.sizes.small};
@@ -77,6 +46,7 @@ export const TitleWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     cursor: pointer;
+    color: ${theme.colors.white};
 
     & > svg {
       width: 1.5rem;

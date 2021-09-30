@@ -31,42 +31,23 @@ export type LinkMenuDesktopProps = {
   takeTitle?: (valueTitle: string) => void
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
-const LinkMenuDesktop = ({
-  dropdownOptions,
-  title,
-  slug,
-  isSelected = false,
-  takeTitle
-}: LinkMenuDesktopProps) => {
-  const [isOpen, setIsOpen] = useState(isSelected)
-
+const LinkMenuDesktop = ({ dropdownOptions, title, slug }: LinkMenuDesktopProps) => {
   const hasLinkMenuDesktop = !!dropdownOptions
 
-  useEffect(() => {
-    setIsOpen(isSelected)
-  }, [isOpen, setIsOpen, isSelected])
-
-  function returnTitle(stringValue: string) {
-    if (takeTitle) {
-      takeTitle(stringValue)
-    }
-  }
-
   return (
-    <S.Wrapper isOpen={isOpen} as={hasLinkMenuDesktop ? 'ul' : 'li'}>
+    <S.Wrapper
+      aria-label={hasLinkMenuDesktop ? `${title} opções` : `${title}`}
+      as={hasLinkMenuDesktop ? 'ul' : 'li'}
+    >
       <S.TitleWrapper>
         {hasLinkMenuDesktop ? (
           <>
-            <S.Title onClick={() => returnTitle(title)}>{title}</S.Title>
-            <ArrowIosDownwardOutline
-              onClick={() => returnTitle(title)}
-              title="Ver opções"
-              role="svg"
-            />
+            <S.Title>{title}</S.Title>
+            <ArrowIosDownwardOutline title="Ver opções" role="svg" />
           </>
         ) : (
           <Link passHref href={`posts/${slug}`}>
-            <S.Title as="a" role="link" onClick={() => returnTitle(title)}>
+            <S.Title as="a" role="link">
               {title}
             </S.Title>
           </Link>
@@ -74,7 +55,7 @@ const LinkMenuDesktop = ({
       </S.TitleWrapper>
 
       {hasLinkMenuDesktop && (
-        <S.Content aria-hidden={!isOpen} aria-label="LinkMenuDesktop">
+        <S.Content aria-label="LinkMenuDesktop">
           {dropdownOptions!.map((item, index) => (
             <S.LinkMenuDesktopTitleWrapper key={index}>
               <Link passHref href={`posts/${item.slug}`}>

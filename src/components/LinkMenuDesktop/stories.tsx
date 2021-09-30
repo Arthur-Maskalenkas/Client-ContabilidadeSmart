@@ -35,22 +35,6 @@ Default.args = {
   title: 'Premium'
 }
 
-export const WithDropdownNoSelect: Story<LinkMenuDesktopProps> = (args) => (
-  <div style={{ marginLeft: '400px', width: '100vw' }}>
-    <LinkMenuDesktop {...args} />
-  </div>
-)
-
-WithDropdownNoSelect.args = {
-  ...items
-}
-
-WithDropdownNoSelect.parameters = {
-  backgrounds: {
-    default: 'mm-dark'
-  }
-}
-
 export const WithDropdownSelected: Story<LinkMenuDesktopProps> = (args) => (
   <div style={{ marginLeft: '400px', width: '100vw' }}>
     <LinkMenuDesktop {...args} />
