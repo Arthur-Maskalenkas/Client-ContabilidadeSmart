@@ -27,7 +27,7 @@ const mockPaginas: WidgetProps = {
 }
 
 const mockPostsRecentes: WidgetProps = {
-  title: 'Páginas',
+  title: 'Posts recentes',
   items: [
     {
       title: 'Quais os tipos de lançamentos digitais',

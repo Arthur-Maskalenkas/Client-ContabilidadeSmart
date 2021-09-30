@@ -14,9 +14,31 @@ const SocialBannerSlides = ({ items }: SocialBannerSlidesProps) => {
     arrows: false,
     infinite: true,
     speed: 500,
-    autoplay: true,
-    slidesToShow: 3,
-    slidesToScroll: 2
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    responsive: [
+      {
+        breakpoint: 1100,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   }
 
   return (

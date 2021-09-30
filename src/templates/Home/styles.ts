@@ -58,6 +58,21 @@ export const SocialBannerSection = styled.section`
 `
 
 export const WidgetSection = styled(Section)`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  ${({ theme }) => css`
+    display: grid;
+    grid-template-columns: 1fr;
+
+    & > * {
+      margin-bottom: ${theme.spacings.medium};
+    }
+
+    ${media.greaterThan('medium')`
+    grid-template-columns: repeat(auto-fill, minmax(25.5rem, 1fr));
+
+    & > * {
+      margin-bottom: none;
+    }
+
+    `}
+  `}
 `

@@ -66,7 +66,11 @@ const Home = () => (
       <S.WidgetSection>
         <Widget title={mockCategorias.title} items={mockCategorias.items} />
         <Widget title={mockPaginas.title} items={mockPaginas.items} />
-        <Widget title={mockPostsRecentes.title} items={mockPostsRecentes.items} />
+        <Widget
+          title={mockPostsRecentes.title}
+          items={mockPostsRecentes.items}
+          moreWeight
+        />
       </S.WidgetSection>
     </Base>
   </S.Wrapper>

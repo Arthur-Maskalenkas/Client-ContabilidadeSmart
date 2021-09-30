@@ -23,17 +23,18 @@ export const Wrapper = styled.li`
 const linkTitleModifier = {
   moreWEight: (theme: DefaultTheme) => css`
     font-weight: ${theme.font.family.poppins.weight.bold};
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   `
 }
 
 export const LinkTitle = styled.a<Pick<LinkLiProps, 'moreWeight'>>`
   ${({ theme, moreWeight }) => css`
     color: ${theme.colors.black};
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-weight: ${theme.font.family.poppins.weight.light};
     text-decoration: none;
     transition: 0.4s all;
+    padding-left: 1rem;
 
     &:after {
       content: '';

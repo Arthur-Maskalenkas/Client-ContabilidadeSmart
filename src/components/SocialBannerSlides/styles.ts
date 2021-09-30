@@ -18,6 +18,12 @@ export const Wrapper = styled.section`
       transition: all 0.3s;
     }
 
+    /* Deixando a imagem centralizada */
+    .slick-slide > div > div {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
     .slick-slide img:hover {
       border: 1px solid #ff5d00;
       opacity: 0.8;
