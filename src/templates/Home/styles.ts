@@ -47,6 +47,7 @@ export const RecursosSection = styled.section`
 export const SocialBannerSection = styled.section`
   ${({ theme }) => css`
     padding: 10rem 0;
+    margin-bottom: calc(${theme.spacings.xlarge} * 2);
     /* background by SVGBackgrounds.com */
     background-image: url('img/backgrounds/pattern-randomized.svg');
     & ${Description} {
@@ -54,4 +55,9 @@ export const SocialBannerSection = styled.section`
       margin-bottom: ${theme.spacings.medium};
     }
   `}
+`
+
+export const WidgetSection = styled(Section)`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 `

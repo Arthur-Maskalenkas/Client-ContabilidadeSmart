@@ -9,11 +9,14 @@ import BannerSlider from 'components/BannerSlider'
 import ServicesCardsList from 'components/ServicesCardsList'
 import SocialBannerSlides from 'components/SocialBannerSlides'
 import RecursosCardsList from 'components/RecursosCardsList'
+import Widget from 'components/Widget'
 
 import bannerSliderMock from 'components/BannerSlider/mock'
 import mockServicesCards from 'components/ServicesCardsList/mock'
 import mockRecursosCards from 'components/RecursosCardsList/mock'
 import mockSocialBannerSlides from 'components/SocialBannerSlides/mock'
+
+import { mockCategorias, mockPaginas, mockPostsRecentes } from 'components/Widget/mock'
 
 const Home = () => (
   <S.Wrapper>
@@ -59,6 +62,12 @@ const Home = () => (
           <SocialBannerSlides items={mockSocialBannerSlides} />
         </Container>
       </S.SocialBannerSection>
+
+      <S.WidgetSection>
+        <Widget title={mockCategorias.title} items={mockCategorias.items} />
+        <Widget title={mockPaginas.title} items={mockPaginas.items} />
+        <Widget title={mockPostsRecentes.title} items={mockPostsRecentes.items} />
+      </S.WidgetSection>
     </Base>
   </S.Wrapper>
 )
