@@ -46,7 +46,7 @@ const LinkMenuDesktop = ({ dropdownOptions, title, slug }: LinkMenuDesktopProps)
             <ArrowIosDownwardOutline title="Ver opções" role="svg" />
           </>
         ) : (
-          <Link passHref href={`posts/${slug}`}>
+          <Link passHref href={`artigo/${slug}`}>
             <S.Title as="a" role="link">
               {title}
             </S.Title>
@@ -58,7 +58,7 @@ const LinkMenuDesktop = ({ dropdownOptions, title, slug }: LinkMenuDesktopProps)
         <S.Content aria-label="LinkMenuDesktop">
           {dropdownOptions!.map((item, index) => (
             <S.LinkMenuDesktopTitleWrapper key={index}>
-              <Link passHref href={`posts/${item.slug}`}>
+              <Link passHref href={`artigo/${item.slug}`}>
                 <S.LinkMenuDesktopTitle>{item.titleOption}</S.LinkMenuDesktopTitle>
               </Link>
             </S.LinkMenuDesktopTitleWrapper>

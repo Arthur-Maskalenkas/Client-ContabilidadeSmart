@@ -10,7 +10,7 @@ export type LinkLiProps = {
 
 const LinkLi = ({ title, slug, moreWeight }: LinkLiProps) => (
   <S.Wrapper>
-    <Link href={`posts/${slug}`} passHref>
+    <Link href={`artigo/${slug}`} passHref>
       <S.LinkTitle moreWeight={moreWeight}>{title}</S.LinkTitle>
     </Link>
   </S.Wrapper>

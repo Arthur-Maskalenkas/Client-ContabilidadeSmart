@@ -23,7 +23,7 @@ const ServicesCard = ({ icon, description, title, slug }: ServicesCardProps) => 
       <S.Title>{title}</S.Title>
       <S.Description>{description}</S.Description>
 
-      <Link passHref href={`posts/${slug}`}>
+      <Link passHref href={`artigo/${slug}`}>
         <S.SaibaMais>Saiba mais</S.SaibaMais>
       </Link>
     </S.Content>

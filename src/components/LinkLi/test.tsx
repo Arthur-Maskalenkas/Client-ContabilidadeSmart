@@ -14,7 +14,7 @@ describe('<LinkLi />', () => {
 
     const linkLi = screen.getByRole('link', { name: /um titulo/i })
 
-    expect(linkLi).toHaveAttribute('href', '/posts/Um_slug')
+    expect(linkLi).toHaveAttribute('href', '/artigo/Um_slug')
   })
 
   it('vai renderizar em negrito ', () => {
