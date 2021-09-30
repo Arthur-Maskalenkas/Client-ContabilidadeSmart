@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr;
 
-    ${media.greaterThan('large')`
+    ${media.greaterThan('medium')`
       grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
       gap: 0 3rem;
     `}

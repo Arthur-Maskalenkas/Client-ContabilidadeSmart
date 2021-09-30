@@ -37,5 +37,21 @@ export const RecursosSection = styled.section`
   ${({ theme }) => css`
     padding: 10rem 0;
     background-color: ${theme.colors.lightGray};
+
+    & ${Description} {
+      margin-bottom: ${theme.spacings.medium};
+    }
+  `}
+`
+
+export const SocialBannerSection = styled.section`
+  ${({ theme }) => css`
+    padding: 10rem 0;
+    /* background by SVGBackgrounds.com */
+    background-image: url('img/backgrounds/pattern-randomized.svg');
+    & ${Description} {
+      color: ${theme.colors.white};
+      margin-bottom: ${theme.spacings.medium};
+    }
   `}
 `

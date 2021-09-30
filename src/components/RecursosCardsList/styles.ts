@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
-  ${media.greaterThan('large')`
+  ${media.greaterThan('medium')`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
     gap: 0 3rem;
