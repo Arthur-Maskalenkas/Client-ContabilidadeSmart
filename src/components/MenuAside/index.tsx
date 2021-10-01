@@ -1,4 +1,5 @@
-import LinkLi from 'components/LinkLi'
+import Link from 'next/link'
+
 import * as S from './styles'
 
 type LinkMenuDesktopTypes = {
@@ -28,7 +29,9 @@ const MenuAside = ({ item }: MenuAsideProps) => (
                 role="listitem"
                 aria-label={`opção ${item.titleOption}`}
               >
-                <S.MenuTitleLink role="link">{item.titleOption}</S.MenuTitleLink>
+                <Link href={`artigo/${item.slug}`} passHref>
+                  <S.MenuTitleLink role="link">{item.titleOption}</S.MenuTitleLink>
+                </Link>
               </S.MenuDropdownContent>
             ))}
           </S.MenuDropdownWrapper>
@@ -39,9 +42,9 @@ const MenuAside = ({ item }: MenuAsideProps) => (
           role="listitem"
           aria-label={`opção ${item.title}`}
         >
-          <S.MenuTitle as="a" role="link">
-            {item.title}
-          </S.MenuTitle>
+          <Link href={`artigo/${item.slug}`} passHref>
+            <S.MenuTitleLink role="link">{item.title}</S.MenuTitleLink>
+          </Link>
         </S.MenuTitleWrapperLi>
       )
     )}
