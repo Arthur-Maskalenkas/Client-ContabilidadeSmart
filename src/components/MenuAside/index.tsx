@@ -16,23 +16,36 @@ export type MenuAsideProps = {
 }
 
 const MenuAside = ({ item }: MenuAsideProps) => (
-  <>
-    {item?.map((item, index) => (
-      <div key={index}>
-        <LinkLi
-          title={item.title}
-          {...(item.dropdownOptions ? {} : { slug: item.slug })}
-        />
-
-        {!!item.dropdownOptions &&
-          item.dropdownOptions?.map((item, index) => (
-            <S.DropdownOptionWrapper key={index}>
-              <LinkLi title={item.titleOption} slug={item.slug} />
-            </S.DropdownOptionWrapper>
-          ))}
-      </div>
-    ))}
-  </>
+  <S.Wrapper>
+    {item?.map((item, index) =>
+      item.dropdownOptions?.length ? (
+        <S.MenuTitleWrapperLi key={index}>
+          <S.MenuTitle>{item.title}</S.MenuTitle>
+          <S.MenuDropdownWrapper aria-label={`opções do menu ${item.title}`}>
+            {item.dropdownOptions.map((item, index) => (
+              <S.MenuDropdownContent
+                key={index}
+                role="listitem"
+                aria-label={`opção ${item.titleOption}`}
+              >
+                <S.MenuTitleLink role="link">{item.titleOption}</S.MenuTitleLink>
+              </S.MenuDropdownContent>
+            ))}
+          </S.MenuDropdownWrapper>
+        </S.MenuTitleWrapperLi>
+      ) : (
+        <S.MenuTitleWrapperLi
+          key={index}
+          role="listitem"
+          aria-label={`opção ${item.title}`}
+        >
+          <S.MenuTitle as="a" role="link">
+            {item.title}
+          </S.MenuTitle>
+        </S.MenuTitleWrapperLi>
+      )
+    )}
+  </S.Wrapper>
 )
 
 export default MenuAside
