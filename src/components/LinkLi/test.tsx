@@ -1,5 +1,5 @@
 import theme from 'styles/theme'
-import { render, screen } from 'utils/test-utils'
+import { getByRole, getByText, render, screen } from 'utils/test-utils'
 
 import LinkLi, { LinkLiProps } from '.'
 
@@ -13,7 +13,6 @@ describe('<LinkLi />', () => {
     render(<LinkLi {...props} />)
 
     const linkLi = screen.getByRole('link', { name: /um titulo/i })
-
     expect(linkLi).toHaveAttribute('href', '/artigo/Um_slug')
   })
 
@@ -23,5 +22,30 @@ describe('<LinkLi />', () => {
     const linkLi = screen.getByRole('link', { name: /um titulo/i })
 
     expect(linkLi).toHaveStyle(`font-weight: ${theme.font.family.poppins.weight.bold}`)
+  })
+
+  it('vai renderizar o wrapper como um li', () => {
+    render(<LinkLi title="premium" hasLink />)
+
+    expect(screen.getByRole('listitem')).toBeInTheDocument()
+  })
+
+  describe('vai renderizar com e sem link', () => {
+    it('vai renderizar sem link', () => {
+      render(<LinkLi title="premium" hasLink={false} />)
+
+      expect(screen.queryByRole('link', { name: /premium/i })).not.toBeInTheDocument()
+    })
+
+    it('vai renderizar um link ', () => {
+      render(<LinkLi title="premium" slug="premium" />)
+
+      expect(screen.getByRole('link', { name: /premium/i })).toBeInTheDocument()
+
+      expect(screen.getByRole('link', { name: /premium/i })).toHaveAttribute(
+        'href',
+        '/artigo/premium'
+      )
+    })
   })
 })

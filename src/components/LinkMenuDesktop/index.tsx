@@ -4,7 +4,6 @@ import { AnchorHTMLAttributes, useState } from 'react'
 import * as S from './styles'
 
 import { ArrowIosDownwardOutline } from '@styled-icons/evaicons-outline'
-import { useEffect } from 'react'
 
 // Caso não tenha LinkMenuDesktop
 // <ul> (menu)
