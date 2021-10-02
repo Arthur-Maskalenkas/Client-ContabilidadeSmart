@@ -2,17 +2,17 @@ import styled, { css, DefaultTheme } from 'styled-components'
 import { LinkLiProps } from '.'
 
 export const Wrapper = styled.li`
+  list-style: none;
+`
+
+export const LinkTitleWrapper = styled.div`
   ${({ theme }) => css`
     position: relative;
     display: flex;
     align-items: center;
 
-    list-style: none;
-
     padding: ${theme.spacings.xxsmall} 0 ${theme.spacings.xxsmall}
       ${theme.spacings.xxsmall};
-
-    list-style: none;
 
     cursor: pointer;
 
