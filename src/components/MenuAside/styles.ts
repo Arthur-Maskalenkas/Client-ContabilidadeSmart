@@ -19,6 +19,10 @@ export const MenuTitleWrapperLi = styled.li``
 const TitleStyleDefault = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.black};
+
+    font-size: 1.6rem;
+    font-weight: ${theme.font.family.poppins.weight.light};
+
     position: relative;
     align-items: center;
     display: flex;

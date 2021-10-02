@@ -1,24 +1,37 @@
-import LinkLi, { LinkLiProps } from 'components/LinkLi'
+import Link from 'next/link'
+
 import * as S from './styles'
+
+type Items = {
+  title: string
+  slug?: string
+}
 
 export type WidgetProps = {
   title: string
   moreWeight?: boolean
-  items: LinkLiProps[]
+  items: Items[]
 }
 
-const Widget = ({ title, items, moreWeight }: WidgetProps) => (
+const Widget = ({ title, items, moreWeight = false }: WidgetProps) => (
   <S.Wrapper>
     <S.Title>{title}</S.Title>
-    {items.map((item, index) => (
-      <S.LinkLiWrapper key={index}>
-        <LinkLi
-          title={item.title}
-          slug={item.slug}
-          {...(moreWeight ? { moreWeight } : {})}
-        />
-      </S.LinkLiWrapper>
-    ))}
+
+    <S.ListWrapper aria-label={`Opções do Widget ${title}`}>
+      {items.map((item, index) => (
+        <S.WidgetLinkWrapper
+          key={index}
+          role="listitem"
+          aria-label={`opção ${item.title}`}
+        >
+          <Link href={`artigo/${item.slug}`} passHref>
+            <S.WidgetLink role="link" moreWeight={moreWeight}>
+              {item.title}
+            </S.WidgetLink>
+          </Link>
+        </S.WidgetLinkWrapper>
+      ))}
+    </S.ListWrapper>
   </S.Wrapper>
 )
 

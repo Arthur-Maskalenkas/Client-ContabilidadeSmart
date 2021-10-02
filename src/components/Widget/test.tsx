@@ -1,23 +1,35 @@
 import theme from 'styles/theme'
 import { render, screen } from 'utils/test-utils'
 
-import Widget from '.'
+import Widget, { WidgetProps } from '.'
 
 import { mockCategorias } from './mock'
 
+const mock: WidgetProps = {
+  title: 'Categorias',
+  items: [
+    { title: 'Blog', slug: 'blog' },
+    { title: 'Contabilidade', slug: 'contabilidade' }
+  ]
+}
+
 describe('<Widget />', () => {
   it('vai renderizar o componente padrão', () => {
-    render(<Widget {...mockCategorias} />)
+    render(<Widget {...mock} />)
 
-    expect(screen.getByRole('link', { name: 'blog' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('list', { name: /Opções do Widget Categorias/i })
+    ).toBeInTheDocument()
 
-    expect(screen.getByRole('heading', { name: /categorias/i })).toBeInTheDocument()
+    // Renderizando estrutura 1
+    expect(screen.getByRole('listitem', { name: /opção blog/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /blog/i })).toBeInTheDocument()
   })
 
   it('Vai renderizar a lista um pouco mais escura', () => {
-    render(<Widget {...mockCategorias} moreWeight />)
+    render(<Widget {...mock} moreWeight />)
 
-    expect(screen.getByRole('link', { name: 'blog' })).toHaveStyle(
+    expect(screen.getByRole('link', { name: 'Blog' })).toHaveStyle(
       `font-weight: ${theme.font.family.poppins.weight.bold}`
     )
   })
