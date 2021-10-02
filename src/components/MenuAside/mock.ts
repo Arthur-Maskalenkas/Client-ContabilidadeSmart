@@ -33,7 +33,7 @@ const mock: MenuAsideProps = {
         { titleOption: 'Contabilidade', slug: 'contabilidade' }
       ]
     },
-    { title: 'Home', slug: 'sobre nós' }
+    { title: 'Home', slug: 'home' }
   ]
 }
 

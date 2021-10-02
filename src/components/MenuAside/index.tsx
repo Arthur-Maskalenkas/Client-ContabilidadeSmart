@@ -1,3 +1,4 @@
+import LinkLi from 'components/LinkLi'
 import Link from 'next/link'
 
 import * as S from './styles'
@@ -24,28 +25,12 @@ const MenuAside = ({ item }: MenuAsideProps) => (
           <S.MenuTitle>{item.title}</S.MenuTitle>
           <S.MenuDropdownWrapper aria-label={`opções do menu ${item.title}`}>
             {item.dropdownOptions.map((item, index) => (
-              <S.MenuDropdownContent
-                key={index}
-                role="listitem"
-                aria-label={`opção ${item.titleOption}`}
-              >
-                <Link href={`artigo/${item.slug}`} passHref>
-                  <S.MenuTitleLink role="link">{item.titleOption}</S.MenuTitleLink>
-                </Link>
-              </S.MenuDropdownContent>
+              <LinkLi key={index} title={item.titleOption} path={`artigo/${item.slug}`} />
             ))}
           </S.MenuDropdownWrapper>
         </S.MenuTitleWrapperLi>
       ) : (
-        <S.MenuTitleWrapperLi
-          key={index}
-          role="listitem"
-          aria-label={`opção ${item.title}`}
-        >
-          <Link href={`artigo/${item.slug}`} passHref>
-            <S.MenuTitleLink role="link">{item.title}</S.MenuTitleLink>
-          </Link>
-        </S.MenuTitleWrapperLi>
+        <LinkLi key={index} title={item.title} path={`artigo/${item.slug}`} />
       )
     )}
   </S.Wrapper>

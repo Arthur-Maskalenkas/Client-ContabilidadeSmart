@@ -4,9 +4,10 @@ import Tags, { TagsProps } from '.'
 import mock from './mock'
 
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { Container } from 'components/Container'
 
 export default {
-  title: 'Tags',
+  title: 'side/Tags',
   component: Tags
 } as Meta
 

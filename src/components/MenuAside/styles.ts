@@ -1,8 +1,12 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.ul`
+import { ContainerAside } from 'components/AsideStyles'
+
+import * as LinkLiStyles from 'components/LinkLi/styles'
+
+export const Wrapper = styled(ContainerAside).attrs({ as: 'ul' })`
   ${({ theme }) => css`
-    & ${TitleStyleDefault} {
+    & ${TitleStyleDefault}, ${LinkLiStyles.Wrapper} {
       border-bottom: 1px solid ${theme.colors.lightGray};
       width: 100%;
     }
@@ -10,6 +14,10 @@ export const Wrapper = styled.ul`
     & * {
       list-style: none;
       text-decoration: none;
+    }
+
+    & ${MenuDropdownWrapper} ${LinkLiStyles.LinkTitleWrapper} {
+      margin-left: ${theme.spacings.xsmall};
     }
   `}
 `
@@ -60,9 +68,3 @@ export const MenuTitleLink = styled(TitleStyleDefault).attrs({ as: 'a' })`
 `
 
 export const MenuDropdownWrapper = styled.ul``
-
-export const MenuDropdownContent = styled.li`
-  ${({ theme }) => css`
-    padding-left: ${theme.spacings.small};
-  `}
-`

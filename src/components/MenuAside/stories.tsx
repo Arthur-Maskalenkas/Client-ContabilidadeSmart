@@ -7,7 +7,7 @@ import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { Container } from 'components/Container'
 
 export default {
-  title: 'MenuAside',
+  title: 'side/MenuAside',
   component: MenuAside
 } as Meta
 
@@ -25,11 +25,7 @@ Default.parameters = {
   }
 }
 
-export const Mobile: Story<MenuAsideProps> = (args) => (
-  <Container>
-    <MenuAside {...args} />
-  </Container>
-)
+export const Mobile: Story<MenuAsideProps> = (args) => <MenuAside {...args} />
 
 Mobile.args = { ...mock }
 
