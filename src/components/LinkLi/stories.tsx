@@ -11,8 +11,8 @@ export const Default: Story<LinkLiProps> = (args) => (
   <div
     style={{
       marginTop: '2rem',
-      borderBottom: `1px solid ${theme.colors.gray}`,
-      borderTop: `1px solid ${theme.colors.gray}`,
+      borderBottom: `1px solid ${theme.colors.lightGray}`,
+      borderTop: `1px solid ${theme.colors.lightGray}`,
       width: '20rem'
     }}
   >
@@ -21,12 +21,12 @@ export const Default: Story<LinkLiProps> = (args) => (
 )
 
 Default.args = {
-  slug: 'um_slug',
+  path: '/tag/um_slug',
   title: 'Um titulo'
 }
 
 Default.argTypes = {
-  slug: {
+  path: {
     control: false
   }
 }

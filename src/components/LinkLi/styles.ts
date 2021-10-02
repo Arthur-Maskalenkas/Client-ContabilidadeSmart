@@ -4,11 +4,13 @@ import { LinkLiProps } from '.'
 export const Wrapper = styled.li`
   ${({ theme }) => css`
     position: relative;
-    align-items: center;
     display: flex;
+    align-items: center;
+
+    list-style: none;
 
     padding: ${theme.spacings.xxsmall} 0 ${theme.spacings.xxsmall}
-      ${theme.spacings.xsmall};
+      ${theme.spacings.xxsmall};
 
     list-style: none;
 
