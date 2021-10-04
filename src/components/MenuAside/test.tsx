@@ -36,7 +36,7 @@ describe('<MenuAside />', () => {
     render(<MenuAside />)
 
     expect(screen.getByTestId('mock tag')).toBeInTheDocument()
-    expect(screen.getByTestId('mock logo')).toBeInTheDocument()
+    expect(screen.getByTestId('mock logos')).toBeInTheDocument()
     expect(screen.getByTestId('mock navigation')).toBeInTheDocument()
     expect(screen.getByTestId('mock mais vistos')).toBeInTheDocument()
   })
