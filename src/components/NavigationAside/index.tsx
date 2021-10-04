@@ -13,11 +13,11 @@ type ItemTypes = {
   dropdownOptions?: LinkMenuDesktopTypes[]
 }
 
-export type MenuAsideProps = {
+export type NavigationAsideProps = {
   item: ItemTypes[]
 }
 
-const MenuAside = ({ item }: MenuAsideProps) => (
+const NavigationAside = ({ item }: NavigationAsideProps) => (
   <S.Wrapper>
     {item?.map((item, index) =>
       item.dropdownOptions?.length ? (
@@ -36,4 +36,4 @@ const MenuAside = ({ item }: MenuAsideProps) => (
   </S.Wrapper>
 )
 
-export default MenuAside
+export default NavigationAside

@@ -1,4 +1,11 @@
-import { Facebook, Whatsapp, Instagram, Youtube } from '@styled-icons/boxicons-logos'
+import {
+  Facebook,
+  Whatsapp,
+  Instagram,
+  Youtube,
+  Telegram,
+  Linkedin
+} from '@styled-icons/boxicons-logos'
 
 import {
   Cubes,
@@ -26,5 +33,7 @@ export const IconsDefault = {
   Coffee: <Coffee title="Coffee" role="svg" />,
   Child: <Child title="Child" role="svg" />,
   Youtube: <Youtube title="Youtube" role="svg" />,
-  Laptop: <Laptop title="Laptop" role="svg" />
+  Laptop: <Laptop title="Laptop" role="svg" />,
+  Telegram: <Telegram title="Telegram" role="svg" />,
+  Linkedin: <Linkedin title="Linkedin" role="svg" />
 }

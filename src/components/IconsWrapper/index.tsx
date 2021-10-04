@@ -5,6 +5,8 @@ export type IconTypes =
   | 'Whatsapp'
   | 'Instagram'
   | 'Facebook'
+  | 'Telegram'
+  | 'Linkedin'
   | 'Cubes'
   | 'Cog'
   | 'AmericanSignLanguageInterpreting'
