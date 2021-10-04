@@ -1,8 +1,17 @@
 import * as S from './styles'
 
-const BannerPage = () => (
-  <S.Wrapper>
-    <h1>BannerPage</h1>
+export type BannerPageProps = {
+  backgroundImage: string
+  data: string
+  tag: string
+}
+
+const BannerPage = ({ data, tag, backgroundImage }: BannerPageProps) => (
+  <S.Wrapper backgroundImage={backgroundImage}>
+    <S.Overlay />
+    <S.DetailsWrapper>
+      <S.Details>{`on ${data} | By Contabilidade Smart | ${tag}`}</S.Details>
+    </S.DetailsWrapper>
   </S.Wrapper>
 )
 

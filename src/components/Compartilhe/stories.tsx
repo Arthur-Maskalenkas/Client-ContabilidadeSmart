@@ -16,6 +16,12 @@ Default.args = {
 }
 */
 
+Default.parameters = {
+  backgrounds: {
+    default: 'mm-light'
+  }
+}
+
 /*
 export const Mobile: Story = () => <Compartilhe />
 
