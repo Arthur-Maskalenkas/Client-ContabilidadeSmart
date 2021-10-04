@@ -9,7 +9,7 @@ export type LogoProps = {
 const Logo = ({ size }: LogoProps) => {
   const Logos = {
     smallNegativo: (
-      <S.ImgWrapper widthImg="25rem" heightImg="25rem">
+      <S.ImgWrapper widthImg="17rem" heightImg="17rem">
         <img
           alt="Logo Contabilidade Smart"
           src="img/logo/Contabilidade-Smart-negativo-172.png"
