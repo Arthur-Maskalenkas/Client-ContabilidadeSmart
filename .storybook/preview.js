@@ -13,7 +13,8 @@ export const parameters = {
     default: 'mm-dark',
     values: [
       { name: 'mm-light', value: theme.colors.white },
-      { name: 'mm-dark', value: theme.colors.black }
+      { name: 'mm-dark', value: theme.colors.black },
+      { name: 'artigosBg', value: theme.colors.artigosBg }
     ]
   }
 }

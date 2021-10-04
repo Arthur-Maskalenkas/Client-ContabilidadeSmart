@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { ContainerAside } from 'components/AsideStyles'
-
-export const Wrapper = styled(ContainerAside)`
+export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
 

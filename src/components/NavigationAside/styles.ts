@@ -1,10 +1,8 @@
 import styled, { css } from 'styled-components'
 
-import { ContainerAside } from 'components/AsideStyles'
-
 import * as LinkLiStyles from 'components/LinkLi/styles'
 
-export const Wrapper = styled(ContainerAside).attrs({ as: 'ul' })`
+export const Wrapper = styled.ul`
   ${({ theme }) => css`
     & ${TitleStyleDefault}, ${LinkLiStyles.Wrapper} {
       border-bottom: 1px solid ${theme.colors.lightGray};
