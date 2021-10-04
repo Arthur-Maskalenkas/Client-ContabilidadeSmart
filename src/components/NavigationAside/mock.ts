@@ -1,6 +1,6 @@
-import { MenuAsideProps } from '.'
+import { NavigationAsideProps } from '.'
 
-const mock: MenuAsideProps = {
+const mock: NavigationAsideProps = {
   item: [
     { title: 'infoprodutores', slug: 'infoprodutores' },
     {
