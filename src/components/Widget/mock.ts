@@ -2,6 +2,7 @@ import { WidgetProps } from '.'
 
 const mockCategorias: WidgetProps = {
   title: 'Categorias',
+  path: 'categorias',
   items: [
     { title: 'blog', slug: 'blog' },
     { title: 'Contabilidade', slug: 'contabilidade' },
@@ -15,6 +16,7 @@ const mockCategorias: WidgetProps = {
 
 const mockPaginas: WidgetProps = {
   title: 'Páginas',
+  path: 'paginas',
   items: [
     { title: 'Aceleradora', slug: 'aceleradora' },
     { title: 'BPO Financeiro', slug: 'bpo_financeiro' },
@@ -28,6 +30,7 @@ const mockPaginas: WidgetProps = {
 
 const mockPostsRecentes: WidgetProps = {
   title: 'Posts recentes',
+  path: 'posts_recentes',
   items: [
     {
       title: 'Quais os tipos de lançamentos digitais',
