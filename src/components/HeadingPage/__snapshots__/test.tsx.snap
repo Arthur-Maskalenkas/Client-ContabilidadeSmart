@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeadingPage /> vai renderizar o componente 1`] = `
+.c1 {
+  max-width: 130rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: calc(3.2rem);
+  padding-right: calc(3.2rem);
+}
+
+.c3 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 17rem;
+  height: 17rem;
+}
+
+.c3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.c2 {
+  display: none;
+}
+
+.c0 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #3F4350;
+  height: 55rem;
+}
+
+.c4 {
+  font-size: 4.2rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.c5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  margin: auto;
+  z-index: 1;
+}
+
+.c6 {
+  position: absolute;
+  width: 0.1rem;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  background: #535662;
+  overflow: hidden;
+}
+
+.c6:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 15rem;
+  width: 100%;
+  top: -50%;
+  left: 0;
+  background: #FFFFFF;
+  -webkit-animation: run 4s 0s infinite;
+  animation: run 4s 0s infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: cubic-bezier(0.4,0.26,0,0.97);
+  animation-timing-function: cubic-bezier(0.4,0.26,0,0.97);
+}
+
+.c6:nth-child(1) {
+  margin-left: -25%;
+}
+
+.c6::nth-child(1):after {
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
+
+.c6:nth-child(3) {
+  margin-left: 25%;
+}
+
+.c6:nth-child(3):after {
+  -webkit-animation-delay: 2.5s;
+  animation-delay: 2.5s;
+}
+
+@media (min-width:1170px) {
+  .c2 {
+    display: block;
+  }
+}
+
+@media (min-width:1170px) {
+  .c0 {
+    height: 35rem;
+    -webkit-box-pack: initial;
+    -webkit-justify-content: initial;
+    -ms-flex-pack: initial;
+    justify-content: initial;
+  }
+}
+
+<div>
+  <header
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class=""
+        >
+          <div
+            class="c3"
+          >
+            <img
+              alt="Logo Contabilidade Smart"
+              src="img/logo/Contabilidade-Smart-negativo-172.png"
+            />
+          </div>
+        </div>
+      </div>
+      <h1
+        class="c4"
+      >
+        Um titulo
+      </h1>
+      <div
+        class="c5"
+      >
+        <div
+          class="c6"
+        />
+        <div
+          class="c6"
+        />
+        <div
+          class="c6"
+        />
+      </div>
+    </div>
+  </header>
+</div>
+`;
