@@ -1,3 +1,5 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.main``
+export const Wrapper = styled.ul``
+
+export const ListWrapper = styled.ul``

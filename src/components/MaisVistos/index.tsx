@@ -1,3 +1,4 @@
+import LinkLi from 'components/LinkLi'
 import * as S from './styles'
 
 type ItemType = {
@@ -9,9 +10,11 @@ export type MaisVistosProps = {
   items: ItemType[]
 }
 
-const MaisVistos = () => (
+const MaisVistos = ({ items }: MaisVistosProps) => (
   <S.Wrapper>
-    <h1>MaisVistos</h1>
+    {items?.map((item, index) => (
+      <LinkLi key={index} moreWeight title={item.title} path={`artigo/${item.slug}`} />
+    ))}
   </S.Wrapper>
 )
 

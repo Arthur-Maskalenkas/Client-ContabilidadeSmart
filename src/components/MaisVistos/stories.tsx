@@ -1,20 +1,28 @@
 import { Story, Meta } from '@storybook/react'
-import MaisVistos from '.'
+import MaisVistos, { MaisVistosProps } from '.'
 
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
+
+import mock from './mock'
 
 export default {
   title: 'side/MaisVistos',
   component: MaisVistos
 } as Meta
 
-export const Default: Story = () => <MaisVistos />
+export const Default: Story<MaisVistosProps> = (args) => <MaisVistos {...args} />
 
-Default.args = {}
+Default.args = { ...mock }
 
-export const Mobile: Story = () => <MaisVistos />
+Default.parameters = {
+  backgrounds: {
+    default: 'mm-light'
+  }
+}
 
-Mobile.args = {}
+export const Mobile: Story<MaisVistosProps> = (args) => <MaisVistos {...args} />
+
+Mobile.args = { ...mock }
 
 Mobile.parameters = {
   backgrounds: {

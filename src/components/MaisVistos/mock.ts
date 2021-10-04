@@ -22,3 +22,5 @@ const mock: MaisVistosProps = {
     }
   ]
 }
+
+export default mock
