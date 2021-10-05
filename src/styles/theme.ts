@@ -46,13 +46,14 @@ export default {
     black: '#050706',
     lightGray: '#EFEFEF',
     gray: '#8F8F8F',
-    darkGray: '#2E2F42',
+    darkGray: '#3F4350',
     red: '#FF6347',
     yellow: 'F2BB05',
     green: '#32A09A',
     lightGreen: '#80CFCF',
     darkGreen: '#278282',
-    brown: '#1d1a1a'
+    brown: '#1d1a1a',
+    bordasCinzas: '#535662'
   },
   spacings: {
     xxxsmall: '0.4rem',

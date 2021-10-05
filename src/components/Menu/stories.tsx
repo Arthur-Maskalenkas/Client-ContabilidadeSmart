@@ -10,7 +10,7 @@ import Menu, { MenuProps } from '.'
 import mock from './mock'
 
 export default {
-  title: 'Menu',
+  title: 'menu/Menu',
   component: Menu
 } as Meta
 

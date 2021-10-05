@@ -5,7 +5,7 @@ import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { Container } from 'components/Container'
 
 export default {
-  title: 'MenuAside',
+  title: 'menu/MenuAside',
   component: MenuAside
 } as Meta
 
