@@ -2,7 +2,6 @@ import { Story, Meta } from '@storybook/react'
 import MenuContact from '.'
 
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
-import { Container } from 'components/Container'
 
 export default {
   title: 'menu/MenuContact',

@@ -3,12 +3,13 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.header`
   ${({ theme }) => css`
-    border-bottom: 1px solid ${theme.colors.darkGray};
+    z-index: ${theme.layers.menu};
   `}
 `
 
 export const ContactInfoWrapper = styled.div`
   ${({ theme }) => css`
+    z-index: 20;
     display: flex;
     align-items: center;
 

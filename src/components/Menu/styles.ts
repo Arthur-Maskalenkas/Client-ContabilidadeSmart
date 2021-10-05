@@ -12,12 +12,13 @@ export const Wrapper = styled.menu`
     justify-content: space-between;
     z-index: ${theme.layers.menu};
 
-    ${media.greaterThan('large')`
-      position: absolute;
-      width: 114rem;
-      left: 50%;
-      transform: translateX(-50%);
+    ${media.lessThan('large')`
 
+      background-color: #0f1424;
+  `}
+
+    ${media.greaterThan('large')`
+      width: 114rem;
       border-bottom: none;
     `}
   `}
