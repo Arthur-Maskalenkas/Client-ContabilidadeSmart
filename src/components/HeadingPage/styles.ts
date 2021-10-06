@@ -23,6 +23,10 @@ export const ContentWrapper = styled.div`
       position: relative;
       z-index: ${theme.layers.base};
     }
+
+    ${media.greaterThan('large')`
+      height: 35rem;
+    `}
   `}
 `
 
@@ -33,7 +37,8 @@ export const Title = styled.h1`
     color: ${theme.colors.white};
 
     ${media.greaterThan('large')`
-      margin-top: 30rem;
+      margin-top: 20rem;
+      margin-left: 3.2rem;
       width: 50%;
     `};
   `}
