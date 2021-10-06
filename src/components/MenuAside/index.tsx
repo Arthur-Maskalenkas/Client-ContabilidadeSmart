@@ -20,7 +20,7 @@ const MenuAside = () => (
 
     <S.MenuContainer>
       <S.TitleWrapper>
-        <S.Title>Mendsau</S.Title>
+        <S.Title>Menu</S.Title>
       </S.TitleWrapper>
       <NavigationAside item={mockNavigationAside.item} />
     </S.MenuContainer>
@@ -39,7 +39,9 @@ const MenuAside = () => (
       <MaisVistos items={mockMaisVistos.items} />
     </S.MenuContainer>
 
-    <Compartilhe />
+    <S.MenuContainer>
+      <Compartilhe />
+    </S.MenuContainer>
   </S.Wrapper>
 )
 
