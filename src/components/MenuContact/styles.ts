@@ -19,8 +19,8 @@ export const ContactInfoWrapper = styled.div`
     height: 100%;
 
     &:nth-child(2) {
-      border-right: 1px solid ${theme.colors.darkGray};
-      border-left: 1px solid ${theme.colors.darkGray};
+      border-right: 1px solid #686b75;
+      border-left: 1px solid #686b75;
     }
 
     ${IconWrapper}, ${ContactInfo} {

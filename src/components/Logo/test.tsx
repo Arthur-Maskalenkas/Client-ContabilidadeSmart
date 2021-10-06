@@ -27,7 +27,7 @@ describe('<Logo />', () => {
       >
         <img
           alt="Logo Contabilidade Smart"
-          src="img/logo/Contabilidade-Smart-255.jpg"
+          src="https://contabilidadesmart.com.br/wp-content/uploads/2021/06/Contabilidade-Smart.jpg"
         />
       </div>
     `)
@@ -57,7 +57,7 @@ describe('<Logo />', () => {
       >
         <img
           alt="Logo Contabilidade Smart"
-          src="img/logo/Contabilidade-Smart-350.jpg"
+          src="https://contabilidadesmart.com.br/wp-content/uploads/2021/06/Contabilidade-Smart.jpg"
         />
       </div>
     `)
@@ -72,8 +72,8 @@ describe('<Logo />', () => {
         -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
         flex-shrink: 0;
-        width: 25rem;
-        height: 25rem;
+        width: 17rem;
+        height: 17rem;
       }
 
       .c0 img {
@@ -87,7 +87,7 @@ describe('<Logo />', () => {
       >
         <img
           alt="Logo Contabilidade Smart"
-          src="img/logo/Contabilidade-Smart-negativo-172.png"
+          src="https://contabilidadesmart.com.br/wp-content/uploads/2021/06/Contabilidade-Smart-negativo.png"
         />
       </div>
     `)

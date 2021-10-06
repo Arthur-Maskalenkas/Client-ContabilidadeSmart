@@ -8,6 +8,7 @@ import * as S from './styles'
 import MediaWatch from 'components/MediaWatch'
 import LinkMenuMobile from 'components/LinkMenuMobile'
 import LinkMenuDesktop from 'components/LinkMenuDesktop'
+import Logo from 'components/Logo'
 
 type menuOptions = {
   titleOption: string
@@ -28,9 +29,7 @@ const Menu = ({ menuSelects }: MenuProps) => {
 
   return (
     <S.Wrapper>
-      <S.LogoWrapper>
-        <img src="img/index/logo.png" alt="logo Contabilidade Smart" />
-      </S.LogoWrapper>
+      <Logo size="smallNegativo" />
 
       <MediaWatch lessThan="large">
         <S.IconWrapper onClick={() => setIsOpen(true)}>

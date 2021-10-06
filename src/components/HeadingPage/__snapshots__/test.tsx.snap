@@ -9,25 +9,11 @@ exports[`<HeadingPage /> vai renderizar o componente 1`] = `
   padding-right: calc(3.2rem);
 }
 
-.c3 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  width: 17rem;
-  height: 17rem;
-}
-
-.c3 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.c0 {
+  background-color: #3F4350;
 }
 
 .c2 {
-  display: none;
-}
-
-.c0 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -40,18 +26,16 @@ exports[`<HeadingPage /> vai renderizar o componente 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  text-align: center;
-  background-color: #3F4350;
   height: 55rem;
 }
 
-.c4 {
+.c3 {
   font-size: 4.2rem;
   font-weight: 600;
   color: #FFFFFF;
 }
 
-.c5 {
+.c4 {
   position: absolute;
   top: 0;
   left: 0;
@@ -61,7 +45,7 @@ exports[`<HeadingPage /> vai renderizar o componente 1`] = `
   z-index: 1;
 }
 
-.c6 {
+.c5 {
   position: absolute;
   width: 0.1rem;
   height: 100%;
@@ -71,7 +55,7 @@ exports[`<HeadingPage /> vai renderizar o componente 1`] = `
   overflow: hidden;
 }
 
-.c6:after {
+.c5:after {
   content: '';
   display: block;
   position: absolute;
@@ -88,37 +72,28 @@ exports[`<HeadingPage /> vai renderizar o componente 1`] = `
   animation-timing-function: cubic-bezier(0.4,0.26,0,0.97);
 }
 
-.c6:nth-child(1) {
+.c5:nth-child(1) {
   margin-left: -25%;
 }
 
-.c6::nth-child(1):after {
+.c5::nth-child(1):after {
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
 }
 
-.c6:nth-child(3) {
+.c5:nth-child(3) {
   margin-left: 25%;
 }
 
-.c6:nth-child(3):after {
+.c5:nth-child(3):after {
   -webkit-animation-delay: 2.5s;
   animation-delay: 2.5s;
 }
 
 @media (min-width:1170px) {
-  .c2 {
-    display: block;
-  }
-}
-
-@media (min-width:1170px) {
-  .c0 {
-    height: 35rem;
-    -webkit-box-pack: initial;
-    -webkit-justify-content: initial;
-    -ms-flex-pack: initial;
-    justify-content: initial;
+  .c3 {
+    margin-top: 30rem;
+    width: 50%;
   }
 }
 
@@ -132,36 +107,24 @@ exports[`<HeadingPage /> vai renderizar o componente 1`] = `
       <div
         class="c2"
       >
+        <h1
+          class="c3"
+        >
+          Um titulo
+        </h1>
         <div
-          class=""
+          class="c4"
         >
           <div
-            class="c3"
-          >
-            <img
-              alt="Logo Contabilidade Smart"
-              src="img/logo/Contabilidade-Smart-negativo-172.png"
-            />
-          </div>
+            class="c5"
+          />
+          <div
+            class="c5"
+          />
+          <div
+            class="c5"
+          />
         </div>
-      </div>
-      <h1
-        class="c4"
-      >
-        Um titulo
-      </h1>
-      <div
-        class="c5"
-      >
-        <div
-          class="c6"
-        />
-        <div
-          class="c6"
-        />
-        <div
-          class="c6"
-        />
       </div>
     </div>
   </header>

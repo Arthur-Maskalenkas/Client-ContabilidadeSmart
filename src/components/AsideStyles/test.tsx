@@ -8,7 +8,7 @@ describe('<AsideStyles />', () => {
 
     expect(container.firstChild).toMatchInlineSnapshot(`
 .c0 {
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   padding: 2rem;
 }
 

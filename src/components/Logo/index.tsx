@@ -12,18 +12,24 @@ const Logo = ({ size }: LogoProps) => {
       <S.ImgWrapper widthImg="17rem" heightImg="17rem">
         <img
           alt="Logo Contabilidade Smart"
-          src="img/logo/Contabilidade-Smart-negativo-172.png"
+          src="https://contabilidadesmart.com.br/wp-content/uploads/2021/06/Contabilidade-Smart-negativo.png"
         />
       </S.ImgWrapper>
     ),
     medium: (
       <S.ImgWrapper widthImg="35rem" heightImg="35rem">
-        <img alt="Logo Contabilidade Smart" src="img/logo/Contabilidade-Smart-255.jpg" />
+        <img
+          alt="Logo Contabilidade Smart"
+          src="https://contabilidadesmart.com.br/wp-content/uploads/2021/06/Contabilidade-Smart.jpg"
+        />
       </S.ImgWrapper>
     ),
     small: (
       <S.ImgWrapper widthImg="25rem" heightImg="25rem">
-        <img alt="Logo Contabilidade Smart" src="img/logo/Contabilidade-Smart-350.jpg" />
+        <img
+          alt="Logo Contabilidade Smart"
+          src="https://contabilidadesmart.com.br/wp-content/uploads/2021/06/Contabilidade-Smart.jpg"
+        />
       </S.ImgWrapper>
     )
   }

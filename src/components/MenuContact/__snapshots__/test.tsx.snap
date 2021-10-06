@@ -2,10 +2,11 @@
 
 exports[`<MenuContact /> should render the heading 1`] = `
 .c0 {
-  border-bottom: 1px solid #3F4350;
+  z-index: 20;
 }
 
 .c3 {
+  z-index: 20;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -20,8 +21,8 @@ exports[`<MenuContact /> should render the heading 1`] = `
 }
 
 .c3:nth-child(2) {
-  border-right: 1px solid #3F4350;
-  border-left: 1px solid #3F4350;
+  border-right: 1px solid #686b75;
+  border-left: 1px solid #686b75;
 }
 
 .c3 .c4,

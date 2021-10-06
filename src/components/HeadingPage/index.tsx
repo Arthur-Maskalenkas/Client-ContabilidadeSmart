@@ -10,16 +10,15 @@ export type HeadingPageProps = {
 const HeadingPage = ({ title }: HeadingPageProps) => (
   <S.Wrapper>
     <Container>
-      <MediaWatch greaterThan="large">
-        <Logo size="smallNegativo" />
-      </MediaWatch>
-      <S.Title>{title}</S.Title>
+      <S.ContentWrapper>
+        <S.Title>{title}</S.Title>
 
-      <S.linhas>
-        <S.linha />
-        <S.linha />
-        <S.linha />
-      </S.linhas>
+        <S.linhas>
+          <S.linha />
+          <S.linha />
+          <S.linha />
+        </S.linhas>
+      </S.ContentWrapper>
     </Container>
   </S.Wrapper>
 )
