@@ -5,7 +5,7 @@ export const Wrapper = styled.aside``
 export const MenuContainer = styled.div`
   ${({ theme }) => css`
     background-color: ${theme.colors.white};
-    padding: 2rem;
+
     box-shadow: 0px 0px 24px -16px #000000;
 
     &:not(:last-child) {
@@ -38,4 +38,7 @@ export const Title = styled.h2`
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.family.poppins.weight.bold};
   `}
+`
+export const ContentWrapper = styled.div`
+  padding: 1rem 2rem 1rem 2rem;
 `

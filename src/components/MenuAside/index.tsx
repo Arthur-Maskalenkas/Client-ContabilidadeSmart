@@ -22,26 +22,30 @@ const MenuAside = () => (
       <S.TitleWrapper>
         <S.Title>Menu</S.Title>
       </S.TitleWrapper>
-      <NavigationAside item={mockNavigationAside.item} />
+      <S.ContentWrapper>
+        <NavigationAside item={mockNavigationAside.item} />
+      </S.ContentWrapper>
     </S.MenuContainer>
 
     <S.MenuContainer>
       <S.TitleWrapper>
         <S.Title>Tags</S.Title>
       </S.TitleWrapper>
-      <Tags items={mockTags.items} />
+      <S.ContentWrapper>
+        <Tags items={mockTags.items} />
+      </S.ContentWrapper>
     </S.MenuContainer>
 
     <S.MenuContainer>
       <S.TitleWrapper>
         <S.Title>Mais vistos na semana</S.Title>
       </S.TitleWrapper>
-      <MaisVistos items={mockMaisVistos.items} />
+      <S.ContentWrapper>
+        <MaisVistos items={mockMaisVistos.items} />
+      </S.ContentWrapper>
     </S.MenuContainer>
 
-    <S.MenuContainer>
-      <Compartilhe />
-    </S.MenuContainer>
+    <Compartilhe />
   </S.Wrapper>
 )
 
