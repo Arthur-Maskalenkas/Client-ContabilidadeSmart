@@ -1,6 +1,7 @@
-import { GetStaticProps } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import Artigo, { ArtigoTemplateProps } from 'templates/Artigo'
+
+import { mockCategorias, mockPaginas, mockPostsRecentes } from 'components/Widget/mock'
 
 export default function Index(props: ArtigoTemplateProps) {
   const router = useRouter()
@@ -21,7 +22,16 @@ export async function getStaticPaths() {
 export function getStaticProps() {
   return {
     props: {
-      title: 'teste'
+      title: 'Será que vale a pena ser MEI',
+      bannerPageProps: {
+        backgroundImage:
+          'https://contabilidadesmart.com.br/wp-content/uploads/2020/10/MEI-contabilidade-votuporanga-vantagens-leandromikk.jpg',
+        data: '23 out 2020',
+        tag: 'Noticias'
+      },
+      widgetCategorias: mockCategorias,
+      widgetPaginas: mockPaginas,
+      widgetPostsRecentes: mockPostsRecentes
     }
   }
 }
