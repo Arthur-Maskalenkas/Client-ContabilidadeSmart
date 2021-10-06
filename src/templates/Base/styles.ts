@@ -40,7 +40,7 @@ export const MenuContactWrapper = styled.div`
   ${({ theme }) => css`
     position: relative;
     z-index: 20;
-    border-bottom: 1px solid ${theme.colors.darkGray};
+    border-bottom: 1px solid #686b75;
   `}
 `
 
