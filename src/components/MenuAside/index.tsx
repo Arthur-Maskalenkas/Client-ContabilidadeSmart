@@ -15,36 +15,28 @@ import Logo from 'components/Logo'
 const MenuAside = () => (
   <S.Wrapper>
     <S.MenuContainer>
-      <ContainerAside>
-        <Logo size="small" />
-      </ContainerAside>
+      <Logo size="small" />
     </S.MenuContainer>
 
     <S.MenuContainer>
       <S.TitleWrapper>
-        <S.Title>Menu</S.Title>
+        <S.Title>Mendsau</S.Title>
       </S.TitleWrapper>
-      <ContainerAside>
-        <NavigationAside item={mockNavigationAside.item} />
-      </ContainerAside>
+      <NavigationAside item={mockNavigationAside.item} />
     </S.MenuContainer>
 
     <S.MenuContainer>
       <S.TitleWrapper>
         <S.Title>Tags</S.Title>
       </S.TitleWrapper>
-      <ContainerAside>
-        <Tags items={mockTags.items} />
-      </ContainerAside>
+      <Tags items={mockTags.items} />
     </S.MenuContainer>
 
     <S.MenuContainer>
       <S.TitleWrapper>
         <S.Title>Mais vistos na semana</S.Title>
       </S.TitleWrapper>
-      <ContainerAside>
-        <MaisVistos items={mockMaisVistos.items} />
-      </ContainerAside>
+      <MaisVistos items={mockMaisVistos.items} />
     </S.MenuContainer>
 
     <Compartilhe />

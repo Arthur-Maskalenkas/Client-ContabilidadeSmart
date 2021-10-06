@@ -5,6 +5,7 @@ export const Wrapper = styled.aside``
 export const MenuContainer = styled.div`
   ${({ theme }) => css`
     background-color: ${theme.colors.white};
+    padding: 2rem;
 
     &:not(:last-child) {
       margin-bottom: ${theme.spacings.small};
