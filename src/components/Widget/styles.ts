@@ -1,13 +1,20 @@
 import styled, { css, DefaultTheme } from 'styled-components'
-import media from 'styled-media-query'
+
+import * as LinkLiStyles from 'components/LinkLi/styles'
 
 export const Wrapper = styled.li`
-  text-decoration: none;
-  list-style: none;
-  & * {
+  ${({ theme }) => css`
     text-decoration: none;
     list-style: none;
-  }
+    & * {
+      text-decoration: none;
+      list-style: none;
+    }
+
+    ${LinkLiStyles.LinkTitleWrapper} {
+      border-bottom: 1px solid ${theme.colors.lightGray};
+    }
+  `}
 `
 
 export const Title = styled.h2`
