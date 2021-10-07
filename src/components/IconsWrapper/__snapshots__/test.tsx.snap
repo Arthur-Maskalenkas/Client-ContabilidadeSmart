@@ -16,24 +16,6 @@ exports[`<IconsWrapper /> Deve renderizar o icone e testar hover, size, e color,
   position: relative;
 }
 
-.c0 .c1:hover {
-  color: #F66A3E;
-}
-
-.c0 .c1:hover {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-@media (max-width:768px) {
-  .c0 .c1 {
-    width: 2rem;
-  }
-}
-
 <body>
   <div>
     <div

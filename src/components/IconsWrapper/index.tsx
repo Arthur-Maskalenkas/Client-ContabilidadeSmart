@@ -22,30 +22,11 @@ export type sizeTypes = 'small' | 'medium' | 'xlarge' | 'xxlarge' | 'xxxlarge' |
 export type IconsProps = {
   icon: IconTypes
   size?: string | sizeTypes
-  sizeMedia?: string | sizeTypes
   color?: colorTypes
-  hoverColor?: colorTypes
-  isScale?: boolean
-  borderColor?: colorTypes
 }
 
-const IconsWrapper = ({
-  icon,
-  size,
-  sizeMedia,
-  color,
-  hoverColor,
-  isScale,
-  borderColor
-}: IconsProps) => (
-  <S.Wrapper
-    size={size}
-    sizeMedia={sizeMedia}
-    color={color}
-    hoverColor={hoverColor}
-    isScale={isScale}
-    borderColor={borderColor}
-  >
+const IconsWrapper = ({ icon, size, color }: IconsProps) => (
+  <S.Wrapper size={size} color={color}>
     {IconsDefault[icon]}
   </S.Wrapper>
 )
