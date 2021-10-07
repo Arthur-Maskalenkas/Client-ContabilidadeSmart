@@ -6,7 +6,7 @@ export const MenuContainer = styled.div`
   ${({ theme }) => css`
     background-color: ${theme.colors.white};
 
-    box-shadow: 0px 0px 24px -16px #000000;
+    box-shadow: ${theme.shadow.card};
 
     &:not(:last-child) {
       margin-bottom: ${theme.spacings.small};
