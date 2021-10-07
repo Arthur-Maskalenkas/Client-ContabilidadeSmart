@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
     color: ${theme.colors.white};
 
     ${CompartilheStyles.Wrapper} {
+      margin-bottom: ${theme.spacings.small};
       h2 {
         margin: initial;
       }
