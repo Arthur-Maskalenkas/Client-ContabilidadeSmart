@@ -1,6 +1,8 @@
 import BannerPage, { BannerPageProps } from 'components/BannerPage'
 import HeadingPage from 'components/HeadingPage'
+import Logo from 'components/Logo'
 import MenuAside from 'components/MenuAside'
+import TextContent from 'components/TextContent'
 import Widget, { WidgetProps } from 'components/Widget'
 import Base from 'templates/Base'
 
@@ -8,6 +10,7 @@ import * as S from './styles'
 
 export type ArtigoTemplateProps = {
   title: string
+  description: string
   bannerPageProps: BannerPageProps
 
   widgetCategorias: WidgetProps
@@ -17,6 +20,7 @@ export type ArtigoTemplateProps = {
 
 const Artigo = ({
   title,
+  description,
   bannerPageProps,
   widgetCategorias,
   widgetPaginas,
@@ -28,15 +32,19 @@ const Artigo = ({
         <HeadingPage title={title} />
       </S.Head>
 
-      <S.Main>
-        <BannerPage {...bannerPageProps} />
+      <S.MainSection>
+        <S.Main>
+          <BannerPage {...bannerPageProps} />
+          <TextContent title={title} content={description} />
+        </S.Main>
         <MenuAside />
-      </S.Main>
+      </S.MainSection>
 
       <S.SectionWidgets>
         <Widget {...widgetCategorias} />
         <Widget {...widgetPaginas} />
         <Widget {...widgetPostsRecentes} />
+        <Logo size="medium" />
       </S.SectionWidgets>
     </Base>
   </S.Wrapper>
