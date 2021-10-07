@@ -35,11 +35,6 @@ describe('<TextContent />', () => {
       name: /description/i
     }).parentElement
 
-    expect(wrapper).toHaveStyle({ color: theme.colors.white })
-
-    // Usando min-width pq é feito a partir do mobile
-    expect(wrapper).toHaveStyleRule('color', theme.colors.black, {
-      media: '(min-width: 768px)'
-    })
+    expect(wrapper).toHaveStyle({ color: theme.colors.black })
   })
 })

@@ -91,8 +91,15 @@ exports[`<HeadingPage /> vai renderizar o componente 1`] = `
 }
 
 @media (min-width:1170px) {
+  .c2 {
+    height: 35rem;
+  }
+}
+
+@media (min-width:1170px) {
   .c3 {
-    margin-top: 30rem;
+    margin-top: 20rem;
+    margin-left: 3.2rem;
     width: 50%;
   }
 }
