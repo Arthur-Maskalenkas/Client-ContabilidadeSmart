@@ -75,5 +75,8 @@ export default {
   transition: {
     default: '0.3s ease-in-out',
     fast: '0.1s ease-in-out'
+  },
+  shadow: {
+    card: '0px 0px 24px -16px #000000'
   }
 } as const

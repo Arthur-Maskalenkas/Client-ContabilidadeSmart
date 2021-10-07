@@ -7,12 +7,7 @@ export const Wrapper = styled.article`
     flex-direction: column;
     padding: ${theme.spacings.large};
 
-    box-shadow: 0px 0px 50px -2px rgba(0, 0, 0, 0.52);
-
-    ${media.greaterThan('large')`
-
-    box-shadow: 0px 0px 50px -2px rgba(0, 0, 0, 0.25);
-    `}
+    box-shadow: ${theme.shadow.card};
   `}
 `
 

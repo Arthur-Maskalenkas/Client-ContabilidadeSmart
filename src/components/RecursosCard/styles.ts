@@ -8,15 +8,14 @@ export const Wrapper = styled.article`
     grid-template-columns: 1fr 3fr;
     gap: 1.5rem;
 
-    /* ${IconWrapperStyles.wrapper} {
-      transition: all 2s;
-    } */
+    padding: ${theme.spacings.small};
+    cursor: pointer;
 
     transition: 0.6s all;
 
     &:hover {
       background-color: ${theme.colors.white};
-      box-shadow: 0px 0px 24px -16px #000000;
+      box-shadow: ${theme.shadow.card};
 
       ${IconWrapperStyles.Wrapper} {
         transform: scaleX(-1);
