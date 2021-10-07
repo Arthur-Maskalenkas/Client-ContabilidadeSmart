@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components'
 
-import * as IconWrapperStyles from 'components/IconsWrapper/styles'
-
 export const Wrapper = styled.article`
   ${({ theme }) => css`
     display: grid;
@@ -12,16 +10,6 @@ export const Wrapper = styled.article`
     cursor: pointer;
 
     transition: 0.6s all;
-
-    &:hover {
-      background-color: ${theme.colors.white};
-      box-shadow: ${theme.shadow.card};
-
-      ${IconWrapperStyles.Wrapper} {
-        transform: scaleX(-1);
-        filter: FlipH;
-      }
-    }
   `}
 `
 
