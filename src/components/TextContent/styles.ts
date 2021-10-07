@@ -31,6 +31,15 @@ export const Wrapper = styled.div`
     }
     p {
       margin-bottom: ${theme.spacings.xsmall};
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      font-size: 1.6rem;
+    }
+
+    li {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      font-size: 1.6rem;
     }
     a {
       color: ${theme.colors.primary};
