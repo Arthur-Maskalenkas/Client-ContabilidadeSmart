@@ -22,7 +22,7 @@ Default.args = {
 
 Default.parameters = {
   backgrounds: {
-    default: 'mm-light'
+    default: 'mm-artigosBg'
   }
 }
 
