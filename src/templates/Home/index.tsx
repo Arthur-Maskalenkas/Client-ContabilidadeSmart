@@ -64,12 +64,17 @@ const Home = () => (
       </S.SocialBannerSection>
 
       <S.WidgetSection>
-        <Widget title={mockCategorias.title} items={mockCategorias.items} />
-        <Widget title={mockPaginas.title} items={mockPaginas.items} />
+        <Widget
+          title={mockCategorias.title}
+          items={mockCategorias.items}
+          path="categorias"
+        />
+        <Widget title={mockPaginas.title} items={mockPaginas.items} path="paginas" />
         <Widget
           title={mockPostsRecentes.title}
           items={mockPostsRecentes.items}
           moreWeight
+          path="posts_recentes"
         />
       </S.WidgetSection>
     </Base>
