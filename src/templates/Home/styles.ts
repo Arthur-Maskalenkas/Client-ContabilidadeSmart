@@ -69,6 +69,8 @@ export const WidgetSection = styled(Section)`
     ${media.greaterThan('medium')`
     grid-template-columns: repeat(auto-fill, minmax(25.5rem, 1fr));
 
+    gap: 3.5rem;
+
     & > * {
       margin-bottom: none;
     }

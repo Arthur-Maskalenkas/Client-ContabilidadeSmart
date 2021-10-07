@@ -17,6 +17,7 @@ import mockRecursosCards from 'components/RecursosCardsList/mock'
 import mockSocialBannerSlides from 'components/SocialBannerSlides/mock'
 
 import { mockCategorias, mockPaginas, mockPostsRecentes } from 'components/Widget/mock'
+import Logo from 'components/Logo'
 
 const Home = () => (
   <S.Wrapper>
@@ -76,6 +77,7 @@ const Home = () => (
           moreWeight
           path="posts_recentes"
         />
+        <Logo size="medium" />
       </S.WidgetSection>
     </Base>
   </S.Wrapper>
