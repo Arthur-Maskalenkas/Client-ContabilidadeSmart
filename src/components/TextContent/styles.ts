@@ -5,7 +5,7 @@ import * as CompartilheStyles from 'components/Compartilhe/styles'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.white};
+    color: ${theme.colors.black};
 
     ${CompartilheStyles.Wrapper} {
       margin-bottom: ${theme.spacings.small};
@@ -14,21 +14,15 @@ export const Wrapper = styled.div`
       }
     }
 
-    ${media.greaterThan('medium')`
-      color: ${theme.colors.black};
-    `}
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-      color: ${theme.colors.white};
       margin: ${theme.spacings.xsmall} 0;
 
-      ${media.greaterThan('medium')`
-        color: ${theme.colors.black};
-      `}
+      color: ${theme.colors.black};
     }
     p {
       margin-bottom: ${theme.spacings.xsmall};
