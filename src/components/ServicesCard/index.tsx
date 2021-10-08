@@ -12,12 +12,7 @@ export type ServicesCardProps = {
 
 const ServicesCard = ({ icon, description, title, slug }: ServicesCardProps) => (
   <S.Wrapper>
-    <IconsWrapper
-      icon={icon}
-      size="6rem"
-      hoverColor="secondary"
-      borderColor="secondary"
-    />
+    <IconsWrapper icon={icon} size="6rem" />
 
     <S.Content>
       <S.Title>{title}</S.Title>

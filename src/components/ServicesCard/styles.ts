@@ -1,5 +1,8 @@
-import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
+import styled, { css, DefaultTheme } from 'styled-components'
+
+import { StyledIconBase } from '@styled-icons/styled-icon'
+
+import * as IconsStyles from 'components/IconsWrapper/styles'
 
 export const Wrapper = styled.article`
   ${({ theme }) => css`
@@ -8,6 +11,18 @@ export const Wrapper = styled.article`
     padding: ${theme.spacings.large};
 
     box-shadow: ${theme.shadow.card};
+
+    /* Bordas */
+    ${IconsStyles.Wrapper} {
+      padding: 1.5rem;
+      border-radius: 50%;
+      width: 8rem;
+      background-color: ${theme.colors.secondary};
+    }
+
+    ${StyledIconBase} {
+      color: white;
+    }
   `}
 `
 

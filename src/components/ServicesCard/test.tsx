@@ -10,7 +10,7 @@ const props: ServicesCardProps = {
 }
 
 describe('<ServicesCard />', () => {
-  it('should render the heading', () => {
+  it('should render o componente', () => {
     render(<ServicesCard {...props} />)
 
     expect(screen.getByRole('heading', { name: /um titulo/i })).toBeInTheDocument()
@@ -18,5 +18,11 @@ describe('<ServicesCard />', () => {
     expect(screen.getByText(/Uma descriçao/i)).toBeInTheDocument()
 
     expect(screen.getByRole('link', { name: /saiba mais/i })).toBeInTheDocument()
+  })
+
+  it('vai ter uma borda laranja se passada', () => {
+    render(<ServicesCard {...props} borderColor />)
+
+    expect(screen.getByRole('svg', { name: /facebook/i })).toBeInTheDocument()
   })
 })
