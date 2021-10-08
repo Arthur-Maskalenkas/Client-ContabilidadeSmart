@@ -12,20 +12,17 @@ describe('<Logo />', () => {
         -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
         flex-shrink: 0;
+        margin-left: auto;
+        margin-right: auto;
         width: 25rem;
         height: 25rem;
       }
 
       .c0 img {
+        cursor: pointer;
         width: 100%;
         height: 100%;
         object-fit: cover;
-      }
-
-      @media (max-width:768px) {
-        .c0 {
-          width: 100%;
-        }
       }
 
       <div
@@ -48,20 +45,17 @@ describe('<Logo />', () => {
         -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
         flex-shrink: 0;
+        margin-left: auto;
+        margin-right: auto;
         width: 25rem;
         height: 25rem;
       }
 
       .c0 img {
+        cursor: pointer;
         width: 100%;
         height: 100%;
         object-fit: cover;
-      }
-
-      @media (max-width:768px) {
-        .c0 {
-          width: 100%;
-        }
       }
 
       <div
@@ -84,20 +78,17 @@ describe('<Logo />', () => {
         -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
         flex-shrink: 0;
+        margin-left: auto;
+        margin-right: auto;
         width: 17rem;
         height: 17rem;
       }
 
       .c0 img {
+        cursor: pointer;
         width: 100%;
         height: 100%;
         object-fit: cover;
-      }
-
-      @media (max-width:768px) {
-        .c0 {
-          width: 100%;
-        }
       }
 
       <div

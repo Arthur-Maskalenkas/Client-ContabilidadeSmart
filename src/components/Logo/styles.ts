@@ -12,14 +12,14 @@ export const ImgWrapper = styled.div<ImgWrapperProps>`
   ${({ theme, widthImg, heightImg }) => css`
     flex-shrink: 0;
 
+    margin-left: auto;
+    margin-right: auto;
+
     width: ${widthImg};
     height: ${heightImg};
 
-    ${media.lessThan('medium')`
-      width: 100%;
-    `}
-
     img {
+      cursor: pointer;
       width: 100%;
       height: 100%;
 
