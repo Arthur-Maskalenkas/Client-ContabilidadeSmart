@@ -11,22 +11,24 @@ import mockMaisVistos from 'components/MaisVistos/mock'
 import MaisVistos from 'components/MaisVistos'
 import Compartilhe from 'components/Compartilhe'
 import Logo from 'components/Logo'
+import MediaWatch from 'components/MediaWatch'
 
 const MenuAside = () => (
   <S.Wrapper>
-    <S.MenuContainer>
-      <Logo size="small" />
-    </S.MenuContainer>
+    <MediaWatch greaterThan="large">
+      <S.MenuContainer>
+        <Logo size="small" />
+      </S.MenuContainer>
 
-    <S.MenuContainer>
-      <S.TitleWrapper>
-        <S.Title>Menu</S.Title>
-      </S.TitleWrapper>
-      <S.ContentWrapper>
-        <NavigationAside item={mockNavigationAside.item} />
-      </S.ContentWrapper>
-    </S.MenuContainer>
-
+      <S.MenuContainer>
+        <S.TitleWrapper>
+          <S.Title>Menu</S.Title>
+        </S.TitleWrapper>
+        <S.ContentWrapper>
+          <NavigationAside item={mockNavigationAside.item} />
+        </S.ContentWrapper>
+      </S.MenuContainer>
+    </MediaWatch>
     <S.MenuContainer>
       <S.TitleWrapper>
         <S.Title>Tags</S.Title>

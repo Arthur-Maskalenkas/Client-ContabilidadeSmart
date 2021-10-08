@@ -11,6 +11,10 @@ export const MenuContainer = styled.div`
     &:not(:last-child) {
       margin-bottom: ${theme.spacings.small};
     }
+
+    &:first-child {
+      box-shadow: none;
+    }
   `}
 `
 
