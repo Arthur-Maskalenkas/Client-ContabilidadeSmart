@@ -10,17 +10,17 @@ describe('<Container />', () => {
     expect(container.firstChild).toHaveStyleRule('max-width', theme.grid.container)
 
     expect(container.firstChild).toMatchInlineSnapshot(`
-      .c0 {
-        max-width: 130rem;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: calc(3.2rem);
-        padding-right: calc(3.2rem);
-      }
+.c0 {
+  max-width: 130rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: calc(1.5rem);
+  padding-right: calc(1.5rem);
+}
 
-      <div
-        class="c0"
-      />
-    `)
+<div
+  class="c0"
+/>
+`)
   })
 })
