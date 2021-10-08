@@ -17,7 +17,7 @@ const Logo = ({ size }: LogoProps) => {
       </S.ImgWrapper>
     ),
     medium: (
-      <S.ImgWrapper widthImg="35rem" heightImg="35rem">
+      <S.ImgWrapper widthImg="25rem" heightImg="25rem">
         <img
           alt="Logo Contabilidade Smart"
           src="https://contabilidadesmart.com.br/wp-content/uploads/2021/06/Contabilidade-Smart.jpg"

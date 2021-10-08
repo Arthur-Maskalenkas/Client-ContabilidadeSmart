@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div``
 
@@ -13,6 +14,10 @@ export const ImgWrapper = styled.div<ImgWrapperProps>`
 
     width: ${widthImg};
     height: ${heightImg};
+
+    ${media.lessThan('medium')`
+      width: 100%;
+    `}
 
     img {
       width: 100%;

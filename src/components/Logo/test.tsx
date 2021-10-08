@@ -12,14 +12,20 @@ describe('<Logo />', () => {
         -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
         flex-shrink: 0;
-        width: 35rem;
-        height: 35rem;
+        width: 25rem;
+        height: 25rem;
       }
 
       .c0 img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      @media (max-width:768px) {
+        .c0 {
+          width: 100%;
+        }
       }
 
       <div
@@ -52,6 +58,12 @@ describe('<Logo />', () => {
         object-fit: cover;
       }
 
+      @media (max-width:768px) {
+        .c0 {
+          width: 100%;
+        }
+      }
+
       <div
         class="c0"
       >
@@ -80,6 +92,12 @@ describe('<Logo />', () => {
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      @media (max-width:768px) {
+        .c0 {
+          width: 100%;
+        }
       }
 
       <div
