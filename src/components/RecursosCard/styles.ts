@@ -3,20 +3,17 @@ import styled, { css } from 'styled-components'
 import * as IconWrapperStyles from 'components/IconsWrapper/styles'
 
 export const Wrapper = styled.article`
-  ${({ theme }) => css`
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1.5rem;
 
-    padding: ${theme.spacings.small};
-    cursor: pointer;
+  cursor: pointer;
 
-    transition: 0.6s all;
+  transition: 0.6s all;
 
-    ${IconWrapperStyles.Wrapper} {
-      align-self: flex-start;
-    }
-  `}
+  ${IconWrapperStyles.Wrapper} {
+    align-self: flex-start;
+  }
 `
 
 export const Content = styled.div`
