@@ -7,7 +7,10 @@ export type sizeTypes = 'small' | 'medium' | 'xlarge' | 'xxlarge' | 'xxxlarge' |
 
 export const Wrapper = styled.div<Omit<IconsProps, 'icon'>>`
   ${({ theme, size, color }) => css`
-    transition: 0.6s all;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     > ${StyledIconBase} {
       width: ${size};
       color: ${theme.colors[color!]};
