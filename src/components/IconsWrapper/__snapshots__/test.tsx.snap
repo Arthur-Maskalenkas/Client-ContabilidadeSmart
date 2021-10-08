@@ -8,8 +8,20 @@ exports[`<IconsWrapper /> Deve renderizar o icone e testar hover, size, e color,
 }
 
 .c0 {
-  -webkit-transition: 0.6s all;
-  transition: 0.6s all;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .c0 > .c1 {

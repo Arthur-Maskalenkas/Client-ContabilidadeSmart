@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ServicesCard /> should render o componente 1`] = `
+.c4 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.c2 > .c3 {
+  width: 6rem;
+  position: relative;
+}
+
+.c0 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 50rem;
+  overflow: hidden;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 4.0rem;
+  box-shadow: 0px 0px 24px -16px #000000;
+}
+
+.c0 .c1 {
+  padding: 1.5rem;
+  border-radius: 50%;
+  width: 8rem;
+  background-color: #F66A3E;
+}
+
+.c0 .c3 {
+  color: white;
+}
+
+.c0:hover .c6,
+.c0:hover .c9 {
+  color: #FFFFFF;
+}
+
+.c0:hover .c1 {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.c0:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #000;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: 0.1;
+  transition: 0.1;
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
+}
+
+.c0:hover:after {
+  opacity: 0.75;
+  visibility: visible;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.c0:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 0.5);
+  position: absolute;
+  top: 0;
+  left: -100%;
+  opacity: 1;
+  z-index: -1;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.c0:hover:before {
+  left: 0;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+  -webkit-transition-delay: 200ms;
+  transition-delay: 200ms;
+}
+
+.c5 {
+  margin-top: 2.4rem;
+}
+
+.c7 {
+  color: #050706 line-height:3.4rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.c8 {
+  color: #8F8F8F;
+  line-height: 2.7rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.c10 {
+  color: #050706;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+<div>
+  <article
+    class="c0"
+  >
+    <div
+      class="c1 c2"
+    >
+      <svg
+        class="c3 c4"
+        fill="currentColor"
+        focusable="false"
+        role="svg"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>
+          Facebook
+        </title>
+        <path
+          d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22.336 22.336 0 0 0 14.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202h3.312z"
+        />
+      </svg>
+    </div>
+    <div
+      class="c5"
+    >
+      <h2
+        class="c6 c7"
+      >
+        Um titulo
+      </h2>
+      <p
+        class="c8"
+      >
+        Uma descriçao
+      </p>
+      <a
+        class="c9 c10"
+        href="/artigo/Um%20slug"
+      >
+        Saiba mais
+      </a>
+    </div>
+  </article>
+</div>
+`;
