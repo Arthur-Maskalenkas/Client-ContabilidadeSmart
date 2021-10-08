@@ -7,6 +7,7 @@ import * as IconsStyles from 'components/IconsWrapper/styles'
 export const Wrapper = styled.article`
   ${({ theme }) => css`
     display: flex;
+    min-height: 50rem;
     flex-direction: column;
     padding: ${theme.spacings.large};
 
