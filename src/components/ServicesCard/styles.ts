@@ -6,8 +6,10 @@ import * as IconsStyles from 'components/IconsWrapper/styles'
 
 export const Wrapper = styled.article`
   ${({ theme }) => css`
+    position: relative;
     display: flex;
     min-height: 50rem;
+    overflow: hidden;
     flex-direction: column;
     padding: ${theme.spacings.large};
 
@@ -24,6 +26,62 @@ export const Wrapper = styled.article`
     ${StyledIconBase} {
       color: white;
     }
+
+    &:hover {
+      ${Title}, ${SaibaMais} {
+        color: ${theme.colors.white};
+      }
+
+      ${IconsStyles.Wrapper} {
+        transform: scale(1.2);
+      }
+    }
+
+    /* Fundo cinza */
+    &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: #000;
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      visibility: hidden;
+      left: 0;
+      z-index: -1;
+      transition: 0.1;
+      transform: scale(0.9);
+    }
+
+    &:hover:after {
+      opacity: 0.75;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    /* // Fundo cinza // */
+
+    /* cobrindo da esquerda para a direita */
+    &:before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: rgb(0 0 0 / 0.5);
+      position: absolute;
+      top: 0;
+      left: -100%;
+      opacity: 1;
+      z-index: -1;
+      transition: 300ms;
+    }
+
+    &:hover:before {
+      left: 0;
+      transition: 300ms;
+      transition-delay: 200ms;
+    }
+
+    /* // cobrindo da esquerda para a direita // */
   `}
 `
 

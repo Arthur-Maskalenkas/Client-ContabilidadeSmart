@@ -10,6 +10,7 @@ export const Wrapper = styled.div<Omit<IconsProps, 'icon'>>`
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.5s;
 
     > ${StyledIconBase} {
       width: ${size};
