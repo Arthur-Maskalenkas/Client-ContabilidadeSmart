@@ -1,3 +1,4 @@
+import Logo from 'components/Logo'
 import Widget, { WidgetProps } from 'components/Widget'
 import * as S from './styles'
 
@@ -10,6 +11,7 @@ const WidgetList = ({ items }: WidgetListProps) => (
     {items.map((item, index) => (
       <Widget key={index} {...item} />
     ))}
+    <Logo size="medium" />
   </S.Wrapper>
 )
 
