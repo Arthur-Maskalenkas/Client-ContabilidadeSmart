@@ -46,8 +46,9 @@ export const IconWrapper = styled.div`
   `}
 `
 
-export const MenuNav = styled.div`
+export const MenuNav = styled.ul`
   ${({ theme }) => css`
+    list-style: none;
     display: flex;
     flex: 1;
     justify-content: flex-end;
