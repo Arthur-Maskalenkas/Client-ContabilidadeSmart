@@ -1,13 +1,14 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  list-style: none;
 
   justify-content: space-between;
 `
 
-export const TagWrapper = styled.div``
+export const TagWrapper = styled.li``
 
 export const TagLink = styled.a`
   ${({ theme }) => css`

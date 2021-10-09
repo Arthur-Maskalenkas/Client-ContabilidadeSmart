@@ -24,6 +24,12 @@ describe('<Tags />', () => {
       '/tag/adsense'
     )
 
+    expect(
+      screen.getByRole('listitem', { name: /opção de tag adsense/i })
+    ).toBeInTheDocument()
+
+    expect(screen.getByRole('list')).toBeInTheDocument()
+
     expect(screen.getAllByRole('link')).toHaveLength(2)
   })
 })
