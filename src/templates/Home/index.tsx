@@ -9,21 +9,21 @@ import BannerSlider from 'components/BannerSlider'
 import ServicesCardsList from 'components/ServicesCardsList'
 import SocialBannerSlides from 'components/SocialBannerSlides'
 import RecursosCardsList from 'components/RecursosCardsList'
-import Widget from 'components/Widget'
 
 import mockServicesCards from 'components/ServicesCardsList/mock'
 import mockRecursosCards from 'components/RecursosCardsList/mock'
 import mockSocialBannerSlides from 'components/SocialBannerSlides/mock'
 
-import { mockCategorias, mockPaginas, mockPostsRecentes } from 'components/Widget/mock'
-import Logo from 'components/Logo'
 import { BannerProps } from 'components/Banner'
+
+import WidgetList, { WidgetListProps } from 'components/WidgetList'
 
 export type HomeTemplateProps = {
   bannerSliderData: BannerProps[]
+  widgetListData: WidgetListProps
 }
 
-const Home = ({ bannerSliderData }: HomeTemplateProps) => (
+const Home = ({ bannerSliderData, widgetListData }: HomeTemplateProps) => (
   <S.Wrapper>
     <Base>
       {/* Banner no topo */}
@@ -69,19 +69,7 @@ const Home = ({ bannerSliderData }: HomeTemplateProps) => (
       </S.SocialBannerSection>
 
       <S.WidgetSection>
-        <Widget
-          title={mockCategorias.title}
-          items={mockCategorias.items}
-          path="categorias"
-        />
-        <Widget title={mockPaginas.title} items={mockPaginas.items} path="paginas" />
-        <Widget
-          title={mockPostsRecentes.title}
-          items={mockPostsRecentes.items}
-          moreWeight
-          path="posts_recentes"
-        />
-        <Logo size="medium" />
+        <WidgetList {...widgetListData} />
       </S.WidgetSection>
     </Base>
   </S.Wrapper>
