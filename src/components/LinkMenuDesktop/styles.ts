@@ -4,7 +4,7 @@ type WrapperProps = {
   isOpen?: boolean
 }
 
-export const Wrapper = styled.ul<WrapperProps>`
+export const Wrapper = styled.li<WrapperProps>`
   ${() => css`
     list-style: none;
     position: relative;

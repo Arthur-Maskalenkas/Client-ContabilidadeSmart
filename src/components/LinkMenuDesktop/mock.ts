@@ -1,6 +1,6 @@
 import { LinkMenuDesktopProps } from '.'
 
-const mock: LinkMenuDesktopProps = {
+const mockWithDropdownOptions: LinkMenuDesktopProps = {
   title: 'Premium',
   dropdownOptions: [
     { titleOption: 'Opçao 1', slug: 'Opçao 1' },
@@ -8,4 +8,9 @@ const mock: LinkMenuDesktopProps = {
   ]
 }
 
-export default mock
+const mockWithoutDropdownOptions: LinkMenuDesktopProps = {
+  title: 'Premium',
+  slug: 'premium'
+}
+
+export { mockWithDropdownOptions, mockWithoutDropdownOptions }

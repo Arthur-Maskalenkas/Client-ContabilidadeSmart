@@ -35,8 +35,8 @@ const LinkMenuDesktop = ({ dropdownOptions, title, slug }: LinkMenuDesktopProps)
 
   return (
     <S.Wrapper
-      aria-label={hasLinkMenuDesktop ? `${title} opções` : `${title}`}
-      as={hasLinkMenuDesktop ? 'ul' : 'li'}
+      role="listitem"
+      aria-label={hasLinkMenuDesktop ? `opção ${title}` : `${title}`}
     >
       <S.TitleWrapper>
         {hasLinkMenuDesktop ? (

@@ -1,8 +1,8 @@
 import { render, screen } from 'utils/test-utils'
 
-import mock from './mock'
-
 import LinkMenuDesktop from '.'
+
+import { mockWithDropdownOptions, mockWithoutDropdownOptions } from './mock'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
@@ -17,24 +17,39 @@ useRouter.mockImplementation(() => ({
 
 describe('<LinkMenuDesktop />', () => {
   it('vai renderizar o componente', () => {
-    render(<LinkMenuDesktop {...mock} />)
+    render(<LinkMenuDesktop {...mockWithDropdownOptions} />)
 
     expect(screen.getByText(/premium/i))
 
     expect(screen.getByRole('svg', { name: /ver opções/i })).toBeInTheDocument()
   })
 
-  describe('O wrapper vai ter a possibilidade de ser um ul ou um li', () => {
-    it('Vai ser um li caso não tenha LinkMenuDesktop', () => {
-      render(<LinkMenuDesktop title="Premium" slug="premium" />)
+  it('O wrapper vai ser um li, e o wrapper do dropdown um UL', () => {
+    render(<LinkMenuDesktop {...mockWithDropdownOptions} />)
 
-      expect(screen.getByRole('listitem', { name: /Premium/i })).toBeInTheDocument()
+    expect(screen.getByRole('listitem', { name: /opção premium/i })).toBeInTheDocument()
+
+    expect(screen.getByRole('list')).toBeInTheDocument()
+  })
+
+  describe('Vai ter a possibilidade de ser um link CASO tenha dropdown e não ser um link caso NÃO tenha dropdown', () => {
+    it('Vai ter um href na opção e vai ser um LINK caso ele tenha um dropdown', () => {
+      render(<LinkMenuDesktop {...mockWithoutDropdownOptions} />)
+
+      const optionPremium = screen.getByRole('link', { name: /premium/i })
+
+      expect(optionPremium).toBeInTheDocument()
+
+      expect(optionPremium).toHaveAttribute('href', '/artigo/premium')
     })
 
-    it('Vai ser um ul caso tenha LinkMenuDesktop', () => {
-      render(<LinkMenuDesktop {...mock} />)
+    it('Não vai ter um href na opção e não vai ser um link caso ele tenha um dropdown', () => {
+      render(<LinkMenuDesktop {...mockWithDropdownOptions} />)
 
-      expect(screen.getByRole('list', { name: /Premium opções/i })).toBeInTheDocument()
+      const optionPremium = screen.getByText(/premium/i)
+
+      expect(optionPremium).toBeInTheDocument()
+      expect(optionPremium).not.toHaveAttribute('href', '/artigo/premium')
     })
   })
 })
