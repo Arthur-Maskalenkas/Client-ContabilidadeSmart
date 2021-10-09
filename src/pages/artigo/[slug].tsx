@@ -3,6 +3,8 @@ import Artigo, { ArtigoTemplateProps } from 'templates/Artigo'
 
 import { mockCategorias, mockPaginas, mockPostsRecentes } from 'components/Widget/mock'
 
+import { maisVistosMock, tagsMock, navigationMock } from 'components/MenuAside/mock'
+
 export default function Index(props: ArtigoTemplateProps) {
   const router = useRouter()
 
@@ -34,7 +36,12 @@ export function getStaticProps() {
       description: texto,
       widgetCategorias: mockCategorias,
       widgetPaginas: mockPaginas,
-      widgetPostsRecentes: mockPostsRecentes
+      widgetPostsRecentes: mockPostsRecentes,
+      menuAsideItems: {
+        menuData: navigationMock,
+        maisVistosData: maisVistosMock,
+        tagsData: tagsMock
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 import BannerPage, { BannerPageProps } from 'components/BannerPage'
 import HeadingPage from 'components/HeadingPage'
 import Logo from 'components/Logo'
-import MenuAside from 'components/MenuAside'
+import MenuAside, { MenuAsideProps } from 'components/MenuAside'
 import TextContent from 'components/TextContent'
 import Widget, { WidgetProps } from 'components/Widget'
 import Base from 'templates/Base'
@@ -16,6 +16,8 @@ export type ArtigoTemplateProps = {
   widgetCategorias: WidgetProps
   widgetPaginas: WidgetProps
   widgetPostsRecentes: WidgetProps
+
+  menuAsideItems: MenuAsideProps
 }
 
 const Artigo = ({
@@ -24,7 +26,8 @@ const Artigo = ({
   bannerPageProps,
   widgetCategorias,
   widgetPaginas,
-  widgetPostsRecentes
+  widgetPostsRecentes,
+  menuAsideItems
 }: ArtigoTemplateProps) => (
   <S.Wrapper>
     <Base>
@@ -37,7 +40,7 @@ const Artigo = ({
           <BannerPage {...bannerPageProps} />
           <TextContent title={title} content={description} />
         </S.Main>
-        <MenuAside />
+        <MenuAside {...menuAsideItems} />
       </S.MainSection>
 
       <S.SectionWidgets>
