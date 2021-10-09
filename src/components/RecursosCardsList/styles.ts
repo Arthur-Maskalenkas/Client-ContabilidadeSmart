@@ -28,10 +28,13 @@ export const RecursosCardsListWrapper = styled.div`
 
     ${media.greaterThan('large')`
 
-    border-bottom: 1px solid ${darken(0.1, theme.colors.lightGray)};
       &:nth-child(2), &:nth-child(5) {
         border-left: 1px solid ${darken(0.1, theme.colors.lightGray)};
-        border-right: 1px solid${darken(0.1, theme.colors.lightGray)};
+        border-right: 1px solid ${darken(0.1, theme.colors.lightGray)};
+      }
+
+      &:nth-child(1),&:nth-child(2),&:nth-child(3){
+        border-bottom: 1px solid ${darken(0.1, theme.colors.lightGray)};
       }
     }
     `}

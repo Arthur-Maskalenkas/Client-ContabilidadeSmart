@@ -37,6 +37,7 @@ exports[`<ServicesCard /> should render o componente 1`] = `
   display: flex;
   min-height: 50rem;
   overflow: hidden;
+  cursor: pointer;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;

@@ -8,6 +8,8 @@ export const Wrapper = styled.article<WrapperProps>`
   ${({ backgroundImage }) => css`
     position: relative;
 
+    cursor: pointer;
+
     display: flex;
     background-image: url(${backgroundImage});
     background-position: center center;

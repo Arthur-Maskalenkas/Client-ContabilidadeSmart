@@ -10,6 +10,7 @@ export const Wrapper = styled.article`
     display: flex;
     min-height: 50rem;
     overflow: hidden;
+    cursor: pointer;
     flex-direction: column;
     padding: ${theme.spacings.large};
 
