@@ -57,7 +57,7 @@ export const SocialBannerSection = styled.section`
   `}
 `
 
-export const WidgetSection = styled(Section)`
+export const WidgetSection = styled(Section).attrs({ as: 'ul' })`
   ${({ theme }) => css`
     display: grid;
     grid-template-columns: 1fr;

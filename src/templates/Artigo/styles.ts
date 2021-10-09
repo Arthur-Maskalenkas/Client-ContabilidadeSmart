@@ -49,7 +49,7 @@ export const Main = styled.main`
   `}
 `
 
-export const SectionWidgets = styled(Section)`
+export const SectionWidgets = styled(Section).attrs({ as: 'ul' })`
   ${({ theme }) => css`
     display: block;
 

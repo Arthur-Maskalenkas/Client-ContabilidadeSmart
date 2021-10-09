@@ -18,7 +18,7 @@ export const Content = styled.div`
   `}
 `
 
-export const SectionFooter = styled.section`
+export const SectionFooter = styled.footer`
   ${({ theme }) => css`
     margin-top: ${theme.spacings.large};
     background-color: ${theme.colors.brown};
