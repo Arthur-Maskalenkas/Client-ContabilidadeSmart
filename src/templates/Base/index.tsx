@@ -24,7 +24,7 @@ const Base = ({ children }: BaseTemplateProps) => (
       </MediaWatch>
       <S.MenuContainer>
         <Container>
-          <Menu menuSelects={mockMenu.menuSelects} />
+          <Menu items={mockMenu.items} />
         </Container>
       </S.MenuContainer>
     </S.MenusContainer>
