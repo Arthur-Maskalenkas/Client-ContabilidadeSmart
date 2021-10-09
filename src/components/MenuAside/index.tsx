@@ -1,29 +1,35 @@
 import NavigationAside from 'components/NavigationAside'
-import Tags from 'components/Tags'
+
+import MaisVistos, { MaisVistosProps } from 'components/MaisVistos'
+import Tags, { TagsProps } from 'components/Tags'
+import { MenuProps } from 'components/Menu'
 
 import * as S from './styles'
 
-import mockNavigationAside from 'components/NavigationAside/mock'
-import mockTags from 'components/Tags/mock'
-import mockMaisVistos from 'components/MaisVistos/mock'
-import MaisVistos from 'components/MaisVistos'
 import Compartilhe from 'components/Compartilhe'
 import Logo from 'components/Logo'
 import MediaWatch from 'components/MediaWatch'
 
-const MenuAside = () => (
+export type MenuAsideProps = {
+  menuData: MenuProps
+  tagsData: TagsProps
+  maisVistosData: MaisVistosProps
+}
+
+const MenuAside = ({ menuData, tagsData, maisVistosData }: MenuAsideProps) => (
   <S.Wrapper>
     <MediaWatch greaterThan="large">
       <S.MenuContainer>
         <Logo size="small" />
       </S.MenuContainer>
+      {console.log(menuData)}
 
       <S.MenuContainer>
         <S.TitleWrapper>
           <S.Title>Menu</S.Title>
         </S.TitleWrapper>
         <S.ContentWrapper>
-          <NavigationAside item={mockNavigationAside.item} />
+          <NavigationAside {...menuData} />
         </S.ContentWrapper>
       </S.MenuContainer>
     </MediaWatch>
@@ -32,7 +38,7 @@ const MenuAside = () => (
         <S.Title>Tags</S.Title>
       </S.TitleWrapper>
       <S.ContentWrapper>
-        <Tags items={mockTags.items} />
+        <Tags {...tagsData} />
       </S.ContentWrapper>
     </S.MenuContainer>
 
@@ -41,7 +47,7 @@ const MenuAside = () => (
         <S.Title>Mais vistos na semana</S.Title>
       </S.TitleWrapper>
       <S.ContentWrapper>
-        <MaisVistos items={mockMaisVistos.items} />
+        <MaisVistos {...maisVistosData} />
       </S.ContentWrapper>
     </S.MenuContainer>
 

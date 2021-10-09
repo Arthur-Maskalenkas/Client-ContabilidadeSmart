@@ -1,24 +1,11 @@
 import LinkLi from 'components/LinkLi'
+import { MenuProps } from 'components/Menu'
 
 import * as S from './styles'
 
-type LinkMenuDesktopTypes = {
-  titleOption: string
-  slug: string
-}
-type ItemTypes = {
-  title: string
-  slug?: string
-  dropdownOptions?: LinkMenuDesktopTypes[]
-}
-
-export type NavigationAsideProps = {
-  item: ItemTypes[]
-}
-
-const NavigationAside = ({ item }: NavigationAsideProps) => (
+const NavigationAside = ({ items }: MenuProps) => (
   <S.Wrapper>
-    {item?.map((item, index) =>
+    {items?.map((item, index) =>
       item.dropdownOptions?.length ? (
         <S.MenuTitleWrapperLi key={index}>
           <S.MenuTitle>{item.title}</S.MenuTitle>

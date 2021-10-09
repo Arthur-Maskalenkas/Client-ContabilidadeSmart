@@ -4,6 +4,8 @@ import MenuAside from '.'
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { Container } from 'components/Container'
 
+import { maisVistosMock, navigationMock, tagsMock } from './mock'
+
 export default {
   title: 'menu/MenuAside',
   component: MenuAside
@@ -13,7 +15,11 @@ export const Default: Story = () => (
   <Container>
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 35rem' }}>
       <div></div>
-      <MenuAside />
+      <MenuAside
+        maisVistosData={maisVistosMock}
+        menuData={navigationMock}
+        tagsData={tagsMock}
+      />
     </div>
   </Container>
 )
@@ -26,7 +32,13 @@ Default.parameters = {
   }
 }
 
-export const Mobile: Story = () => <MenuAside />
+export const Mobile: Story = () => (
+  <MenuAside
+    maisVistosData={maisVistosMock}
+    menuData={navigationMock}
+    tagsData={tagsMock}
+  />
+)
 
 Mobile.args = {}
 

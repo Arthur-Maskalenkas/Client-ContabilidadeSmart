@@ -1,7 +1,7 @@
 import { NavigationAsideProps } from '.'
 
 const mock: NavigationAsideProps = {
-  item: [
+  items: [
     { title: 'infoprodutores', slug: 'infoprodutores' },
     {
       title: 'Premium',
