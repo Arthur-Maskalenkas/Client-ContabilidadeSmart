@@ -1,13 +1,15 @@
-import Home from 'templates/Home'
+import Home, { HomeTemplateProps } from 'templates/Home'
 
-export default function sobre() {
-  return <Home />
+import mockBannerSlider from 'components/BannerSlider/mock'
+
+export default function sobre(props: HomeTemplateProps) {
+  return <Home {...props} />
 }
 
 export function getStaticProps() {
   return {
     props: {
-      ola: 'dsadsa'
+      bannerSliderData: mockBannerSlider
     }
   }
 }

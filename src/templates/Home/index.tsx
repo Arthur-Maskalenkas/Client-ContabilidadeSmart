@@ -11,19 +11,23 @@ import SocialBannerSlides from 'components/SocialBannerSlides'
 import RecursosCardsList from 'components/RecursosCardsList'
 import Widget from 'components/Widget'
 
-import bannerSliderMock from 'components/BannerSlider/mock'
 import mockServicesCards from 'components/ServicesCardsList/mock'
 import mockRecursosCards from 'components/RecursosCardsList/mock'
 import mockSocialBannerSlides from 'components/SocialBannerSlides/mock'
 
 import { mockCategorias, mockPaginas, mockPostsRecentes } from 'components/Widget/mock'
 import Logo from 'components/Logo'
+import { BannerProps } from 'components/Banner'
 
-const Home = () => (
+export type HomeTemplateProps = {
+  bannerSliderData: BannerProps[]
+}
+
+const Home = ({ bannerSliderData }: HomeTemplateProps) => (
   <S.Wrapper>
     <Base>
       {/* Banner no topo */}
-      <BannerSlider items={bannerSliderMock} />
+      <BannerSlider items={bannerSliderData} />
 
       <S.ServicesSection>
         <Heading color="black" lineRight>
