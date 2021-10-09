@@ -4,7 +4,7 @@ import * as LinkLiStyles from 'components/LinkLi/styles'
 
 export const Wrapper = styled.ul`
   ${({ theme }) => css`
-    & ${TitleStyleDefault}, ${LinkLiStyles.Wrapper} {
+    & ${LinkLiStyles.Wrapper}, ${MenuTitle} {
       border-bottom: 1px solid ${theme.colors.lightGray};
       width: 100%;
     }
@@ -22,7 +22,7 @@ export const Wrapper = styled.ul`
 
 export const MenuTitleWrapperLi = styled.li``
 
-const TitleStyleDefault = styled.p`
+export const MenuTitle = styled.a`
   ${({ theme }) => css`
     color: ${theme.colors.black};
 
@@ -36,6 +36,13 @@ const TitleStyleDefault = styled.p`
     padding: ${theme.spacings.xxsmall} 0 ${theme.spacings.xxsmall}
       ${theme.spacings.xsmall};
 
+    transition: 0.4s all;
+    cursor: pointer;
+
+    &:hover {
+      color: ${theme.colors.secondary};
+    }
+
     &:after {
       content: '';
       position: absolute;
@@ -47,20 +54,6 @@ const TitleStyleDefault = styled.p`
       width: 10px;
       background: ${theme.colors.secondary};
       clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-    }
-  `}
-`
-
-export const MenuTitle = styled(TitleStyleDefault)``
-
-export const MenuTitleLink = styled(TitleStyleDefault).attrs({ as: 'a' })`
-  ${({ theme }) => css`
-    cursor: pointer;
-
-    transition: 0.2s all;
-
-    &:hover {
-      color: ${theme.colors.secondary};
     }
   `}
 `
