@@ -1,6 +1,6 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 import media from 'styled-media-query'
-import { ColorTypes, SizeTypes } from '.'
+import { HeadingProps } from '.'
 
 const wrapperModifiers = {
   medium: (theme: DefaultTheme) => css`
@@ -46,15 +46,10 @@ const wrapperModifiers = {
   `
 }
 
-type WrapperProps = {
-  size?: SizeTypes
-  color?: ColorTypes
-  lineLeft?: boolean
-  lineRight?: boolean
-}
+type WrapperProps = Omit<HeadingProps, 'children'>
 
 export const Wrapper = styled.h2<WrapperProps>`
-  ${({ theme, color, size, lineLeft, lineRight }) => css`
+  ${({ theme, color = 'primary', size, lineLeft, lineRight }) => css`
     color: ${theme.colors[color]};
     word-wrap: break-word;
 
