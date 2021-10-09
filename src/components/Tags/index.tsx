@@ -15,7 +15,7 @@ const Tags = ({ items }: TagsProps) => (
   <S.Wrapper>
     {items?.map((item, index) => (
       <S.TagWrapper key={index} role="listitem" aria-label={`Opção de tag ${item.title}`}>
-        <Link passHref href={`tag/${item.slug}`}>
+        <Link passHref href={`/tag/${item.slug}`}>
           <S.TagLink>{item.title}</S.TagLink>
         </Link>
       </S.TagWrapper>
