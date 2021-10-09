@@ -1,18 +1,18 @@
 import { MenuProps } from '.'
 
 const MenuMock: MenuProps = {
-  menuSelects: [
-    { title: 'infoprodutores' },
+  items: [
+    { title: 'infoprodutores', slug: 'infoprodutores' },
     {
       title: 'Premium',
-      options: [
+      dropdownOptions: [
         { titleOption: 'Aceleradora', slug: 'aceleradora' },
         { titleOption: 'BPO financeiro', slug: 'bpo_financeiro' }
       ]
     },
     {
       title: 'Nosso trabalho',
-      options: [
+      dropdownOptions: [
         { titleOption: 'Contabil', slug: 'contabil' },
         { titleOption: 'Legalização', slug: 'legalizacao' },
         { titleOption: 'Departamento Pessoal', slug: 'departamento_pessoal' },
@@ -21,10 +21,10 @@ const MenuMock: MenuProps = {
         { titleOption: 'Certificado Digital', slug: 'certificado_digital' }
       ]
     },
-    { title: 'sobre nós' },
+    { title: 'sobre nós', slug: 'sobre_nós' },
     {
       title: 'Blog',
-      options: [
+      dropdownOptions: [
         { titleOption: 'infoproduto', slug: 'infoproduto' },
         { titleOption: 'Midias Sociais', slug: 'midias_sociais' },
         { titleOption: 'Tendencias', slug: 'tendencias' },
@@ -33,7 +33,7 @@ const MenuMock: MenuProps = {
         { titleOption: 'Contabilidade', slug: 'contabilidade' }
       ]
     },
-    { title: 'Home' }
+    { title: 'Home', slug: 'home' }
   ]
 }
 

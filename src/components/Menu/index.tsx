@@ -17,14 +17,15 @@ type menuOptions = {
 
 type menu = {
   title: string
-  options?: menuOptions[]
+  slug?: string
+  dropdownOptions?: menuOptions[]
 }
 
 export type MenuProps = {
-  menuSelects: menu[]
+  items: menu[]
 }
 
-const Menu = ({ menuSelects }: MenuProps) => {
+const Menu = ({ items }: MenuProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
@@ -39,11 +40,11 @@ const Menu = ({ menuSelects }: MenuProps) => {
 
       <MediaWatch greaterThan="large">
         <S.MenuNav>
-          {menuSelects.map((item, index) => (
+          {items.map((item, index) => (
             <LinkMenuDesktop
               key={index}
               title={item.title}
-              dropdownOptions={item.options}
+              dropdownOptions={item.dropdownOptions}
             />
           ))}
         </S.MenuNav>
@@ -52,11 +53,11 @@ const Menu = ({ menuSelects }: MenuProps) => {
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
         <CloseIcon aria-label="Close Menu" onClick={() => setIsOpen(false)} />
         <S.MenuFullContent>
-          {menuSelects.map((item, index) => (
+          {items.map((item, index) => (
             <LinkMenuMobile
               key={index}
               title={item.title}
-              dropdownOptions={item.options}
+              dropdownOptions={item.dropdownOptions}
             />
           ))}
         </S.MenuFullContent>
