@@ -1,5 +1,4 @@
 import { BannerProps } from 'components/Banner'
-import Heading from 'components/Heading'
 
 const mock: BannerProps[] = [
   {

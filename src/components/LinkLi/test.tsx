@@ -1,5 +1,5 @@
 import theme from 'styles/theme'
-import { getByRole, getByText, render, screen } from 'utils/test-utils'
+import { render, screen } from 'utils/test-utils'
 
 import LinkLi, { LinkLiProps } from '.'
 

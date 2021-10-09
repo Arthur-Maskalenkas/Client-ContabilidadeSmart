@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { AnchorHTMLAttributes, useState } from 'react'
+import { AnchorHTMLAttributes } from 'react'
 import * as S from './styles'
 
 import { ArrowIosDownwardOutline } from '@styled-icons/evaicons-outline'
@@ -55,7 +55,7 @@ const LinkMenuDesktop = ({ dropdownOptions, title, slug }: LinkMenuDesktopProps)
 
       {hasLinkMenuDesktop && (
         <S.Content aria-label="LinkMenuDesktop">
-          {dropdownOptions!.map((item, index) => (
+          {dropdownOptions?.map((item, index) => (
             <S.LinkMenuDesktopTitleWrapper key={index}>
               <Link passHref href={`artigo/${item.slug}`}>
                 <S.LinkMenuDesktopTitle>{item.titleOption}</S.LinkMenuDesktopTitle>

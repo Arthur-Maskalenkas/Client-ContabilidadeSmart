@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme } from 'styled-components'
+import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 import { TextDirectionType } from '.'
 
@@ -190,7 +190,7 @@ export const TitleWithColor = styled(Title)`
 `
 
 export const Subtitle = styled.p<GenericProps>`
-  ${({ theme, isOpen }) => css`
+  ${({ theme }) => css`
     color: ${theme.colors.white};
     font-size: ${theme.font.sizes.xsmall};
     font-weight: ${theme.font.family.poppins.weight.normal};

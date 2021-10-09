@@ -2,16 +2,14 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.ul`
-  ${({ theme }) => css`
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
 
-    ${media.greaterThan('medium')`
+  ${media.greaterThan('medium')`
       grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
       gap: 0 3rem;
     `}
-  `}
 `
 export const ServicesCardWrapper = styled.li`
   ${({ theme }) => css`

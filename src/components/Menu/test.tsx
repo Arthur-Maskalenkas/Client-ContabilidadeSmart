@@ -1,5 +1,3 @@
-import userEvent from '@testing-library/user-event'
-import theme from 'styles/theme'
 import { fireEvent, render, screen } from 'utils/test-utils'
 
 import mock from './mock'

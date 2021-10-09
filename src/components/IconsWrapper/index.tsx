@@ -21,11 +21,11 @@ export type sizeTypes = 'small' | 'medium' | 'xlarge' | 'xxlarge' | 'xxxlarge' |
 
 export type IconsProps = {
   icon: IconTypes
-  size?: string | sizeTypes
   color?: colorTypes
+  size?: string | sizeTypes
 }
 
-const IconsWrapper = ({ icon, size, color }: IconsProps) => (
+const IconsWrapper = ({ icon, size, color = 'white' }: IconsProps) => (
   <S.Wrapper size={size} color={color}>
     {IconsDefault[icon]}
   </S.Wrapper>

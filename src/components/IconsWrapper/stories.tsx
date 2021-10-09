@@ -37,7 +37,5 @@ export const Default: Story<IconsProps> = (args) => <IconsWrapper {...args} />
 Default.args = {
   size: '6rem',
   icon: 'Whatsapp',
-  color: 'secondary',
-  hoverColor: 'white',
-  borderColor: 'white'
+  color: 'secondary'
 }

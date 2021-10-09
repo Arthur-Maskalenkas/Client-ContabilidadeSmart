@@ -47,7 +47,7 @@ const LinkMenuMobile = ({ dropdownOptions, title, slug }: LinkMenuMobileProps) =
 
       {hasDropdown && (
         <S.DropdownList aria-hidden={!isOpen} aria-label="dropdown">
-          {dropdownOptions!.map((item, index) => (
+          {dropdownOptions?.map((item, index) => (
             <S.DropdownItemWrapper key={index}>
               <S.DropdownItem>{item.titleOption}</S.DropdownItem>
             </S.DropdownItemWrapper>

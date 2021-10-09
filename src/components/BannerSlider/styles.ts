@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
-import * as BannerStyles from 'components/Banner/styles'
 
 // https://react-slick.neostack.com/docs/get-started
 

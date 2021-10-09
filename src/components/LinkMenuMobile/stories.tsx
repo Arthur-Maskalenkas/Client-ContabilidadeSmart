@@ -20,7 +20,7 @@ export default {
   }
 } as Meta
 
-export const Default: Story<LinkMenuMobileProps> = (args) => (
+export const Default: Story<LinkMenuMobileProps> = () => (
   <div style={{ display: 'flex', flexDirection: 'column', width: '100vw' }}>
     <LinkMenuMobile title="Produtos">Premium</LinkMenuMobile>
   </div>

@@ -122,10 +122,8 @@ export const TitleWrapper = styled.div`
 `
 
 export const DropdownList = styled.ul`
-  ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-  `}
+  display: flex;
+  flex-direction: column;
 `
 
 export const DropdownItemWrapper = styled.li`

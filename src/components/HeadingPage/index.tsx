@@ -1,6 +1,4 @@
 import { Container } from 'components/Container'
-import Logo from 'components/Logo'
-import MediaWatch from 'components/MediaWatch'
 import * as S from './styles'
 
 export type HeadingPageProps = {

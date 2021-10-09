@@ -1,8 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 import Compartilhe from '.'
 
-import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
-
 export default {
   title: 'Compartilhe',
   component: Compartilhe

@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { IconsProps } from '.'
 
 import { StyledIconBase } from '@styled-icons/styled-icon'
@@ -6,7 +6,7 @@ import { StyledIconBase } from '@styled-icons/styled-icon'
 export type sizeTypes = 'small' | 'medium' | 'xlarge' | 'xxlarge' | 'xxxlarge' | 'large'
 
 export const Wrapper = styled.div<Omit<IconsProps, 'icon'>>`
-  ${({ theme, size, color }) => css`
+  ${({ theme, size, color = 'white' }) => css`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,7 +14,7 @@ export const Wrapper = styled.div<Omit<IconsProps, 'icon'>>`
 
     > ${StyledIconBase} {
       width: ${size};
-      color: ${theme.colors[color!]};
+      color: ${theme.colors[color]};
       position: relative;
     }
   `}

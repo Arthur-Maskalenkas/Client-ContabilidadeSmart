@@ -55,7 +55,7 @@ type WrapperProps = {
 
 export const Wrapper = styled.h2<WrapperProps>`
   ${({ theme, color, size, lineLeft, lineRight }) => css`
-    color: ${theme.colors[color!]};
+    color: ${theme.colors[color]};
     word-wrap: break-word;
 
     ${lineLeft && wrapperModifiers.lineLeft(theme)}

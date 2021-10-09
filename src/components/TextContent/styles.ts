@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
 
 import * as CompartilheStyles from 'components/Compartilhe/styles'
 

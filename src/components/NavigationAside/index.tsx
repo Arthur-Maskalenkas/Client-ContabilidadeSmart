@@ -1,5 +1,4 @@
 import LinkLi from 'components/LinkLi'
-import Link from 'next/link'
 
 import * as S from './styles'
 

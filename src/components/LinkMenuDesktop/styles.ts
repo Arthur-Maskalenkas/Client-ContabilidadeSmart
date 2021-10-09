@@ -5,7 +5,7 @@ type WrapperProps = {
 }
 
 export const Wrapper = styled.ul<WrapperProps>`
-  ${({ theme, isOpen }) => css`
+  ${() => css`
     list-style: none;
     position: relative;
     width: max-content;

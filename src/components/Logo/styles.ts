@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
 
 export const Wrapper = styled.div``
 
@@ -9,7 +8,7 @@ type ImgWrapperProps = {
 }
 
 export const ImgWrapper = styled.div<ImgWrapperProps>`
-  ${({ theme, widthImg, heightImg }) => css`
+  ${({ widthImg, heightImg }) => css`
     flex-shrink: 0;
 
     margin-left: auto;

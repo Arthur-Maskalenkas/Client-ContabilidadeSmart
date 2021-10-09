@@ -1,10 +1,10 @@
 import userEvent from '@testing-library/user-event'
 import theme from 'styles/theme'
-import { render, screen, waitFor } from 'utils/test-utils'
+import { render, screen } from 'utils/test-utils'
 
 import LinkMenuMobile from '.'
 
-import items, { mock2 } from './mock'
+import items from './mock'
 
 describe('<LinkMenuMobile />', () => {
   it('vai abrir e fechar o dropdown quando clica no titulo', () => {

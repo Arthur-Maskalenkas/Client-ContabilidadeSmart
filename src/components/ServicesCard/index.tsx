@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import IconsWrapper, { IconsProps, IconTypes } from 'components/IconsWrapper'
+import IconsWrapper, { IconTypes } from 'components/IconsWrapper'
 import * as S from './styles'
 
 export type ServicesCardProps = {

@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import { Container } from 'components/Container'
-
 import * as LogoStyles from 'components/Logo/styles'
 
 export const Wrapper = styled.div`

@@ -3,10 +3,9 @@ import { render, screen } from 'utils/test-utils'
 
 import Widget, { WidgetProps } from '.'
 
-import { mockCategorias } from './mock'
-
 const mock: WidgetProps = {
   title: 'Categorias',
+  path: 'categorias',
   items: [
     { title: 'Blog', slug: 'blog' },
     { title: 'Contabilidade', slug: 'contabilidade' }

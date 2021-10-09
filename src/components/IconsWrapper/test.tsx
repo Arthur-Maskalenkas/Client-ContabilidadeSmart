@@ -3,8 +3,6 @@ import theme from 'styles/theme'
 
 import IconsWrapper from '.'
 
-import { StyledIconBase } from '@styled-icons/styled-icon'
-
 describe('<IconsWrapper />', () => {
   it('Deve renderizar o icone e testar hover, size, e color, e icone que renderiza ', () => {
     const { container } = render(
