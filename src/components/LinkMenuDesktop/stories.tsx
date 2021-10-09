@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import LinkMenuDesktop, { LinkMenuDesktopProps } from '.'
 
-import items from './mock'
+import { mockWithDropdownOptions } from './mock'
 
 export default {
   title: 'LinkMenu/LinkMenuDesktop',
@@ -42,7 +42,7 @@ export const WithDropdownSelected: Story<LinkMenuDesktopProps> = (args) => (
 )
 
 WithDropdownSelected.args = {
-  ...items,
+  ...mockWithDropdownOptions,
   isSelected: true
 }
 

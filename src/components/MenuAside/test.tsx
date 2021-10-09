@@ -1,6 +1,10 @@
 import React from 'react'
 import { render, screen } from 'utils/test-utils'
 
+import mockNavigationAside from 'components/NavigationAside/mock'
+import mockTags from 'components/Tags/mock'
+import mockMaisVistos from 'components/MaisVistos/mock'
+
 import MenuAside from '.'
 
 jest.mock('components/Logo', () => ({
@@ -31,9 +35,19 @@ jest.mock('components/MaisVistos', () => ({
   }
 }))
 
+const navigationMock = mockNavigationAside
+const tagsMock = mockTags
+const maisVistosMock = mockMaisVistos
+
 describe('<MenuAside />', () => {
   it('should render the heading', () => {
-    render(<MenuAside />)
+    render(
+      <MenuAside
+        maisVistosData={maisVistosMock}
+        menuData={navigationMock}
+        tagsData={tagsMock}
+      />
+    )
 
     expect(screen.getByTestId('mock tag')).toBeInTheDocument()
     expect(screen.getByTestId('mock logo')).toBeInTheDocument()

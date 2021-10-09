@@ -1,16 +1,17 @@
 import { Story, Meta } from '@storybook/react'
-import NavigationAside, { NavigationAsideProps } from '.'
+import NavigationAside from '.'
 
 import mock from './mock'
 
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { MenuProps } from 'components/Menu'
 
 export default {
   title: 'side/NavigationAside',
   component: NavigationAside
 } as Meta
 
-export const Default: Story<NavigationAsideProps> = (args) => (
+export const Default: Story<MenuProps> = (args) => (
   <div style={{ width: '35rem' }}>
     <NavigationAside {...args} />
   </div>
@@ -24,7 +25,7 @@ Default.parameters = {
   }
 }
 
-export const Mobile: Story<NavigationAsideProps> = (args) => <NavigationAside {...args} />
+export const Mobile: Story<MenuProps> = (args) => <NavigationAside {...args} />
 
 Mobile.args = { ...mock }
 
