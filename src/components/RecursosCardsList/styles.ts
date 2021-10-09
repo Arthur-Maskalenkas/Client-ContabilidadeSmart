@@ -5,14 +5,16 @@ import { darken } from 'polished'
 
 import * as IconWrapperStyles from 'components/IconsWrapper/styles'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.ul`
+  list-style: none;
+
   ${media.greaterThan('medium')`
      display: grid;
       grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
     `}
 `
 
-export const RecursosCardsListWrapper = styled.div`
+export const RecursosCardsListWrapper = styled.li`
   ${({ theme }) => css`
     padding: 1rem;
 

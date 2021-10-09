@@ -5,7 +5,7 @@ import { Container } from 'components/Container'
 
 import * as LogoStyles from 'components/Logo/styles'
 
-export const Wrapper = styled.header`
+export const Wrapper = styled.div`
   ${({ theme }) => css`
     background-color: ${theme.colors.darkGray};
   `}

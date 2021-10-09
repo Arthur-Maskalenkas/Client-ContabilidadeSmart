@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.ul`
   ${({ theme }) => css`
+    list-style: none;
     display: grid;
     grid-template-columns: 1fr;
 
@@ -12,7 +13,7 @@ export const Wrapper = styled.div`
     `}
   `}
 `
-export const ServicesCardWrapper = styled.div`
+export const ServicesCardWrapper = styled.li`
   ${({ theme }) => css`
     &:not(:last-child) {
       margin-bottom: ${theme.spacings.large};

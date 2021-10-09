@@ -1,8 +1,6 @@
 import NavigationAside from 'components/NavigationAside'
 import Tags from 'components/Tags'
 
-import { ContainerAside } from 'components/AsideStyles'
-
 import * as S from './styles'
 
 import mockNavigationAside from 'components/NavigationAside/mock'
