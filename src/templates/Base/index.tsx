@@ -1,18 +1,17 @@
 import { Container } from 'components/Container'
 import Footer from 'components/Footer'
-import Menu from 'components/Menu'
+import Menu, { MenuProps } from 'components/Menu'
 import MenuContact from 'components/MenuContact'
-
-import mockMenu from 'components/Menu/mock'
 
 import * as S from './styles'
 import MediaWatch from 'components/MediaWatch'
 
 export type BaseTemplateProps = {
   children: React.ReactNode
+  menuData: MenuProps
 }
 
-const Base = ({ children }: BaseTemplateProps) => (
+const Base = ({ children, menuData }: BaseTemplateProps) => (
   <S.Wrapper>
     <S.MenusContainer>
       <MediaWatch greaterThan="large">
@@ -24,7 +23,7 @@ const Base = ({ children }: BaseTemplateProps) => (
       </MediaWatch>
       <S.MenuContainer>
         <Container>
-          <Menu items={mockMenu.items} />
+          <Menu items={menuData.items} />
         </Container>
       </S.MenuContainer>
     </S.MenusContainer>
