@@ -31,7 +31,7 @@ export type LinkMenuDesktopProps = {
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
 const LinkMenuDesktop = ({ dropdownOptions, title, slug }: LinkMenuDesktopProps) => {
-  const hasLinkMenuDesktop = !!dropdownOptions
+  const hasLinkMenuDesktop = !!dropdownOptions?.length
 
   return (
     <S.Wrapper

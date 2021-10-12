@@ -17,7 +17,7 @@ export type LinkMenuMobileProps = {
 const LinkMenuMobile = ({ dropdownOptions, title, slug }: LinkMenuMobileProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const hasDropdown = !!dropdownOptions
+  const hasDropdown = !!dropdownOptions?.length
 
   // Tamanho de cada menu (56px)
   // Vai modificar o elemento irmão, tendo 5.6 * a quantidade de opções dele
