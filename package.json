@@ -22,6 +22,7 @@
     "src/**/*": []
   },
   "dependencies": {
+    "@apollo/client": "^3.4.16",
     "@styled-icons/bootstrap": "^10.34.0",
     "@styled-icons/boxicons-logos": "^10.38.0",
     "@styled-icons/evaicons-outline": "^10.34.0",
@@ -31,6 +32,7 @@
     "@styled-icons/simple-icons": "^10.41.0",
     "@testing-library/user-event": "^13.2.1",
     "browserslist": "^4.17.0",
+    "graphql": "^15.6.1",
     "next": "11.0.1",
     "next-pwa": "^5.2.23",
     "polished": "^4.1.3",
