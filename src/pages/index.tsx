@@ -1,7 +1,7 @@
 import Home, { HomeTemplateProps } from 'templates/Home'
 
 import mockBannerSlider from 'components/BannerSlider/mock'
-
+import mockMenu from 'components/Menu/mock'
 import mockWidgetList from 'components/WidgetList/mock'
 
 export default function sobre(props: HomeTemplateProps) {
@@ -12,7 +12,8 @@ export function getStaticProps() {
   return {
     props: {
       bannerSliderData: mockBannerSlider,
-      widgetListData: mockWidgetList
+      widgetListData: mockWidgetList,
+      menuData: mockMenu
     }
   }
 }

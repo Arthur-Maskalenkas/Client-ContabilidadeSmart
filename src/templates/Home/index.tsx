@@ -17,15 +17,17 @@ import mockSocialBannerSlides from 'components/SocialBannerSlides/mock'
 import { BannerProps } from 'components/Banner'
 
 import WidgetList, { WidgetListProps } from 'components/WidgetList'
+import { MenuProps } from 'components/Menu'
 
 export type HomeTemplateProps = {
   bannerSliderData: BannerProps[]
   widgetListData: WidgetListProps
+  menuData: MenuProps
 }
 
-const Home = ({ bannerSliderData, widgetListData }: HomeTemplateProps) => (
+const Home = ({ bannerSliderData, widgetListData, menuData }: HomeTemplateProps) => (
   <S.Wrapper>
-    <Base>
+    <Base menuData={menuData}>
       {/* Banner no topo */}
       <BannerSlider items={bannerSliderData} />
 
