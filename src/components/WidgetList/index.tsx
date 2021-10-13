@@ -6,6 +6,8 @@ export type WidgetListProps = {
   items: WidgetProps[]
 }
 
+// No template eu preciso passar uma LISTA do tipo WIDGETPROPS e não WIDGETLISTPROPS
+
 const WidgetList = ({ items }: WidgetListProps) => (
   <S.Wrapper>
     {items.map((item, index) => (
