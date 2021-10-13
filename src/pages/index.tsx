@@ -31,7 +31,7 @@ export async function getStaticProps() {
           slug: item.slug,
           dropdownOptions: item.menu_options.map((item) => ({
             titleOption: item.title,
-            slug: item.slug
+            slug: item?.post?.slug
           }))
         }))
       }

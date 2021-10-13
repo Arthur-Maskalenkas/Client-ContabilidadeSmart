@@ -70,12 +70,103 @@ type UserPermissionsPasswordPayload {
   ok: Boolean!
 }
 
+type Categoria {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  title: String!
+  slug: String!
+}
+
+type CategoriaConnection {
+  values: [Categoria]
+  groupBy: CategoriaGroupBy
+  aggregate: CategoriaAggregator
+}
+
+type CategoriaAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type CategoriaGroupBy {
+  id: [CategoriaConnectionId]
+  created_at: [CategoriaConnectionCreated_at]
+  updated_at: [CategoriaConnectionUpdated_at]
+  title: [CategoriaConnectionTitle]
+  slug: [CategoriaConnectionSlug]
+}
+
+type CategoriaConnectionId {
+  key: ID
+  connection: CategoriaConnection
+}
+
+type CategoriaConnectionCreated_at {
+  key: DateTime
+  connection: CategoriaConnection
+}
+
+type CategoriaConnectionUpdated_at {
+  key: DateTime
+  connection: CategoriaConnection
+}
+
+type CategoriaConnectionTitle {
+  key: String
+  connection: CategoriaConnection
+}
+
+type CategoriaConnectionSlug {
+  key: String
+  connection: CategoriaConnection
+}
+
+input CategoriaInput {
+  title: String!
+  slug: String!
+  created_by: ID
+  updated_by: ID
+}
+
+input editCategoriaInput {
+  title: String
+  slug: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createCategoriaInput {
+  data: CategoriaInput
+}
+
+type createCategoriaPayload {
+  categoria: Categoria
+}
+
+input updateCategoriaInput {
+  where: InputID
+  data: editCategoriaInput
+}
+
+type updateCategoriaPayload {
+  categoria: Categoria
+}
+
+input deleteCategoriaInput {
+  where: InputID
+}
+
+type deleteCategoriaPayload {
+  categoria: Categoria
+}
+
 type MenuOption {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
   title: String!
-  slug: String
+  post: Post
 }
 
 type MenuOptionConnection {
@@ -94,7 +185,7 @@ type MenuOptionGroupBy {
   created_at: [MenuOptionConnectionCreated_at]
   updated_at: [MenuOptionConnectionUpdated_at]
   title: [MenuOptionConnectionTitle]
-  slug: [MenuOptionConnectionSlug]
+  post: [MenuOptionConnectionPost]
 }
 
 type MenuOptionConnectionId {
@@ -117,21 +208,21 @@ type MenuOptionConnectionTitle {
   connection: MenuOptionConnection
 }
 
-type MenuOptionConnectionSlug {
-  key: String
+type MenuOptionConnectionPost {
+  key: ID
   connection: MenuOptionConnection
 }
 
 input MenuOptionInput {
   title: String!
-  slug: String
+  post: ID
   created_by: ID
   updated_by: ID
 }
 
 input editMenuOptionInput {
   title: String
-  slug: String
+  post: ID
   created_by: ID
   updated_by: ID
 }
@@ -365,6 +456,199 @@ input deletePostInput {
 
 type deletePostPayload {
   post: Post
+}
+
+type Tag {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  Title: String!
+  slug: String!
+}
+
+type TagConnection {
+  values: [Tag]
+  groupBy: TagGroupBy
+  aggregate: TagAggregator
+}
+
+type TagAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type TagGroupBy {
+  id: [TagConnectionId]
+  created_at: [TagConnectionCreated_at]
+  updated_at: [TagConnectionUpdated_at]
+  Title: [TagConnectionTitle]
+  slug: [TagConnectionSlug]
+}
+
+type TagConnectionId {
+  key: ID
+  connection: TagConnection
+}
+
+type TagConnectionCreated_at {
+  key: DateTime
+  connection: TagConnection
+}
+
+type TagConnectionUpdated_at {
+  key: DateTime
+  connection: TagConnection
+}
+
+type TagConnectionTitle {
+  key: String
+  connection: TagConnection
+}
+
+type TagConnectionSlug {
+  key: String
+  connection: TagConnection
+}
+
+input TagInput {
+  Title: String!
+  slug: String!
+  created_by: ID
+  updated_by: ID
+}
+
+input editTagInput {
+  Title: String
+  slug: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createTagInput {
+  data: TagInput
+}
+
+type createTagPayload {
+  tag: Tag
+}
+
+input updateTagInput {
+  where: InputID
+  data: editTagInput
+}
+
+type updateTagPayload {
+  tag: Tag
+}
+
+input deleteTagInput {
+  where: InputID
+}
+
+type deleteTagPayload {
+  tag: Tag
+}
+
+enum ENUM_WIDGET_PATH {
+  categorias
+  paginas
+}
+
+type Widget {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  title: String!
+  path: ENUM_WIDGET_PATH
+  categorias(sort: String, limit: Int, start: Int, where: JSON): [Categoria!]!
+  posts(sort: String, limit: Int, start: Int, where: JSON): [Post!]!
+}
+
+type WidgetConnection {
+  values: [Widget]
+  groupBy: WidgetGroupBy
+  aggregate: WidgetAggregator
+}
+
+type WidgetAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type WidgetGroupBy {
+  id: [WidgetConnectionId]
+  created_at: [WidgetConnectionCreated_at]
+  updated_at: [WidgetConnectionUpdated_at]
+  title: [WidgetConnectionTitle]
+  path: [WidgetConnectionPath]
+}
+
+type WidgetConnectionId {
+  key: ID
+  connection: WidgetConnection
+}
+
+type WidgetConnectionCreated_at {
+  key: DateTime
+  connection: WidgetConnection
+}
+
+type WidgetConnectionUpdated_at {
+  key: DateTime
+  connection: WidgetConnection
+}
+
+type WidgetConnectionTitle {
+  key: String
+  connection: WidgetConnection
+}
+
+type WidgetConnectionPath {
+  key: String
+  connection: WidgetConnection
+}
+
+input WidgetInput {
+  title: String!
+  path: ENUM_WIDGET_PATH
+  categorias: [ID]
+  posts: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editWidgetInput {
+  title: String
+  path: ENUM_WIDGET_PATH
+  categorias: [ID]
+  posts: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input createWidgetInput {
+  data: WidgetInput
+}
+
+type createWidgetPayload {
+  widget: Widget
+}
+
+input updateWidgetInput {
+  where: InputID
+  data: editWidgetInput
+}
+
+type updateWidgetPayload {
+  widget: Widget
+}
+
+input deleteWidgetInput {
+  where: InputID
+}
+
+type deleteWidgetPayload {
+  widget: Widget
 }
 
 type I18NLocale {
@@ -837,7 +1121,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | MenuOption | MenuOptionConnection | MenuOptionAggregator | MenuOptionGroupBy | MenuOptionConnectionId | MenuOptionConnectionCreated_at | MenuOptionConnectionUpdated_at | MenuOptionConnectionTitle | MenuOptionConnectionSlug | createMenuOptionPayload | updateMenuOptionPayload | deleteMenuOptionPayload | Menu | MenuConnection | MenuAggregator | MenuGroupBy | MenuConnectionId | MenuConnectionCreated_at | MenuConnectionUpdated_at | MenuConnectionTitle | MenuConnectionSlug | createMenuPayload | updateMenuPayload | deleteMenuPayload | Post | PostConnection | PostAggregator | PostGroupBy | PostConnectionId | PostConnectionCreated_at | PostConnectionUpdated_at | PostConnectionTitle | PostConnectionText | PostConnectionSlug | PostConnectionPublished_at | createPostPayload | updatePostPayload | deletePostPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Categoria | CategoriaConnection | CategoriaAggregator | CategoriaGroupBy | CategoriaConnectionId | CategoriaConnectionCreated_at | CategoriaConnectionUpdated_at | CategoriaConnectionTitle | CategoriaConnectionSlug | createCategoriaPayload | updateCategoriaPayload | deleteCategoriaPayload | MenuOption | MenuOptionConnection | MenuOptionAggregator | MenuOptionGroupBy | MenuOptionConnectionId | MenuOptionConnectionCreated_at | MenuOptionConnectionUpdated_at | MenuOptionConnectionTitle | MenuOptionConnectionPost | createMenuOptionPayload | updateMenuOptionPayload | deleteMenuOptionPayload | Menu | MenuConnection | MenuAggregator | MenuGroupBy | MenuConnectionId | MenuConnectionCreated_at | MenuConnectionUpdated_at | MenuConnectionTitle | MenuConnectionSlug | createMenuPayload | updateMenuPayload | deleteMenuPayload | Post | PostConnection | PostAggregator | PostGroupBy | PostConnectionId | PostConnectionCreated_at | PostConnectionUpdated_at | PostConnectionTitle | PostConnectionText | PostConnectionSlug | PostConnectionPublished_at | createPostPayload | updatePostPayload | deletePostPayload | Tag | TagConnection | TagAggregator | TagGroupBy | TagConnectionId | TagConnectionCreated_at | TagConnectionUpdated_at | TagConnectionTitle | TagConnectionSlug | createTagPayload | updateTagPayload | deleteTagPayload | Widget | WidgetConnection | WidgetAggregator | WidgetGroupBy | WidgetConnectionId | WidgetConnectionCreated_at | WidgetConnectionUpdated_at | WidgetConnectionTitle | WidgetConnectionPath | createWidgetPayload | updateWidgetPayload | deleteWidgetPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!
@@ -856,6 +1140,9 @@ type AdminUser {
 }
 
 type Query {
+  categoria(id: ID!, publicationState: PublicationState): Categoria
+  categorias(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Categoria!]!
+  categoriasConnection(sort: String, limit: Int, start: Int, where: JSON): CategoriaConnection
   menuOption(id: ID!, publicationState: PublicationState): MenuOption
   menuOptions(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [MenuOption!]!
   menuOptionsConnection(sort: String, limit: Int, start: Int, where: JSON): MenuOptionConnection
@@ -865,6 +1152,12 @@ type Query {
   post(id: ID!, publicationState: PublicationState): Post
   posts(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Post!]!
   postsConnection(sort: String, limit: Int, start: Int, where: JSON): PostConnection
+  tag(id: ID!, publicationState: PublicationState): Tag
+  tags(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Tag!]!
+  tagsConnection(sort: String, limit: Int, start: Int, where: JSON): TagConnection
+  widget(id: ID!, publicationState: PublicationState): Widget
+  widgets(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Widget!]!
+  widgetsConnection(sort: String, limit: Int, start: Int, where: JSON): WidgetConnection
   files(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UploadFile!]!
   filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
   role(id: ID!, publicationState: PublicationState): UsersPermissionsRole
@@ -878,6 +1171,9 @@ type Query {
 }
 
 type Mutation {
+  createCategoria(input: createCategoriaInput): createCategoriaPayload
+  updateCategoria(input: updateCategoriaInput): updateCategoriaPayload
+  deleteCategoria(input: deleteCategoriaInput): deleteCategoriaPayload
   createMenuOption(input: createMenuOptionInput): createMenuOptionPayload
   updateMenuOption(input: updateMenuOptionInput): updateMenuOptionPayload
   deleteMenuOption(input: deleteMenuOptionInput): deleteMenuOptionPayload
@@ -887,6 +1183,12 @@ type Mutation {
   createPost(input: createPostInput): createPostPayload
   updatePost(input: updatePostInput): updatePostPayload
   deletePost(input: deletePostInput): deletePostPayload
+  createTag(input: createTagInput): createTagPayload
+  updateTag(input: updateTagInput): updateTagPayload
+  deleteTag(input: deleteTagInput): deleteTagPayload
+  createWidget(input: createWidgetInput): createWidgetPayload
+  updateWidget(input: updateWidgetInput): updateWidgetPayload
+  deleteWidget(input: deleteWidgetInput): deleteWidgetPayload
   """Delete one file"""
   deleteFile(input: deleteFileInput): deleteFilePayload
   """Create a new role"""

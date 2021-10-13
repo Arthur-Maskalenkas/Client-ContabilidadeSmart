@@ -7,10 +7,15 @@
 // GraphQL query operation: QueryMenu
 // ====================================================
 
+export interface QueryMenu_menus_menu_options_post {
+  __typename: "Post";
+  slug: string;
+}
+
 export interface QueryMenu_menus_menu_options {
   __typename: "MenuOption";
   title: string;
-  slug: string | null;
+  post: QueryMenu_menus_menu_options_post | null;
 }
 
 export interface QueryMenu_menus {
