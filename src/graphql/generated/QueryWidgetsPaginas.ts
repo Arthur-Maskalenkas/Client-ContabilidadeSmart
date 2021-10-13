@@ -9,19 +9,19 @@ import { ENUM_WIDGET_PATH } from "./globalTypes";
 // GraphQL query operation: QueryWidgetsPaginas
 // ====================================================
 
-export interface QueryWidgetsPaginas_widgets_posts {
+export interface QueryWidgetsPaginas_widgetpaginas_posts {
   __typename: "Post";
   title: string;
   slug: string;
 }
 
-export interface QueryWidgetsPaginas_widgets {
+export interface QueryWidgetsPaginas_widgetpaginas {
   __typename: "Widget";
   title: string;
   path: ENUM_WIDGET_PATH | null;
-  posts: QueryWidgetsPaginas_widgets_posts[];
+  posts: QueryWidgetsPaginas_widgetpaginas_posts[];
 }
 
 export interface QueryWidgetsPaginas {
-  widgets: QueryWidgetsPaginas_widgets[];
+  widgetpaginas: QueryWidgetsPaginas_widgetpaginas[];
 }
