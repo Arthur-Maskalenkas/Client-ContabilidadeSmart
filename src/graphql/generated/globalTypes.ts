@@ -7,6 +7,11 @@
 // START Enums and Input Objects
 //==============================================================
 
+export enum ENUM_WIDGET_PATH {
+  categorias = "categorias",
+  paginas = "paginas",
+}
+
 //==============================================================
 // END Enums and Input Objects
 //==============================================================
