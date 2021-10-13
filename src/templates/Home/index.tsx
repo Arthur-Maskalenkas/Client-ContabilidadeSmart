@@ -18,14 +18,20 @@ import { BannerProps } from 'components/Banner'
 
 import WidgetList, { WidgetListProps } from 'components/WidgetList'
 import { MenuProps } from 'components/Menu'
+import { WidgetProps } from 'components/Widget'
 
 export type HomeTemplateProps = {
   bannerSliderData: BannerProps[]
-  widgetListData: WidgetListProps
+  widgetListCategoriasData: WidgetProps[]
+  widgetListPaginasData: WidgetProps[]
+  widgetPostsRecentes: WidgetProps[]
   menuData: MenuProps
 }
 
-const Home = ({ bannerSliderData, widgetListData, menuData }: HomeTemplateProps) => (
+const Home = ({ bannerSliderData, widgetListCategoriasData, widgetListPaginasData,widgetPostsRecentes, menuData }: HomeTemplateProps) => {
+  const widgets = [...widgetListCategoriasData, ...widgetListPaginasData, ...widgetPostsRecentes]
+
+  return (
   <S.Wrapper>
     <Base menuData={menuData}>
       {/* Banner no topo */}
@@ -71,10 +77,10 @@ const Home = ({ bannerSliderData, widgetListData, menuData }: HomeTemplateProps)
       </S.SocialBannerSection>
 
       <S.WidgetSection>
-        <WidgetList {...widgetListData} />
+        <WidgetList items={widgets} />
       </S.WidgetSection>
     </Base>
   </S.Wrapper>
-)
+)}
 
 export default Home
