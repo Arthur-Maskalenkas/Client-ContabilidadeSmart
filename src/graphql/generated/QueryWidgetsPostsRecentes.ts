@@ -7,12 +7,12 @@
 // GraphQL query operation: QueryWidgetsPostsRecentes
 // ====================================================
 
-export interface QueryWidgetsPostsRecentes_posts {
+export interface QueryWidgetsPostsRecentes_postsRecentes {
   __typename: "Post";
   title: string;
   slug: string;
 }
 
 export interface QueryWidgetsPostsRecentes {
-  posts: QueryWidgetsPostsRecentes_posts[];
+  postsRecentes: QueryWidgetsPostsRecentes_postsRecentes[];
 }

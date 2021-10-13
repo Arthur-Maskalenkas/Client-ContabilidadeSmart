@@ -28,7 +28,7 @@ query QueryWidgetsPaginas {
 
 export const QUERY_WIDGETS_POSTS_RECENTES= gql`
 query QueryWidgetsPostsRecentes {
- 	posts(limit: 5, sort: "created_at:desc") {
+ 	postsRecentes:posts(limit: 5, sort: "created_at:desc") {
     title
     slug
    }
