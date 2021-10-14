@@ -1,8 +1,8 @@
 import NavigationAside from 'components/NavigationAside'
 
-import MaisVistos, { MaisVistosProps } from 'components/MaisVistos'
-import Tags, { TagsProps } from 'components/Tags'
-import { MenuProps } from 'components/Menu'
+import MaisVistos, { MaisVistoProps } from 'components/MaisVistos'
+import Tags, { TagProps } from 'components/Tags'
+import { MenuProps, MenuUnitaryProps } from 'components/Menu'
 
 import * as S from './styles'
 
@@ -11,9 +11,9 @@ import Logo from 'components/Logo'
 import MediaWatch from 'components/MediaWatch'
 
 export type MenuAsideProps = {
-  menuData: MenuProps
-  tagsData: TagsProps
-  maisVistosData: MaisVistosProps
+  menuData: MenuUnitaryProps[]
+  tagsData: TagProps[]
+  maisVistosData: MaisVistoProps[]
 }
 
 const MenuAside = ({ menuData, tagsData, maisVistosData }: MenuAsideProps) => (
@@ -22,14 +22,13 @@ const MenuAside = ({ menuData, tagsData, maisVistosData }: MenuAsideProps) => (
       <S.MenuContainer>
         <Logo size="small" />
       </S.MenuContainer>
-      {console.log(menuData)}
 
       <S.MenuContainer>
         <S.TitleWrapper>
           <S.Title>Menu</S.Title>
         </S.TitleWrapper>
         <S.ContentWrapper>
-          <NavigationAside {...menuData} />
+          <NavigationAside items={menuData} />
         </S.ContentWrapper>
       </S.MenuContainer>
     </MediaWatch>
@@ -38,7 +37,7 @@ const MenuAside = ({ menuData, tagsData, maisVistosData }: MenuAsideProps) => (
         <S.Title>Tags</S.Title>
       </S.TitleWrapper>
       <S.ContentWrapper>
-        <Tags {...tagsData} />
+        <Tags items={tagsData} />
       </S.ContentWrapper>
     </S.MenuContainer>
 
@@ -47,7 +46,7 @@ const MenuAside = ({ menuData, tagsData, maisVistosData }: MenuAsideProps) => (
         <S.Title>Mais vistos na semana</S.Title>
       </S.TitleWrapper>
       <S.ContentWrapper>
-        <MaisVistos {...maisVistosData} />
+        <MaisVistos items={maisVistosData} />
       </S.ContentWrapper>
     </S.MenuContainer>
 
