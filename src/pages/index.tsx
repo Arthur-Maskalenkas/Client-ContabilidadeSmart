@@ -7,10 +7,14 @@ import { initializeApollo } from 'utils/apollo'
 
 import { QueryMenu } from 'graphql/generated/QueryMenu'
 import { QUERY_MENU } from 'graphql/queries/menu'
+
 import { QUERY_WIDGETS_CATEGORIAS, QUERY_WIDGETS_PAGINAS, QUERY_WIDGETS_POSTS_RECENTES } from 'graphql/queries/widgets'
 import { QueryWidgetsCategorias } from 'graphql/generated/QueryWidgetsCategorias'
 import { QueryWidgetsPaginas } from 'graphql/generated/QueryWidgetsPaginas'
 import { QueryWidgetsPostsRecentes } from 'graphql/generated/QueryWidgetsPostsRecentes'
+
+import { QueryBannersHome } from 'graphql/generated/QueryBannersHome'
+import { QUERY_HOME_BANNERS } from 'graphql/queries/home'
 
 export default function sobre(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -18,6 +22,9 @@ export default function sobre(props: HomeTemplateProps) {
 
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
+
+  // Banner no topo
+  const { data : { home }} = await apolloClient.query<QueryBannersHome>({query: QUERY_HOME_BANNERS})
 
   // Widget POSTS RECENTES
   const { data : { postsRecentes }} = await apolloClient.query<QueryWidgetsPostsRecentes>({query: QUERY_WIDGETS_POSTS_RECENTES, fetchPolicy: 'no-cache'})
@@ -46,7 +53,17 @@ export async function getStaticProps() {
           slug: items.slug
         }))
       })),
-      bannerSliderData: mockBannerSlider,
+      bannerSliderData: home?.bannerHome?.map((items) => ({
+        title: items?.title,
+        subtitle: items?.subtitle,
+        textDirection: items?.textDirection,
+        titleWithColor: items?.titleWithColor,
+        img: items?.img?.url,
+        titleImage: items?.img?.alternativeText,
+        buttonLabel: items?.buttonLabel,
+        buttonLink: items?.buttonLink,
+
+      })),
       widgetListPaginasData: widgetpaginas.map((item) => ({
         title: item.title,
         path: item.path,
