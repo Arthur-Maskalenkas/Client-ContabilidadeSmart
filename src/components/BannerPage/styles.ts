@@ -81,6 +81,7 @@ export const DetailsWrapper = styled.div`
 export const Details = styled.p`
   ${({ theme }) => css`
     font-size: 1.7rem;
+    text-align: center;
     font-weight: ${theme.font.family.poppins.weight.normal};
     color: ${theme.colors.white};
   `}
