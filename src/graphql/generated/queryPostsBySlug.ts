@@ -18,6 +18,7 @@ export interface queryPostsBySlug_posts {
   id: string;
   title: string;
   slug: string;
+  created_at: any;
   text: string;
   capa: queryPostsBySlug_posts_capa[];
 }

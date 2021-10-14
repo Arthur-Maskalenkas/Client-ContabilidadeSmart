@@ -21,6 +21,7 @@ export const QUERY_POSTS_BY_SLUG = gql`
       id
       title
       slug
+      created_at
       text
       capa {
         url

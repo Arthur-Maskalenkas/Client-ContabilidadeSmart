@@ -2,7 +2,7 @@ import { Container } from 'components/Container'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import * as WidgetStyles from 'components/Widget/styles'
+import * as BannerStyles from 'components/BannerPage/styles'
 
 export const Wrapper = styled.main``
 
@@ -46,6 +46,10 @@ export const Main = styled.main`
 
       box-shadow: 0px 0px 24px -16px #000000;
   `}
+
+  ${BannerStyles.Wrapper} {
+    margin-bottom: ${theme.spacings.large};
+  }
   `}
 `
 
