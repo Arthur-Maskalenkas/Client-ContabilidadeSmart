@@ -16,7 +16,9 @@ export const Default: Story<TagsProps> = (args) => (
   </div>
 )
 
-Default.args = { ...mock }
+const mockWithItems = { items: mock}
+
+Default.args = { ...mockWithItems }
 
 Default.parameters = {
   backgrounds: {
@@ -30,7 +32,7 @@ export const Mobile: Story<TagsProps> = (args) => (
   </div>
 )
 
-Mobile.args = { ...mock }
+Mobile.args = { ...mockWithItems  }
 
 Mobile.parameters = {
   backgrounds: {

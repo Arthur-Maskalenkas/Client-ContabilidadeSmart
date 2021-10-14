@@ -26,7 +26,7 @@ jest.mock('components/Footer', () => {
 describe('<Base />', () => {
   it('Verifica a renderização do menu, footer e filho', () => {
     renderWithTheme(
-      <Base menuData={mockMenu}>
+      <Base menuData={mockMenu.items}>
         <h1>Heading</h1>
       </Base>
     )

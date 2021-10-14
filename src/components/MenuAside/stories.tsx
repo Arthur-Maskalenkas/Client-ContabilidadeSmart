@@ -17,7 +17,7 @@ export const Default: Story = () => (
       <div></div>
       <MenuAside
         maisVistosData={maisVistosMock}
-        menuData={navigationMock}
+        menuData={navigationMock.items}
         tagsData={tagsMock}
       />
     </div>
@@ -35,7 +35,7 @@ Default.parameters = {
 export const Mobile: Story = () => (
   <MenuAside
     maisVistosData={maisVistosMock}
-    menuData={navigationMock}
+    menuData={navigationMock.items}
     tagsData={tagsMock}
   />
 )

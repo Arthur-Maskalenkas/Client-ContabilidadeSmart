@@ -44,7 +44,7 @@ describe('<MenuAside />', () => {
     render(
       <MenuAside
         maisVistosData={maisVistosMock}
-        menuData={navigationMock}
+        menuData={navigationMock.items}
         tagsData={tagsMock}
       />
     )
