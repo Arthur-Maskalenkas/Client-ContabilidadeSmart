@@ -2,13 +2,13 @@ import Link from 'next/link'
 
 import * as S from './styles'
 
-type ItemType = {
+export type TagProps = {
   title: string
   slug: string
 }
 
 export type TagsProps = {
-  items?: ItemType[]
+  items?: TagProps[]
 }
 
 const Tags = ({ items }: TagsProps) => (

@@ -15,14 +15,14 @@ type menuOptions = {
   slug: string
 }
 
-type menu = {
+export type MenuUnitaryProps = {
   title: string
   slug?: string
   dropdownOptions?: menuOptions[]
 }
 
 export type MenuProps = {
-  items: menu[]
+  items: MenuUnitaryProps[]
 }
 
 const Menu = ({ items }: MenuProps) => {

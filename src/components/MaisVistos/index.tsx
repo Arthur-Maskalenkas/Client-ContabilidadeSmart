@@ -1,13 +1,13 @@
 import LinkLi from 'components/LinkLi'
 import * as S from './styles'
 
-type ItemType = {
+export type MaisVistoProps = {
   title: string
   slug: string
 }
 
 export type MaisVistosProps = {
-  items: ItemType[]
+  items: MaisVistoProps[]
 }
 
 const MaisVistos = ({ items }: MaisVistosProps) => (

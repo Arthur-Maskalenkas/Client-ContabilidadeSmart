@@ -1,7 +1,6 @@
-import { MaisVistosProps } from '.'
+import { MaisVistoProps } from '.'
 
-const mock: MaisVistosProps = {
-  items: [
+const mock: MaisVistoProps[] = [
     { title: 'Quais os tipos de lançamentos', slug: 'quais_os_tipos_de_lançamentos' },
     {
       title: 'Cansado!? 14 dicas faceis para criar o seu infoproduto',
@@ -21,6 +20,5 @@ const mock: MaisVistosProps = {
       slug: 'Saques_de_fgts_e_recebimento_de_beneficio'
     }
   ]
-}
 
 export default mock

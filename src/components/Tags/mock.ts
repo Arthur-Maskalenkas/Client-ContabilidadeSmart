@@ -1,7 +1,6 @@
-import { TagsProps } from '.'
+import { TagProps } from '.'
 
-const mock: TagsProps = {
-  items: [
+const mock: TagProps[] = [
     {
       title: 'ads',
       slug: 'ads'
@@ -122,7 +121,7 @@ const mock: TagsProps = {
       title: 'afiliados',
       slug: 'afiliados'
     }
+
   ]
-}
 
 export default mock
