@@ -1,8 +1,6 @@
 import { useRouter } from 'next/dist/client/router'
 import Artigo, { ArtigoTemplateProps } from 'templates/Artigo'
 
-import { mockCategorias, mockPaginas, mockPostsRecentes } from 'components/Widget/mock'
-import mockMenu from 'components/Menu/mock'
 import { maisVistosMock, tagsMock, navigationMock } from 'components/MenuAside/mock'
 
 
@@ -10,6 +8,9 @@ import { initializeApollo } from 'utils/apollo'
 
 import { QueryMenu } from 'graphql/generated/QueryMenu'
 import { QUERY_MENU } from 'graphql/queries/menu'
+
+import { QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS } from 'graphql/queries/widgets'
+import { QueryWidgets } from 'graphql/generated/QueryWidgets'
 
 export default function Index(props: ArtigoTemplateProps) {
   const router = useRouter()
@@ -31,6 +32,9 @@ const texto = `<body contenteditable="true" class="cke_editable cke_editable_the
 
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
+
+    // Widgets
+    const { data : { widgetsCategorias,widgetsPaginas,widgetsPostsRecentes }} = await apolloClient.query<QueryWidgets>({query: QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS, fetchPolicy: 'no-cache'})
 
     // Menu data
     const {
@@ -59,9 +63,31 @@ export async function getStaticProps() {
         tag: ''
       },
       description: texto,
-      widgetCategorias: mockCategorias,
-      widgetPaginas: mockPaginas,
-      widgetPostsRecentes: mockPostsRecentes,
+      widgetListCategoriasData: widgetsCategorias.map((item) => ({
+        title: item.title,
+        path: item.path,
+        items: item.categorias.map((items) => ({
+          title: items.title,
+          slug: items.slug
+        }))
+      })),
+      widgetListPaginasData: widgetsPaginas.map((item) => ({
+        title: item.title,
+        path: item.path,
+        items: item.posts.map((items) => ({
+          title: items.title,
+          slug: items.slug
+        }))
+      })),
+      widgetPostsRecentes: [{
+        moreWeight: true,
+        title: 'Posts recentes',
+        path: 'posts_recentes',
+        items: widgetsPostsRecentes.map((item) => ({
+          title: item.title,
+          slug: item.slug
+        }))}
+      ],
       menuAsideItems: {
         menuData: navigationMock,
         maisVistosData: maisVistosMock,
