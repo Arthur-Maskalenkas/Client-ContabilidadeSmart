@@ -1,20 +1,17 @@
 import Home, { HomeTemplateProps } from 'templates/Home'
 
-import mockBannerSlider from 'components/BannerSlider/mock'
-import mockWidgetList from 'components/WidgetList/mock'
 
 import { initializeApollo } from 'utils/apollo'
 
 import { QueryMenu } from 'graphql/generated/QueryMenu'
 import { QUERY_MENU } from 'graphql/queries/menu'
 
-import { QUERY_WIDGETS_CATEGORIAS, QUERY_WIDGETS_PAGINAS, QUERY_WIDGETS_POSTS_RECENTES } from 'graphql/queries/widgets'
-import { QueryWidgetsCategorias } from 'graphql/generated/QueryWidgetsCategorias'
-import { QueryWidgetsPaginas } from 'graphql/generated/QueryWidgetsPaginas'
-import { QueryWidgetsPostsRecentes } from 'graphql/generated/QueryWidgetsPostsRecentes'
 
 import { QueryBannersHome } from 'graphql/generated/QueryBannersHome'
 import { QUERY_HOME_BANNERS } from 'graphql/queries/home'
+import { QueryWidgets } from 'graphql/generated/QueryWidgets'
+
+import { QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS } from 'graphql/queries/widgets'
 
 export default function sobre(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -26,14 +23,8 @@ export async function getStaticProps() {
   // Banner no topo
   const { data : { home }} = await apolloClient.query<QueryBannersHome>({query: QUERY_HOME_BANNERS})
 
-  // Widget POSTS RECENTES
-  const { data : { postsRecentes }} = await apolloClient.query<QueryWidgetsPostsRecentes>({query: QUERY_WIDGETS_POSTS_RECENTES, fetchPolicy: 'no-cache'})
-
-  // Widget PAGINAS
-  const { data : { widgetpaginas }} = await apolloClient.query<QueryWidgetsPaginas>({query: QUERY_WIDGETS_PAGINAS, fetchPolicy: 'no-cache'})
-
-  // Widget CATEGORIAS
-  const { data : { widgetCategorias }} = await apolloClient.query<QueryWidgetsCategorias>({query: QUERY_WIDGETS_CATEGORIAS, fetchPolicy: 'no-cache'})
+  // Widgets
+  const { data : { widgetsCategorias,widgetsPaginas,widgetsPostsRecentes }} = await apolloClient.query<QueryWidgets>({query: QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS, fetchPolicy: 'no-cache'})
 
   // Menu data
   const {
@@ -45,7 +36,7 @@ export async function getStaticProps() {
   return {
     props: {
       revalidate: 120,
-      widgetListCategoriasData: widgetCategorias.map((item) => ({
+      widgetListCategoriasData: widgetsCategorias.map((item) => ({
         title: item.title,
         path: item.path,
         items: item.categorias.map((items) => ({
@@ -64,7 +55,7 @@ export async function getStaticProps() {
         buttonLink: items?.buttonLink,
 
       })),
-      widgetListPaginasData: widgetpaginas.map((item) => ({
+      widgetListPaginasData: widgetsPaginas.map((item) => ({
         title: item.title,
         path: item.path,
         items: item.posts.map((items) => ({
@@ -76,7 +67,7 @@ export async function getStaticProps() {
         moreWeight: true,
         title: 'Posts recentes',
         path: 'posts_recentes',
-        items: postsRecentes.map((item) => ({
+        items: widgetsPostsRecentes.map((item) => ({
           title: item.title,
           slug: item.slug
         }))}
