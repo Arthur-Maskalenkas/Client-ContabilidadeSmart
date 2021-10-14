@@ -11,6 +11,9 @@ import { QUERY_MENU } from 'graphql/queries/menu'
 
 import { QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS } from 'graphql/queries/widgets'
 import { QueryWidgets } from 'graphql/generated/QueryWidgets'
+import { QueryTags } from 'graphql/generated/QueryTags'
+
+import { QUERY_MENUASIDE } from 'graphql/queries/menuAside'
 
 export default function Index(props: ArtigoTemplateProps) {
   const router = useRouter()
@@ -32,6 +35,9 @@ const texto = `<body contenteditable="true" class="cke_editable cke_editable_the
 
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
+
+    //  Menuaside
+    const { data : { tags }} = await apolloClient.query<QueryTags>({query: QUERY_MENUASIDE})
 
     // Widgets
     const { data : { widgetsCategorias,widgetsPaginas,widgetsPostsRecentes }} = await apolloClient.query<QueryWidgets>({query: QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS, fetchPolicy: 'no-cache'})
@@ -89,7 +95,15 @@ export async function getStaticProps() {
         }))}
       ],
       menuAsideItems: {
-        menuData: navigationMock,
+        menuData:  menus.map((item) => ({
+            title: item.title,
+            slug: item.slug,
+            dropdownOptions: item.menu_options.map((item) => ({
+              titleOption: item.title,
+              slug: item?.post?.slug
+            }))
+          }))
+        ,
         maisVistosData: maisVistosMock,
         tagsData: tagsMock
       }
