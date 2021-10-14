@@ -1,6 +1,6 @@
 import { Container } from 'components/Container'
 import Footer from 'components/Footer'
-import Menu, { MenuProps } from 'components/Menu'
+import Menu, {  MenuUnitaryProps } from 'components/Menu'
 import MenuContact from 'components/MenuContact'
 
 import * as S from './styles'
@@ -8,7 +8,7 @@ import MediaWatch from 'components/MediaWatch'
 
 export type BaseTemplateProps = {
   children: React.ReactNode
-  menuData: MenuProps
+  menuData: MenuUnitaryProps[]
 }
 
 const Base = ({ children, menuData }: BaseTemplateProps) => (
@@ -23,7 +23,7 @@ const Base = ({ children, menuData }: BaseTemplateProps) => (
       </MediaWatch>
       <S.MenuContainer>
         <Container>
-          <Menu items={menuData.items} />
+          <Menu items={menuData} />
         </Container>
       </S.MenuContainer>
     </S.MenusContainer>

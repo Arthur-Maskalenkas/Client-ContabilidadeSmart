@@ -16,8 +16,8 @@ import mockSocialBannerSlides from 'components/SocialBannerSlides/mock'
 
 import { BannerProps } from 'components/Banner'
 
-import WidgetList, { WidgetListProps } from 'components/WidgetList'
-import { MenuProps } from 'components/Menu'
+import WidgetList from 'components/WidgetList'
+import { MenuUnitaryProps } from 'components/Menu'
 import { WidgetProps } from 'components/Widget'
 
 export type HomeTemplateProps = {
@@ -25,7 +25,7 @@ export type HomeTemplateProps = {
   widgetListCategoriasData: WidgetProps[]
   widgetListPaginasData: WidgetProps[]
   widgetPostsRecentes: WidgetProps[]
-  menuData: MenuProps
+  menuData: MenuUnitaryProps[]
 }
 
 const Home = ({ bannerSliderData, widgetListCategoriasData, widgetListPaginasData,widgetPostsRecentes, menuData }: HomeTemplateProps) => {

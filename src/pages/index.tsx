@@ -72,8 +72,8 @@ export async function getStaticProps() {
           slug: item.slug
         }))}
       ],
-      menuData: {
-        items: menus.map((item) => ({
+      menuData:
+         menus.map((item) => ({
           title: item.title,
           slug: item.slug,
           dropdownOptions: item.menu_options.map((item) => ({
@@ -81,7 +81,7 @@ export async function getStaticProps() {
             slug: item?.post?.slug
           }))
         }))
-      }
+
     }
   }
 }

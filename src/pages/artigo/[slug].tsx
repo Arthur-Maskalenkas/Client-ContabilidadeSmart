@@ -52,8 +52,7 @@ export async function getStaticProps() {
   return {
     props: {
       title: 'Será que vale a pena ser MEI',
-      menuData: {
-        items: menus.map((item) => ({
+      menuData: menus.map((item) => ({
           title: item.title,
           slug: item.slug,
           dropdownOptions: item.menu_options.map((item) => ({
@@ -61,7 +60,7 @@ export async function getStaticProps() {
             slug: item?.post?.slug
           }))
         }))
-      },
+      ,
       bannerPageProps: {
         backgroundImage:
           'https://contabilidadesmart.com.br/wp-content/uploads/2020/10/MEI-contabilidade-votuporanga-vantagens-leandromikk.jpg',

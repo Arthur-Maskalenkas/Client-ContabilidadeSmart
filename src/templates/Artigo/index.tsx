@@ -1,7 +1,7 @@
 import BannerPage, { BannerPageProps } from 'components/BannerPage'
 import HeadingPage from 'components/HeadingPage'
 import Logo from 'components/Logo'
-import { MenuProps } from 'components/Menu'
+import { MenuUnitaryProps } from 'components/Menu'
 import MenuAside, { MenuAsideProps } from 'components/MenuAside'
 import TextContent from 'components/TextContent'
 import Widget, { WidgetProps } from 'components/Widget'
@@ -15,7 +15,7 @@ export type ArtigoTemplateProps = {
   description: string
   bannerPageProps: BannerPageProps
 
-  menuData: MenuProps
+  menuData: MenuUnitaryProps[]
 
   widgetListCategoriasData: WidgetProps[]
   widgetListPaginasData: WidgetProps[]
