@@ -8,7 +8,7 @@ export const Wrapper = styled.menu`
     position: relative;
     display: flex;
     align-items: center;
-    padding: 0 ${theme.spacings.medium};
+    padding: 0 1.5rem;
     justify-content: space-between;
     z-index: ${theme.layers.menu};
 
@@ -18,7 +18,7 @@ export const Wrapper = styled.menu`
   `}
 
     ${media.greaterThan('large')`
-      width: 114rem;
+    width: ${theme.grid.container};
       border-bottom: none;
     `}
   `}
