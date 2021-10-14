@@ -14,3 +14,18 @@ export const QUERY_POSTS = gql`
     }
   }
 `
+
+export const QUERY_POSTS_BY_SLUG = gql`
+  query queryPostsBySlug($slug: String!) {
+    posts(where: {slug: $slug}) {
+      id
+      title
+      slug
+      text
+      capa {
+        url
+        alternativeText
+      }
+    }
+  }
+`
