@@ -161,6 +161,37 @@ type deleteCategoriaPayload {
   categoria: Categoria
 }
 
+type Home {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  bannerHome: [ComponentBannerBanner]
+}
+
+input HomeInput {
+  bannerHome: [ComponentBannerBannerInput!]
+  created_by: ID
+  updated_by: ID
+}
+
+input editHomeInput {
+  bannerHome: [editComponentBannerBannerInput]
+  created_by: ID
+  updated_by: ID
+}
+
+input updateHomeInput {
+  data: editHomeInput
+}
+
+type updateHomePayload {
+  home: Home
+}
+
+type deleteHomePayload {
+  home: Home
+}
+
 type MenuOption {
   id: ID!
   created_at: DateTime!
@@ -1121,7 +1152,45 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Categoria | CategoriaConnection | CategoriaAggregator | CategoriaGroupBy | CategoriaConnectionId | CategoriaConnectionCreated_at | CategoriaConnectionUpdated_at | CategoriaConnectionTitle | CategoriaConnectionSlug | createCategoriaPayload | updateCategoriaPayload | deleteCategoriaPayload | MenuOption | MenuOptionConnection | MenuOptionAggregator | MenuOptionGroupBy | MenuOptionConnectionId | MenuOptionConnectionCreated_at | MenuOptionConnectionUpdated_at | MenuOptionConnectionTitle | MenuOptionConnectionPost | createMenuOptionPayload | updateMenuOptionPayload | deleteMenuOptionPayload | Menu | MenuConnection | MenuAggregator | MenuGroupBy | MenuConnectionId | MenuConnectionCreated_at | MenuConnectionUpdated_at | MenuConnectionTitle | MenuConnectionSlug | createMenuPayload | updateMenuPayload | deleteMenuPayload | Post | PostConnection | PostAggregator | PostGroupBy | PostConnectionId | PostConnectionCreated_at | PostConnectionUpdated_at | PostConnectionTitle | PostConnectionText | PostConnectionSlug | PostConnectionPublished_at | createPostPayload | updatePostPayload | deletePostPayload | Tag | TagConnection | TagAggregator | TagGroupBy | TagConnectionId | TagConnectionCreated_at | TagConnectionUpdated_at | TagConnectionTitle | TagConnectionSlug | createTagPayload | updateTagPayload | deleteTagPayload | Widget | WidgetConnection | WidgetAggregator | WidgetGroupBy | WidgetConnectionId | WidgetConnectionCreated_at | WidgetConnectionUpdated_at | WidgetConnectionTitle | WidgetConnectionPath | createWidgetPayload | updateWidgetPayload | deleteWidgetPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+enum ENUM_COMPONENTBANNERBANNER_TEXTDIRECTION {
+  right
+  left
+  center
+}
+
+type ComponentBannerBanner {
+  id: ID!
+  title: String!
+  img: UploadFile
+  titleWithColor: String
+  subtitle: String!
+  buttonLabel: String!
+  buttonLink: String!
+  textDirection: ENUM_COMPONENTBANNERBANNER_TEXTDIRECTION
+}
+
+input ComponentBannerBannerInput {
+  title: String!
+  img: ID
+  titleWithColor: String
+  subtitle: String!
+  buttonLabel: String!
+  buttonLink: String!
+  textDirection: ENUM_COMPONENTBANNERBANNER_TEXTDIRECTION
+}
+
+input editComponentBannerBannerInput {
+  id: ID
+  title: String
+  img: ID
+  titleWithColor: String
+  subtitle: String
+  buttonLabel: String
+  buttonLink: String
+  textDirection: ENUM_COMPONENTBANNERBANNER_TEXTDIRECTION
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Categoria | CategoriaConnection | CategoriaAggregator | CategoriaGroupBy | CategoriaConnectionId | CategoriaConnectionCreated_at | CategoriaConnectionUpdated_at | CategoriaConnectionTitle | CategoriaConnectionSlug | createCategoriaPayload | updateCategoriaPayload | deleteCategoriaPayload | Home | updateHomePayload | deleteHomePayload | MenuOption | MenuOptionConnection | MenuOptionAggregator | MenuOptionGroupBy | MenuOptionConnectionId | MenuOptionConnectionCreated_at | MenuOptionConnectionUpdated_at | MenuOptionConnectionTitle | MenuOptionConnectionPost | createMenuOptionPayload | updateMenuOptionPayload | deleteMenuOptionPayload | Menu | MenuConnection | MenuAggregator | MenuGroupBy | MenuConnectionId | MenuConnectionCreated_at | MenuConnectionUpdated_at | MenuConnectionTitle | MenuConnectionSlug | createMenuPayload | updateMenuPayload | deleteMenuPayload | Post | PostConnection | PostAggregator | PostGroupBy | PostConnectionId | PostConnectionCreated_at | PostConnectionUpdated_at | PostConnectionTitle | PostConnectionText | PostConnectionSlug | PostConnectionPublished_at | createPostPayload | updatePostPayload | deletePostPayload | Tag | TagConnection | TagAggregator | TagGroupBy | TagConnectionId | TagConnectionCreated_at | TagConnectionUpdated_at | TagConnectionTitle | TagConnectionSlug | createTagPayload | updateTagPayload | deleteTagPayload | Widget | WidgetConnection | WidgetAggregator | WidgetGroupBy | WidgetConnectionId | WidgetConnectionCreated_at | WidgetConnectionUpdated_at | WidgetConnectionTitle | WidgetConnectionPath | createWidgetPayload | updateWidgetPayload | deleteWidgetPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentBannerBanner
 
 input InputID {
   id: ID!
@@ -1143,6 +1212,7 @@ type Query {
   categoria(id: ID!, publicationState: PublicationState): Categoria
   categorias(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Categoria!]!
   categoriasConnection(sort: String, limit: Int, start: Int, where: JSON): CategoriaConnection
+  home(publicationState: PublicationState): Home
   menuOption(id: ID!, publicationState: PublicationState): MenuOption
   menuOptions(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [MenuOption!]!
   menuOptionsConnection(sort: String, limit: Int, start: Int, where: JSON): MenuOptionConnection
@@ -1174,6 +1244,8 @@ type Mutation {
   createCategoria(input: createCategoriaInput): createCategoriaPayload
   updateCategoria(input: updateCategoriaInput): updateCategoriaPayload
   deleteCategoria(input: deleteCategoriaInput): deleteCategoriaPayload
+  updateHome(input: updateHomeInput): updateHomePayload
+  deleteHome: deleteHomePayload
   createMenuOption(input: createMenuOptionInput): createMenuOptionPayload
   updateMenuOption(input: updateMenuOptionInput): updateMenuOptionPayload
   deleteMenuOption(input: deleteMenuOptionInput): deleteMenuOptionPayload

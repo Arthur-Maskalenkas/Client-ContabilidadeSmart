@@ -7,6 +7,12 @@
 // START Enums and Input Objects
 //==============================================================
 
+export enum ENUM_COMPONENTBANNERBANNER_TEXTDIRECTION {
+  center = "center",
+  left = "left",
+  right = "right",
+}
+
 export enum ENUM_WIDGET_PATH {
   categorias = "categorias",
   paginas = "paginas",
