@@ -49,18 +49,4 @@ export const Main = styled.main`
   `}
 `
 
-export const SectionWidgets = styled(Section).attrs({ as: 'ul' })`
-  ${({ theme }) => css`
-    display: block;
-
-    ${WidgetStyles.Wrapper} {
-      margin-bottom: ${theme.spacings.medium};
-    }
-
-    ${media.greaterThan('large')`
-      display: grid;
-      grid-template-columns: 26rem 26rem 26rem 1fr;
-      gap: 3rem;
-  `}
-  `}
-`
+export const WidgetSection = styled(Section)``
