@@ -104,7 +104,10 @@ export async function getStaticProps() {
           }))
         ,
         maisVistosData: maisVistosMock,
-        tagsData: tagsMock
+        tagsData: tags.map((item) => ({
+          title: item.Title,
+          slug: item.slug
+        }))
       }
     }
   }
