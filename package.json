@@ -69,6 +69,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-unused-imports": "^1.1.5",
     "husky": "^7.0.1",
     "jest": "^27.0.6",
     "jest-styled-components": "^7.0.5",
