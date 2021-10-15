@@ -13,7 +13,12 @@ export type MaisVistosProps = {
 const MaisVistos = ({ items }: MaisVistosProps) => (
   <S.Wrapper>
     {items?.map((item, index) => (
-      <LinkLi key={index} moreWeight title={item.title} path={`artigo/${item.slug}`} />
+      <LinkLi
+        key={index}
+        moreWeight
+        title={item.title}
+        path={`artigo/${item.slug}`}
+      />
     ))}
   </S.Wrapper>
 )

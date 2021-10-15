@@ -21,13 +21,21 @@ describe('<LinkMenuDesktop />', () => {
 
     expect(screen.getByText(/premium/i))
 
-    expect(screen.getByRole('svg', { name: /ver opções/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('svg', {
+        name: /ver opções/i
+      })
+    ).toBeInTheDocument()
   })
 
   it('O wrapper vai ser um li, e o wrapper do dropdown um UL', () => {
     render(<LinkMenuDesktop {...mockWithDropdownOptions} />)
 
-    expect(screen.getByRole('listitem', { name: /opção premium/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('listitem', {
+        name: /opção premium/i
+      })
+    ).toBeInTheDocument()
 
     expect(screen.getByRole('list')).toBeInTheDocument()
   })
@@ -36,7 +44,9 @@ describe('<LinkMenuDesktop />', () => {
     it('Vai ter um href na opção e vai ser um LINK caso ele tenha um dropdown', () => {
       render(<LinkMenuDesktop {...mockWithoutDropdownOptions} />)
 
-      const optionPremium = screen.getByRole('link', { name: /premium/i })
+      const optionPremium = screen.getByRole('link', {
+        name: /premium/i
+      })
 
       expect(optionPremium).toBeInTheDocument()
 

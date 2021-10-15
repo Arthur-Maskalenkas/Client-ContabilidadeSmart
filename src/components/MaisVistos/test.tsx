@@ -9,7 +9,9 @@ describe('<MaisVistos />', () => {
     render(<MaisVistos items={mock} />)
 
     expect(
-      screen.getByRole('link', { name: /Quais os tipos de lançamentos/i })
+      screen.getByRole('link', {
+        name: /Quais os tipos de lançamentos/i
+      })
     ).toBeInTheDocument()
   })
 })

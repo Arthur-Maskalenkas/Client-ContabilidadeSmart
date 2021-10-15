@@ -13,4 +13,6 @@ export default {
   }
 } as Meta
 
-export const Default: Story<TextContentProps> = (args) => <TextContent {...args} />
+export const Default: Story<TextContentProps> = (args) => (
+  <TextContent {...args} />
+)

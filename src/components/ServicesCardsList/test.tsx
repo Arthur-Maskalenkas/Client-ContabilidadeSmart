@@ -25,6 +25,10 @@ describe('<ServicesCardsList />', () => {
   it('deve renderizar uma lista de 2 elementos', () => {
     render(<ServicesCardsList items={mock.items} />)
 
-    expect(screen.getAllByRole('heading', { name: /infoproduto/i })).toHaveLength(2)
+    expect(
+      screen.getAllByRole('heading', {
+        name: /infoproduto/i
+      })
+    ).toHaveLength(2)
   })
 })

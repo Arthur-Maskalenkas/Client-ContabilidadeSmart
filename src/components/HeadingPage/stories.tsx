@@ -8,9 +8,13 @@ export default {
   component: HeadingPage
 } as Meta
 
-export const Default: Story<HeadingPageProps> = (args) => <HeadingPage {...args} />
+export const Default: Story<HeadingPageProps> = (args) => (
+  <HeadingPage {...args} />
+)
 
-Default.args = { title: 'Saques de FGTS e recebimento de benefício' }
+Default.args = {
+  title: 'Saques de FGTS e recebimento de benefício'
+}
 
 Default.parameters = {
   backgrounds: {
@@ -18,9 +22,13 @@ Default.parameters = {
   }
 }
 
-export const Mobile: Story<HeadingPageProps> = (args) => <HeadingPage {...args} />
+export const Mobile: Story<HeadingPageProps> = (args) => (
+  <HeadingPage {...args} />
+)
 
-Mobile.args = { title: 'Saques de FGTS e recebimento de benefício' }
+Mobile.args = {
+  title: 'Saques de FGTS e recebimento de benefício'
+}
 
 Mobile.parameters = {
   backgrounds: {

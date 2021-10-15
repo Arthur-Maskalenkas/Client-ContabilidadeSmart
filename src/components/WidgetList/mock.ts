@@ -6,13 +6,34 @@ const mock: WidgetListProps = {
       title: 'Categorias',
       path: 'categorias',
       items: [
-        { title: 'blog', slug: 'blog' },
-        { title: 'Contabilidade', slug: 'contabilidade' },
-        { title: 'Infoproduto', slug: 'infoproduto' },
-        { title: 'MEI', slug: 'mei' },
-        { title: 'Midias Sociais', slug: 'midias_sociais' },
-        { title: 'Noticias', slug: 'noticias' },
-        { title: 'Tendencias', slug: 'tendencias' }
+        {
+          title: 'blog',
+          slug: 'blog'
+        },
+        {
+          title: 'Contabilidade',
+          slug: 'contabilidade'
+        },
+        {
+          title: 'Infoproduto',
+          slug: 'infoproduto'
+        },
+        {
+          title: 'MEI',
+          slug: 'mei'
+        },
+        {
+          title: 'Midias Sociais',
+          slug: 'midias_sociais'
+        },
+        {
+          title: 'Noticias',
+          slug: 'noticias'
+        },
+        {
+          title: 'Tendencias',
+          slug: 'tendencias'
+        }
       ]
     },
 
@@ -20,13 +41,34 @@ const mock: WidgetListProps = {
       title: 'Páginas',
       path: 'paginas',
       items: [
-        { title: 'Aceleradora', slug: 'aceleradora' },
-        { title: 'BPO Financeiro', slug: 'bpo_financeiro' },
-        { title: 'Certificado Digital', slug: 'certificado_digital' },
-        { title: 'Contábil', slug: 'contabil' },
-        { title: 'Departamento Pessoal', slug: 'departamento_pessoal' },
-        { title: 'Fiscal e Tributaria', slug: 'fiscal_e_tributaria' },
-        { title: 'InfoProdutores', slug: 'infoprodutores' }
+        {
+          title: 'Aceleradora',
+          slug: 'aceleradora'
+        },
+        {
+          title: 'BPO Financeiro',
+          slug: 'bpo_financeiro'
+        },
+        {
+          title: 'Certificado Digital',
+          slug: 'certificado_digital'
+        },
+        {
+          title: 'Contábil',
+          slug: 'contabil'
+        },
+        {
+          title: 'Departamento Pessoal',
+          slug: 'departamento_pessoal'
+        },
+        {
+          title: 'Fiscal e Tributaria',
+          slug: 'fiscal_e_tributaria'
+        },
+        {
+          title: 'InfoProdutores',
+          slug: 'infoprodutores'
+        }
       ]
     },
     {
@@ -45,7 +87,10 @@ const mock: WidgetListProps = {
           title: 'Imposto de Renda: veja as regras de obrigatoriedade',
           slug: 'imposto_de_Renda:_veja_as_regras_de_obrigatoriedade'
         },
-        { title: 'Será que vale a pena ser MEI', slug: 'será_que_vale_a_pena_ser_MEI' },
+        {
+          title: 'Será que vale a pena ser MEI',
+          slug: 'será_que_vale_a_pena_ser_MEI'
+        },
         {
           title: 'Cancelamento e desenquadramento do MEI',
           slug: 'cancelamento_e_desenquadramento_do_MEI'

@@ -14,7 +14,11 @@ export type LinkMenuMobileProps = {
   slug?: string
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
-const LinkMenuMobile = ({ dropdownOptions, title, slug }: LinkMenuMobileProps) => {
+const LinkMenuMobile = ({
+  dropdownOptions,
+  title,
+  slug
+}: LinkMenuMobileProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const hasDropdown = !!dropdownOptions?.length

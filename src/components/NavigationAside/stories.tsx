@@ -12,7 +12,11 @@ export default {
 } as Meta
 
 export const Default: Story<MenuProps> = (args) => (
-  <div style={{ width: '35rem' }}>
+  <div
+    style={{
+      width: '35rem'
+    }}
+  >
     <NavigationAside {...args} />
   </div>
 )

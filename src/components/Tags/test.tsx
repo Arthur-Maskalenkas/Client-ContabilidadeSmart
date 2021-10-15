@@ -25,7 +25,9 @@ describe('<Tags />', () => {
     )
 
     expect(
-      screen.getByRole('listitem', { name: /opção de tag adsense/i })
+      screen.getByRole('listitem', {
+        name: /opção de tag adsense/i
+      })
     ).toBeInTheDocument()
 
     expect(screen.getByRole('list')).toBeInTheDocument()

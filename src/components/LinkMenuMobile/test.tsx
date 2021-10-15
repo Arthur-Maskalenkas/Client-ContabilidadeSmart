@@ -14,12 +14,16 @@ describe('<LinkMenuMobile />', () => {
 
     // Verifica se o drop esta escondido
     expect(dropdownElement.getAttribute('aria-hidden')).toBe('true')
-    expect(dropdownElement).toHaveStyle({ opacity: 0 })
+    expect(dropdownElement).toHaveStyle({
+      opacity: 0
+    })
 
     // Verifica se caso clicar no titulo o dropdown é aberto
     userEvent.click(screen.getByText(/Premium/i))
     expect(dropdownElement.getAttribute('aria-hidden')).toBe('false')
-    expect(dropdownElement).toHaveStyle({ opacity: 1 })
+    expect(dropdownElement).toHaveStyle({
+      opacity: 1
+    })
 
     // Verifica se a quantidade de opções passadas é a mesma presente
     expect(screen.getAllByText(/aceleradora/i)).toHaveLength(2)
@@ -27,7 +31,9 @@ describe('<LinkMenuMobile />', () => {
     // Verifica se caso eu clique no titulo novamente o dropdown é fechado
     userEvent.click(screen.getByText(/Premium/i))
     expect(dropdownElement.getAttribute('aria-hidden')).toBe('true')
-    expect(dropdownElement).toHaveStyle({ opacity: 0 })
+    expect(dropdownElement).toHaveStyle({
+      opacity: 0
+    })
   })
 
   it('Vai mudar a cor do titulo ao clicar nele', async () => {
@@ -37,11 +43,15 @@ describe('<LinkMenuMobile />', () => {
       name: /premium/i
     })
 
-    expect(titleElement).not.toHaveStyle({ color: theme.colors.secondary })
+    expect(titleElement).not.toHaveStyle({
+      color: theme.colors.secondary
+    })
 
     userEvent.click(titleElement)
 
-    expect(titleElement).toHaveStyle({ color: theme.colors.secondary })
+    expect(titleElement).toHaveStyle({
+      color: theme.colors.secondary
+    })
   })
 
   it('Vai calcular cada opção por 56px e vai dar margin ao elemento filho no abre/fecha', async () => {
@@ -60,20 +70,27 @@ describe('<LinkMenuMobile />', () => {
     it('o titulo vai virar um link caso não passe o dropdown', () => {
       render(<LinkMenuMobile title="Contabilidade" slug="/link" />)
 
-      expect(screen.getByRole('link', { name: /Contabilidade/i })).toHaveAttribute(
-        'href',
-        '/link'
-      )
+      expect(
+        screen.getByRole('link', {
+          name: /Contabilidade/i
+        })
+      ).toHaveAttribute('href', '/link')
 
       expect(
-        screen.queryByRole('heading', { name: /contabilidade/i })
+        screen.queryByRole('heading', {
+          name: /contabilidade/i
+        })
       ).not.toBeInTheDocument()
     })
 
     it('o titulo vai virar um heading caso não passe o dropdown', () => {
       render(<LinkMenuMobile {...items} title="Contabilidade" />)
 
-      expect(screen.getByRole('heading', { name: /contabilidade/i })).toBeInTheDocument()
+      expect(
+        screen.getByRole('heading', {
+          name: /contabilidade/i
+        })
+      ).toBeInTheDocument()
     })
   })
 

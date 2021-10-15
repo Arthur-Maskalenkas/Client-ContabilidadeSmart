@@ -15,7 +15,11 @@ export default {
 } as Meta
 
 export const Default: Story<MenuProps> = (args) => (
-  <div style={{ height: '150vh' }}>
+  <div
+    style={{
+      height: '150vh'
+    }}
+  >
     <Menu {...args} />
     <BannerSlider items={mockBanner} />
   </div>

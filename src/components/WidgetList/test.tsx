@@ -15,24 +15,42 @@ const props: WidgetListProps = {
       title: 'categorias',
       path: 'categorias',
       items: [
-        { title: 'blog', slug: 'blog' },
-        { title: 'Contabilidade', slug: 'contabilidade' }
+        {
+          title: 'blog',
+          slug: 'blog'
+        },
+        {
+          title: 'Contabilidade',
+          slug: 'contabilidade'
+        }
       ]
     },
     {
       title: 'categorias',
       path: 'categorias',
       items: [
-        { title: 'blog', slug: 'blog' },
-        { title: 'Contabilidade', slug: 'contabilidade' }
+        {
+          title: 'blog',
+          slug: 'blog'
+        },
+        {
+          title: 'Contabilidade',
+          slug: 'contabilidade'
+        }
       ]
     },
     {
       title: 'categorias',
       path: 'categorias',
       items: [
-        { title: 'blog', slug: 'blog' },
-        { title: 'Contabilidade', slug: 'contabilidade' }
+        {
+          title: 'blog',
+          slug: 'blog'
+        },
+        {
+          title: 'Contabilidade',
+          slug: 'contabilidade'
+        }
       ]
     }
   ]

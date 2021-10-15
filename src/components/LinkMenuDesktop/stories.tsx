@@ -26,7 +26,12 @@ export default {
 } as Meta
 
 export const Default: Story<LinkMenuDesktopProps> = (args) => (
-  <div style={{ marginLeft: '400px', width: '100vw' }}>
+  <div
+    style={{
+      marginLeft: '400px',
+      width: '100vw'
+    }}
+  >
     <LinkMenuDesktop {...args} />
   </div>
 )
@@ -36,7 +41,12 @@ Default.args = {
 }
 
 export const WithDropdownSelected: Story<LinkMenuDesktopProps> = (args) => (
-  <div style={{ marginLeft: '400px', width: '100vw' }}>
+  <div
+    style={{
+      marginLeft: '400px',
+      width: '100vw'
+    }}
+  >
     <LinkMenuDesktop {...args} />
   </div>
 )

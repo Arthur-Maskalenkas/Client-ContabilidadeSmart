@@ -12,7 +12,11 @@ describe('<RecursosCard />', () => {
 
     expect(screen.getByRole('svg', { name: /cubes/i })).toBeInTheDocument()
 
-    expect(screen.getByRole('heading', { name: /O crescimento do negócio/i }))
+    expect(
+      screen.getByRole('heading', {
+        name: /O crescimento do negócio/i
+      })
+    )
 
     expect(
       screen.getByText(

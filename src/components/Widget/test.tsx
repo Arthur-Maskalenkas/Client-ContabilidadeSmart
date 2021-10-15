@@ -7,8 +7,14 @@ const mock: WidgetProps = {
   title: 'Categorias',
   path: 'categorias',
   items: [
-    { title: 'Blog', slug: 'blog' },
-    { title: 'Contabilidade', slug: 'contabilidade' }
+    {
+      title: 'Blog',
+      slug: 'blog'
+    },
+    {
+      title: 'Contabilidade',
+      slug: 'contabilidade'
+    }
   ]
 }
 
@@ -17,11 +23,17 @@ describe('<Widget />', () => {
     render(<Widget {...mock} />)
 
     expect(
-      screen.getByRole('list', { name: /Opções do Widget Categorias/i })
+      screen.getByRole('list', {
+        name: /Opções do Widget Categorias/i
+      })
     ).toBeInTheDocument()
 
     // Renderizando estrutura 1
-    expect(screen.getByRole('listitem', { name: /opção blog/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('listitem', {
+        name: /opção blog/i
+      })
+    ).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /blog/i })).toBeInTheDocument()
   })
 

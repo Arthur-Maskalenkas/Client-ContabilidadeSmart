@@ -10,7 +10,12 @@ export type ServicesCardProps = {
   slug: string
 }
 
-const ServicesCard = ({ icon, description, title, slug }: ServicesCardProps) => (
+const ServicesCard = ({
+  icon,
+  description,
+  title,
+  slug
+}: ServicesCardProps) => (
   <S.Wrapper>
     <IconsWrapper icon={icon} size="6rem" />
 

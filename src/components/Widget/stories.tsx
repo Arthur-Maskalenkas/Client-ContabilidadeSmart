@@ -12,7 +12,9 @@ export default {
 
 export const Default: Story<WidgetProps> = (args) => <Widget {...args} />
 
-Default.args = { ...mockCategorias }
+Default.args = {
+  ...mockCategorias
+}
 
 Default.parameters = {
   backgrounds: {
@@ -22,7 +24,9 @@ Default.parameters = {
 
 export const Mobile: Story<WidgetProps> = (args) => <Widget {...args} />
 
-Mobile.args = { ...mockCategorias }
+Mobile.args = {
+  ...mockCategorias
+}
 
 Mobile.parameters = {
   backgrounds: {

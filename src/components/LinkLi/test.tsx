@@ -12,7 +12,11 @@ describe('<LinkLi />', () => {
   it('should render the heading', () => {
     render(<LinkLi {...props} />)
 
-    expect(screen.getByRole('listitem', { name: /opção um titulo/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('listitem', {
+        name: /opção um titulo/i
+      })
+    ).toBeInTheDocument()
 
     expect(screen.getByRole('link', { name: /um titulo/i })).toHaveAttribute(
       'href',
@@ -25,6 +29,8 @@ describe('<LinkLi />', () => {
 
     const linkLi = screen.getByRole('link', { name: /um titulo/i })
 
-    expect(linkLi).toHaveStyle(`font-weight: ${theme.font.family.poppins.weight.bold}`)
+    expect(linkLi).toHaveStyle(
+      `font-weight: ${theme.font.family.poppins.weight.bold}`
+    )
   })
 })

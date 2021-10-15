@@ -11,12 +11,18 @@ describe('<Button />', () => {
     const button = screen.getByText(/clique aqui/i)
 
     expect(button).toBeInTheDocument()
-    expect(button).toHaveStyle({ color: theme.colors.primary })
-    expect(button).toHaveStyle({ backgroundColor: theme.colors.secondary })
+    expect(button).toHaveStyle({
+      color: theme.colors.primary
+    })
+    expect(button).toHaveStyle({
+      backgroundColor: theme.colors.secondary
+    })
   })
 
   it('isso deve renderizar o botão com o icone', () => {
-    render(<Button icon={<ArrowRight title="arrow Right" />}>clique aqui</Button>)
+    render(
+      <Button icon={<ArrowRight title="arrow Right" />}>clique aqui</Button>
+    )
 
     const button = screen.getByText(/clique aqui/i)
 

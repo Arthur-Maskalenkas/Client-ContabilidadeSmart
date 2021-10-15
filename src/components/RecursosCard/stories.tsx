@@ -11,7 +11,11 @@ export default {
 } as Meta
 
 export const Default: Story<RecursosCardProps> = (args) => (
-  <div style={{ width: '38rem' }}>
+  <div
+    style={{
+      width: '38rem'
+    }}
+  >
     <RecursosCard {...args} />
   </div>
 )
@@ -27,7 +31,11 @@ Default.parameters = {
 }
 
 export const Mobile: Story<RecursosCardProps> = (args) => (
-  <div style={{ padding: '1.5rem' }}>
+  <div
+    style={{
+      padding: '1.5rem'
+    }}
+  >
     <RecursosCard {...args} />
   </div>
 )

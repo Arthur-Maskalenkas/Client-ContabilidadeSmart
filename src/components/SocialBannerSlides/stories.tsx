@@ -9,7 +9,13 @@ export default {
 } as Meta
 
 export const Default: Story<SocialBannerSlidesProps> = (args) => (
-  <div style={{ width: '90rem', marginLeft: 'auto', marginRight: 'auto' }}>
+  <div
+    style={{
+      width: '90rem',
+      marginLeft: 'auto',
+      marginRight: 'auto'
+    }}
+  >
     <SocialBannerSlides {...args} />
   </div>
 )

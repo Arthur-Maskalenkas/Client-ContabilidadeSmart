@@ -3,8 +3,14 @@ import { LinkMenuDesktopProps } from '.'
 const mockWithDropdownOptions: LinkMenuDesktopProps = {
   title: 'Premium',
   dropdownOptions: [
-    { titleOption: 'Opçao 1', slug: 'Opçao 1' },
-    { titleOption: 'opçao 2', slug: 'opçao 2' }
+    {
+      titleOption: 'Opçao 1',
+      slug: 'Opçao 1'
+    },
+    {
+      titleOption: 'opçao 2',
+      slug: 'opçao 2'
+    }
   ]
 }
 

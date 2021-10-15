@@ -17,7 +17,13 @@ export type IconTypes =
   | 'Laptop'
 type colorTypes = 'secondary' | 'white'
 
-export type sizeTypes = 'small' | 'medium' | 'xlarge' | 'xxlarge' | 'xxxlarge' | 'large'
+export type sizeTypes =
+  | 'small'
+  | 'medium'
+  | 'xlarge'
+  | 'xxlarge'
+  | 'xxxlarge'
+  | 'large'
 
 export type IconsProps = {
   icon: IconTypes

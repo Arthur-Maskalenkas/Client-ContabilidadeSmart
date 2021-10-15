@@ -12,19 +12,29 @@ describe('<TextContent />', () => {
   it('vai renderizar o titulo e o conteudo', () => {
     render(<TextContent {...props} />)
 
-    expect(screen.getByRole('heading', { name: /description/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', {
+        name: /description/i
+      })
+    ).toBeInTheDocument()
 
-    expect(screen.getByRole('heading', { name: /content/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /content/i })
+    ).toBeInTheDocument()
   })
 
   it('vai renderizar com o titulo e sem o conteudo', () => {
     render(<TextContent title="um titulo" content={props.content} />)
 
     expect(
-      screen.queryByRole('heading', { name: /description/i })
+      screen.queryByRole('heading', {
+        name: /description/i
+      })
     ).not.toBeInTheDocument()
 
-    expect(screen.getByRole('heading', { name: /content/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /content/i })
+    ).toBeInTheDocument()
   })
 
   it('vai renderizar ', () => {
@@ -35,6 +45,8 @@ describe('<TextContent />', () => {
       name: /description/i
     }).parentElement
 
-    expect(wrapper).toHaveStyle({ color: theme.colors.black })
+    expect(wrapper).toHaveStyle({
+      color: theme.colors.black
+    })
   })
 })

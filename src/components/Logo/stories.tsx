@@ -16,7 +16,9 @@ Default.args = {
 
 export const Mobile: Story<LogoProps> = (args) => <Logo {...args} />
 
-Mobile.args = { size: 'small' }
+Mobile.args = {
+  size: 'small'
+}
 
 Mobile.parameters = {
   backgrounds: {

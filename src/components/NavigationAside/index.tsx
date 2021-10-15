@@ -11,7 +11,11 @@ const NavigationAside = ({ items }: MenuProps) => (
           <S.MenuTitle>{item.title}</S.MenuTitle>
           <S.MenuDropdownWrapper aria-label={`opções do menu ${item.title}`}>
             {item.dropdownOptions.map((item, index) => (
-              <LinkLi key={index} title={item.titleOption} path={`artigo/${item.slug}`} />
+              <LinkLi
+                key={index}
+                title={item.titleOption}
+                path={`artigo/${item.slug}`}
+              />
             ))}
           </S.MenuDropdownWrapper>
         </S.MenuTitleWrapperLi>

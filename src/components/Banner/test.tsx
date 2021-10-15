@@ -18,18 +18,28 @@ describe('<Banner />', () => {
     render(<Banner {...props} isOpen={true} />)
 
     expect(
-      screen.getByRole('heading', { name: /sua empresa preparada/i })
+      screen.getByRole('heading', {
+        name: /sua empresa preparada/i
+      })
     ).toBeInTheDocument()
 
     expect(
-      screen.getByText(/Venha fazer uma parceria de sucesso integrando ao novo normal/i)
+      screen.getByText(
+        /Venha fazer uma parceria de sucesso integrando ao novo normal/i
+      )
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('img', { name: /Um casal planejando o futuro/i })
+      screen.getByRole('img', {
+        name: /Um casal planejando o futuro/i
+      })
     ).toBeInTheDocument()
 
-    expect(screen.getByRole('heading', { name: /um titulo colorido/i })).toHaveStyle({
+    expect(
+      screen.getByRole('heading', {
+        name: /um titulo colorido/i
+      })
+    ).toHaveStyle({
       color: theme.colors.secondary
     })
   })
@@ -42,7 +52,9 @@ describe('<Banner />', () => {
         name: /sua empresa preparada/i
       }).parentElement
 
-      expect(wrapperTextos).toHaveStyle({ alignItems: 'flex-start' })
+      expect(wrapperTextos).toHaveStyle({
+        alignItems: 'flex-start'
+      })
     })
 
     it('vai renderizar para o centro', () => {
@@ -52,9 +64,15 @@ describe('<Banner />', () => {
         name: /sua empresa preparada/i
       }).parentElement
 
-      expect(wrapperTextos).toHaveStyle({ gridColumn: '2' })
-      expect(wrapperTextos).toHaveStyle({ textAlign: 'center' })
-      expect(wrapperTextos).toHaveStyle({ alignItems: 'center' })
+      expect(wrapperTextos).toHaveStyle({
+        gridColumn: '2'
+      })
+      expect(wrapperTextos).toHaveStyle({
+        textAlign: 'center'
+      })
+      expect(wrapperTextos).toHaveStyle({
+        alignItems: 'center'
+      })
     })
 
     it('vai renderizar para a direita', () => {
@@ -64,8 +82,12 @@ describe('<Banner />', () => {
         name: /sua empresa preparada/i
       }).parentElement
 
-      expect(wrapperTextos).toHaveStyle({ gridColumn: '2' })
-      expect(wrapperTextos).toHaveStyle({ alignItems: 'flex-end' })
+      expect(wrapperTextos).toHaveStyle({
+        gridColumn: '2'
+      })
+      expect(wrapperTextos).toHaveStyle({
+        alignItems: 'flex-end'
+      })
     })
   })
 
@@ -77,15 +99,23 @@ describe('<Banner />', () => {
         name: /sua empresa preparada/i
       })
 
-      const TitleElement = screen.getByRole('heading', { name: /sua empresa preparada/i })
+      const TitleElement = screen.getByRole('heading', {
+        name: /sua empresa preparada/i
+      })
 
       const titleWithColorElement = screen.getByRole('heading', {
         name: /um titulo colorido/i
       })
 
-      expect(SubtitleElement).toHaveStyle({ opacity: 0 })
-      expect(TitleElement).toHaveStyle({ opacity: 0 })
-      expect(titleWithColorElement).toHaveStyle({ opacity: 0 })
+      expect(SubtitleElement).toHaveStyle({
+        opacity: 0
+      })
+      expect(TitleElement).toHaveStyle({
+        opacity: 0
+      })
+      expect(titleWithColorElement).toHaveStyle({
+        opacity: 0
+      })
     })
 
     it('Vai renderizar os titulos na tela', () => {
@@ -95,15 +125,23 @@ describe('<Banner />', () => {
         name: /sua empresa preparada/i
       })
 
-      const TitleElement = screen.getByRole('heading', { name: /sua empresa preparada/i })
+      const TitleElement = screen.getByRole('heading', {
+        name: /sua empresa preparada/i
+      })
 
       const titleWithColorElement = screen.getByRole('heading', {
         name: /um titulo colorido/i
       })
 
-      expect(SubtitleElement).toHaveStyle({ opacity: 1 })
-      expect(TitleElement).toHaveStyle({ opacity: 1 })
-      expect(titleWithColorElement).toHaveStyle({ opacity: 1 })
+      expect(SubtitleElement).toHaveStyle({
+        opacity: 1
+      })
+      expect(TitleElement).toHaveStyle({
+        opacity: 1
+      })
+      expect(titleWithColorElement).toHaveStyle({
+        opacity: 1
+      })
     })
   })
 })

@@ -13,7 +13,9 @@ describe('<IconsWrapper />', () => {
     expect(icone).toBeInTheDocument()
 
     // Deve testar a cor
-    expect(icone).toHaveStyle({ color: theme.colors.secondary })
+    expect(icone).toHaveStyle({
+      color: theme.colors.secondary
+    })
 
     // Deve ter o size
     expect(icone).toHaveStyle({ width: '1rem' })

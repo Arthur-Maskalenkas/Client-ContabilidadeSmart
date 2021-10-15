@@ -6,7 +6,9 @@ export default {
   component: SocialBanner
 } as Meta
 
-export const Default: Story<SocialBannerProps> = (args) => <SocialBanner {...args} />
+export const Default: Story<SocialBannerProps> = (args) => (
+  <SocialBanner {...args} />
+)
 
 Default.args = {
   img: 'img/socialBanners/Facebook.jpg'

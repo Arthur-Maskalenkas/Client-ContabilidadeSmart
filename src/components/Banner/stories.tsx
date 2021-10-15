@@ -25,7 +25,11 @@ export default {
 } as Meta
 
 export const Desktop: Story<BannerProps> = (args) => (
-  <div style={{ width: '100%' }}>
+  <div
+    style={{
+      width: '100%'
+    }}
+  >
     <Banner {...args} />
   </div>
 )
@@ -44,7 +48,11 @@ Desktop.args = {
 }
 
 export const Mobile: Story<BannerProps> = (args) => (
-  <div style={{ width: '100vw' }}>
+  <div
+    style={{
+      width: '100vw'
+    }}
+  >
     <Banner {...args} />
   </div>
 )

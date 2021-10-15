@@ -44,10 +44,15 @@ describe('<BannerSlider />', () => {
     expect(container.querySelectorAll('.slick-active')).toHaveLength(1)
 
     expect(
-      screen.getByRole('heading', { name: /Revisão Tributária/i, hidden: false })
+      screen.getByRole('heading', {
+        name: /Revisão Tributária/i,
+        hidden: false
+      })
     ).toBeInTheDocument()
 
-    expect(screen.getAllByLabelText(/um casal planejando as contas/i)).toHaveLength(2)
+    expect(
+      screen.getAllByLabelText(/um casal planejando as contas/i)
+    ).toHaveLength(2)
   })
 
   it('deve renderizar com setinhas', () => {

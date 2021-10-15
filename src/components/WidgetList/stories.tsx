@@ -10,9 +10,13 @@ export default {
   component: WidgetList
 } as Meta
 
-export const Default: Story<WidgetListProps> = (args) => <WidgetList {...args} />
+export const Default: Story<WidgetListProps> = (args) => (
+  <WidgetList {...args} />
+)
 
-Default.args = { ...mockWidgets }
+Default.args = {
+  ...mockWidgets
+}
 
 Default.parameters = {
   backgrounds: {
@@ -22,7 +26,9 @@ Default.parameters = {
 
 export const Mobile: Story<WidgetListProps> = (args) => <WidgetList {...args} />
 
-Mobile.args = { ...mockWidgets }
+Mobile.args = {
+  ...mockWidgets
+}
 
 Mobile.parameters = {
   backgrounds: {

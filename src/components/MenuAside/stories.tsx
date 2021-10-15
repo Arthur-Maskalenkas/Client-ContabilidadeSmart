@@ -13,7 +13,12 @@ export default {
 
 export const Default: Story = () => (
   <Container>
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 35rem' }}>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 35rem'
+      }}
+    >
       <div></div>
       <MenuAside
         maisVistosData={maisVistosMock}

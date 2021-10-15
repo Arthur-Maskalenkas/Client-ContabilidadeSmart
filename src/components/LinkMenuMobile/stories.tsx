@@ -21,7 +21,13 @@ export default {
 } as Meta
 
 export const Default: Story<LinkMenuMobileProps> = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', width: '100vw' }}>
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100vw'
+    }}
+  >
     <LinkMenuMobile title="Produtos">Premium</LinkMenuMobile>
   </div>
 )
@@ -37,7 +43,13 @@ Default.parameters = {
 }
 
 export const WithDropdown: Story<LinkMenuMobileProps> = (args) => (
-  <div style={{ display: 'flex', flexDirection: 'column', width: '100vw' }}>
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100vw'
+    }}
+  >
     <LinkMenuMobile {...args}>Premium</LinkMenuMobile>
     <LinkMenuMobile {...args}>Premium</LinkMenuMobile>
   </div>

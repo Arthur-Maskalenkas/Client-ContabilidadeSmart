@@ -10,8 +10,9 @@ export default {
   component: MaisVistos
 } as Meta
 
-export const Default: Story<MaisVistosProps> = (args) => <MaisVistos {...args} />
-
+export const Default: Story<MaisVistosProps> = (args) => (
+  <MaisVistos {...args} />
+)
 
 Default.args = { items: mock }
 
@@ -23,7 +24,7 @@ Default.parameters = {
 
 export const Mobile: Story<MaisVistosProps> = (args) => <MaisVistos {...args} />
 
-Mobile.args = { items: mock  }
+Mobile.args = { items: mock }
 
 Mobile.parameters = {
   backgrounds: {

@@ -11,14 +11,22 @@ export default {
 } as Meta
 
 export const Default: Story<TagsProps> = (args) => (
-  <div style={{ width: '35rem' }}>
+  <div
+    style={{
+      width: '35rem'
+    }}
+  >
     <Tags {...args} />
   </div>
 )
 
-const mockWithItems = { items: mock}
+const mockWithItems = {
+  items: mock
+}
 
-Default.args = { ...mockWithItems }
+Default.args = {
+  ...mockWithItems
+}
 
 Default.parameters = {
   backgrounds: {
@@ -27,12 +35,18 @@ Default.parameters = {
 }
 
 export const Mobile: Story<TagsProps> = (args) => (
-  <div style={{ maxWidth: '35rem' }}>
+  <div
+    style={{
+      maxWidth: '35rem'
+    }}
+  >
     <Tags {...args} />
   </div>
 )
 
-Mobile.args = { ...mockWithItems  }
+Mobile.args = {
+  ...mockWithItems
+}
 
 Mobile.parameters = {
   backgrounds: {

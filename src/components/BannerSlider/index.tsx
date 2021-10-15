@@ -41,7 +41,11 @@ const BannerSlider = ({ items }: BannerSliderProps) => {
     <S.Wrapper>
       <Slider settings={settings}>
         {items.map((item) => (
-          <Banner key={item.title} {...item} isOpen={item.title == activeState} />
+          <Banner
+            key={item.title}
+            {...item}
+            isOpen={item.title == activeState}
+          />
         ))}
       </Slider>
     </S.Wrapper>

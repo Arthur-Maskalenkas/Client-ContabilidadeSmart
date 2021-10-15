@@ -2,7 +2,7 @@ import NavigationAside from 'components/NavigationAside'
 
 import MaisVistos, { MaisVistoProps } from 'components/MaisVistos'
 import Tags, { TagProps } from 'components/Tags'
-import { MenuProps, MenuUnitaryProps } from 'components/Menu'
+import { MenuUnitaryProps } from 'components/Menu'
 
 import * as S from './styles'
 

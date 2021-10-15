@@ -30,7 +30,11 @@ export type LinkMenuDesktopProps = {
   takeTitle?: (valueTitle: string) => void
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
-const LinkMenuDesktop = ({ dropdownOptions, title, slug }: LinkMenuDesktopProps) => {
+const LinkMenuDesktop = ({
+  dropdownOptions,
+  title,
+  slug
+}: LinkMenuDesktopProps) => {
   const hasLinkMenuDesktop = !!dropdownOptions?.length
 
   return (
@@ -58,7 +62,9 @@ const LinkMenuDesktop = ({ dropdownOptions, title, slug }: LinkMenuDesktopProps)
           {dropdownOptions?.map((item, index) => (
             <S.LinkMenuDesktopTitleWrapper key={index}>
               <Link passHref href={`/artigo/${item.slug}`}>
-                <S.LinkMenuDesktopTitle>{item.titleOption}</S.LinkMenuDesktopTitle>
+                <S.LinkMenuDesktopTitle>
+                  {item.titleOption}
+                </S.LinkMenuDesktopTitle>
               </Link>
             </S.LinkMenuDesktopTitleWrapper>
           ))}
