@@ -1,10 +1,9 @@
 import BannerPage, { BannerPageProps } from 'components/BannerPage'
 import HeadingPage from 'components/HeadingPage'
-import Logo from 'components/Logo'
 import { MenuUnitaryProps } from 'components/Menu'
 import MenuAside, { MenuAsideProps } from 'components/MenuAside'
 import TextContent from 'components/TextContent'
-import Widget, { WidgetProps } from 'components/Widget'
+import { WidgetProps } from 'components/Widget'
 import WidgetList from 'components/WidgetList'
 import Base from 'templates/Base'
 
