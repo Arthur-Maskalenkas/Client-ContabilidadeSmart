@@ -23,7 +23,7 @@ export type BuscarTemplateProps = {
   menuAsideItems: MenuAsideProps
 }
 
-const Buscar = ({
+const BuscarTemplate = ({
   title,
   description,
   bannerPageProps,
@@ -62,4 +62,4 @@ const Buscar = ({
   )
 }
 
-export default Buscar
+export default BuscarTemplate
