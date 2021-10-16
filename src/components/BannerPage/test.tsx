@@ -17,6 +17,6 @@ describe('<BannerPage />', () => {
       screen.getByText(/on 23 out 2020 | by Contabilidade smart | Noticias/i)
     )
 
-    expect(screen.getByAltText(/uma image/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/uma image/i)).toBeInTheDocument()
   })
 })

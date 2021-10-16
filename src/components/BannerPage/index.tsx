@@ -18,9 +18,7 @@ const BannerPage = ({
     .replace('on', '')
 
   return (
-    <S.Wrapper>
-      <img src={backgroundImage} alt={altImage} />
-
+    <S.Wrapper backgroundImage={backgroundImage} aria-label={altImage}>
       <S.Overlay />
       <S.DetailsWrapper>
         <S.Details>{`${dataFormatada} | By Contabilidade Smart | ${tag}`}</S.Details>
