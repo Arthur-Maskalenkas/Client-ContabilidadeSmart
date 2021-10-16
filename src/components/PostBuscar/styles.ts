@@ -1,25 +1,15 @@
 import styled, { css } from 'styled-components'
 
-import * as CompartilheStyles from 'components/Compartilhe/styles'
-
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+`
 
-  /* PEgando o primeiro elemento e aplicando os 3 pontos*/
-  ${CompartilheStyles.Wrapper} + div *:first-child {
-    display: block;
-    display: -webkit-box;
-    max-width: 100%;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  ${CompartilheStyles.Wrapper} + div *:not(:first-child) {
-    display: none;
-  }
+export const Details = styled.div`
+  ${({ theme }) => css`
+    margin-top: ${theme.spacings.large};
+    padding: 0 ${theme.spacings.small} 0 ${theme.spacings.small};
+  `}
 `
 
 export const Title = styled.h2`
@@ -28,14 +18,13 @@ export const Title = styled.h2`
     font-weight: ${theme.font.family.raleway.weight.bold};
     font-size: 2.4rem;
 
-    margin-top: ${theme.spacings.large};
-    margin-bottom: ${theme.spacings.xsmall};
+    margin-bottom: ${theme.spacings.xxsmall};
   `}
 `
 
 export const Description = styled.p`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.xsmall};
+    font-size: 1.8rem;
     font-weight: ${theme.font.family.poppins.weight.normal};
   `}
 `

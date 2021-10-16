@@ -11,9 +11,10 @@ const PostBuscar = ({ BannerPageProps, title, subtitle }: PostBuscarProps) => (
   <S.Wrapper>
     <BannerPage {...BannerPageProps} />
 
-    <S.Title>{title}</S.Title>
-
-    <S.Description>{subtitle}</S.Description>
+    <S.Details>
+      <S.Title>{title}</S.Title>
+      <S.Description>{subtitle}</S.Description>
+    </S.Details>
   </S.Wrapper>
 )
 
