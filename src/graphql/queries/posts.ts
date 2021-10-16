@@ -5,6 +5,8 @@ export const QUERY_POSTS = gql`
     posts(limit: $limit, start: $start, where: $where, sort: $sort) {
       id
       title
+      subtitulo
+      created_at
       slug
       text
       capa {

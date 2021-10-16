@@ -17,6 +17,8 @@ export interface QueryPosts_posts {
   __typename: "Post";
   id: string;
   title: string;
+  subtitulo: string | null;
+  created_at: any;
   slug: string;
   text: string;
   capa: QueryPosts_posts_capa | null;
