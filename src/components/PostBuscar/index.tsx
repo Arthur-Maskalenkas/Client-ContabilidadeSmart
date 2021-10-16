@@ -1,24 +1,19 @@
 import BannerPage, { BannerPageProps } from 'components/BannerPage'
-import Compartilhe from 'components/Compartilhe'
-import TextContent from 'components/TextContent'
 import * as S from './styles'
 
 export type PostBuscarProps = {
   BannerPageProps: BannerPageProps
   title: string
-  description: string
+  subtitle: string
 }
 
-const PostBuscar = ({
-  BannerPageProps,
-  title,
-  description
-}: PostBuscarProps) => (
+const PostBuscar = ({ BannerPageProps, title, subtitle }: PostBuscarProps) => (
   <S.Wrapper>
     <BannerPage {...BannerPageProps} />
+
     <S.Title>{title}</S.Title>
 
-    <TextContent content={description} />
+    <S.Description>{subtitle}</S.Description>
   </S.Wrapper>
 )
 

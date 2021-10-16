@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client'
 
 export const QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS = gql`
   query QueryWidgets {
@@ -24,5 +24,5 @@ export const QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS = gql`
       title
       slug
     }
-}
+  }
 `

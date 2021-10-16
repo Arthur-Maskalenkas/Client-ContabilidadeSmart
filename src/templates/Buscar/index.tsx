@@ -1,11 +1,7 @@
-import BannerPage, { BannerPageProps } from 'components/BannerPage'
-import HeadingPage from 'components/HeadingPage'
+import { BannerPageProps } from 'components/BannerPage'
 import { MenuUnitaryProps } from 'components/Menu'
-import MenuAside, { MenuAsideProps } from 'components/MenuAside'
-import TextContent from 'components/TextContent'
+import { MenuAsideProps } from 'components/MenuAside'
 import { WidgetProps } from 'components/Widget'
-import WidgetList from 'components/WidgetList'
-import Base from 'templates/Base'
 
 import * as S from './styles'
 

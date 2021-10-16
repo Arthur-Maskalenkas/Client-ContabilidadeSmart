@@ -4,15 +4,23 @@ export type BannerPageProps = {
   backgroundImage: string
   data: string
   tag: string
+  altImage: string
 }
 
-const BannerPage = ({ data, tag, backgroundImage }: BannerPageProps) => {
+const BannerPage = ({
+  data,
+  tag,
+  backgroundImage,
+  altImage
+}: BannerPageProps) => {
   const dataFormatada = data
     .replace(/(\d*)-(\d*)-(\d*).*/, '$3-$2-$1')
     .replace('on', '')
 
   return (
-    <S.Wrapper backgroundImage={backgroundImage}>
+    <S.Wrapper>
+      <img src={backgroundImage} alt={altImage} />
+
       <S.Overlay />
       <S.DetailsWrapper>
         <S.Details>{`${dataFormatada} | By Contabilidade Smart | ${tag}`}</S.Details>

@@ -28,59 +28,70 @@ export type HomeTemplateProps = {
   menuData: MenuUnitaryProps[]
 }
 
-const Home = ({ bannerSliderData, widgetListCategoriasData, widgetListPaginasData,widgetPostsRecentes, menuData }: HomeTemplateProps) => {
-  const widgets = [...widgetListCategoriasData, ...widgetListPaginasData, ...widgetPostsRecentes]
+const Home = ({
+  bannerSliderData,
+  widgetListCategoriasData,
+  widgetListPaginasData,
+  widgetPostsRecentes,
+  menuData
+}: HomeTemplateProps) => {
+  const widgets = [
+    ...widgetListCategoriasData,
+    ...widgetListPaginasData,
+    ...widgetPostsRecentes
+  ]
 
   return (
-  <S.Wrapper>
-    <Base menuData={menuData}>
-      {/* Banner no topo */}
-      <BannerSlider items={bannerSliderData} />
+    <S.Wrapper>
+      <Base menuData={menuData}>
+        {/* Banner no topo */}
+        <BannerSlider items={bannerSliderData} />
 
-      <S.ServicesSection>
-        <Heading color="black" lineRight>
-          Nossos serviços
-        </Heading>
-
-        <S.Description>
-          Estes são os serviços que prestamos, que nos diferenciam
-        </S.Description>
-
-        <ServicesCardsList items={mockServicesCards.items} />
-      </S.ServicesSection>
-
-      <S.RecursosSection>
-        <Container>
+        <S.ServicesSection>
           <Heading color="black" lineRight>
-            Nossos Recursos
+            Nossos serviços
           </Heading>
 
           <S.Description>
-            Trabalhamos para atingir os objetivos de nossos clientes e ir além de suas
-            expectativas.
+            Estes são os serviços que prestamos, que nos diferenciam
           </S.Description>
 
-          <RecursosCardsList items={mockRecursosCards.items} />
-        </Container>
-      </S.RecursosSection>
+          <ServicesCardsList items={mockServicesCards.items} />
+        </S.ServicesSection>
 
-      <S.SocialBannerSection>
-        <Container>
-          <Heading>Torne-se parte da comunidade!</Heading>
-          <S.Description>
-            Entre em contato conosco FAÇA PARTE DA NOSSA LISTA VIP e receba informações
-            que vai ajudar no desenvolvimento da sua empresa.
-          </S.Description>
+        <S.RecursosSection>
+          <Container>
+            <Heading color="black" lineRight>
+              Nossos Recursos
+            </Heading>
 
-          <SocialBannerSlides items={mockSocialBannerSlides} />
-        </Container>
-      </S.SocialBannerSection>
+            <S.Description>
+              Trabalhamos para atingir os objetivos de nossos clientes e ir além
+              de suas expectativas.
+            </S.Description>
 
-      <S.WidgetSection>
-        <WidgetList items={widgets} />
-      </S.WidgetSection>
-    </Base>
-  </S.Wrapper>
-)}
+            <RecursosCardsList items={mockRecursosCards.items} />
+          </Container>
+        </S.RecursosSection>
+
+        <S.SocialBannerSection>
+          <Container>
+            <Heading>Torne-se parte da comunidade!</Heading>
+            <S.Description>
+              Entre em contato conosco FAÇA PARTE DA NOSSA LISTA VIP e receba
+              informações que vai ajudar no desenvolvimento da sua empresa.
+            </S.Description>
+
+            <SocialBannerSlides items={mockSocialBannerSlides} />
+          </Container>
+        </S.SocialBannerSection>
+
+        <S.WidgetSection>
+          <WidgetList items={widgets} />
+        </S.WidgetSection>
+      </Base>
+    </S.Wrapper>
+  )
+}
 
 export default Home

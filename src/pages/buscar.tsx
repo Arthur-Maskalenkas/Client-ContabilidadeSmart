@@ -1,3 +1,1 @@
-export default function BuscarPage() {
-
-}
+export default function BuscarPage() {}

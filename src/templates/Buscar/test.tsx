@@ -4,9 +4,8 @@ import Buscar from '.'
 
 describe('<Buscar />', () => {
   it('should render the heading', () => {
-   render(<Buscar />)
+    render(<Buscar />)
 
     expect(screen.getByRole('heading', { name: /Buscar/i })).toBeInTheDocument()
-
   })
 })

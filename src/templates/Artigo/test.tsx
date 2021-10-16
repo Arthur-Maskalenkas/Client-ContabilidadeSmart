@@ -1,8 +1,16 @@
 import { render, screen } from 'utils/test-utils'
 
-import { mockCategorias, mockPaginas, mockPostsRecentes } from 'components/Widget/mock'
+import {
+  mockCategorias,
+  mockPaginas,
+  mockPostsRecentes
+} from 'components/Widget/mock'
 
-import { maisVistosMock, tagsMock, navigationMock } from 'components/MenuAside/mock'
+import {
+  maisVistosMock,
+  tagsMock,
+  navigationMock
+} from 'components/MenuAside/mock'
 
 import Artigo from '.'
 

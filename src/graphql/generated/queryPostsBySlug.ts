@@ -20,7 +20,7 @@ export interface queryPostsBySlug_posts {
   slug: string;
   created_at: any;
   text: string;
-  capa: queryPostsBySlug_posts_capa[];
+  capa: queryPostsBySlug_posts_capa | null;
 }
 
 export interface queryPostsBySlug {

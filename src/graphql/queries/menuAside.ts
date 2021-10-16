@@ -1,10 +1,10 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client'
 
 export const QUERY_MENUASIDE = gql`
   query QueryTags {
-   tags {
+    tags {
       Title
       slug
     }
-}
+  }
 `

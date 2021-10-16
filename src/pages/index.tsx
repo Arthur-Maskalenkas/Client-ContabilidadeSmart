@@ -1,11 +1,9 @@
 import Home, { HomeTemplateProps } from 'templates/Home'
 
-
 import { initializeApollo } from 'utils/apollo'
 
 import { QueryMenu } from 'graphql/generated/QueryMenu'
 import { QUERY_MENU } from 'graphql/queries/menu'
-
 
 import { QueryBannersHome } from 'graphql/generated/QueryBannersHome'
 import { QUERY_HOME_BANNERS } from 'graphql/queries/home'
@@ -21,16 +19,23 @@ export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
   // Banner no topo
-  const { data : { home }} = await apolloClient.query<QueryBannersHome>({query: QUERY_HOME_BANNERS})
+  const {
+    data: { home }
+  } = await apolloClient.query<QueryBannersHome>({ query: QUERY_HOME_BANNERS })
 
   // Widgets
-  const { data : { widgetsCategorias,widgetsPaginas,widgetsPostsRecentes }} = await apolloClient.query<QueryWidgets>({query: QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS, fetchPolicy: 'no-cache'})
+  const {
+    data: { widgetsCategorias, widgetsPaginas, widgetsPostsRecentes }
+  } = await apolloClient.query<QueryWidgets>({
+    query: QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS,
+    fetchPolicy: 'no-cache'
+  })
 
   // Menu data
   const {
     data: { menus }
   } = await apolloClient.query<QueryMenu>({
-    query: QUERY_MENU,
+    query: QUERY_MENU
   })
 
   return {
@@ -52,8 +57,7 @@ export async function getStaticProps() {
         img: items?.img?.url,
         titleImage: items?.img?.alternativeText,
         buttonLabel: items?.buttonLabel,
-        buttonLink: items?.buttonLink,
-
+        buttonLink: items?.buttonLink
       })),
       widgetListPaginasData: widgetsPaginas.map((item) => ({
         title: item.title,
@@ -63,25 +67,25 @@ export async function getStaticProps() {
           slug: items.slug
         }))
       })),
-      widgetPostsRecentes: [{
-        moreWeight: true,
-        title: 'Posts recentes',
-        path: 'posts_recentes',
-        items: widgetsPostsRecentes.map((item) => ({
-          title: item.title,
-          slug: item.slug
-        }))}
-      ],
-      menuData:
-         menus.map((item) => ({
-          title: item.title,
-          slug: item.slug,
-          dropdownOptions: item.menu_options.map((item) => ({
-            titleOption: item.title,
-            slug: item?.post?.slug
+      widgetPostsRecentes: [
+        {
+          moreWeight: true,
+          title: 'Posts recentes',
+          path: 'posts_recentes',
+          items: widgetsPostsRecentes.map((item) => ({
+            title: item.title,
+            slug: item.slug
           }))
+        }
+      ],
+      menuData: menus.map((item) => ({
+        title: item.title,
+        slug: item.slug,
+        dropdownOptions: item.menu_options.map((item) => ({
+          titleOption: item.title,
+          slug: item?.post?.slug
         }))
-
+      }))
     }
   }
 }

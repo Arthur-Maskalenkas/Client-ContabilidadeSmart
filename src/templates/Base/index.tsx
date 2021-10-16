@@ -1,6 +1,6 @@
 import { Container } from 'components/Container'
 import Footer from 'components/Footer'
-import Menu, {  MenuUnitaryProps } from 'components/Menu'
+import Menu, { MenuUnitaryProps } from 'components/Menu'
 import MenuContact from 'components/MenuContact'
 
 import * as S from './styles'

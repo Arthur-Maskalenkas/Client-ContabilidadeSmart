@@ -1,20 +1,21 @@
 import styled, { css } from 'styled-components'
 
-type WrapperProps = {
-  backgroundImage: string
-}
-
-export const Wrapper = styled.article<WrapperProps>`
-  ${({ backgroundImage }) => css`
+export const Wrapper = styled.article`
+  ${({ theme }) => css`
     position: relative;
 
     cursor: pointer;
 
     display: flex;
-    background-image: url(${backgroundImage});
-    background-position: center center;
-    background-size: cover;
+    flex-direction: column;
     height: 45rem;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      /* Essencial */
+      object-fit: cover;
+    }
 
     /* Efeitos */
     ${DetailsWrapper}, ${Overlay} {
@@ -23,12 +24,12 @@ export const Wrapper = styled.article<WrapperProps>`
 
     /* Details */
     ${DetailsWrapper} {
-      transform: translateY(3rem);
+      transform: translateY(rem);
     }
 
     &:hover ${DetailsWrapper} {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(-5.5rem);
     }
 
     /* Overlay */

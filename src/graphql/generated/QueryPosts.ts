@@ -19,7 +19,7 @@ export interface QueryPosts_posts {
   title: string;
   slug: string;
   text: string;
-  capa: QueryPosts_posts_capa[];
+  capa: QueryPosts_posts_capa | null;
 }
 
 export interface QueryPosts {

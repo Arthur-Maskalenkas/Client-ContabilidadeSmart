@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client'
 
 export const QUERY_POSTS = gql`
   query QueryPosts($limit: Int, $start: Int, $where: JSON, $sort: String) {
@@ -17,7 +17,7 @@ export const QUERY_POSTS = gql`
 
 export const QUERY_POSTS_BY_SLUG = gql`
   query queryPostsBySlug($slug: String!) {
-    posts(where: {slug: $slug}) {
+    posts(where: { slug: $slug }) {
       id
       title
       slug

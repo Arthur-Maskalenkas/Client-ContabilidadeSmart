@@ -33,28 +33,32 @@ const Artigo = ({
   menuAsideItems,
   menuData
 }: ArtigoTemplateProps) => {
-  const widgets = [...widgetListCategoriasData, ...widgetListPaginasData, ...widgetPostsRecentes]
+  const widgets = [
+    ...widgetListCategoriasData,
+    ...widgetListPaginasData,
+    ...widgetPostsRecentes
+  ]
 
   return (
-  <S.Wrapper>
-    <Base menuData={menuData}>
-      <S.Head>
-        <HeadingPage title={title} />
-      </S.Head>
+    <S.Wrapper>
+      <Base menuData={menuData}>
+        <S.Head>
+          <HeadingPage title={title} />
+        </S.Head>
 
-      <S.MainSection>
-        <S.Main>
-          <BannerPage {...bannerPageProps} />
-          <TextContent title={title} content={description} />
-        </S.Main>
-        <MenuAside {...menuAsideItems} />
-      </S.MainSection>
+        <S.MainSection>
+          <S.Main>
+            <BannerPage {...bannerPageProps} />
+            <TextContent title={title} content={description} />
+          </S.Main>
+          <MenuAside {...menuAsideItems} />
+        </S.MainSection>
 
-      <S.WidgetSection>
-        <WidgetList items={widgets} />
-      </S.WidgetSection>
-    </Base>
-  </S.Wrapper>
-)
+        <S.WidgetSection>
+          <WidgetList items={widgets} />
+        </S.WidgetSection>
+      </Base>
+    </S.Wrapper>
+  )
 }
 export default Artigo

@@ -33,6 +33,8 @@ describe('<Base />', () => {
 
     expect(screen.getByTestId('Mock Menu')).toBeInTheDocument()
     expect(screen.getByTestId('Mock Footer')).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: /heading/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /heading/i })
+    ).toBeInTheDocument()
   })
 })

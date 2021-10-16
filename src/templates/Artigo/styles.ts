@@ -47,9 +47,9 @@ export const Main = styled.main`
       box-shadow: 0px 0px 24px -16px #000000;
   `}
 
-  ${BannerStyles.Wrapper} {
-    margin-bottom: ${theme.spacings.large};
-  }
+    ${BannerStyles.Wrapper} {
+      margin-bottom: ${theme.spacings.large};
+    }
   `}
 `
 
