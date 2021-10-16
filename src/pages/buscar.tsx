@@ -1,10 +1,14 @@
 import { QueryMenu } from 'graphql/generated/QueryMenu'
 import { QueryPosts, QueryPostsVariables } from 'graphql/generated/QueryPosts'
+import { QueryTags } from 'graphql/generated/QueryTags'
 import { QueryWidgets } from 'graphql/generated/QueryWidgets'
 import { QUERY_MENU } from 'graphql/queries/menu'
+import { QUERY_MENUASIDE } from 'graphql/queries/menuAside'
 import { QUERY_POSTS } from 'graphql/queries/posts'
 import { QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS } from 'graphql/queries/widgets'
 import { GetServerSidePropsContext } from 'next'
+
+import { maisVistosMock } from 'components/MenuAside/mock'
 
 import BuscarTemplate, { BuscarTemplateProps } from 'templates/Buscar'
 import { initializeApollo } from 'utils/apollo'
@@ -28,6 +32,11 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
     query: QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS
   })
 
+  //  Menuaside
+  const {
+    data: { tags }
+  } = await apolloClient.query<QueryTags>({ query: QUERY_MENUASIDE })
+
   // Menu data
   const {
     data: { menus }
@@ -46,6 +55,21 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
           slug: item?.post?.slug
         }))
       })),
+      menuAsideItems: {
+        menuData: menus.map((item) => ({
+          title: item.title,
+          slug: item.slug,
+          dropdownOptions: item.menu_options.map((item) => ({
+            titleOption: item.title,
+            slug: item?.post?.slug
+          }))
+        })),
+        maisVistosData: maisVistosMock,
+        tagsData: tags.map((item) => ({
+          title: item.Title,
+          slug: item.slug
+        }))
+      },
       widgetListCategoriasData: widgetsCategorias.map((item) => ({
         title: item.title,
         path: item.path,
