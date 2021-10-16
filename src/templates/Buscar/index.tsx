@@ -1,10 +1,11 @@
-import BannerPage, { BannerPageProps } from 'components/BannerPage'
+import { BannerPageProps } from 'components/BannerPage'
 import HeadingPage from 'components/HeadingPage'
 import { MenuUnitaryProps } from 'components/Menu'
 import MenuAside, { MenuAsideProps } from 'components/MenuAside'
-import TextContent from 'components/TextContent'
 import { WidgetProps } from 'components/Widget'
 import WidgetList from 'components/WidgetList'
+import { useQueryPosts } from 'graphql/queries/posts'
+import { useRouter } from 'next/dist/client/router'
 import Base from 'templates/Base'
 
 import * as S from './styles'
@@ -39,17 +40,30 @@ const BuscarTemplate = ({
     ...widgetPostsRecentes
   ]
 
+  const { push, query } = useRouter()
+
+  const { data, loading, fetchMore } = useQueryPosts({
+    notifyOnNetworkStatusChange: true,
+    variables: {
+      limit: 3,
+      where: { tags: { Title_contains: 'teste' } }
+    }
+  })
+
+  if (!data) return <p>loading...</p>
+
+  const { posts } = data
+
   return (
     <S.Wrapper>
       <Base menuData={menuData}>
         <S.Head>
           <HeadingPage title={title} />
         </S.Head>
-
         <S.MainSection>
           <S.Main>
-            <BannerPage {...bannerPageProps} />
-            <TextContent title={title} content={description} />
+            {/* <BannerPage {...bannerPageProps} />
+            <TextContent title={title} content={description} /> */}
           </S.Main>
           <MenuAside {...menuAsideItems} />
         </S.MainSection>
