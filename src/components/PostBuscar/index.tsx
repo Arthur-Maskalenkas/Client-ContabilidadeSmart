@@ -3,8 +3,6 @@ import Compartilhe from 'components/Compartilhe'
 import TextContent from 'components/TextContent'
 import * as S from './styles'
 
-const obj = { title: 'oioi', idade: 10,  teste: 'dsadsa', testando: 'dsadsa'}
-
 export type PostBuscarProps = {
   BannerPageProps: BannerPageProps
   title: string
@@ -19,7 +17,6 @@ const PostBuscar = ({
   <S.Wrapper>
     <BannerPage {...BannerPageProps} />
     <S.Title>{title}</S.Title>
-    <Compartilhe />
 
     <TextContent content={description} />
   </S.Wrapper>

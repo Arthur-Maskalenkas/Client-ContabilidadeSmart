@@ -17,13 +17,32 @@ const mock: PostBuscarProps = {
   },
   title: 'Saques de FGTS e recebimento de beneficios',
   description:
-    'Saques de FGTS e recebimento de benefícios decorrentes do coronavírus por meio de conta tipo poupança social digital. Por meio da Lei nº 14.020/2020 foi regulamentada a conta tipo poupança social digital a ser utilizada tanto para o recebimento de benefícios decorrentes da pandemia do coronavírus como para a movimentação das contas individuais do FGTS, nas situações permitidas'
+    `<p>Saques de FGTS e recebimento de benef&iacute;cios decorrentes do coronav&iacute;rus por meio de conta tipo poupan&ccedil;a social digital.&nbsp;Por meio da Lei n&ordm; 14.020/2020 foi regulamentada a conta tipo poupan&ccedil;a social digital a ser utilizada tanto para o recebimento de benef&iacute;cios decorrentes da pandemia do coronav&iacute;rus como para a movimenta&ccedil;&atilde;o das contas individuais do FGTS, nas situa&ccedil;&otilde;es permitidas.</p>
+
+    <p>&nbsp;</p>
+
+    <p>Entre as novas disposi&ccedil;&otilde;es foi estabelecido que a mencionada conta poder&aacute; ser aberta de forma autom&aacute;tica para o pagamento, entre outros, dos seguintes benef&iacute;cios:</p>
+
+    <p>&nbsp;</p>
+
+    <h3>Para o aux&iacute;lio emergencial</h3>
+
+    <p>Do aux&iacute;lio emergencial previsto no &sect; 9&ordm; do art. 2&ordm; da Lei n&ordm; 13.982/2020 , devido ao MEI, ao contribuinte individual e ao trabalhador informal que atendam aos requisitos exigidos;</p>
+
+    <p>&nbsp;</p>
+
+    <h2>Para preserva&ccedil;&atilde;o do emprego</h2>
+
+    <p>Do benef&iacute;cio emergencial de preserva&ccedil;&atilde;o do emprego e da renda e do benef&iacute;cio emergencial mensal pagos em decorr&ecirc;ncia da pandemia do coronav&iacute;rus, conforme previsto nos arts 5&ordm; e 18 da Lei n&ordm; 14.020/2020;</p>
+
+    <address>&nbsp;</address>
+    `
 }
 
 export const Default: Story<PostBuscarProps> = (args) => (
   <div
     style={{
-      width: '70rem'
+      maxWidth: '70rem'
     }}
   >
     <PostBuscar {...args} />
@@ -34,7 +53,16 @@ Default.args = {
   ...mock
 }
 
-export const Mobile: Story<PostBuscarProps> = (args) => <PostBuscar {...args} />
+Default.parameters = {
+  backgrounds: {
+    default: 'mm-light'
+  }
+}
+
+export const Mobile: Story<PostBuscarProps> = (args) =>
+  <div style={{width: '31rem', marginLeft: 'auto', marginRight: 'auto'}}>
+    <PostBuscar {...args} />
+  </div>
 
 Mobile.args = {
   ...mock
