@@ -1,4 +1,5 @@
-import { gql } from '@apollo/client'
+import { gql, QueryHookOptions, useQuery } from '@apollo/client'
+import { QueryPosts, QueryPostsVariables } from 'graphql/generated/QueryPosts'
 
 export const QUERY_POSTS = gql`
   query QueryPosts($limit: Int, $start: Int, $where: JSON, $sort: String) {
@@ -32,3 +33,9 @@ export const QUERY_POSTS_BY_SLUG = gql`
     }
   }
 `
+
+export function useQueryPosts(
+  options?: QueryHookOptions<QueryPosts, QueryPostsVariables>
+) {
+  return useQuery<QueryPosts, QueryPostsVariables>(QUERY_POSTS, options)
+}
