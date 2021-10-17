@@ -1,17 +1,17 @@
 import * as S from './styles'
 
 export type BannerPageProps = {
-  backgroundImage: string
+  backgroundImage?: string
   data: string
-  tag: string
+  tag?: string
   altImage: string
 }
 
 const BannerPage = ({
   data,
   tag,
-  backgroundImage,
-  altImage
+  backgroundImage = '=/',
+  altImage = 'img not found'
 }: BannerPageProps) => {
   const dataFormatada = data
     .replace(/(\d*)-(\d*)-(\d*).*/, '$3-$2-$1')
