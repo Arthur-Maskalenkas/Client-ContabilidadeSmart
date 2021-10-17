@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client'
 
-export const QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS = gql`
+export const QUERY_WIDGETS = gql`
   query QueryWidgets {
     widgetsCategorias: widgets(where: { path: "categorias" }) {
       title
