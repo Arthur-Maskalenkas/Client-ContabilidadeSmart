@@ -20,7 +20,12 @@ import {
   queryPostsBySlug,
   queryPostsBySlugVariables
 } from 'graphql/generated/queryPostsBySlug'
-import { menuMapper } from 'utils/mappers'
+import {
+  menuMapper,
+  widgetCategoriasMapper,
+  widgetPaginasMapper,
+  widgetPostsRecentesMapper
+} from 'utils/mappers'
 import { QUERY_WIDGETS } from 'graphql/queries/widgets'
 
 // Inicializando por fora para usar no get e no server
@@ -76,8 +81,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const {
     data: { widgetsCategorias, widgetsPaginas, widgetsPostsRecentes }
   } = await apolloClient.query<QueryWidgets>({
-    query: QUERY_WIDGETS,
-    fetchPolicy: 'no-cache'
+    query: QUERY_WIDGETS
   })
 
   // Menu data
@@ -99,33 +103,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         tag: ''
       },
       menuData: menuMapper(menus),
-      widgetListCategoriasData: widgetsCategorias.map((item) => ({
-        title: item.title,
-        path: item.path,
-        items: item.categorias.map((items) => ({
-          title: items.title,
-          slug: items.slug
-        }))
-      })),
-      widgetListPaginasData: widgetsPaginas.map((item) => ({
-        title: item.title,
-        path: item.path,
-        items: item.posts.map((items) => ({
-          title: items.title,
-          slug: items.slug
-        }))
-      })),
-      widgetPostsRecentes: [
-        {
-          moreWeight: true,
-          title: 'Posts recentes',
-          path: 'posts_recentes',
-          items: widgetsPostsRecentes.map((item) => ({
-            title: item.title,
-            slug: item.slug
-          }))
-        }
-      ],
+      widgetListCategoriasData: widgetCategoriasMapper(widgetsCategorias),
+      widgetListPaginasData: widgetPaginasMapper(widgetsPaginas),
+      widgetPostsRecentes: widgetPostsRecentesMapper(widgetsPostsRecentes),
       // Criar um MaisVistos no db, ele vai ter 1 post e vai pegar title e slug
       menuAsideItems: {
         menuData: menus.map((item) => ({
