@@ -8,8 +8,7 @@ import { QUERY_MENU } from 'graphql/queries/menu'
 import { QueryBannersHome } from 'graphql/generated/QueryBannersHome'
 import { QUERY_HOME_BANNERS } from 'graphql/queries/home'
 import { QueryWidgets } from 'graphql/generated/QueryWidgets'
-
-import { QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS } from 'graphql/queries/widgets'
+import { QUERY_WIDGETS } from 'graphql/queries/widgets'
 
 export default function sobre(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -27,7 +26,7 @@ export async function getStaticProps() {
   const {
     data: { widgetsCategorias, widgetsPaginas, widgetsPostsRecentes }
   } = await apolloClient.query<QueryWidgets>({
-    query: QUERY_WIDGETS_POSTS_PAGINAS_CATEGORIAS,
+    query: QUERY_WIDGETS,
     fetchPolicy: 'no-cache'
   })
 

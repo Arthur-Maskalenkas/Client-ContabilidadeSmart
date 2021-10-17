@@ -20,7 +20,7 @@ export const QUERY_WIDGETS = gql`
       }
     }
 
-    widgetsPostsRecentes: posts(limit: 5, sort: "created_at:desc") {
+    widgetsPostsRecentes: posts(sort: "created_at:asc") {
       title
       slug
     }
