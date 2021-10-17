@@ -2,6 +2,7 @@ import { BannerPageProps } from 'components/BannerPage'
 import HeadingPage from 'components/HeadingPage'
 import { MenuUnitaryProps } from 'components/Menu'
 import MenuAside, { MenuAsideProps } from 'components/MenuAside'
+import PostBuscar from 'components/PostBuscar'
 import { WidgetProps } from 'components/Widget'
 import WidgetList from 'components/WidgetList'
 import { useQueryPosts } from 'graphql/queries/posts'
@@ -62,8 +63,18 @@ const BuscarTemplate = ({
         </S.Head>
         <S.MainSection>
           <S.Main>
-            {/* <BannerPage {...bannerPageProps} />
-            <TextContent title={title} content={description} /> */}
+            {data?.posts?.map((item, index) => (
+              <PostBuscar
+                key={index}
+                title={item.title}
+                subtitle={item.subtitulo!}
+                BannerPageProps={{
+                  data: item.created_at,
+                  altImage: item.capa?.alternativeText || 'img not found',
+                  backgroundImage: item.capa?.url
+                }}
+              />
+            ))}
           </S.Main>
           <MenuAside {...menuAsideItems} />
         </S.MainSection>
