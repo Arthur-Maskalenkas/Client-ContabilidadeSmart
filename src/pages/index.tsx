@@ -1,5 +1,13 @@
 import Home, { HomeTemplateProps } from 'templates/Home'
 
+import {
+  bannerSliderMapper,
+  menuMapper,
+  widgetCategoriasMapper,
+  widgetPaginasMapper,
+  widgetPostsRecentesMapper
+} from 'utils/mappers'
+
 import { initializeApollo } from 'utils/apollo'
 
 import { QueryMenu } from 'graphql/generated/QueryMenu'
@@ -20,14 +28,15 @@ export async function getStaticProps() {
   // Banner no topo
   const {
     data: { home }
-  } = await apolloClient.query<QueryBannersHome>({ query: QUERY_HOME_BANNERS })
+  } = await apolloClient.query<QueryBannersHome>({
+    query: QUERY_HOME_BANNERS
+  })
 
   // Widgets
   const {
     data: { widgetsCategorias, widgetsPaginas, widgetsPostsRecentes }
   } = await apolloClient.query<QueryWidgets>({
-    query: QUERY_WIDGETS,
-    fetchPolicy: 'no-cache'
+    query: QUERY_WIDGETS
   })
 
   // Menu data
@@ -40,51 +49,11 @@ export async function getStaticProps() {
   return {
     props: {
       revalidate: 120,
-      widgetListCategoriasData: widgetsCategorias.map((item) => ({
-        title: item.title,
-        path: item.path,
-        items: item.categorias.map((items) => ({
-          title: items.title,
-          slug: items.slug
-        }))
-      })),
-      bannerSliderData: home?.bannerHome?.map((items) => ({
-        title: items?.title,
-        subtitle: items?.subtitle,
-        textDirection: items?.textDirection,
-        titleWithColor: items?.titleWithColor,
-        img: items?.img?.url,
-        titleImage: items?.img?.alternativeText,
-        buttonLabel: items?.buttonLabel,
-        buttonLink: items?.buttonLink
-      })),
-      widgetListPaginasData: widgetsPaginas.map((item) => ({
-        title: item.title,
-        path: item.path,
-        items: item.posts.map((items) => ({
-          title: items.title,
-          slug: items.slug
-        }))
-      })),
-      widgetPostsRecentes: [
-        {
-          moreWeight: true,
-          title: 'Posts recentes',
-          path: 'posts_recentes',
-          items: widgetsPostsRecentes.map((item) => ({
-            title: item.title,
-            slug: item.slug
-          }))
-        }
-      ],
-      menuData: menus.map((item) => ({
-        title: item.title,
-        slug: item.slug,
-        dropdownOptions: item.menu_options.map((item) => ({
-          titleOption: item.title,
-          slug: item?.post?.slug
-        }))
-      }))
+      menuData: menuMapper(menus),
+      widgetListCategoriasData: widgetCategoriasMapper(widgetsCategorias),
+      widgetListPaginasData: widgetPaginasMapper(widgetsPaginas),
+      widgetPostsRecentes: widgetPostsRecentesMapper(widgetsPostsRecentes),
+      bannerSliderData: bannerSliderMapper(home?.bannerHome)
     }
   }
 }

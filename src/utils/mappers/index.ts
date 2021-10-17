@@ -68,7 +68,7 @@ export const widgetPostsRecentesMapper = (
 }
 
 export const bannerSliderMapper = (
-  bannerSlider: QueryBannersHome_home_bannerHome[] | null
+  bannerSlider: QueryBannersHome_home_bannerHome[]
 ) => {
   return bannerSlider
     ? bannerSlider?.map((item) => ({
