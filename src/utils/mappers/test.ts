@@ -1,4 +1,5 @@
 import {
+  bannerPageMapper,
   bannerSliderMapper,
   maisVistosMapper,
   menuMapper,
@@ -31,6 +32,8 @@ import {
 } from 'graphql/generated/queryMenuAside'
 import { TagProps } from 'components/Tags'
 import { MaisVistoProps } from 'components/MaisVistos'
+import { queryPostsBySlug_posts } from 'graphql/generated/queryPostsBySlug'
+import { BannerPageProps } from 'components/BannerPage'
 
 describe('menuMapper()', () => {
   it('retorna o valor certo completamente mapeado de um menu', () => {
@@ -217,5 +220,32 @@ describe('tagsMapper()', () => {
     }
 
     expect(tagsMapper(valueApi)).toStrictEqual([expectValue])
+  })
+})
+
+describe('bannerPageMapper()', () => {
+  it('retorna o valor completamente mapeado de um objeto para bannerPage', () => {
+    const valueApi: queryPostsBySlug_posts = {
+      __typename: 'Post',
+      capa: {
+        url: 'url da capa',
+        alternativeText: 'alt da capa',
+        __typename: 'UploadFile'
+      },
+      created_at: 'uma data de criação',
+      slug: 'o slug do post',
+      id: '1',
+      text: 'o texto do post',
+      title: 'o titulo do post'
+    }
+
+    const expectValue: BannerPageProps = {
+      backgroundImage: 'url da capa',
+      altImage: 'alt da capa',
+      data: 'uma data de criação',
+      tag: ''
+    }
+
+    expect(bannerPageMapper(valueApi)).toStrictEqual(expectValue)
   })
 })

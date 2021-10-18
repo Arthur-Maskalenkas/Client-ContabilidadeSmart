@@ -4,6 +4,7 @@ import {
   queryMenuAside_menuAsideMaisVistos,
   queryMenuAside_menuAsideTags
 } from 'graphql/generated/queryMenuAside'
+import { queryPostsBySlug_posts } from 'graphql/generated/queryPostsBySlug'
 import {
   QueryWidgets_widgetsCategorias,
   QueryWidgets_widgetsPaginas,
@@ -106,4 +107,15 @@ export const maisVistosMapper = (
         slug: item.post?.slug
       }))
     : []
+}
+
+export const bannerPageMapper = (bannerPage: queryPostsBySlug_posts) => {
+  return bannerPage
+    ? {
+        backgroundImage: bannerPage.capa?.url || '',
+        altImage: bannerPage.capa?.alternativeText || '',
+        data: bannerPage.created_at,
+        tag: ''
+      }
+    : {}
 }
