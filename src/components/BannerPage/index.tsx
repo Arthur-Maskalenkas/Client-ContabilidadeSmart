@@ -10,7 +10,7 @@ export type BannerPageProps = {
 const BannerPage = ({
   data,
   tag,
-  backgroundImage = '=/',
+  backgroundImage = 'https://d18lp25pnz8h36.cloudfront.net/installations/common/img/image-not-found.png',
   altImage = 'img not found'
 }: BannerPageProps) => {
   const dataFormatada = data
