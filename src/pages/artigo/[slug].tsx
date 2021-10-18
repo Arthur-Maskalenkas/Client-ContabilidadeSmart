@@ -19,15 +19,14 @@ import {
 } from 'graphql/generated/queryPostsBySlug'
 import {
   bannerPageMapper,
-  maisVistosMapper,
   menuMapper,
-  tagsMapper,
   widgetCategoriasMapper,
   widgetPaginasMapper,
   widgetPostsRecentesMapper
 } from 'utils/mappers'
 import { QUERY_WIDGETS } from 'graphql/queries/widgets'
 import { queryMenuAside } from 'graphql/generated/queryMenuAside'
+import { menuAsideItemsPropsConstructor } from 'utils/propsNext/menuAsideItems'
 
 // Inicializando por fora para usar no get e no server
 const apolloClient = initializeApollo()
@@ -78,6 +77,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     data: { menuAsideMaisVistos, menuAsideMenu, menuAsideTags }
   } = await apolloClient.query<queryMenuAside>({ query: QUERY_MENUASIDE })
 
+  const menuAsideData = { menuAsideMaisVistos, menuAsideMenu, menuAsideTags }
+
   // Widgets
   const {
     data: { widgetsCategorias, widgetsPaginas, widgetsPostsRecentes }
@@ -101,11 +102,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       widgetListCategoriasData: widgetCategoriasMapper(widgetsCategorias),
       widgetListPaginasData: widgetPaginasMapper(widgetsPaginas),
       widgetPostsRecentes: widgetPostsRecentesMapper(widgetsPostsRecentes),
-      menuAsideItems: {
-        menuData: menuMapper(menuAsideMenu),
-        maisVistosData: maisVistosMapper(menuAsideMaisVistos),
-        tagsData: tagsMapper(menuAsideTags)
-      }
+      menuAsideItems: menuAsideItemsPropsConstructor(menuAsideData)
     }
   }
 }
