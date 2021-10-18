@@ -22,25 +22,11 @@ import { WidgetProps } from 'components/Widget'
 
 export type HomeTemplateProps = {
   bannerSliderData: BannerProps[]
-  widgetListCategoriasData: WidgetProps[]
-  widgetListPaginasData: WidgetProps[]
-  widgetPostsRecentes: WidgetProps[]
+  widgets: WidgetProps[]
   menuData: MenuUnitaryProps[]
 }
 
-const Home = ({
-  bannerSliderData,
-  widgetListCategoriasData,
-  widgetListPaginasData,
-  widgetPostsRecentes,
-  menuData
-}: HomeTemplateProps) => {
-  const widgets = [
-    ...widgetListCategoriasData,
-    ...widgetListPaginasData,
-    ...widgetPostsRecentes
-  ]
-
+const Home = ({ bannerSliderData, widgets, menuData }: HomeTemplateProps) => {
   return (
     <S.Wrapper>
       <Base menuData={menuData}>
