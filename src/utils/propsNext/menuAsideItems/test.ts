@@ -6,7 +6,7 @@ import {
 
 import { menuAsideItemsPropsConstructor } from '.'
 
-describe('menuAsideItemsProps()', () => {
+describe('menuAsideItemsPropsConstructor()', () => {
   it('vai retornar menuData,maisVistosData e tagsData', () => {
     // Dados que vãp chegar da API
     const menuAsideMenu: QueryMenu_menus[] = [
