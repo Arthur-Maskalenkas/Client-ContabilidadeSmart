@@ -18,9 +18,7 @@ export type BuscarTemplateProps = {
 
   menuData: MenuUnitaryProps[]
 
-  widgetListCategoriasData: WidgetProps[]
-  widgetListPaginasData: WidgetProps[]
-  widgetPostsRecentes: WidgetProps[]
+  widgets: WidgetProps[]
 
   menuAsideItems: MenuAsideProps
 }
@@ -29,18 +27,10 @@ const BuscarTemplate = ({
   title,
   description,
   bannerPageProps,
-  widgetListCategoriasData,
-  widgetListPaginasData,
-  widgetPostsRecentes,
+  widgets,
   menuAsideItems,
   menuData
 }: BuscarTemplateProps) => {
-  const widgets = [
-    ...widgetListCategoriasData,
-    ...widgetListPaginasData,
-    ...widgetPostsRecentes
-  ]
-
   const { push, query } = useRouter()
 
   const { data, loading, fetchMore } = useQueryPosts({
