@@ -18,6 +18,7 @@ import {
   queryPostsBySlugVariables
 } from 'graphql/generated/queryPostsBySlug'
 import {
+  bannerPageMapper,
   maisVistosMapper,
   menuMapper,
   tagsMapper,
@@ -95,11 +96,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       title: post.title,
       description: post.text,
-      bannerPageProps: {
-        backgroundImage: post.capa,
-        data: post.created_at,
-        tag: ''
-      },
+      bannerPageProps: bannerPageMapper(post),
       menuData: menuMapper(menus),
       widgetListCategoriasData: widgetCategoriasMapper(widgetsCategorias),
       widgetListPaginasData: widgetPaginasMapper(widgetsPaginas),
