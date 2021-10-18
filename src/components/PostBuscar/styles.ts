@@ -1,14 +1,24 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    background-color: ${theme.colors.white};
+    box-shadow: ${theme.shadow.card};
+  `}
 `
 
 export const Details = styled.div`
   ${({ theme }) => css`
-    margin-top: ${theme.spacings.large};
-    padding: 0 ${theme.spacings.small} 0 ${theme.spacings.small};
+    margin-top: ${theme.spacings.xsmall};
+    padding: ${theme.spacings.large} ${theme.spacings.small}
+      ${theme.spacings.small} ${theme.spacings.small};
+
+    ${media.greaterThan('large')`
+      min-height: 14rem;
+    `}
   `}
 `
 

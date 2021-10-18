@@ -2,9 +2,15 @@ import { Container } from 'components/Container'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import * as BannerStyles from 'components/BannerPage/styles'
+import * as PostBuscarStyles from 'components/PostBuscar/styles'
 
-export const Wrapper = styled.main``
+export const Wrapper = styled.main`
+  ${({ theme }) => css`
+    ${PostBuscarStyles.Wrapper} {
+      margin-bottom: ${theme.spacings.small};
+    }
+  `}
+`
 
 export const Head = styled.header`
   ${({ theme }) => css`
@@ -28,28 +34,14 @@ export const MainSection = styled(Section)`
   ${media.greaterThan('large')`
     display: grid;
     grid-template-columns: 1fr 35rem;
-    gap: 0 3rem;
+    gap: 0 6rem;
   `}
 `
 
 export const Main = styled.main`
   ${({ theme }) => css`
-    padding: 2rem;
     height: max-content;
-
-    margin-left: -${theme.grid.gutter};
-    margin-right: -${theme.grid.gutter};
-
-    ${media.greaterThan('large')`
-      margin-left: ${theme.grid.gutter};
-      margin-right: ${theme.grid.gutter};
-
-      box-shadow: 0px 0px 24px -16px #000000;
-  `}
-
-    ${BannerStyles.Wrapper} {
-      margin-bottom: ${theme.spacings.large};
-    }
+    margin-bottom: ${theme.spacings.xxlarge};
   `}
 `
 

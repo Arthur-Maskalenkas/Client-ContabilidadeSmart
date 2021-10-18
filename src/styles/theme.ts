@@ -40,7 +40,7 @@ export default {
     secondary: '#F66A3E',
     tertiary: '#202020',
     lightBg: '#F2F2F2',
-    mainBg: '#FFFFFF',
+    mainBg: '#F8F8F8',
     artigosBg: '#FBFBFB',
     white: '#FFFFFF',
     black: '#050706',
