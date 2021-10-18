@@ -5,6 +5,7 @@ import MenuAside, { MenuAsideProps } from 'components/MenuAside'
 import TextContent from 'components/TextContent'
 import { WidgetProps } from 'components/Widget'
 import WidgetList from 'components/WidgetList'
+
 import Base from 'templates/Base'
 
 import * as S from './styles'
@@ -13,13 +14,8 @@ export type ArtigoTemplateProps = {
   title: string
   description: string
   bannerPageProps: BannerPageProps
-
   menuData: MenuUnitaryProps[]
-
-  widgetListCategoriasData: WidgetProps[]
-  widgetListPaginasData: WidgetProps[]
-  widgetPostsRecentes: WidgetProps[]
-
+  widgets: WidgetProps[]
   menuAsideItems: MenuAsideProps
 }
 
@@ -27,18 +23,10 @@ const Artigo = ({
   title,
   description,
   bannerPageProps,
-  widgetListCategoriasData,
-  widgetListPaginasData,
-  widgetPostsRecentes,
+  widgets,
   menuAsideItems,
   menuData
 }: ArtigoTemplateProps) => {
-  const widgets = [
-    ...widgetListCategoriasData,
-    ...widgetListPaginasData,
-    ...widgetPostsRecentes
-  ]
-
   return (
     <S.Wrapper>
       <Base menuData={menuData}>

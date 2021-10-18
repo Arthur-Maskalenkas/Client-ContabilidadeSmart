@@ -17,16 +17,11 @@ import {
   queryPostsBySlug,
   queryPostsBySlugVariables
 } from 'graphql/generated/queryPostsBySlug'
-import {
-  bannerPageMapper,
-  menuMapper,
-  widgetCategoriasMapper,
-  widgetPaginasMapper,
-  widgetPostsRecentesMapper
-} from 'utils/mappers'
+import { bannerPageMapper, menuMapper } from 'utils/mappers'
 import { QUERY_WIDGETS } from 'graphql/queries/widgets'
 import { queryMenuAside } from 'graphql/generated/queryMenuAside'
 import { menuAsideItemsPropsConstructor } from 'utils/propsNext/menuAsideItems'
+import { widgetItemsPropsConstructor } from 'utils/propsNext/widgetItems'
 
 // Inicializando por fora para usar no get e no server
 const apolloClient = initializeApollo()
@@ -86,6 +81,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     query: QUERY_WIDGETS
   })
 
+  const widgetData = { widgetsCategorias, widgetsPaginas, widgetsPostsRecentes }
+
   // Menu data
   const {
     data: { menus }
@@ -99,9 +96,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       description: post.text,
       bannerPageProps: bannerPageMapper(post),
       menuData: menuMapper(menus),
-      widgetListCategoriasData: widgetCategoriasMapper(widgetsCategorias),
-      widgetListPaginasData: widgetPaginasMapper(widgetsPaginas),
-      widgetPostsRecentes: widgetPostsRecentesMapper(widgetsPostsRecentes),
+      widgets: widgetItemsPropsConstructor(widgetData),
       menuAsideItems: menuAsideItemsPropsConstructor(menuAsideData)
     }
   }
