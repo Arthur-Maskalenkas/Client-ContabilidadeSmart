@@ -21,7 +21,6 @@ export interface queryMenuAside_menuAsideMaisVistos_post {
 
 export interface queryMenuAside_menuAsideMaisVistos {
   __typename: "PostsMaisVistos";
-  visitas: number | null;
   post: queryMenuAside_menuAsideMaisVistos_post | null;
 }
 

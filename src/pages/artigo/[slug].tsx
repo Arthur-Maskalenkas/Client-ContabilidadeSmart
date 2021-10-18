@@ -9,9 +9,8 @@ import { QueryMenu } from 'graphql/generated/QueryMenu'
 import { QUERY_MENU } from 'graphql/queries/menu'
 
 import { QueryWidgets } from 'graphql/generated/QueryWidgets'
-import { QueryTags } from 'graphql/generated/QueryTags'
 
-import { QUERY_MENUASIDE } from 'graphql/queries/menuAside'
+import { QUERY_MENUASIDE } from 'graphql/queries/menu'
 import { QueryPosts, QueryPostsVariables } from 'graphql/generated/QueryPosts'
 import { QUERY_POSTS, QUERY_POSTS_BY_SLUG } from 'graphql/queries/posts'
 
@@ -27,6 +26,7 @@ import {
   widgetPostsRecentesMapper
 } from 'utils/mappers'
 import { QUERY_WIDGETS } from 'graphql/queries/widgets'
+import { queryMenuAside } from 'graphql/generated/queryMenuAside'
 
 // Inicializando por fora para usar no get e no server
 const apolloClient = initializeApollo()
@@ -74,8 +74,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   //  Menuaside
   const {
-    data: { tags }
-  } = await apolloClient.query<QueryTags>({ query: QUERY_MENUASIDE })
+    data: { menuAsideMaisVistos, menuAsideMenu, menuAsideTags }
+  } = await apolloClient.query<queryMenuAside>({ query: QUERY_MENUASIDE })
 
   // Widgets
   const {
@@ -108,7 +108,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       widgetPostsRecentes: widgetPostsRecentesMapper(widgetsPostsRecentes),
       // Criar um MaisVistos no db, ele vai ter 1 post e vai pegar title e slug
       menuAsideItems: {
-        menuData: menus.map((item) => ({
+        menuData: menuAsideMenu.map((item) => ({
           title: item.title,
           slug: item.slug,
           dropdownOptions: item.menu_options.map((item) => ({
@@ -117,7 +117,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           }))
         })),
         maisVistosData: maisVistosMock,
-        tagsData: tags.map((item) => ({
+        tagsData: menuAsideTags.map((item) => ({
           title: item.Title,
           slug: item.slug
         }))
