@@ -53,34 +53,28 @@ describe('widgetItemsPropsConstructor', () => {
 
     const expectValue = widgetItemsPropsConstructor(dataApi)
 
-    expect(expectValue).toStrictEqual({
-      widgetListCategoriasData: [
-        {
-          title: 'Veja uma noticia',
-          path: 'categorias',
-          items: [{ title: 'uma noticia', slug: 'slug de uma noticia' }]
-        }
-      ],
-      widgetListPaginasData: [
-        {
-          title: 'Veja um post',
-          path: 'paginas',
-          items: [{ title: 'um post', slug: 'slug de um post' }]
-        }
-      ],
-      widgetPostsRecentes: [
-        {
-          moreWeight: true,
-          title: 'Posts recentes',
-          path: 'posts_recentes',
-          items: [
-            {
-              title: 'um titulo de um post recente',
-              path: 'posts_recentes'
-            }
-          ]
-        }
-      ]
-    })
+    expect(expectValue).toStrictEqual([
+      {
+        title: 'Veja uma noticia',
+        path: 'categorias',
+        items: [{ title: 'uma noticia', slug: 'slug de uma noticia' }]
+      },
+      {
+        title: 'Veja um post',
+        path: 'paginas',
+        items: [{ title: 'um post', slug: 'slug de um post' }]
+      },
+      {
+        moreWeight: true,
+        title: 'Posts recentes',
+        path: 'posts_recentes',
+        items: [
+          {
+            title: 'um titulo de um post recente',
+            path: 'posts_recentes'
+          }
+        ]
+      }
+    ])
   })
 })

@@ -21,9 +21,17 @@ export const widgetItemsPropsConstructor = ({
   widgetsPaginas,
   widgetsPostsRecentes
 }: widgetItemsPropsConstructorProps) => {
-  return {
+  const objs = {
     widgetListCategoriasData: widgetCategoriasMapper(widgetsCategorias),
     widgetListPaginasData: widgetPaginasMapper(widgetsPaginas),
     widgetPostsRecentes: widgetPostsRecentesMapper(widgetsPostsRecentes)
   }
+
+  const listaObjs = [
+    ...objs.widgetListCategoriasData,
+    ...objs.widgetListPaginasData,
+    ...objs.widgetPostsRecentes
+  ]
+
+  return listaObjs
 }
