@@ -1,8 +1,6 @@
 import { useRouter } from 'next/dist/client/router'
 import Artigo, { ArtigoTemplateProps } from 'templates/Artigo'
 
-import { maisVistosMock } from 'components/MenuAside/mock'
-
 import { initializeApollo } from 'utils/apollo'
 
 import { QueryMenu } from 'graphql/generated/QueryMenu'
@@ -20,7 +18,9 @@ import {
   queryPostsBySlugVariables
 } from 'graphql/generated/queryPostsBySlug'
 import {
+  maisVistosMapper,
   menuMapper,
+  tagsMapper,
   widgetCategoriasMapper,
   widgetPaginasMapper,
   widgetPostsRecentesMapper
@@ -91,8 +91,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     query: QUERY_MENU
   })
 
-  // PEgar a data em que o post foi criado
-  // retirar a imagem caso não tenha imagem ou substituir por algo
   return {
     props: {
       title: post.title,
@@ -106,21 +104,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       widgetListCategoriasData: widgetCategoriasMapper(widgetsCategorias),
       widgetListPaginasData: widgetPaginasMapper(widgetsPaginas),
       widgetPostsRecentes: widgetPostsRecentesMapper(widgetsPostsRecentes),
-      // Criar um MaisVistos no db, ele vai ter 1 post e vai pegar title e slug
       menuAsideItems: {
-        menuData: menuAsideMenu.map((item) => ({
-          title: item.title,
-          slug: item.slug,
-          dropdownOptions: item.menu_options.map((item) => ({
-            titleOption: item.title,
-            slug: item?.post?.slug
-          }))
-        })),
-        maisVistosData: maisVistosMock,
-        tagsData: menuAsideTags.map((item) => ({
-          title: item.Title,
-          slug: item.slug
-        }))
+        menuData: menuMapper(menuAsideMenu),
+        maisVistosData: maisVistosMapper(menuAsideMaisVistos),
+        tagsData: tagsMapper(menuAsideTags)
       }
     }
   }
