@@ -68,7 +68,7 @@ describe('menuMapper()', () => {
 })
 
 describe('widgetsCategoriasMapper()', () => {
-  it('retorna o valor certo completamente mapeado de um widget de categorias', () => {
+  it('retorna o valor completamente mapeado de um widget de categorias', () => {
     const valueApi: QueryWidgets_widgetsCategorias[] = [
       {
         __typename: 'Widget',
@@ -95,7 +95,7 @@ describe('widgetsCategoriasMapper()', () => {
 })
 
 describe('widgetsPaginasMapper()', () => {
-  it('retorna o valor certo completamente mapeado de um widget de Paginas', () => {
+  it('retorna o valor completamente mapeado de um widget de paginas', () => {
     const valueApi: QueryWidgets_widgetsPaginas[] = [
       {
         __typename: 'Widget',
@@ -123,7 +123,7 @@ describe('widgetsPaginasMapper()', () => {
 
 // Esse vai retornar o map apenas de post, ja que o pai vai ser alterado pelo codigo
 describe('widgetsPostsRecentesMapper()', () => {
-  it('retorna o valor certo completamente mapeado de um widget de posts recentes', () => {
+  it('retorna o valor completamente mapeado de um widget de posts recentes', () => {
     const valueApi: QueryWidgets_widgetsPostsRecentes[] = [
       {
         __typename: 'Post',
