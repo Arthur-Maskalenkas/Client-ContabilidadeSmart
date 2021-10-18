@@ -1,12 +1,6 @@
 import Home, { HomeTemplateProps } from 'templates/Home'
 
-import {
-  bannerSliderMapper,
-  menuMapper,
-  widgetCategoriasMapper,
-  widgetPaginasMapper,
-  widgetPostsRecentesMapper
-} from 'utils/mappers'
+import { bannerSliderMapper, menuMapper } from 'utils/mappers'
 
 import { initializeApollo } from 'utils/apollo'
 
@@ -17,6 +11,7 @@ import { QueryBannersHome } from 'graphql/generated/QueryBannersHome'
 import { QUERY_HOME_BANNERS } from 'graphql/queries/home'
 import { QueryWidgets } from 'graphql/generated/QueryWidgets'
 import { QUERY_WIDGETS } from 'graphql/queries/widgets'
+import { widgetItemsPropsConstructor } from 'utils/propsNext/widgetItems'
 
 export default function sobre(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -39,6 +34,8 @@ export async function getStaticProps() {
     query: QUERY_WIDGETS
   })
 
+  const widgetData = { widgetsCategorias, widgetsPaginas, widgetsPostsRecentes }
+
   // Menu data
   const {
     data: { menus }
@@ -50,10 +47,8 @@ export async function getStaticProps() {
     props: {
       revalidate: 120,
       menuData: menuMapper(menus),
-      widgetListCategoriasData: widgetCategoriasMapper(widgetsCategorias),
-      widgetListPaginasData: widgetPaginasMapper(widgetsPaginas),
-      widgetPostsRecentes: widgetPostsRecentesMapper(widgetsPostsRecentes),
-      bannerSliderData: bannerSliderMapper(home?.bannerHome)
+      widgets: widgetItemsPropsConstructor(widgetData),
+      bannerSliderData: bannerSliderMapper(home?.bannerHome || [])
     }
   }
 }
