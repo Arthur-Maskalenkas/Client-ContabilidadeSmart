@@ -1,6 +1,10 @@
 import { QueryBannersHome_home_bannerHome } from 'graphql/generated/QueryBannersHome'
 import { QueryMenu_menus } from 'graphql/generated/QueryMenu'
 import {
+  queryMenuAside_menuAsideMaisVistos,
+  queryMenuAside_menuAsideTags
+} from 'graphql/generated/queryMenuAside'
+import {
   QueryWidgets_widgetsCategorias,
   QueryWidgets_widgetsPaginas,
   QueryWidgets_widgetsPostsRecentes
@@ -80,6 +84,26 @@ export const bannerSliderMapper = (
         titleImage: item?.img?.alternativeText,
         buttonLabel: item?.buttonLabel,
         buttonLink: item?.buttonLink
+      }))
+    : []
+}
+
+export const tagsMapper = (tag: queryMenuAside_menuAsideTags[]) => {
+  return tag
+    ? tag.map((item) => ({
+        title: item.Title,
+        slug: item.slug
+      }))
+    : []
+}
+
+export const maisVistosMapper = (
+  maisVistos: queryMenuAside_menuAsideMaisVistos[]
+) => {
+  return maisVistos
+    ? maisVistos.map((item) => ({
+        title: item.post?.title,
+        slug: item.post?.slug
       }))
     : []
 }

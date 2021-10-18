@@ -1,6 +1,8 @@
 import {
   bannerSliderMapper,
+  maisVistosMapper,
   menuMapper,
+  tagsMapper,
   widgetCategoriasMapper,
   widgetPaginasMapper,
   widgetPostsRecentesMapper
@@ -23,6 +25,12 @@ import { WidgetProps } from 'components/Widget'
 import { MenuUnitaryProps } from 'components/Menu'
 import { QueryBannersHome_home_bannerHome } from 'graphql/generated/QueryBannersHome'
 import { BannerProps } from 'components/Banner'
+import {
+  queryMenuAside_menuAsideMaisVistos,
+  queryMenuAside_menuAsideTags
+} from 'graphql/generated/queryMenuAside'
+import { TagProps } from 'components/Tags'
+import { MaisVistoProps } from 'components/MaisVistos'
 
 describe('menuMapper()', () => {
   it('retorna o valor certo completamente mapeado de um menu', () => {
@@ -168,5 +176,46 @@ describe('bannerSliderMapper()', () => {
     }
 
     expect(bannerSliderMapper(valueApi)).toStrictEqual([expectValue])
+  })
+})
+
+describe('maisVistosMapper()', () => {
+  it('retorna o valor completamente mapeado de uma sessão de mais vistos', () => {
+    const valueApi: queryMenuAside_menuAsideMaisVistos[] = [
+      {
+        __typename: 'PostsMaisVistos',
+        post: {
+          __typename: 'Post',
+          title: 'o slug de uma sessão de mais visto',
+          slug: 'o slug de uma sessão de mais visto'
+        }
+      }
+    ]
+
+    const expectValue: MaisVistoProps = {
+      title: 'o slug de uma sessão de mais visto',
+      slug: 'o slug de uma sessão de mais visto'
+    }
+
+    expect(maisVistosMapper(valueApi)).toStrictEqual([expectValue])
+  })
+})
+
+describe('tagsMapper()', () => {
+  it('retorna o valor completamente mapeado de uma sessão de tags', () => {
+    const valueApi: queryMenuAside_menuAsideTags[] = [
+      {
+        __typename: 'Tag',
+        Title: 'o titulo de uma tag',
+        slug: 'o slug de uma tag'
+      }
+    ]
+
+    const expectValue: TagProps = {
+      title: 'o titulo de uma tag',
+      slug: 'o slug de uma tag'
+    }
+
+    expect(tagsMapper(valueApi)).toStrictEqual([expectValue])
   })
 })
