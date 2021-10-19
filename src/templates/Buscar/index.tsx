@@ -6,7 +6,6 @@ import PostBuscar from 'components/PostBuscar'
 import { WidgetProps } from 'components/Widget'
 import WidgetList from 'components/WidgetList'
 import { useQueryPosts } from 'graphql/queries/posts'
-import { useRouter } from 'next/dist/client/router'
 import Base from 'templates/Base'
 
 import * as S from './styles'
@@ -31,8 +30,6 @@ const BuscarTemplate = ({
   menuAsideItems,
   menuData
 }: BuscarTemplateProps) => {
-  const { push, query } = useRouter()
-
   const { data, loading, fetchMore } = useQueryPosts({
     notifyOnNetworkStatusChange: true,
     variables: {
@@ -44,6 +41,16 @@ const BuscarTemplate = ({
   if (!data) return <p>loading...</p>
 
   const { posts } = data
+
+  const handleShowMore = () => {
+    fetchMore({ variables: { limit: 3, start: data?.posts.length } })
+  }
+
+  // FORMULAAAAAAAAAA
+  const postsPerPage = data.posts.slice(
+    data?.posts.length - 3,
+    data.posts.length
+  )
 
   return (
     <S.Wrapper>
@@ -65,6 +72,7 @@ const BuscarTemplate = ({
                 }}
               />
             ))}
+            <button onClick={handleShowMore}>Clique em mim</button>
           </S.Main>
           <MenuAside {...menuAsideItems} />
         </S.MainSection>

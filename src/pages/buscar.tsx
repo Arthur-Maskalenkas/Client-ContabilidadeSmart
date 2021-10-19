@@ -20,7 +20,7 @@ export default function BuscarPage(props: BuscarTemplateProps) {
 export async function getServerSideProps({ query }: GetServerSidePropsContext) {
   const apolloClient = initializeApollo()
 
-  await apolloClient.query<QueryPosts, QueryPostsVariables>({
+  const { data } = await apolloClient.query<QueryPosts, QueryPostsVariables>({
     query: QUERY_POSTS,
     variables: { limit: 3, where: { tags: { Title_contains: 'teste' } } }
   })
