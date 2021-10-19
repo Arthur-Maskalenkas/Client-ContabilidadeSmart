@@ -12,8 +12,9 @@ export const Wrapper = styled.article<WrapperProps>`
 
     display: flex;
     background-image: url(${backgroundImage});
-    background-position: center center;
+    background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     height: 45rem;
 
     /* Efeitos */
