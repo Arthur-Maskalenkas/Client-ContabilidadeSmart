@@ -24,8 +24,19 @@ export interface QueryPosts_posts {
   capa: QueryPosts_posts_capa | null;
 }
 
+export interface QueryPosts_postsConnection_values {
+  __typename: "Post";
+  id: string;
+}
+
+export interface QueryPosts_postsConnection {
+  __typename: "PostConnection";
+  values: (QueryPosts_postsConnection_values | null)[] | null;
+}
+
 export interface QueryPosts {
   posts: QueryPosts_posts[];
+  postsConnection: QueryPosts_postsConnection | null;
 }
 
 export interface QueryPostsVariables {
