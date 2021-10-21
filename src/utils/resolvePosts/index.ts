@@ -1,7 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 export type NextPageOperationProps = Omit<ResolvePostsProps, 'operation'>
+export type BackPageOperationProps = Pick<
+  ResolvePostsProps,
+  'currentPage' | 'setCurrentPage'
+>
 
+/**
+ *
+ *
+ *  Operations
+ *
+ *
+ */
 const nextPageOperation = ({
   fetchMore,
   postsPerPage,
@@ -18,8 +29,11 @@ const nextPageOperation = ({
   currentPage < lastPage && setCurrentPage(currentPage + 1)
 }
 
-const backPageOperation = () => {
-  console.log('d')
+const backPageOperation = ({
+  currentPage,
+  setCurrentPage
+}: BackPageOperationProps) => {
+  currentPage > 0 && setCurrentPage(currentPage - 1)
 }
 
 type variablesType = {
@@ -31,6 +45,13 @@ type FetchMoreProps = {
   variables: variablesType
 }
 
+/**
+ *
+ *
+ *  OperationIdentifer
+ *
+ *
+ */
 const operations = {
   nextPage({
     currentPage,
@@ -54,11 +75,21 @@ const operations = {
     })
   },
 
-  backPage() {
-    console.log('oi')
+  backPage({ currentPage, setCurrentPage }: BackPageOperationProps) {
+    backPageOperation({
+      currentPage,
+      setCurrentPage
+    })
   }
 }
 
+/**
+ *
+ *
+ *  Controller
+ *
+ *
+ */
 export type ResolvePostsProps = {
   setCurrentPage: (value: number) => void
   fetchMore: ({ variables: { limit, start } }: FetchMoreProps) => void
