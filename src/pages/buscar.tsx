@@ -5,7 +5,10 @@ import { QUERY_MENU, QUERY_MENUASIDE } from 'graphql/queries/menu'
 import { QUERY_POSTS } from 'graphql/queries/posts'
 import { GetServerSidePropsContext } from 'next'
 
-import BuscarTemplate, { BuscarTemplateProps } from 'templates/Buscar'
+import BuscarTemplate, {
+  BuscarTemplateProps,
+  POSTS_PER_PAGE
+} from 'templates/Buscar'
 import { initializeApollo } from 'utils/apollo'
 import { QUERY_WIDGETS } from 'graphql/queries/widgets'
 import { widgetItemsPropsConstructor } from 'utils/propsNext/widgetItems'
@@ -22,7 +25,10 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
 
   const { data } = await apolloClient.query<QueryPosts, QueryPostsVariables>({
     query: QUERY_POSTS,
-    variables: { limit: 3, where: { tags: { Title_contains: 'teste' } } }
+    variables: {
+      limit: POSTS_PER_PAGE,
+      where: { tags: { Title_contains: 'teste' } }
+    }
   })
 
   // Widgets

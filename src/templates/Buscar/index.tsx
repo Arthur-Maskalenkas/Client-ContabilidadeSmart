@@ -6,26 +6,24 @@ import PostBuscar from 'components/PostBuscar'
 import { WidgetProps } from 'components/Widget'
 import WidgetList from 'components/WidgetList'
 import { useQueryPosts } from 'graphql/queries/posts'
+import { useState } from 'react'
 import Base from 'templates/Base'
 
 import * as S from './styles'
+
+export const POSTS_PER_PAGE = 3
 
 export type BuscarTemplateProps = {
   title: string
   description: string
   bannerPageProps: BannerPageProps
-
   menuData: MenuUnitaryProps[]
-
   widgets: WidgetProps[]
-
   menuAsideItems: MenuAsideProps
 }
 
 const BuscarTemplate = ({
   title,
-  description,
-  bannerPageProps,
   widgets,
   menuAsideItems,
   menuData
@@ -33,22 +31,26 @@ const BuscarTemplate = ({
   const { data, loading, fetchMore } = useQueryPosts({
     notifyOnNetworkStatusChange: true,
     variables: {
-      limit: 3,
+      limit: POSTS_PER_PAGE,
       where: { tags: { Title_contains: 'teste' } }
     }
   })
+
+  const [page, setPage] = useState<number>(0)
+  const [topPage, setTopPage] = useState<number>(1)
+  const lastPage = (data?.postsConnection?.values?.length || 2) / POSTS_PER_PAGE
 
   if (!data) return <p>loading...</p>
 
   const { posts } = data
 
-  const handleShowMore = () => {
-    fetchMore({ variables: { limit: 3, start: data?.posts.length } })
+  const handleClick = () => {
+    // resolvePosts()
   }
 
-  // FORMULAAAAAAAAAA
+  // Formula
   const postsPerPage = data.posts.slice(
-    data?.posts.length - 3,
+    data?.posts.length - POSTS_PER_PAGE,
     data.posts.length
   )
 
@@ -72,7 +74,8 @@ const BuscarTemplate = ({
                 }}
               />
             ))}
-            <button onClick={handleShowMore}>Clique em mim</button>
+
+            <button onClick={handleClick}>Clique em mim</button>
           </S.Main>
           <MenuAside {...menuAsideItems} />
         </S.MainSection>
