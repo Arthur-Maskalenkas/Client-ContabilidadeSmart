@@ -18,7 +18,7 @@ export const QUERY_MENU = gql`
 export const QUERY_MENUASIDE = gql`
   query queryMenuAside {
     menuAsideTags: tags {
-      Title
+      title
       slug
     }
 

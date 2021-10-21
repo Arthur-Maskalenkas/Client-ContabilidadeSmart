@@ -9,7 +9,7 @@
 
 export interface queryMenuAside_menuAsideTags {
   __typename: "Tag";
-  Title: string;
+  title: string;
   slug: string;
 }
 

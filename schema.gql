@@ -625,7 +625,7 @@ type Tag {
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
-  Title: String!
+  title: String!
   slug: String!
 }
 
@@ -644,7 +644,7 @@ type TagGroupBy {
   id: [TagConnectionId]
   created_at: [TagConnectionCreated_at]
   updated_at: [TagConnectionUpdated_at]
-  Title: [TagConnectionTitle]
+  title: [TagConnectionTitle]
   slug: [TagConnectionSlug]
 }
 
@@ -674,14 +674,14 @@ type TagConnectionSlug {
 }
 
 input TagInput {
-  Title: String!
+  title: String!
   slug: String!
   created_by: ID
   updated_by: ID
 }
 
 input editTagInput {
-  Title: String
+  title: String
   slug: String
   created_by: ID
   updated_by: ID
