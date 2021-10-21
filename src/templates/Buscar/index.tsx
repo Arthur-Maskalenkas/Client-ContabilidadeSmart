@@ -46,6 +46,11 @@ const BuscarTemplate = ({
 
   const { posts } = data
 
+  // Recortando para que nunca acumule posts
+  const FORMULA_1 = currentPage * POSTS_PER_PAGE - 3
+  const FORMULA_2 = currentPage * POSTS_PER_PAGE
+  const postsSlice = posts.slice(FORMULA_1, FORMULA_2)
+
   const handleClick = (operation: 'nextPage' | 'backPage') => {
     resolvePosts({
       currentPage: currentPage,
@@ -54,27 +59,11 @@ const BuscarTemplate = ({
       lastPage: lastPage,
       topPage: topPage,
       setTopPage: setTopPage,
-      postsLenght: posts.length,
+      postsLenght: postsSlice.length,
       postsPerPage: POSTS_PER_PAGE,
       operation: operation
     })
   }
-
-  // // Formula
-  // const postsPerPage = posts.slice(
-  //   posts.length - POSTS_PER_PAGE * currentPage,
-  //   posts.length
-  // )
-
-  const postsPerPage = posts.slice(
-    currentPage * POSTS_PER_PAGE,
-    currentPage * POSTS_PER_PAGE + 3
-  )
-
-  console.log(`posts => ${posts}`)
-  console.log(`postsPerpage => ${postsPerPage}`)
-  console.log(`current page => ${currentPage}`)
-  console.log(`postsperpage => ${POSTS_PER_PAGE}}`)
 
   return (
     <S.Wrapper>
@@ -84,7 +73,7 @@ const BuscarTemplate = ({
         </S.Head>
         <S.MainSection>
           <S.Main>
-            {postsPerPage?.map((item, index) => (
+            {postsSlice.map((item, index) => (
               <PostBuscar
                 key={index}
                 title={item.title}
