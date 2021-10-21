@@ -28,7 +28,7 @@ export interface QueryBannersHome_home_bannerHome {
 
 export interface QueryBannersHome_home {
   __typename: "Home";
-  bannerHome: (QueryBannersHome_home_bannerHome | null)[] | null;
+  bannerHome: QueryBannersHome_home_bannerHome[] | null;
 }
 
 export interface QueryBannersHome {
