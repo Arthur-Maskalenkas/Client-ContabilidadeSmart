@@ -20,14 +20,17 @@ export default function BuscarPage(props: BuscarTemplateProps) {
   return <BuscarTemplate {...props} />
 }
 
+// http://localhost:3000/games?categories=platform
+// { categories: { name_contains: 'action' } }
+// where: { tags: { Title_contains: 'teste' } }
+
 export async function getServerSideProps({ query }: GetServerSidePropsContext) {
   const apolloClient = initializeApollo()
-
   await apolloClient.query<QueryPosts, QueryPostsVariables>({
     query: QUERY_POSTS,
     variables: {
       limit: POSTS_PER_PAGE,
-      where: { tags: { Title_contains: 'teste' } }
+      where: { tags: { Title_contains: 'contabilidade' } }
     }
   })
 
@@ -37,6 +40,8 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
   } = await apolloClient.query<QueryWidgets>({
     query: QUERY_WIDGETS
   })
+
+  console.log(query)
 
   const widgetData = { widgetsCategorias, widgetsPaginas, widgetsPostsRecentes }
 

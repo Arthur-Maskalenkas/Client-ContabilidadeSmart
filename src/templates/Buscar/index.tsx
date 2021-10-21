@@ -33,7 +33,7 @@ const BuscarTemplate = ({
     notifyOnNetworkStatusChange: true,
     variables: {
       limit: POSTS_PER_PAGE,
-      where: { tags: { Title_contains: 'teste' } }
+      where: { tags: { Title_contains: 'contabilidade' } }
     }
   })
 
