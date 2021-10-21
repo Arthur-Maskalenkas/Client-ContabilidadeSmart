@@ -19,7 +19,7 @@ export type WidgetProps = {
 const Widget = ({ title, items, path, moreWeight = false }: WidgetProps) => {
   const resolvePath = (path: PathTypes, slug: string) => {
     const verificacao =
-      path != 'categorias' ? `/artigo/${slug}` : `/buscar/${slug}`
+      path != 'categorias' ? `/artigo/${slug}` : `/buscar?categorias=${slug}`
 
     return verificacao
   }

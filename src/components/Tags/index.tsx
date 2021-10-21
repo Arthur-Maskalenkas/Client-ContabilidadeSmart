@@ -19,7 +19,7 @@ const Tags = ({ items }: TagsProps) => (
         role="listitem"
         aria-label={`Opção de tag ${item.title}`}
       >
-        <Link passHref href={`/tag/${item.slug}`}>
+        <Link passHref href={`/buscar?tags=${item.slug}`}>
           <S.TagLink>{item.title}</S.TagLink>
         </Link>
       </S.TagWrapper>
