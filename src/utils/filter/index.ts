@@ -12,7 +12,7 @@ export const parseQueryStringToWhere = ({ queryString }: ParseArgs) => {
   // filterItems = {name: 'platforms', type: 'checkbox'}
   Object.keys(queryString).forEach((key) => {
     // Pegando o valor e colocando dentro do objeto
-    obj[key] = { title_contains: queryString[key] }
+    obj[key] = { slug_contains: queryString[key] }
   })
 
   return obj
