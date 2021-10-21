@@ -15,22 +15,24 @@ import { widgetItemsPropsConstructor } from 'utils/propsNext/widgetItems'
 import { queryMenuAside } from 'graphql/generated/queryMenuAside'
 import { menuAsideItemsPropsConstructor } from 'utils/propsNext/menuAsideItems'
 import { menuMapper } from 'utils/mappers'
+import { parseQueryStringToWhere } from 'utils/filter'
 
 export default function BuscarPage(props: BuscarTemplateProps) {
   return <BuscarTemplate {...props} />
 }
 
-// http://localhost:3000/games?categories=platform
+// http://localhost:3000/buscar?tags=micro-empresas
 // { categories: { name_contains: 'action' } }
 // where: { tags: { Title_contains: 'teste' } }
 
 export async function getServerSideProps({ query }: GetServerSidePropsContext) {
   const apolloClient = initializeApollo()
+
   await apolloClient.query<QueryPosts, QueryPostsVariables>({
     query: QUERY_POSTS,
     variables: {
       limit: POSTS_PER_PAGE,
-      where: { tags: { Title_contains: 'contabilidade' } }
+      where: parseQueryStringToWhere({ queryString: query })
     }
   })
 

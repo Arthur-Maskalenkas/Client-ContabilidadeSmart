@@ -6,8 +6,10 @@ import PostBuscar from 'components/PostBuscar'
 import { WidgetProps } from 'components/Widget'
 import WidgetList from 'components/WidgetList'
 import { useQueryPosts } from 'graphql/queries/posts'
+import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
 import Base from 'templates/Base'
+import { parseQueryStringToWhere } from 'utils/filter'
 import { resolvePosts } from 'utils/resolvePosts'
 
 import * as S from './styles'
@@ -29,11 +31,15 @@ const BuscarTemplate = ({
   menuAsideItems,
   menuData
 }: BuscarTemplateProps) => {
+  const { query } = useRouter()
+
   const { data, loading, fetchMore } = useQueryPosts({
     notifyOnNetworkStatusChange: true,
     variables: {
       limit: POSTS_PER_PAGE,
-      where: { tags: { Title_contains: 'contabilidade' } }
+      where: parseQueryStringToWhere({
+        queryString: query
+      })
     }
   })
 
