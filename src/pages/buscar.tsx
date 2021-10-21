@@ -23,7 +23,7 @@ export default function BuscarPage(props: BuscarTemplateProps) {
 export async function getServerSideProps({ query }: GetServerSidePropsContext) {
   const apolloClient = initializeApollo()
 
-  const { data } = await apolloClient.query<QueryPosts, QueryPostsVariables>({
+  await apolloClient.query<QueryPosts, QueryPostsVariables>({
     query: QUERY_POSTS,
     variables: {
       limit: POSTS_PER_PAGE,

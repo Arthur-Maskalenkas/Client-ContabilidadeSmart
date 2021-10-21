@@ -8,6 +8,7 @@ import WidgetList from 'components/WidgetList'
 import { useQueryPosts } from 'graphql/queries/posts'
 import { useState } from 'react'
 import Base from 'templates/Base'
+import { resolvePosts } from 'utils/resolvePosts'
 
 import * as S from './styles'
 
@@ -36,23 +37,44 @@ const BuscarTemplate = ({
     }
   })
 
-  const [page, setPage] = useState<number>(0)
+  const [currentPage, setCurrentPage] = useState<number>(1)
   const [topPage, setTopPage] = useState<number>(1)
-  const lastPage = (data?.postsConnection?.values?.length || 2) / POSTS_PER_PAGE
+  const lastPage =
+    (data?.postsConnection?.values?.length || POSTS_PER_PAGE) / POSTS_PER_PAGE
 
   if (!data) return <p>loading...</p>
 
   const { posts } = data
 
-  const handleClick = () => {
-    // resolvePosts()
+  const handleClick = (operation: 'nextPage' | 'backPage') => {
+    resolvePosts({
+      currentPage: currentPage,
+      setCurrentPage: setCurrentPage,
+      fetchMore: fetchMore,
+      lastPage: lastPage,
+      topPage: topPage,
+      setTopPage: setTopPage,
+      postsLenght: posts.length,
+      postsPerPage: POSTS_PER_PAGE,
+      operation: operation
+    })
   }
 
-  // Formula
-  const postsPerPage = data.posts.slice(
-    data?.posts.length - POSTS_PER_PAGE,
-    data.posts.length
+  // // Formula
+  // const postsPerPage = posts.slice(
+  //   posts.length - POSTS_PER_PAGE * currentPage,
+  //   posts.length
+  // )
+
+  const postsPerPage = posts.slice(
+    currentPage * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE + 3
   )
+
+  console.log(`posts => ${posts}`)
+  console.log(`postsPerpage => ${postsPerPage}`)
+  console.log(`current page => ${currentPage}`)
+  console.log(`postsperpage => ${POSTS_PER_PAGE}}`)
 
   return (
     <S.Wrapper>
@@ -62,7 +84,7 @@ const BuscarTemplate = ({
         </S.Head>
         <S.MainSection>
           <S.Main>
-            {data?.posts?.map((item, index) => (
+            {postsPerPage?.map((item, index) => (
               <PostBuscar
                 key={index}
                 title={item.title}
@@ -75,7 +97,8 @@ const BuscarTemplate = ({
               />
             ))}
 
-            <button onClick={handleClick}>Clique em mim</button>
+            <button onClick={() => handleClick('nextPage')}>Proximo</button>
+            <button onClick={() => handleClick('backPage')}>Voltar</button>
           </S.Main>
           <MenuAside {...menuAsideItems} />
         </S.MainSection>
