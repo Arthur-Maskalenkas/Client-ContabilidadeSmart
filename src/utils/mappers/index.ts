@@ -92,7 +92,7 @@ export const bannerSliderMapper = (
 export const tagsMapper = (tag: queryMenuAside_menuAsideTags[]) => {
   return tag
     ? tag.map((item) => ({
-        title: item.Title,
+        title: item.title,
         slug: item.slug
       }))
     : []

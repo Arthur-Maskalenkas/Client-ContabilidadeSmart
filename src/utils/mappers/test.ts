@@ -209,7 +209,7 @@ describe('tagsMapper()', () => {
     const valueApi: queryMenuAside_menuAsideTags[] = [
       {
         __typename: 'Tag',
-        Title: 'o titulo de uma tag',
+        title: 'o titulo de uma tag',
         slug: 'o slug de uma tag'
       }
     ]
