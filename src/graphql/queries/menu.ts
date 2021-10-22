@@ -20,6 +20,9 @@ export const QUERY_MENUASIDE = gql`
     menuAsideTags: tags {
       title
       slug
+      posts {
+        id
+      }
     }
 
     menuAsideMaisVistos: postsMaisVistos(limit: 5, sort: "visitas:desc") {

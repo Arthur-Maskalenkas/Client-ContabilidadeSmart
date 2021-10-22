@@ -627,6 +627,7 @@ type Tag {
   updated_at: DateTime!
   title: String!
   slug: String!
+  posts(sort: String, limit: Int, start: Int, where: JSON): [Post!]!
 }
 
 type TagConnection {
@@ -676,6 +677,7 @@ type TagConnectionSlug {
 input TagInput {
   title: String!
   slug: String!
+  posts: [ID]
   created_by: ID
   updated_by: ID
 }
@@ -683,6 +685,7 @@ input TagInput {
 input editTagInput {
   title: String
   slug: String
+  posts: [ID]
   created_by: ID
   updated_by: ID
 }

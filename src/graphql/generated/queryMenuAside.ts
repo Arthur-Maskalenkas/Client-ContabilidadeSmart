@@ -7,10 +7,16 @@
 // GraphQL query operation: queryMenuAside
 // ====================================================
 
+export interface queryMenuAside_menuAsideTags_posts {
+  __typename: "Post";
+  id: string;
+}
+
 export interface queryMenuAside_menuAsideTags {
   __typename: "Tag";
   title: string;
   slug: string;
+  posts: queryMenuAside_menuAsideTags_posts[];
 }
 
 export interface queryMenuAside_menuAsideMaisVistos_post {
