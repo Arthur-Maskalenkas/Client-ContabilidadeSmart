@@ -3,7 +3,7 @@ const resolveBuscar = (resolveValue: string, search: string) => {
 }
 
 const resolveArtigos = (resolveValue: string) => {
-  return `/artigos/${resolveValue}`
+  return `/artigo/${resolveValue}`
 }
 
 const operations = {
@@ -17,7 +17,7 @@ const operations = {
 
 type pageOptions = 'buscar' | 'artigos'
 
-const resolveUrl = (page: pageOptions, resolveValue: string, search = '') => {
+const resolveUrl = (page: pageOptions, resolveValue = '', search = '') => {
   const resolvedOperation = operations[page]
 
   const resolvedUrl = resolvedOperation(resolveValue, search)
