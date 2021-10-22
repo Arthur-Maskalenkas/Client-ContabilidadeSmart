@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-export type NextPageOperationProps = Omit<ResolvePostsProps, 'operation'>
+export type NextPageOperationProps = Omit<ResolvePaginationProps, 'operation'>
 export type BackPageOperationProps = Pick<
-  ResolvePostsProps,
+  ResolvePaginationProps,
   'currentPage' | 'setCurrentPage'
 >
 
@@ -90,7 +90,7 @@ const operations = {
  *
  *
  */
-export type ResolvePostsProps = {
+export type ResolvePaginationProps = {
   setCurrentPage: (value: number) => void
   fetchMore: ({ variables: { limit, start } }: FetchMoreProps) => void
   setTopPage: (value: number) => void
@@ -102,7 +102,7 @@ export type ResolvePostsProps = {
   operation: 'nextPage' | 'backPage'
 }
 
-export const resolvePosts = ({
+export const resolvePagination = ({
   setCurrentPage,
   setTopPage,
   fetchMore,
@@ -112,7 +112,7 @@ export const resolvePosts = ({
   topPage,
   lastPage,
   operation
-}: ResolvePostsProps) => {
+}: ResolvePaginationProps) => {
   const operationResolve = operations[operation]
 
   operationResolve({

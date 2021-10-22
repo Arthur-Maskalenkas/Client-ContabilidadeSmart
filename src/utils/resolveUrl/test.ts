@@ -23,7 +23,7 @@ describe('resolveUrl()', () => {
     it('Vai resolver uma url /artigos', () => {
       const urlResolved = resolveUrl('artigos', 'artigo1')
 
-      const expectValue = '/artigos/artigo1'
+      const expectValue = '/artigo/artigo1'
 
       expect(urlResolved).toStrictEqual(expectValue)
     })

@@ -10,7 +10,7 @@ describe('parseQueryStringToWhere()', () => {
     const parsedQuery = parseQueryStringToWhere({ queryString })
 
     expect(parsedQuery).toStrictEqual({
-      tag: { title_contains: 'teste' }
+      tag: { slug_contains: 'teste' }
     })
   })
 })
