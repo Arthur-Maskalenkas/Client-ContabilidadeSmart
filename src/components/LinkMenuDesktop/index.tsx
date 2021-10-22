@@ -5,6 +5,8 @@ import * as S from './styles'
 
 import { ArrowIosDownwardOutline } from '@styled-icons/evaicons-outline'
 
+import { resolveUrl } from 'utils/resolveUrl'
+
 // Caso não tenha LinkMenuDesktop
 // <ul> (menu)
 //   <li>
@@ -49,7 +51,7 @@ const LinkMenuDesktop = ({
             <ArrowIosDownwardOutline title="Ver opções" role="svg" />
           </>
         ) : (
-          <Link passHref href={`/artigo/${slug}`}>
+          <Link passHref href={resolveUrl('artigos', slug)}>
             <S.Title as="a" role="link">
               {title}
             </S.Title>
@@ -61,7 +63,7 @@ const LinkMenuDesktop = ({
         <S.Content aria-label="LinkMenuDesktop">
           {dropdownOptions?.map((item, index) => (
             <S.LinkMenuDesktopTitleWrapper key={index}>
-              <Link passHref href={`/artigo/${item.slug}`}>
+              <Link passHref href={resolveUrl('artigos', item.slug)}>
                 <S.LinkMenuDesktopTitle>
                   {item.titleOption}
                 </S.LinkMenuDesktopTitle>

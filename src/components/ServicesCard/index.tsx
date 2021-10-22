@@ -3,6 +3,8 @@ import Link from 'next/link'
 import IconsWrapper, { IconTypes } from 'components/IconsWrapper'
 import * as S from './styles'
 
+import { resolveUrl } from 'utils/resolveUrl'
+
 export type ServicesCardProps = {
   icon: IconTypes
   title: string
@@ -23,7 +25,7 @@ const ServicesCard = ({
       <S.Title>{title}</S.Title>
       <S.Description>{description}</S.Description>
 
-      <Link passHref href={`/artigo/${slug}`}>
+      <Link passHref href={resolveUrl('artigos', slug)}>
         <S.SaibaMais>Saiba mais</S.SaibaMais>
       </Link>
     </S.Content>

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { resolveUrl } from 'utils/resolveUrl'
 
 import * as S from './styles'
 
@@ -31,7 +32,7 @@ const Tags = ({ items }: TagsProps) => {
               role="listitem"
               aria-label={`Opção de tag ${item.title}`}
             >
-              <Link passHref href={`/buscar?tags=${item.slug}`}>
+              <Link passHref href={resolveUrl('buscar', 'tags', item.slug)}>
                 <S.TagLink>{item.title}</S.TagLink>
               </Link>
             </S.TagWrapper>

@@ -1,4 +1,5 @@
 import LinkLi from 'components/LinkLi'
+import { resolveUrl } from 'utils/resolveUrl'
 
 import * as S from './styles'
 
@@ -19,7 +20,9 @@ export type WidgetProps = {
 const Widget = ({ title, items, path, moreWeight = false }: WidgetProps) => {
   const resolvePath = (path: PathTypes, slug: string) => {
     const verificacao =
-      path != 'categorias' ? `/artigo/${slug}` : `/buscar?categorias=${slug}`
+      path != 'categorias'
+        ? resolveUrl('artigos', slug)
+        : `/buscar?categorias=${slug}`
 
     return verificacao
   }

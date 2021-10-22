@@ -6,11 +6,13 @@ const props: TagsProps = {
   items: [
     {
       title: 'ads',
-      slug: 'ads'
+      slug: 'ads',
+      posts: [{ id: '1' }]
     },
     {
       title: 'adsense',
-      slug: 'adsense'
+      slug: 'adsense',
+      posts: [{ id: '1' }]
     }
   ]
 }
@@ -21,7 +23,7 @@ describe('<Tags />', () => {
 
     expect(screen.getByRole('link', { name: /adsense/i })).toHaveAttribute(
       'href',
-      '/tag/adsense'
+      '/buscar?tags=adsense'
     )
 
     expect(
