@@ -38,7 +38,8 @@ describe('menuAsideItemsPropsConstructor()', () => {
       {
         __typename: 'Tag',
         title: 'o titulo de uma tag',
-        slug: 'o slug de uma tag'
+        slug: 'o slug de uma tag',
+        posts: [{ __typename: 'Post', id: '1' }]
       }
     ]
 
@@ -69,7 +70,8 @@ describe('menuAsideItemsPropsConstructor()', () => {
       tagsData: [
         {
           title: 'o titulo de uma tag',
-          slug: 'o slug de uma tag'
+          slug: 'o slug de uma tag',
+          posts: [{ id: '1' }]
         }
       ]
     })

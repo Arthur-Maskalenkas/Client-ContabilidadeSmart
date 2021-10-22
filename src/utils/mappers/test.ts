@@ -210,13 +210,15 @@ describe('tagsMapper()', () => {
       {
         __typename: 'Tag',
         title: 'o titulo de uma tag',
-        slug: 'o slug de uma tag'
+        slug: 'o slug de uma tag',
+        posts: [{ __typename: 'Post', id: '1' }]
       }
     ]
 
     const expectValue: TagProps = {
       title: 'o titulo de uma tag',
-      slug: 'o slug de uma tag'
+      slug: 'o slug de uma tag',
+      posts: [{ id: '1' }]
     }
 
     expect(tagsMapper(valueApi)).toStrictEqual([expectValue])

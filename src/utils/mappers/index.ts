@@ -93,7 +93,8 @@ export const tagsMapper = (tag: queryMenuAside_menuAsideTags[]) => {
   return tag
     ? tag.map((item) => ({
         title: item.title,
-        slug: item.slug
+        slug: item.slug,
+        posts: item.posts.map((item) => ({ id: item.id }))
       }))
     : []
 }
