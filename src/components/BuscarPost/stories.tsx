@@ -1,14 +1,14 @@
 import { Story, Meta } from '@storybook/react'
-import PostBuscar, { PostBuscarProps } from '.'
+import BuscarPost, { BuscarPostProps } from '.'
 
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 export default {
-  title: 'PostBuscar',
-  component: PostBuscar
+  title: 'BuscarPost',
+  component: BuscarPost
 } as Meta
 
-const mock: PostBuscarProps = {
+const mock: BuscarPostProps = {
   BannerPageProps: {
     backgroundImage:
       'https://contabilidadesmart.com.br/wp-content/uploads/2020/10/caixa-tem-contabilidade-votuporanga.png',
@@ -21,13 +21,13 @@ const mock: PostBuscarProps = {
     `
 }
 
-export const Default: Story<PostBuscarProps> = (args) => (
+export const Default: Story<BuscarPostProps> = (args) => (
   <div
     style={{
       maxWidth: '70rem'
     }}
   >
-    <PostBuscar {...args} />
+    <BuscarPost {...args} />
   </div>
 )
 
@@ -41,9 +41,9 @@ Default.parameters = {
   }
 }
 
-export const Mobile: Story<PostBuscarProps> = (args) => (
+export const Mobile: Story<BuscarPostProps> = (args) => (
   <div style={{ width: '31rem', marginLeft: 'auto', marginRight: 'auto' }}>
-    <PostBuscar {...args} />
+    <BuscarPost {...args} />
   </div>
 )
 

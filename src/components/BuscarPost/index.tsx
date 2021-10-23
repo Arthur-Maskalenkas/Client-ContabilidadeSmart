@@ -1,15 +1,15 @@
 import BannerPage, { BannerPageProps } from 'components/BannerPage'
 import * as S from './styles'
 
-export type PostBuscarProps = {
-  BannerPageProps: BannerPageProps
+export type BuscarPostProps = {
+  BannerPageProps?: BannerPageProps
   title: string
   subtitle: string
 }
 
-const PostBuscar = ({ BannerPageProps, title, subtitle }: PostBuscarProps) => (
+const BuscarPost = ({ BannerPageProps, title, subtitle }: BuscarPostProps) => (
   <S.Wrapper>
-    <BannerPage {...BannerPageProps} />
+    {!!BannerPageProps && <BannerPage {...BannerPageProps} />}
 
     <S.Details>
       <S.Title>{title}</S.Title>
@@ -18,4 +18,4 @@ const PostBuscar = ({ BannerPageProps, title, subtitle }: PostBuscarProps) => (
   </S.Wrapper>
 )
 
-export default PostBuscar
+export default BuscarPost
