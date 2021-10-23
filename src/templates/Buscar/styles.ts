@@ -2,11 +2,11 @@ import { Container } from 'components/Container'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import * as PostBuscarStyles from 'components/PostBuscar/styles'
+import * as BuscarPostStyles from 'components/BuscarPost/styles'
 
 export const Wrapper = styled.main`
   ${({ theme }) => css`
-    ${PostBuscarStyles.Wrapper} {
+    ${BuscarPostStyles.Wrapper} {
       margin-bottom: ${theme.spacings.small};
     }
   `}

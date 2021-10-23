@@ -2,7 +2,7 @@ import { BannerPageProps } from 'components/BannerPage'
 import HeadingPage from 'components/HeadingPage'
 import { MenuUnitaryProps } from 'components/Menu'
 import MenuAside, { MenuAsideProps } from 'components/MenuAside'
-import PostBuscar from 'components/PostBuscar'
+import BuscarPost from 'components/BuscarPost'
 import { WidgetProps } from 'components/Widget'
 import WidgetList from 'components/WidgetList'
 import { useQueryPosts } from 'graphql/queries/posts'
@@ -10,7 +10,7 @@ import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
 import Base from 'templates/Base'
 import { parseQueryStringToWhere } from 'utils/filter'
-import { resolvePosts } from 'utils/resolvePosts'
+import { resolvePagination } from 'utils/resolvePagination'
 
 import * as S from './styles'
 
@@ -58,7 +58,7 @@ const BuscarTemplate = ({
   const postsSlice = posts.slice(FORMULA_1, FORMULA_2)
 
   const handleClick = (operation: 'nextPage' | 'backPage') => {
-    resolvePosts({
+    resolvePagination({
       currentPage: currentPage,
       setCurrentPage: setCurrentPage,
       fetchMore: fetchMore,
@@ -80,7 +80,7 @@ const BuscarTemplate = ({
         <S.MainSection>
           <S.Main>
             {postsSlice.map((item, index) => (
-              <PostBuscar
+              <BuscarPost
                 key={index}
                 title={item.title}
                 subtitle={item.subtitulo!}
