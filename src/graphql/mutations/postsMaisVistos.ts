@@ -13,7 +13,7 @@ export const MUTATION_CREATE_POSTS_MAIS_VISTO = gql`
 `
 
 export const MUTATION_UPDATE_POSTS_MAIS_VISTO = gql`
-  mutation UpdateMaisVistos($postId: ID!, $visitas: Int!) {
+  mutation UpdatePostsMaisVistos($postId: ID!, $visitas: Int!) {
     updatePostsMaisVisto(
       input: { where: { id: $postId }, data: { visitas: $visitas } }
     ) {

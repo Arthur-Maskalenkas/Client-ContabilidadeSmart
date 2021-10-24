@@ -10,6 +10,8 @@
 export interface QueryMaisVistos_postsMaisVistos {
   __typename: "PostsMaisVistos";
   slug: string;
+  id: string;
+  visitas: number | null;
 }
 
 export interface QueryMaisVistos {
