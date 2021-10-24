@@ -15,6 +15,8 @@ export type IconTypes =
   | 'Child'
   | 'Youtube'
   | 'Laptop'
+  | 'NavigateNext'
+  | 'NavigateBefore'
 type colorTypes = 'secondary' | 'white'
 
 export type sizeTypes =

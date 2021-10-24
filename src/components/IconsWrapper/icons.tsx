@@ -7,6 +7,8 @@ import {
   Linkedin
 } from '@styled-icons/boxicons-logos'
 
+import { NavigateBefore, NavigateNext } from '@styled-icons/material-outlined'
+
 import {
   Cubes,
   Cog,
@@ -35,5 +37,7 @@ export const IconsDefault = {
   Youtube: <Youtube title="Youtube" role="svg" />,
   Laptop: <Laptop title="Laptop" role="svg" />,
   Telegram: <Telegram title="Telegram" role="svg" />,
-  Linkedin: <Linkedin title="Linkedin" role="svg" />
+  Linkedin: <Linkedin title="Linkedin" role="svg" />,
+  NavigateNext: <NavigateNext title="next pagination" role="svg" />,
+  NavigateBefore: <NavigateBefore title="before pagination" role="svg" />
 }
