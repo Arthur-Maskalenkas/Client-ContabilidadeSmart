@@ -23,6 +23,24 @@ describe('resolvePagination()', () => {
         })
       })
 
+      it('NÃO vai utilizar o fetchmore quando currentPage,topPage e lastPage estiverem iguais', () => {
+        const fetchMoreJest = jest.fn()
+
+        resolvePagination({
+          setCurrentPage: jest.fn(),
+          fetchMore: fetchMoreJest,
+          setTopPage: jest.fn(),
+          currentPage: 4,
+          topPage: 4,
+          lastPage: 4,
+          postsPerPage: 3,
+          postsLenght: 12,
+          operation: 'nextPage'
+        })
+
+        expect(fetchMoreJest).not.toHaveBeenCalled()
+      })
+
       it('Não vai utilizar o fetchmore caso a currentPage estiver menor que a topPage', () => {
         const fetchMoreJest = jest.fn()
 
@@ -154,6 +172,7 @@ describe('resolvePagination()', () => {
       })
     })
   })
+
   describe('BackPageOperation', () => {
     it('vai voltar uma pagina', () => {
       const setCurrentPageJest = jest.fn()
@@ -180,7 +199,7 @@ describe('resolvePagination()', () => {
         setCurrentPage: setCurrentPageJest,
         fetchMore: jest.fn(),
         setTopPage: jest.fn(),
-        currentPage: 0,
+        currentPage: 1,
         topPage: 3,
         lastPage: 4,
         postsPerPage: 3,

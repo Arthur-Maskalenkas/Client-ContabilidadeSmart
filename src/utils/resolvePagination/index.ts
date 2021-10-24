@@ -24,6 +24,7 @@ const nextPageOperation = ({
   setTopPage
 }: NextPageOperationProps) => {
   currentPage == topPage &&
+    topPage < lastPage &&
     fetchMore({ variables: { limit: postsPerPage, start: postsLenght } })
   currentPage == topPage && topPage < lastPage && setTopPage(currentPage + 1)
   currentPage < lastPage && setCurrentPage(currentPage + 1)
@@ -33,7 +34,7 @@ const backPageOperation = ({
   currentPage,
   setCurrentPage
 }: BackPageOperationProps) => {
-  currentPage > 0 && setCurrentPage(currentPage - 1)
+  currentPage > 1 && setCurrentPage(currentPage - 1)
 }
 
 type variablesType = {
