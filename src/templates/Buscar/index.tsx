@@ -13,6 +13,7 @@ import { parseQueryStringToWhere } from 'utils/filter'
 import { resolvePagination } from 'utils/resolvePagination'
 
 import * as S from './styles'
+import IconsWrapper from 'components/IconsWrapper'
 
 export const POSTS_PER_PAGE = 3
 
@@ -92,8 +93,14 @@ const BuscarTemplate = ({
               />
             ))}
 
-            <button onClick={() => handleClick('nextPage')}>Proximo</button>
-            <button onClick={() => handleClick('backPage')}>Voltar</button>
+            <S.ButtonsWrapper>
+              <S.Button onClick={() => handleClick('nextPage')}>
+                <IconsWrapper icon="NavigateNext" />
+              </S.Button>
+              <S.Button onClick={() => handleClick('backPage')}>
+                <IconsWrapper icon="NavigateBefore" />
+              </S.Button>
+            </S.ButtonsWrapper>
           </S.Main>
           <MenuAside {...menuAsideItems} />
         </S.MainSection>

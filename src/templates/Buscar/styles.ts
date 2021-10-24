@@ -46,3 +46,30 @@ export const Main = styled.main`
 `
 
 export const WidgetSection = styled(Section)``
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+`
+
+export const Button = styled.button`
+  ${({ theme }) => css`
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    background-color: ${theme.colors.secondary};
+    padding: ${theme.spacings.xxsmall};
+
+    &:nth-child(1) {
+      margin-left: 2rem;
+    }
+
+    &:nth-child(2) {
+      margin-right: 2rem;
+    }
+    svg {
+      width: 2.5rem;
+    }
+  `}
+`
