@@ -8,9 +8,7 @@ export const MenuContainer = styled.div`
 
     box-shadow: ${theme.shadow.card};
 
-    &:not(:last-child) {
-      margin-bottom: ${theme.spacings.small};
-    }
+    margin-bottom: ${theme.spacings.small};
 
     &:first-child {
       box-shadow: none;
