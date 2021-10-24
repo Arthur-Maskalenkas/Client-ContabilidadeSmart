@@ -21,12 +21,15 @@ export default function BuscarPage(props: BuscarTemplateProps) {
   return <BuscarTemplate {...props} />
 }
 
-// http://localhost:3000/buscar?tags=micro-empresas
-// { categories: { name_contains: 'action' } }
-// where: { tags: { Title_contains: 'teste' } }
-
-export async function getServerSideProps({ query }: GetServerSidePropsContext) {
+export async function getServerSideProps({
+  query,
+  resolvedUrl
+}: GetServerSidePropsContext) {
   const apolloClient = initializeApollo()
+
+  // Pegando os parametros da query
+  const parametrosResolvedUrl = resolvedUrl.split('?')[1].split('=')
+  const [tipoDeBusca, parametroDeBusca] = parametrosResolvedUrl
 
   await apolloClient.query<QueryPosts, QueryPostsVariables>({
     query: QUERY_POSTS,
@@ -63,6 +66,10 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
 
   return {
     props: {
+      title: {
+        tipoDeBusca: tipoDeBusca,
+        parametroDeBusca: parametroDeBusca
+      },
       initialApolloState: apolloClient.cache.extract(),
       menuData: menuMapper(menus),
       menuAsideItems: menuAsideItemsPropsConstructor(menuAsideData),

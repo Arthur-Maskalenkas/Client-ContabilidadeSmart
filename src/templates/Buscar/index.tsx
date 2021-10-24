@@ -17,8 +17,13 @@ import IconsWrapper from 'components/IconsWrapper'
 
 export const POSTS_PER_PAGE = 3
 
+type TitleProps = {
+  tipoDeBusca: 'categorias' | 'tags'
+  parametroDeBusca: string
+}
+
 export type BuscarTemplateProps = {
-  title: string
+  title: TitleProps
   description: string
   bannerPageProps: BannerPageProps
   menuData: MenuUnitaryProps[]
@@ -76,7 +81,9 @@ const BuscarTemplate = ({
     <S.Wrapper>
       <Base menuData={menuData}>
         <S.Head>
-          <HeadingPage title={title} />
+          <HeadingPage
+            title={`${title.tipoDeBusca} > ${title.parametroDeBusca}`}
+          />
         </S.Head>
         <S.MainSection>
           <S.Main>
