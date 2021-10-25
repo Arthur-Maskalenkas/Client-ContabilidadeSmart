@@ -13,7 +13,7 @@ import { parseQueryStringToWhere } from 'utils/filter'
 import { resolvePagination } from 'utils/resolvePagination'
 
 import * as S from './styles'
-import IconsWrapper from 'components/IconsWrapper'
+import BuscarButton from 'components/BuscarButton'
 
 export const POSTS_PER_PAGE = 3
 
@@ -51,8 +51,9 @@ const BuscarTemplate = ({
 
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [topPage, setTopPage] = useState<number>(1)
-  const lastPage =
+  const lastPage = Math.ceil(
     (data?.postsConnection?.values?.length || POSTS_PER_PAGE) / POSTS_PER_PAGE
+  )
 
   if (!data) return <p>loading...</p>
 
@@ -101,12 +102,18 @@ const BuscarTemplate = ({
             ))}
 
             <S.ButtonsWrapper>
-              <S.Button onClick={() => handleClick('nextPage')}>
-                <IconsWrapper icon="NavigateNext" />
-              </S.Button>
-              <S.Button onClick={() => handleClick('backPage')}>
-                <IconsWrapper icon="NavigateBefore" />
-              </S.Button>
+              <BuscarButton
+                onClick={() => handleClick('nextPage')}
+                icon="NavigateNext"
+                currentPage={currentPage}
+                lastPage={lastPage}
+              />
+              <BuscarButton
+                onClick={() => handleClick('backPage')}
+                icon="NavigateBefore"
+                currentPage={currentPage}
+                lastPage={lastPage}
+              />
             </S.ButtonsWrapper>
           </S.Main>
           <MenuAside {...menuAsideItems} />
