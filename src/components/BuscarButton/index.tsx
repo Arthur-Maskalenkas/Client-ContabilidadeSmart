@@ -1,16 +1,28 @@
 import IconsWrapper from 'components/IconsWrapper'
+import React from 'react'
+import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import * as S from './styles'
+
+type ButtonTypes =
+  | AnchorHTMLAttributes<HTMLAnchorElement>
+  | ButtonHTMLAttributes<HTMLButtonElement>
 
 export type BuscarButtonProps = {
   icon: 'NavigateNext' | 'NavigateBefore'
   currentPage: number
   lastPage: number
-}
+  as?: React.ElementType
+} & ButtonTypes
 
 type NextButtonProps = Pick<BuscarButtonProps, 'currentPage' | 'lastPage'>
 type BeforeButtonProps = Pick<BuscarButtonProps, 'currentPage'>
 
-const BuscarButton = ({ icon, currentPage, lastPage }: BuscarButtonProps) => {
+const BuscarButton = ({
+  icon,
+  currentPage,
+  lastPage,
+  ...props
+}: BuscarButtonProps) => {
   const pageIsEqualALastPage = (currentPage: number, lastPage: number) =>
     currentPage == lastPage
 
@@ -62,6 +74,7 @@ const BuscarButton = ({ icon, currentPage, lastPage }: BuscarButtonProps) => {
       aria-label={ariaLabelResolved}
       disabled={!conditionResolved}
       haveMorePage={haveMorePageResolved}
+      {...props}
     >
       <IconsWrapper icon={icon} />
     </S.Wrapper>

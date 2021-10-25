@@ -1,17 +1,23 @@
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 
 const wrapperModifiers = {
   noHaveMorePages: () => css`
     display: none;
+  `,
+  disabled: (theme: DefaultTheme) => css`
+    cursor: not-allowed;
+    background-color: ${theme.colors.gray};
+    opacity: 0.4;
   `
 }
 
 type WrapperProps = {
   haveMorePage: boolean
+  disabled: boolean
 }
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, haveMorePage }) => css`
+  ${({ theme, haveMorePage, disabled }) => css`
     cursor: pointer;
     border: none;
     text-decoration: none;
@@ -27,5 +33,6 @@ export const Wrapper = styled.button<WrapperProps>`
     }
 
     ${!haveMorePage && wrapperModifiers.noHaveMorePages()}
+    ${disabled && wrapperModifiers.disabled(theme)}
   `}
 `

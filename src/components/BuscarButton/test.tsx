@@ -60,11 +60,3 @@ describe('<BuscarButton />', () => {
     expect(button).toHaveStyle({ display: 'none' })
   })
 })
-
-// Caso esteja na ultima pagina, disabled
-
-// Caso esteja na primeira pagina, disabled
-
-// Renderização por label
-
-// Caso não tenha nada, não apareça
