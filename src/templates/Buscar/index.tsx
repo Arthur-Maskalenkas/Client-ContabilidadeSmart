@@ -100,21 +100,24 @@ const BuscarTemplate = ({
                 }}
               />
             ))}
-
-            <S.ButtonsWrapper>
-              <BuscarButton
-                onClick={() => handleClick('nextPage')}
-                icon="NavigateNext"
-                currentPage={currentPage}
-                lastPage={lastPage}
-              />
-              <BuscarButton
-                onClick={() => handleClick('backPage')}
-                icon="NavigateBefore"
-                currentPage={currentPage}
-                lastPage={lastPage}
-              />
-            </S.ButtonsWrapper>
+            {loading ? (
+              <h1>oi</h1>
+            ) : (
+              <S.ButtonsWrapper>
+                <BuscarButton
+                  onClick={() => handleClick('nextPage')}
+                  icon="NavigateNext"
+                  currentPage={currentPage}
+                  lastPage={lastPage}
+                />
+                <BuscarButton
+                  onClick={() => handleClick('backPage')}
+                  icon="NavigateBefore"
+                  currentPage={currentPage}
+                  lastPage={lastPage}
+                />
+              </S.ButtonsWrapper>
+            )}
           </S.Main>
           <MenuAside {...menuAsideItems} />
         </S.MainSection>
