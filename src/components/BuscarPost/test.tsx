@@ -12,8 +12,8 @@ const props2: BuscarPostProps = {
     backgroundImage:
       'https://contabilidadesmart.com.br/wp-content/uploads/2020/10/caixa-tem-contabilidade-votuporanga.png',
     data: '15/10/2021',
-    tag: 'Esportes',
-    altImage: 'Uma imagem'
+    altImage: 'Uma imagem',
+    slug: 'um slug'
   },
   title: 'Um titulo',
   subtitle: 'um subtitulo'
