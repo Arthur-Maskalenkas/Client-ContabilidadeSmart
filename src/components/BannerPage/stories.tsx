@@ -30,7 +30,7 @@ Default.args = {
 export const Mobile: Story<BannerPageProps> = (args) => (
   <div
     style={{
-      width: '67rem',
+      width: '100%',
       padding: '2rem'
     }}
   >

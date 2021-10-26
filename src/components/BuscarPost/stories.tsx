@@ -42,7 +42,7 @@ Default.parameters = {
 }
 
 export const Mobile: Story<BuscarPostProps> = (args) => (
-  <div style={{ width: '31rem', marginLeft: 'auto', marginRight: 'auto' }}>
+  <div style={{ width: '100%', marginLeft: 'auto', marginRight: 'auto' }}>
     <BuscarPost {...args} />
   </div>
 )
