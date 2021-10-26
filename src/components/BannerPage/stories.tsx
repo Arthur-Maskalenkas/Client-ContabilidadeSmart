@@ -24,7 +24,8 @@ export const Default: Story<BannerPageProps> = (args) => (
 Default.args = {
   backgroundImage: 'img/index/Fiscal-e-Tributária-votuporanga.jpg',
   data: '23 out 2020',
-  tag: 'Noticias'
+  altImage: 'uma imagem',
+  slug: 'um slug'
 }
 
 export const Mobile: Story<BannerPageProps> = (args) => (
@@ -41,7 +42,8 @@ export const Mobile: Story<BannerPageProps> = (args) => (
 Mobile.args = {
   backgroundImage: 'img/index/Fiscal-e-Tributária-votuporanga.jpg',
   data: '23 out 2020',
-  tag: 'Noticias'
+  altImage: 'uma imagem',
+  slug: 'um slug'
 }
 
 Mobile.parameters = {

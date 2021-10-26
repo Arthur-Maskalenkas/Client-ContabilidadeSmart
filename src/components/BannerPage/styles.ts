@@ -1,35 +1,32 @@
 import styled, { css } from 'styled-components'
 
-type WrapperProps = {
-  backgroundImage: string
-}
-
-export const Wrapper = styled.article<WrapperProps>`
-  ${({ backgroundImage }) => css`
+export const ImageWrapper = styled.div`
+  ${({ theme }) => css`
     position: relative;
-
-    cursor: pointer;
-
-    display: flex;
-    background-image: url(${backgroundImage});
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     height: 45rem;
 
-    /* Efeitos */
-    ${DetailsWrapper}, ${Overlay} {
+    display: flex;
+    cursor: pointer;
+
+    img {
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    ${ImageDetails}, ${Overlay} {
       transition: 0.7s all;
     }
-
     /* Details */
-    ${DetailsWrapper} {
-      transform: translateY(3rem);
+    ${ImageDetails} {
+      bottom: -4rem;
     }
 
-    &:hover ${DetailsWrapper} {
+    &:hover ${ImageDetails} {
       opacity: 1;
-      transform: translateY(0);
+      bottom: -0.5rem;
     }
 
     /* Overlay */
@@ -45,27 +42,22 @@ export const Wrapper = styled.article<WrapperProps>`
   `}
 `
 
-export const Overlay = styled.div`
-  ${({ theme }) => css`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    background-color: ${theme.colors.black};
-    visibility: hidden;
-  `}
-`
+export const Image = styled.img``
 
-export const DetailsWrapper = styled.div`
+export const ImageDetails = styled.p`
   ${({ theme }) => css`
-    position: relative;
+    font-size: 1.7rem;
+    text-align: center;
+    font-weight: ${theme.font.family.poppins.weight.normal};
+    color: ${theme.colors.white};
+
+
+    position: absolute;
     pointer-events: none;
 
-    top: 2rem;
-    align-self: flex-end;
-    margin: 0 auto 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+
     z-index: ${theme.layers.base};
     padding ${theme.spacings.xxsmall}
       ${theme.spacings.medium};
@@ -76,14 +68,18 @@ export const DetailsWrapper = styled.div`
     width: 80%;
 
     opacity: 0;
-  `}
+`}
 `
 
-export const Details = styled.p`
+export const Overlay = styled.div`
   ${({ theme }) => css`
-    font-size: 1.7rem;
-    text-align: center;
-    font-weight: ${theme.font.family.poppins.weight.normal};
-    color: ${theme.colors.white};
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: ${theme.colors.black};
+    visibility: hidden;
   `}
 `
