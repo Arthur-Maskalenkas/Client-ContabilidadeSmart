@@ -14,6 +14,7 @@ import { resolvePagination } from 'utils/resolvePagination'
 
 import * as S from './styles'
 import BuscarButton from 'components/BuscarButton'
+import BuscarPostLoading from 'components/BuscarPostLoading'
 
 export const POSTS_PER_PAGE = 3
 
@@ -102,7 +103,7 @@ const BuscarTemplate = ({
               />
             ))}
             {loading ? (
-              <h1>oi</h1>
+              <BuscarPostLoading items={3} />
             ) : (
               <S.ButtonsWrapper>
                 <BuscarButton

@@ -3,12 +3,13 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 import * as BuscarPostStyles from 'components/BuscarPost/styles'
+import * as BuscarPostsLoadingStyles from 'components/BuscarPostLoading/styles'
 
 import * as BuscarButtonStyles from 'components/BuscarButton/styles'
 
 export const Wrapper = styled.main`
   ${({ theme }) => css`
-    ${BuscarPostStyles.Wrapper} {
+    ${BuscarPostStyles.Wrapper}, ${BuscarPostsLoadingStyles.Image} {
       margin-bottom: ${theme.spacings.small};
     }
   `}
