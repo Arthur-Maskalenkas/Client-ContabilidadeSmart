@@ -3,123 +3,23 @@ import { TagProps } from '.'
 const mock: TagProps[] = [
   {
     title: 'ads',
-    slug: 'ads'
+    slug: 'ads',
+    posts: [{ id: '1' }]
   },
   {
     title: 'adsense',
-    slug: 'adsense'
+    slug: 'adsense',
+    posts: [{ id: '2' }]
   },
   {
     title: 'analytics',
-    slug: 'analytics'
+    slug: 'analytics',
+    posts: [{ id: '3' }]
   },
   {
     title: 'Agencia de lançamentos',
-    slug: 'agencia_de_lancamentos'
-  },
-  {
-    title: 'adwords',
-    slug: 'adwords'
-  },
-  {
-    title: 'afiliados',
-    slug: 'afiliados'
-  },
-  {
-    title: 'ads',
-    slug: 'ads'
-  },
-  {
-    title: 'adsense',
-    slug: 'adsense'
-  },
-  {
-    title: 'analytics',
-    slug: 'analytics'
-  },
-  {
-    title: 'Agencia de lançamentos',
-    slug: 'agencia_de_lancamentos'
-  },
-  {
-    title: 'adwords',
-    slug: 'adwords'
-  },
-  {
-    title: 'afiliados',
-    slug: 'afiliados'
-  },
-  {
-    title: 'ads',
-    slug: 'ads'
-  },
-  {
-    title: 'adsense',
-    slug: 'adsense'
-  },
-  {
-    title: 'analytics',
-    slug: 'analytics'
-  },
-  {
-    title: 'Agencia de lançamentos',
-    slug: 'agencia_de_lancamentos'
-  },
-  {
-    title: 'adwords',
-    slug: 'adwords'
-  },
-  {
-    title: 'afiliados',
-    slug: 'afiliados'
-  },
-  {
-    title: 'ads',
-    slug: 'ads'
-  },
-  {
-    title: 'adsense',
-    slug: 'adsense'
-  },
-  {
-    title: 'analytics',
-    slug: 'analytics'
-  },
-  {
-    title: 'Agencia de lançamentos',
-    slug: 'agencia_de_lancamentos'
-  },
-  {
-    title: 'adwords',
-    slug: 'adwords'
-  },
-  {
-    title: 'afiliados',
-    slug: 'afiliados'
-  },
-  {
-    title: 'ads',
-    slug: 'ads'
-  },
-  {
-    title: 'adsense',
-    slug: 'adsense'
-  },
-  {
-    title: 'analytics',
-    slug: 'analytics'
-  },
-  {
-    title: 'Agencia de lançamentos',
-    slug: 'agencia_de_lancamentos'
-  },
-  {
-    title: 'adwords',
-    slug: 'adwords'
-  },
-  {
-    title: 'afiliados',
-    slug: 'afiliados'
+    slug: 'agencia_de_lancamentos',
+    posts: [{ id: '4' }]
   }
 ]
 
