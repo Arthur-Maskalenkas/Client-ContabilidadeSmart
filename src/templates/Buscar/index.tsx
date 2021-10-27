@@ -72,7 +72,7 @@ const BuscarTemplate = ({
       lastPage: lastPage,
       topPage: topPage,
       setTopPage: setTopPage,
-      postsLenght: postsSlice.length,
+      postsLenght: data?.posts.length,
       postsPerPage: POSTS_PER_PAGE,
       operation: operation
     })
@@ -96,7 +96,8 @@ const BuscarTemplate = ({
                 BannerPageProps={{
                   data: item.created_at,
                   altImage: item.capa?.alternativeText || 'img not found',
-                  backgroundImage: item.capa?.url
+                  backgroundImage: item.capa?.url,
+                  slug: item.slug
                 }}
               />
             ))}
