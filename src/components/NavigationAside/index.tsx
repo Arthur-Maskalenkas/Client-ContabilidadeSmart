@@ -1,5 +1,6 @@
 import LinkLi from 'components/LinkLi'
 import { MenuProps } from 'components/Menu'
+import { resolveUrl } from 'utils/resolveUrl'
 
 import * as S from './styles'
 
@@ -14,13 +15,17 @@ const NavigationAside = ({ items }: MenuProps) => (
               <LinkLi
                 key={index}
                 title={item.titleOption}
-                path={`artigo/${item.slug}`}
+                path={resolveUrl('artigos', item.slug)}
               />
             ))}
           </S.MenuDropdownWrapper>
         </S.MenuTitleWrapperLi>
       ) : (
-        <LinkLi key={index} title={item.title} path={`artigo/${item.slug}`} />
+        <LinkLi
+          key={index}
+          title={item.title}
+          path={resolveUrl('artigos', item.slug)}
+        />
       )
     )}
   </S.Wrapper>

@@ -1,4 +1,5 @@
 import LinkLi from 'components/LinkLi'
+import { resolveUrl } from 'utils/resolveUrl'
 import * as S from './styles'
 
 export type MaisVistoProps = {
@@ -17,7 +18,7 @@ const MaisVistos = ({ items }: MaisVistosProps) => (
         key={index}
         moreWeight
         title={item.title}
-        path={`artigo/${item.slug}`}
+        path={resolveUrl('artigos', item.slug)}
       />
     ))}
   </S.Wrapper>
