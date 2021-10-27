@@ -71,7 +71,7 @@ describe('widgetItemsPropsConstructor', () => {
         items: [
           {
             title: 'um titulo de um post recente',
-            path: 'posts_recentes'
+            slug: 'posts_recentes'
           }
         ]
       }

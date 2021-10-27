@@ -65,7 +65,7 @@ export const widgetPostsRecentesMapper = (
           path: 'posts_recentes',
           items: widgetPostsRecentes.map((item) => ({
             title: item.title,
-            path: item.slug
+            slug: item.slug
           }))
         }
       ]
@@ -116,7 +116,7 @@ export const bannerPageMapper = (bannerPage: queryPostsBySlug_posts) => {
         backgroundImage: bannerPage.capa?.url || '',
         altImage: bannerPage.capa?.alternativeText || '',
         data: bannerPage.created_at,
-        tag: ''
+        slug: bannerPage.slug
       }
     : {}
 }

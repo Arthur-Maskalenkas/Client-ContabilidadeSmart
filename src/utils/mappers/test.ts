@@ -139,7 +139,7 @@ describe('widgetsPostsRecentesMapper()', () => {
       items: [
         {
           title: 'um titulo de um post recente',
-          path: 'posts_recentes'
+          slug: 'posts_recentes'
         }
       ]
     }
@@ -245,7 +245,7 @@ describe('bannerPageMapper()', () => {
       backgroundImage: 'url da capa',
       altImage: 'alt da capa',
       data: 'uma data de criação',
-      tag: ''
+      slug: 'o slug do post'
     }
 
     expect(bannerPageMapper(valueApi)).toStrictEqual(expectValue)
