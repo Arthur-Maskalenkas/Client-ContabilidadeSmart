@@ -6,15 +6,15 @@ import WidgetList from 'components/WidgetList'
 import Base from 'templates/Base'
 import * as S from './styles'
 
-type TitleProps = {
+export type TitleProps = {
   tipoDeBusca?: 'categorias' | 'tags'
   parametroDeBusca: string
 }
 
-type BaseUpgradedTemplateProps = {
+export type BaseUpgradedTemplateProps = {
   titleWithParam?: TitleProps
   titlePage?: string
-  children: React.ReactNode
+  children?: React.ReactNode
   menuData: MenuUnitaryProps[]
   menuAsideItems: MenuAsideProps
   widgets: WidgetProps[]
@@ -40,7 +40,7 @@ const BaseUpgraded = ({
           <HeadingPage
             title={
               (hasTitleParam ? titleParamOption : titlePageOption) ||
-              'Title not defined'
+              'O titulo da pagina não foi definido'
             }
           />
         </S.Head>
