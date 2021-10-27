@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
 
 export const Details = styled.div`
   ${({ theme }) => css`
-    margin-top: ${theme.spacings.xsmall};
     padding: ${theme.spacings.large} ${theme.spacings.small}
       ${theme.spacings.small} ${theme.spacings.small};
 
