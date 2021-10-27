@@ -6,37 +6,6 @@ export type BackPageOperationProps = Pick<
   'currentPage' | 'setCurrentPage'
 >
 
-/**
- *
- *
- *  Operations
- *
- *
- */
-const nextPageOperation = ({
-  fetchMore,
-  postsPerPage,
-  postsLenght,
-  topPage,
-  currentPage,
-  lastPage,
-  setCurrentPage,
-  setTopPage
-}: NextPageOperationProps) => {
-  currentPage == topPage &&
-    topPage < lastPage &&
-    fetchMore({ variables: { limit: postsPerPage, start: postsLenght } })
-  currentPage == topPage && topPage < lastPage && setTopPage(currentPage + 1)
-  currentPage < lastPage && setCurrentPage(currentPage + 1)
-}
-
-const backPageOperation = ({
-  currentPage,
-  setCurrentPage
-}: BackPageOperationProps) => {
-  currentPage > 1 && setCurrentPage(currentPage - 1)
-}
-
 type variablesType = {
   limit?: number
   start?: number
@@ -64,23 +33,15 @@ const operations = {
     setCurrentPage,
     setTopPage
   }: NextPageOperationProps) {
-    nextPageOperation({
-      currentPage,
-      fetchMore,
-      postsLenght,
-      postsPerPage,
-      topPage,
-      lastPage,
-      setCurrentPage,
-      setTopPage
-    })
+    currentPage == topPage &&
+      topPage < lastPage &&
+      fetchMore({ variables: { limit: postsPerPage, start: postsLenght } })
+    currentPage == topPage && topPage < lastPage && setTopPage(currentPage + 1)
+    currentPage < lastPage && setCurrentPage(currentPage + 1)
   },
 
   backPage({ currentPage, setCurrentPage }: BackPageOperationProps) {
-    backPageOperation({
-      currentPage,
-      setCurrentPage
-    })
+    currentPage > 1 && setCurrentPage(currentPage - 1)
   }
 }
 
