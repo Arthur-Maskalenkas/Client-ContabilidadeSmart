@@ -23,6 +23,15 @@ jest.mock('components/Footer', () => {
   }
 })
 
+jest.mock('components/MenuContact', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock Menu Contact"></div>
+    }
+  }
+})
+
 describe('<Base />', () => {
   it('Verifica a renderização do menu, footer e filho', () => {
     renderWithTheme(
@@ -33,6 +42,7 @@ describe('<Base />', () => {
 
     expect(screen.getByTestId('Mock Menu')).toBeInTheDocument()
     expect(screen.getByTestId('Mock Footer')).toBeInTheDocument()
+    expect(screen.getByTestId('Mock Menu Contact')).toBeInTheDocument()
     expect(
       screen.getByRole('heading', { name: /heading/i })
     ).toBeInTheDocument()

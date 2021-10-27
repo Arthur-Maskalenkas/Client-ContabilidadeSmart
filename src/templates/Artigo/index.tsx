@@ -1,12 +1,12 @@
 import BannerPage, { BannerPageProps } from 'components/BannerPage'
+import TextContent from 'components/TextContent'
+import BaseUpgraded from 'templates/BaseUpgraded'
+
 import { MenuUnitaryProps } from 'components/Menu'
 import { MenuAsideProps } from 'components/MenuAside'
-import TextContent from 'components/TextContent'
 import { WidgetProps } from 'components/Widget'
 
 import * as S from './styles'
-
-import BaseUpgraded from 'templates/BaseUpgraded'
 
 export type ArtigoTemplateProps = {
   title: string

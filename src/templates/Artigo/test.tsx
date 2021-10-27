@@ -1,30 +1,14 @@
 import { render, screen } from 'utils/test-utils'
 
-import {
-  mockCategorias,
-  mockPaginas,
-  mockPostsRecentes
-} from 'components/Widget/mock'
+import Artigo, { ArtigoTemplateProps } from '.'
+import { menuasideMock } from 'utils/mocksTemplates/menuAsideMock'
+import { widgetsMock } from 'utils/mocksTemplates/widgets'
+import { menuDataMock } from 'utils/mocksTemplates/menuDataMock'
 
-import {
-  maisVistosMock,
-  tagsMock,
-  navigationMock
-} from 'components/MenuAside/mock'
-
-import Artigo from '.'
-
-jest.mock('templates/Base', () => ({
+jest.mock('templates/BaseUpgraded', () => ({
   __esModule: true,
   default: function Mock({ children }: { children: React.ReactNode }) {
-    return <div data-testid="Mock Base">{children}</div>
-  }
-}))
-
-jest.mock('components/HeadingPage', () => ({
-  __esModule: true,
-  default: function Mock() {
-    return <div data-testid="Mock HeadingPage" />
+    return <div data-testid="Mock BaseUpgraded">{children}</div>
   }
 }))
 
@@ -42,40 +26,27 @@ jest.mock('components/TextContent', () => ({
   }
 }))
 
-jest.mock('components/MenuAside', () => ({
-  __esModule: true,
-  default: function Mock() {
-    return <div data-testid="Mock MenuAside" />
-  }
-}))
-
-const props = {
+const props: ArtigoTemplateProps = {
   title: 'Será que vale a pena ser MEI',
   bannerPageProps: {
     backgroundImage:
       'https://contabilidadesmart.com.br/wp-content/uploads/2020/10/MEI-contabilidade-votuporanga-vantagens-leandromikk.jpg',
     data: '23 out 2020',
-    tag: ''
+    slug: 'Um slug',
+    altImage: 'uma alt image'
   },
   description: 'um texto qualquer',
-  widgetCategorias: mockCategorias,
-  widgetPaginas: mockPaginas,
-  widgetPostsRecentes: mockPostsRecentes,
-  menuAsideItems: {
-    menuData: navigationMock,
-    maisVistosData: maisVistosMock,
-    tagsData: tagsMock
-  }
+  widgets: widgetsMock,
+  menuAsideItems: menuasideMock,
+  menuData: menuDataMock
 }
 
 describe('<Artigo />', () => {
   it('should render the heading', () => {
     render(<Artigo {...props} />)
 
-    expect(screen.getByTestId(/mock base/i)).toBeInTheDocument()
-    expect(screen.getByTestId(/mock headingpage/i)).toBeInTheDocument()
+    expect(screen.getByTestId(/Mock BaseUpgraded/i)).toBeInTheDocument()
     expect(screen.getByTestId(/mock bannerpage/i)).toBeInTheDocument()
     expect(screen.getByTestId(/mock textcontent/i)).toBeInTheDocument()
-    expect(screen.getByTestId(/mock menuaside/i)).toBeInTheDocument()
   })
 })
