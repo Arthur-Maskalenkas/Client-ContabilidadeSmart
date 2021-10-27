@@ -7,12 +7,13 @@ import Base from 'templates/Base'
 import * as S from './styles'
 
 type TitleProps = {
-  tipoDeBusca: 'categorias' | 'tags'
+  tipoDeBusca?: 'categorias' | 'tags'
   parametroDeBusca: string
 }
 
 type BaseUpgradedTemplateProps = {
-  title: TitleProps
+  titleWithParam?: TitleProps
+  titlePage?: string
   children: React.ReactNode
   menuData: MenuUnitaryProps[]
   menuAsideItems: MenuAsideProps
@@ -23,26 +24,37 @@ const BaseUpgraded = ({
   children,
   menuData,
   menuAsideItems,
-  title,
-  widgets
-}: BaseUpgradedTemplateProps) => (
-  <S.Wrapper>
-    <Base menuData={menuData}>
-      <S.Head>
-        <HeadingPage
-          title={`${title.tipoDeBusca} > ${title.parametroDeBusca}`}
-        />
-      </S.Head>
-      <S.MainSection>
-        <S.Main>{children}</S.Main>
-        <MenuAside {...menuAsideItems} />
-      </S.MainSection>
+  titlePage,
+  widgets,
+  titleWithParam
+}: BaseUpgradedTemplateProps) => {
+  const hasTitleParam = !!titleWithParam
 
-      <S.WidgetSection>
-        <WidgetList items={widgets} />
-      </S.WidgetSection>
-    </Base>
-  </S.Wrapper>
-)
+  const titleParamOption = `${titleWithParam?.tipoDeBusca} > ${titleWithParam?.parametroDeBusca}`
+  const titlePageOption = titlePage
+
+  return (
+    <S.Wrapper>
+      <Base menuData={menuData}>
+        <S.Head>
+          <HeadingPage
+            title={
+              (hasTitleParam ? titleParamOption : titlePageOption) ||
+              'Title not defined'
+            }
+          />
+        </S.Head>
+        <S.MainSection>
+          <S.Main>{children}</S.Main>
+          <MenuAside {...menuAsideItems} />
+        </S.MainSection>
+
+        <S.WidgetSection>
+          <WidgetList items={widgets} />
+        </S.WidgetSection>
+      </Base>
+    </S.Wrapper>
+  )
+}
 
 export default BaseUpgraded

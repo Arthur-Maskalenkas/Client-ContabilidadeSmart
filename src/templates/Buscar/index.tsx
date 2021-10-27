@@ -82,7 +82,7 @@ const BuscarTemplate = ({
       <BaseUpgraded
         menuAsideItems={menuAsideItems}
         menuData={menuData}
-        title={title}
+        titleWithParam={title}
         widgets={widgets}
       >
         {postsSlice.map((item, index) => (
