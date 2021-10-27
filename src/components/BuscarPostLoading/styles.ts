@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 export const Image = styled.div`
   ${({ theme }) => css`
     position: relative;
-    height: 45rem;
+    height: 63.8rem;
 
     animation-name: flash;
     animation-duration: 3s;
