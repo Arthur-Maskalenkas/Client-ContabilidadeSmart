@@ -18,7 +18,7 @@ type FetchMoreProps = {
 /**
  *
  *
- *  OperationIdentifer
+ *  OperationIdentifier
  *
  *
  */
