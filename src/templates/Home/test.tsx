@@ -2,11 +2,12 @@ import '../../../setupTests'
 
 import { screen, render } from 'utils/test-utils'
 
-import Home from '.'
+import Home, { HomeTemplateProps } from '.'
 
 import mockBannerSlider from 'components/BannerSlider/mock'
 
-import mockWidgetList from 'components/WidgetList/mock'
+import { menuDataMock } from 'utils/mocksTemplates/menuDataMock'
+import { widgetsMock } from 'utils/mocksTemplates/widgets'
 
 jest.mock('templates/Base', () => ({
   __esModule: true,
@@ -50,9 +51,10 @@ jest.mock('components/WidgetList', () => ({
   }
 }))
 
-const props = {
+const props: HomeTemplateProps = {
   bannerSliderData: mockBannerSlider,
-  widgetListData: mockWidgetList
+  menuData: menuDataMock,
+  widgets: widgetsMock
 }
 
 describe('<Home />', () => {
