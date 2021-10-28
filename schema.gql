@@ -385,7 +385,7 @@ type Post {
   text: String!
   capa: UploadFile
   slug: String!
-  subtitulo: String
+  subtitulo: String!
   published_at: DateTime
   categorias(sort: String, limit: Int, start: Int, where: JSON): [Categoria!]!
   tags(sort: String, limit: Int, start: Int, where: JSON): [Tag!]!
@@ -466,7 +466,7 @@ input PostInput {
   slug: String!
   categorias: [ID]
   tags: [ID]
-  subtitulo: String
+  subtitulo: String!
   published_at: DateTime
   created_by: ID
   updated_by: ID
