@@ -19,7 +19,7 @@ describe('<BuscarPostLoading />', () => {
 
 .c1 {
   position: relative;
-  height: 45rem;
+  height: 63.8rem;
   -webkit-animation-name: flash;
   animation-name: flash;
   -webkit-animation-duration: 3s;

@@ -23,7 +23,7 @@ describe('<BuscarPost />', () => {
   it('renderiza o componente padrão, sem banner', () => {
     render(<BuscarPost {...props} />)
 
-    expect(screen.queryByLabelText(/uma imagem/i)).not.toBeInTheDocument()
+    expect(screen.queryByAltText(/uma imagem/i)).not.toBeInTheDocument()
 
     expect(
       screen.getByRole('heading', { name: /um titulo/i })
@@ -35,7 +35,7 @@ describe('<BuscarPost />', () => {
   it('renderiza o componente padrão, com banner', () => {
     render(<BuscarPost {...props2} />)
 
-    expect(screen.getByLabelText(/uma imagem/i)).toBeInTheDocument()
+    expect(screen.getByAltText(/uma imagem/i)).toBeInTheDocument()
 
     expect(
       screen.getByRole('heading', { name: /um titulo/i })
