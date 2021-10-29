@@ -1,18 +1,23 @@
+import { useRouter } from 'next/dist/client/router'
+import { useState } from 'react'
+
 import { BannerPageProps } from 'components/BannerPage'
 import { MenuUnitaryProps } from 'components/Menu'
 import { MenuAsideProps } from 'components/MenuAside'
 import { WidgetProps } from 'components/Widget'
+
 import { useQueryPosts } from 'graphql/queries/posts'
-import { useRouter } from 'next/dist/client/router'
-import { useState } from 'react'
+
 import { parseQueryStringToWhere } from 'utils/filter'
 import { resolvePagination } from 'utils/resolvePagination'
 
 import * as S from './styles'
+
 import BaseUpgraded from 'templates/BaseUpgraded'
-import BuscarPostLoading from 'components/BuscarPostLoading'
+
 import BuscarButton from 'components/BuscarButton'
 import BuscarPost from 'components/BuscarPost'
+import BuscarPostLoading from 'components/BuscarPostLoading'
 
 export const POSTS_PER_PAGE = 3
 
@@ -89,7 +94,7 @@ const BuscarTemplate = ({
           <BuscarPost
             key={index}
             title={item.title}
-            subtitle={item.subtitulo!}
+            subtitle={item.subtitulo}
             BannerPageProps={{
               data: item.created_at,
               altImage: item.capa?.alternativeText || 'img not found',
