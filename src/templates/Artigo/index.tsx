@@ -1,3 +1,5 @@
+import { NextSeo } from 'next-seo'
+
 import BannerPage, { BannerPageProps } from 'components/BannerPage'
 import TextContent from 'components/TextContent'
 import BaseUpgraded from 'templates/BaseUpgraded'
@@ -9,7 +11,9 @@ import { WidgetProps } from 'components/Widget'
 import * as S from './styles'
 
 export type ArtigoTemplateProps = {
+  slug: string
   title: string
+  subtitulo: string
   description: string
   bannerPageProps: BannerPageProps
   menuData: MenuUnitaryProps[]
@@ -18,7 +22,9 @@ export type ArtigoTemplateProps = {
 }
 
 const Artigo = ({
+  slug,
   title,
+  subtitulo,
   description,
   bannerPageProps,
   widgets,
@@ -27,6 +33,25 @@ const Artigo = ({
 }: ArtigoTemplateProps) => {
   return (
     <>
+      <NextSeo
+        title={`${title} - Contabilidade Smart`}
+        description={subtitulo}
+        canonical={`https://contabilidadesmart.com.br/artigo/${slug}`}
+        openGraph={{
+          url: `https://contabilidadesmart.com.br/artigo/${slug}`,
+          title: title,
+          description: subtitulo,
+          images: [
+            {
+              url:
+                bannerPageProps?.backgroundImage ||
+                'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg',
+              alt: bannerPageProps?.altImage
+            }
+          ],
+          site_name: 'https://contabilidadesmart.com.br/'
+        }}
+      />
       <BaseUpgraded
         menuAsideItems={menuAsideItems}
         menuData={menuData}
