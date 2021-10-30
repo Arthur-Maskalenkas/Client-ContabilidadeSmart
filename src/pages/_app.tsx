@@ -20,7 +20,7 @@ function App({ Component, pageProps }: AppProps) {
       <ApolloProvider client={client}>
         <ThemeProvider theme={theme}>
           <Head>
-            <title>React Avançado - Boilerplate</title>
+            <title>Contabilidade Smart</title>
             <link rel="shortcut icon" href="/img/icon-512.png" />
             <link rel="apple-touch-icon" href="/img/icon-512.png" />
             <link rel="manifest" href="/manifest.json" />

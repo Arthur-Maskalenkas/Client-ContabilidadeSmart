@@ -102,7 +102,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       mutation: MUTATION_UPDATE_POSTS_MAIS_VISTO,
       variables: {
         postId: postsMaisVistos[0].id,
-        visitas: postsMaisVistos[0]?.visitas + 1 || 1
+        visitas: (postsMaisVistos[0]?.visitas || 1) + 1
       }
     })
   }
@@ -142,6 +142,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
+      slug: params?.slug,
+      subtitulo: post.subtitulo,
       title: post.title,
       description: post.text,
       bannerPageProps: bannerPageMapper(post),
