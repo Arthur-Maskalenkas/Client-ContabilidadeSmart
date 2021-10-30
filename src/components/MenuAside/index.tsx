@@ -19,9 +19,7 @@ export type MenuAsideProps = {
 const MenuAside = ({ menuData, tagsData, maisVistosData }: MenuAsideProps) => (
   <S.Wrapper>
     <MediaWatch greaterThan="large">
-      <S.MenuContainer>
-        <Logo size="small" />
-      </S.MenuContainer>
+      <Logo size="small" />
 
       <S.MenuContainer>
         <S.TitleWrapper>
