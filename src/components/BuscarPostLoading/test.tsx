@@ -1,9 +1,9 @@
-import { render } from 'utils/test-utils'
+import { render, screen } from 'utils/test-utils'
 
 import BuscarPostLoading from '.'
 
 describe('<BuscarPostLoading />', () => {
-  it('should render the heading', () => {
+  it('vai renderizar o componente 1x', () => {
     const { container } = render(<BuscarPostLoading items={1} />)
 
     expect(container).toMatchInlineSnapshot(`
@@ -36,10 +36,17 @@ describe('<BuscarPostLoading />', () => {
     class="c0"
   >
     <div
+      aria-label="Loading..."
       class="c1"
     />
   </div>
 </div>
 `)
+  })
+
+  it('vai renderizar o componente 1x', () => {
+    render(<BuscarPostLoading items={3} />)
+
+    expect(screen.getAllByLabelText(/loading.../i)).toHaveLength(3)
   })
 })

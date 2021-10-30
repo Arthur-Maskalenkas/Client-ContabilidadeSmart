@@ -10,7 +10,7 @@ const BuscarPostLoading = ({ items = 1 }: BuscarPostLoadingProps) => {
   return (
     <S.Wrapper>
       {lista.map((item, index) => (
-        <S.Image key={index} />
+        <S.Image key={index} aria-label="Loading..." />
       ))}
     </S.Wrapper>
   )
