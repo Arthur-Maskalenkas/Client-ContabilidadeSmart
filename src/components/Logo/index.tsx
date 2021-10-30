@@ -17,18 +17,18 @@ const Logo = ({ size }: LogoProps) => {
       </S.ImgWrapper>
     ),
     medium: (
-      <S.ImgWrapper widthImg="25rem" heightImg="25rem">
+      <S.ImgWrapper widthImg="46rem" heightImg="13rem">
         <img
           alt="Logo Contabilidade Smart"
-          src="https://contabilidadesmart.com.br/wp-content/uploads/2021/06/Contabilidade-Smart.jpg"
+          src="https://res.cloudinary.com/dezwlfeyb/image/upload/v1635628772/Contabilidade-Smart_e7dpud.png"
         />
       </S.ImgWrapper>
     ),
     small: (
-      <S.ImgWrapper widthImg="25rem" heightImg="25rem">
+      <S.ImgWrapper widthImg="35rem" heightImg="12rem">
         <img
           alt="Logo Contabilidade Smart"
-          src="https://contabilidadesmart.com.br/wp-content/uploads/2021/06/Contabilidade-Smart.jpg"
+          src="https://res.cloudinary.com/dezwlfeyb/image/upload/v1635628772/Contabilidade-Smart_e7dpud.png"
         />
       </S.ImgWrapper>
     )
