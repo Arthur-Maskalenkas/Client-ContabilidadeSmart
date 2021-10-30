@@ -32,6 +32,7 @@ export const QUERY_POSTS_BY_SLUG = gql`
       id
       title
       slug
+      subtitulo
       created_at
       text
       capa {
