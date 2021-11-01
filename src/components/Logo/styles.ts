@@ -9,20 +9,11 @@ type ImgWrapperProps = {
 
 export const ImgWrapper = styled.div<ImgWrapperProps>`
   ${({ widthImg, heightImg }) => css`
-    flex-shrink: 0;
-
+    position: relative;
+    width: ${widthImg};
     margin-left: auto;
     margin-right: auto;
-
-    width: ${widthImg};
     height: ${heightImg};
-
-    img {
-      cursor: pointer;
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-    }
+    cursor: pointer;
   `}
 `

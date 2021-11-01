@@ -8,29 +8,15 @@ describe('<Logo />', () => {
 
     expect(screen.getByAltText(/Logo Contabilidade Smart/i).parentElement)
       .toMatchInlineSnapshot(`
-      .c0 {
-        -webkit-flex-shrink: 0;
-        -ms-flex-negative: 0;
-        flex-shrink: 0;
-        margin-left: auto;
-        margin-right: auto;
-        width: 25rem;
-        height: 25rem;
-      }
-
-      .c0 img {
-        cursor: pointer;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
       <div
-        class="c0"
+        style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
       >
+        <noscript />
         <img
           alt="Logo Contabilidade Smart"
-          src="https://contabilidadesmart.com.br/wp-content/uploads/2021/06/Contabilidade-Smart.jpg"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
         />
       </div>
     `)
@@ -41,29 +27,15 @@ describe('<Logo />', () => {
 
     expect(screen.getByAltText(/Logo Contabilidade Smart/i).parentElement)
       .toMatchInlineSnapshot(`
-      .c0 {
-        -webkit-flex-shrink: 0;
-        -ms-flex-negative: 0;
-        flex-shrink: 0;
-        margin-left: auto;
-        margin-right: auto;
-        width: 25rem;
-        height: 25rem;
-      }
-
-      .c0 img {
-        cursor: pointer;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
       <div
-        class="c0"
+        style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
       >
+        <noscript />
         <img
           alt="Logo Contabilidade Smart"
-          src="https://contabilidadesmart.com.br/wp-content/uploads/2021/06/Contabilidade-Smart.jpg"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
         />
       </div>
     `)
@@ -74,29 +46,15 @@ describe('<Logo />', () => {
 
     expect(screen.getByAltText(/Logo Contabilidade Smart/i).parentElement)
       .toMatchInlineSnapshot(`
-      .c0 {
-        -webkit-flex-shrink: 0;
-        -ms-flex-negative: 0;
-        flex-shrink: 0;
-        margin-left: auto;
-        margin-right: auto;
-        width: 17rem;
-        height: 17rem;
-      }
-
-      .c0 img {
-        cursor: pointer;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
       <div
-        class="c0"
+        style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
       >
+        <noscript />
         <img
           alt="Logo Contabilidade Smart"
-          src="https://contabilidadesmart.com.br/wp-content/uploads/2021/06/Contabilidade-Smart-negativo.png"
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
         />
       </div>
     `)

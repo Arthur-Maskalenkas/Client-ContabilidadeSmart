@@ -1,5 +1,7 @@
 import * as S from './styles'
 
+import Image from 'next/image'
+
 type SizeType = 'smallNegativo' | 'medium' | 'small'
 
 export type LogoProps = {
@@ -10,25 +12,31 @@ const Logo = ({ size }: LogoProps) => {
   const Logos = {
     smallNegativo: (
       <S.ImgWrapper widthImg="17rem" heightImg="17rem">
-        <img
+        <Image
           alt="Logo Contabilidade Smart"
-          src="https://contabilidadesmart.com.br/wp-content/uploads/2021/06/Contabilidade-Smart-negativo.png"
+          src="/v1635633843/Contabilidade-Smart-negativo-172_e5oyxn.png"
+          layout="fill"
+          objectFit="cover"
         />
       </S.ImgWrapper>
     ),
     medium: (
-      <S.ImgWrapper widthImg="100%" heightImg="13rem">
-        <img
+      <S.ImgWrapper widthImg="15rem" heightImg="9rem">
+        <Image
           alt="Logo Contabilidade Smart"
-          src="https://res.cloudinary.com/dezwlfeyb/image/upload/v1635628772/Contabilidade-Smart_e7dpud.png"
+          src="/v1635637148/oie_nCSTx3nxueCx_j5pgdc.png"
+          layout="fill"
+          objectFit="cover"
         />
       </S.ImgWrapper>
     ),
     small: (
-      <S.ImgWrapper widthImg="100%" heightImg="12rem">
-        <img
+      <S.ImgWrapper widthImg="15rem" heightImg="9rem">
+        <Image
           alt="Logo Contabilidade Smart"
-          src="https://res.cloudinary.com/dezwlfeyb/image/upload/v1635628772/Contabilidade-Smart_e7dpud.png"
+          src="/v1635637148/oie_nCSTx3nxueCx_j5pgdc.png"
+          layout="fill"
+          objectFit="cover"
         />
       </S.ImgWrapper>
     )
