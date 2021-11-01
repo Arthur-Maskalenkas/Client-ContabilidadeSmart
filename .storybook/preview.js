@@ -1,3 +1,5 @@
+import '../.jest/next-image-mock'
+
 import { RouterContext } from 'next/dist/next-server/lib/router-context'
 
 import GlobalStyles from '../src/styles/global'
