@@ -4,7 +4,7 @@ import BuscarPostLoading from '.'
 
 describe('<BuscarPostLoading />', () => {
   it('vai renderizar o componente 1x', () => {
-    const { container } = render(<BuscarPostLoading items={1} />)
+    const { container } = render(<BuscarPostLoading />)
 
     expect(container).toMatchInlineSnapshot(`
 .c0 {
@@ -44,7 +44,7 @@ describe('<BuscarPostLoading />', () => {
 `)
   })
 
-  it('vai renderizar o componente 1x', () => {
+  it('vai renderizar o componente 3x', () => {
     render(<BuscarPostLoading items={3} />)
 
     expect(screen.getAllByLabelText(/loading.../i)).toHaveLength(3)

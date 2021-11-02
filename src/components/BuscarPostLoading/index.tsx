@@ -1,7 +1,7 @@
 import * as S from './styles'
 
 export type BuscarPostLoadingProps = {
-  items: number
+  items?: number
 }
 
 const BuscarPostLoading = ({ items = 1 }: BuscarPostLoadingProps) => {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<IconsWrapper /> Deve renderizar o icone e testar hover, size, e color, e icone que renderiza  1`] = `
+exports[`<IconsWrapper /> renderiza o icone 1`] = `
 .c2 {
   display: inline-block;
   vertical-align: middle;
@@ -26,7 +26,7 @@ exports[`<IconsWrapper /> Deve renderizar o icone e testar hover, size, e color,
 
 .c0 > .c1 {
   width: 1rem;
-  color: #F66A3E;
+  color: #FFFFFF;
   position: relative;
 }
 
@@ -34,7 +34,7 @@ exports[`<IconsWrapper /> Deve renderizar o icone e testar hover, size, e color,
   <div>
     <div
       class="c0"
-      color="secondary"
+      color="white"
     >
       <svg
         class="c1 c2"

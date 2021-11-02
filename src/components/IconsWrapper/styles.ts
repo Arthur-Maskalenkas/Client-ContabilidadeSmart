@@ -12,7 +12,7 @@ export type sizeTypes =
   | 'large'
 
 export const Wrapper = styled.div<Omit<IconsProps, 'icon'>>`
-  ${({ theme, size, color = 'white' }) => css`
+  ${({ theme, size, color }) => css`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +20,7 @@ export const Wrapper = styled.div<Omit<IconsProps, 'icon'>>`
 
     > ${StyledIconBase} {
       width: ${size};
-      color: ${theme.colors[color]};
+      color: ${theme.colors[color!]};
       position: relative;
     }
   `}
