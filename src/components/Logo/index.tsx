@@ -24,7 +24,7 @@ const Logo = ({ size }: LogoProps) => {
       <S.ImgWrapper widthImg="15rem" heightImg="9rem">
         <Image
           alt="Logo Contabilidade Smart"
-          src="https://res.cloudinary.com/dezwlfeyb/image/upload/v1635828132/Contabilidade-Smart_pinyjz.png"
+          src="https://res.cloudinary.com/dezwlfeyb/image/upload/v1635637148/oie_nCSTx3nxueCx_j5pgdc.png"
           layout="fill"
           objectFit="cover"
         />
@@ -34,7 +34,7 @@ const Logo = ({ size }: LogoProps) => {
       <S.ImgWrapper widthImg="15rem" heightImg="9rem">
         <Image
           alt="Logo Contabilidade Smart"
-          src="https://res.cloudinary.com/dezwlfeyb/image/upload/v1635828132/Contabilidade-Smart_pinyjz.png"
+          src="https://res.cloudinary.com/dezwlfeyb/image/upload/v1635637148/oie_nCSTx3nxueCx_j5pgdc.png"
           layout="fill"
           objectFit="cover"
         />
