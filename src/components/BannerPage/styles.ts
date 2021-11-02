@@ -42,8 +42,6 @@ export const ImageWrapper = styled.div`
   `}
 `
 
-export const Image = styled.img``
-
 export const ImageDetails = styled.p`
   ${({ theme }) => css`
     font-size: 1.7rem;

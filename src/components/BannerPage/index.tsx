@@ -1,7 +1,11 @@
 import Link from 'next/link'
+import Image from 'next/image'
+
 import { resolveUrl } from 'utils/resolveUrl'
 
 import * as S from './styles'
+import { resolvePathTrue } from 'utils/resolvePathNextImage'
+import { IMAGE_NOT_FOUND } from 'utils/globalVars'
 
 export type BannerPageProps = {
   backgroundImage?: string
@@ -12,8 +16,8 @@ export type BannerPageProps = {
 
 const BannerPage = ({
   data,
-  backgroundImage = 'https://cdn.shopify.com/s/files/1/2425/3665/products/102-022_800x.jpg?v=1574792050',
-  altImage = 'img not found',
+  backgroundImage,
+  altImage = 'alt img not defined',
   slug
 }: BannerPageProps) => {
   const dataFormatada = data
@@ -24,7 +28,13 @@ const BannerPage = ({
     <>
       <Link href={resolveUrl('artigos', slug)} passHref>
         <S.ImageWrapper>
-          <S.Image src={backgroundImage} alt={altImage} />
+          <Image
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            src={resolvePathTrue(backgroundImage!, IMAGE_NOT_FOUND)}
+            alt={altImage}
+            layout="fill"
+            objectFit="cover"
+          />
           <S.Overlay />
           <S.ImageDetails>{`${dataFormatada} | By Contabilidade Smart `}</S.ImageDetails>
         </S.ImageWrapper>
