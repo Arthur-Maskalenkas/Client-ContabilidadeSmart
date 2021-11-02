@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import * as S from './styles'
 
 export type SocialBannerProps = {
@@ -7,7 +9,7 @@ export type SocialBannerProps = {
 
 const SocialBanner = ({ altImg, img }: SocialBannerProps) => (
   <S.Wrapper>
-    <img alt={altImg} src={img} />
+    <Image src={`/${img}`} alt={altImg} layout="fill" objectFit="cover" />
   </S.Wrapper>
 )
 
