@@ -48,6 +48,8 @@ export async function getStaticProps() {
       revalidate: 120,
       menuData: menuMapper(menus),
       widgets: widgetItemsPropsConstructor(widgetData),
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       bannerSliderData: bannerSliderMapper(home?.bannerHome || [])
     }
   }

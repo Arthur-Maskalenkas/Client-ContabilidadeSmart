@@ -229,6 +229,7 @@ describe('bannerPageMapper()', () => {
   it('retorna o valor completamente mapeado de um objeto para bannerPage', () => {
     const valueApi: queryPostsBySlug_posts = {
       __typename: 'Post',
+      subtitulo: 'um subtitulo',
       capa: {
         url: 'url da capa',
         alternativeText: 'alt da capa',

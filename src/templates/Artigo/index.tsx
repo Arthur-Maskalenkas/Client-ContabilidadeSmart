@@ -11,9 +11,9 @@ import { WidgetProps } from 'components/Widget'
 import * as S from './styles'
 
 export type ArtigoTemplateProps = {
-  slug: string
+  slug?: string
   title: string
-  subtitulo: string
+  subtitulo?: string
   description: string
   bannerPageProps: BannerPageProps
   menuData: MenuUnitaryProps[]
