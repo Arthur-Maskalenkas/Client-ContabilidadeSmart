@@ -82,20 +82,16 @@ const wrapperModifiers = {
 }
 
 type WrapperProps = {
-  src: string
   textDirection?: TextDirectionType
   isOpen?: boolean
 }
 
 export const Wrapper = styled.main<WrapperProps>`
-  ${({ theme, src, textDirection, isOpen }) => css`
+  ${({ theme, textDirection, isOpen }) => css`
     position: relative;
     display: grid;
     width: 100%;
     height: 28rem;
-    background-image: url(${src});
-    background-position: center center;
-    background-size: cover;
 
     /* Efeitos */
     ${Title} {

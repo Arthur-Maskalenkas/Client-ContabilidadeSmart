@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import Button from 'components/Button'
 import React from 'react'
 import * as S from './styles'
@@ -30,13 +32,14 @@ const Banner = ({
   textDirection = 'left',
   isOpen = false
 }: BannerProps) => (
-  <S.Wrapper
-    src={img}
-    role="img"
-    aria-label={titleImage}
-    textDirection={textDirection}
-    isOpen={isOpen}
-  >
+  <S.Wrapper textDirection={textDirection} isOpen={isOpen}>
+    <Image
+      src={img}
+      alt={titleImage}
+      layout="fill"
+      objectFit="cover"
+      quality={100}
+    />
     <S.Caption>
       <S.Title isOpen={isOpen}>{title}</S.Title>
       {!!titleWithColor && (
