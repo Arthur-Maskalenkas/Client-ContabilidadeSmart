@@ -51,7 +51,7 @@ describe('<BannerSlider />', () => {
     ).toBeInTheDocument()
 
     expect(
-      screen.getAllByLabelText(/um casal planejando as contas/i)
+      screen.getAllByAltText(/um casal planejando as contas/i)
     ).toHaveLength(2)
   })
 
