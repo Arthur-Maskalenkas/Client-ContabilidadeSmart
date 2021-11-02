@@ -1,28 +1,99 @@
 import IconsWrapper from 'components/IconsWrapper'
+import {
+  API_FACEBOOK,
+  API_LINKEDIN,
+  API_WHATSAPP,
+  LINK_SITE
+} from 'utils/globalVars'
 import * as S from './styles'
 
-const Compartilhe = () => (
-  <S.Wrapper>
-    <S.Title>Compartilhe com os amigos</S.Title>
+type PageTypes = 'categoria' | 'tag' | 'home'
+type SocialLinkTypes = 'facebook' | 'linkedin' | 'whatsapp'
 
-    <S.ListIconsWrapper>
-      <S.IconWrapper>
-        <IconsWrapper icon="Linkedin" />
-      </S.IconWrapper>
+export type CompartilheProps = {
+  pageType: PageTypes
+  slug?: string
+}
 
-      <S.IconWrapper>
-        <IconsWrapper icon="Facebook" />
-      </S.IconWrapper>
+const Compartilhe = ({ pageType, slug = '' }: CompartilheProps) => {
+  const pagesOperations = {
+    home: (api: string) => {
+      return `${api}${LINK_SITE}`
+    },
+    categoria: (api: string, slug: string) => {
+      return `${api}${LINK_SITE}/buscar?categorias=${slug}`
+    },
+    tag: (api: string, slug: string) => {
+      return `${api}${LINK_SITE}/buscar?tags=${slug}`
+    }
+  }
 
-      <S.IconWrapper>
-        <IconsWrapper icon="Telegram" />
-      </S.IconWrapper>
+  const operations = {
+    whatsapp: (pageType: PageTypes, slug: string) => {
+      const pageDefine = pagesOperations[pageType]
+      const pageResolved = pageDefine(API_WHATSAPP, slug)
 
-      <S.IconWrapper>
-        <IconsWrapper icon="Whatsapp" />
-      </S.IconWrapper>
-    </S.ListIconsWrapper>
-  </S.Wrapper>
-)
+      return pageResolved
+    },
+    linkedin: (pageType: PageTypes, slug: string) => {
+      const pageDefine = pagesOperations[pageType]
+      const pageResolved = pageDefine(API_LINKEDIN, slug)
 
+      return pageResolved
+    },
+    facebook: (pageType: PageTypes, slug: string) => {
+      const pageDefine = pagesOperations[pageType]
+      const pageResolved = pageDefine(API_FACEBOOK, slug)
+
+      return pageResolved
+    }
+  }
+
+  const resolveShareButton = (
+    pageType: PageTypes,
+    socialLink: SocialLinkTypes,
+    slug: string
+  ): string => {
+    const operationDefine = operations[socialLink]
+
+    const operationResolved = operationDefine(pageType, slug)
+
+    return operationResolved
+  }
+
+  return (
+    <S.Wrapper>
+      <S.Title>Compartilhe com os amigos</S.Title>
+
+      <S.ListIconsWrapper>
+        <a
+          href={resolveShareButton(pageType, 'facebook', slug)}
+          aria-label="Compartilhar no Facebook"
+        >
+          <S.IconWrapper>
+            <IconsWrapper icon="Facebook" />
+          </S.IconWrapper>
+        </a>
+
+        <a
+          href={resolveShareButton(pageType, 'linkedin', slug)}
+          aria-label="Compartilhar no linkedin"
+        >
+          <S.IconWrapper>
+            <IconsWrapper icon="Linkedin" />
+          </S.IconWrapper>
+        </a>
+
+        <a
+          href={resolveShareButton(pageType, 'whatsapp', slug)}
+          aria-label="Compartilhar no Whatsapp"
+        >
+          <S.IconWrapper>
+            <IconsWrapper icon="Whatsapp" />
+          </S.IconWrapper>
+        </a>
+      </S.ListIconsWrapper>
+    </S.Wrapper>
+  )
+}
 export default Compartilhe
