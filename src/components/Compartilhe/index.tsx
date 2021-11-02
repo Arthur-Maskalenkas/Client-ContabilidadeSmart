@@ -7,7 +7,7 @@ import {
 } from 'utils/globalVars'
 import * as S from './styles'
 
-type PageTypes = 'categoria' | 'tag' | 'home'
+type PageTypes = 'categoria' | 'tag' | 'home' | 'artigo'
 type SocialLinkTypes = 'facebook' | 'linkedin' | 'whatsapp'
 
 export type CompartilheProps = {
@@ -25,6 +25,9 @@ const Compartilhe = ({ pageType, slug = '' }: CompartilheProps) => {
     },
     tag: (api: string, slug: string) => {
       return `${api}${LINK_SITE}/buscar?tags=${slug}`
+    },
+    artigo: (api: string, slug: string) => {
+      return `${api}${LINK_SITE}/artigo/${slug}`
     }
   }
 

@@ -58,6 +58,17 @@ describe('<Compartilhe />', () => {
         `${API_WHATSAPP}${LINK_SITE}/buscar?tags=teste`
       )
     })
+
+    it('Vai renderizar um link para artigo no icone do Whatsapp', () => {
+      render(<Compartilhe pageType="artigo" slug="teste" />)
+
+      const whatsappIcon = screen.getByLabelText(/compartilhar no Whatsapp/i)
+
+      expect(whatsappIcon).toHaveAttribute(
+        'href',
+        `${API_WHATSAPP}${LINK_SITE}/artigo/teste`
+      )
+    })
   })
 
   describe('Facebook icon', () => {
@@ -93,6 +104,17 @@ describe('<Compartilhe />', () => {
         `${API_FACEBOOK}${LINK_SITE}/buscar?tags=teste`
       )
     })
+
+    it('Vai renderizar um link para artigo no icone do Facebook', () => {
+      render(<Compartilhe pageType="artigo" slug="teste" />)
+
+      const FacebookIcon = screen.getByLabelText(/compartilhar no Facebook/i)
+
+      expect(FacebookIcon).toHaveAttribute(
+        'href',
+        `${API_FACEBOOK}${LINK_SITE}/artigo/teste`
+      )
+    })
   })
 
   describe('Linkedin icon', () => {
@@ -126,6 +148,17 @@ describe('<Compartilhe />', () => {
       expect(LinkedinIcon).toHaveAttribute(
         'href',
         `${API_LINKEDIN}${LINK_SITE}/buscar?tags=teste`
+      )
+    })
+
+    it('Vai renderizar um link para artigo no icone do Linkedin', () => {
+      render(<Compartilhe pageType="artigo" slug="teste" />)
+
+      const LinkedinIcon = screen.getByLabelText(/compartilhar no Linkedin/i)
+
+      expect(LinkedinIcon).toHaveAttribute(
+        'href',
+        `${API_LINKEDIN}${LINK_SITE}/artigo/teste`
       )
     })
   })
