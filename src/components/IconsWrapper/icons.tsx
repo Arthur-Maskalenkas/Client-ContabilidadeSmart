@@ -20,9 +20,9 @@ import {
 } from '@styled-icons/fa-solid'
 
 export const IconsDefault = {
-  Facebook: <Facebook title="Facebook" role="svg" />,
+  Facebook: <Facebook role="svg" />,
   Whatsapp: <Whatsapp title="Whatsapp" role="svg" />,
-  Instagram: <Instagram title="Instagram" role="svg" />,
+  Instagram: <Instagram role="svg" />,
   Cubes: <Cubes title="Cubes" role="svg" />,
   Cog: <Cog title="Cog" role="svg" />,
   AmericanSignLanguageInterpreting: (
@@ -36,8 +36,8 @@ export const IconsDefault = {
   Child: <Child title="Child" role="svg" />,
   Youtube: <Youtube title="Youtube" role="svg" />,
   Laptop: <Laptop title="Laptop" role="svg" />,
-  Telegram: <Telegram title="Telegram" role="svg" />,
-  Linkedin: <Linkedin title="Linkedin" role="svg" />,
+  Telegram: <Telegram role="svg" />,
+  Linkedin: <Linkedin role="svg" />,
   NavigateNext: <NavigateNext title="next pagination" role="svg" />,
   NavigateBefore: <NavigateBefore title="before pagination" role="svg" />
 }
