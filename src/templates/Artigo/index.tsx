@@ -8,6 +8,9 @@ import { MenuUnitaryProps } from 'components/Menu'
 import { MenuAsideProps } from 'components/MenuAside'
 import { WidgetProps } from 'components/Widget'
 
+import { useAppDispatch, useAppSelector } from 'hooks/Store'
+import { paginaAtual } from 'store/features/pagina/paginaSlice'
+
 import * as S from './styles'
 
 export type ArtigoTemplateProps = {
@@ -31,6 +34,15 @@ const Artigo = ({
   menuAsideItems,
   menuData
 }: ArtigoTemplateProps) => {
+  const paginaAtualSelector = useAppSelector(
+    (state) => state.paginaSlice.paginaAtual
+  )
+  const dispatch = useAppDispatch()
+
+  dispatch(paginaAtual('categorias'))
+
+  console.log(paginaAtualSelector)
+
   return (
     <>
       <NextSeo
