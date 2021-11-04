@@ -15,7 +15,7 @@ export type CompartilheProps = {
   slug?: string
 }
 
-const Compartilhe = ({ pageType, slug = '' }: CompartilheProps) => {
+const Compartilhe = ({ pageType = 'artigo', slug = '' }: CompartilheProps) => {
   const pagesOperations = {
     home: (api: string) => {
       return `${api}${LINK_SITE}`
