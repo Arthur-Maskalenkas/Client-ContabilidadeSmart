@@ -1,5 +1,7 @@
 import IconsWrapper from 'components/IconsWrapper'
 
+import { useEffect, useState } from 'react'
+
 import { useAppSelector } from 'hooks/Store'
 
 import {
@@ -19,11 +21,16 @@ export type CompartilheProps = {
 }
 
 const Compartilhe = ({ pageType = 'artigo', slug = '' }: CompartilheProps) => {
+  const [paginaAtual, setPaginaAtual] = useState<PageTypes>('categorias')
+
   const paginaAtualSelector = useAppSelector(
     (state) => state.paginaSlice.paginaAtual
   )
+  console.log(paginaAtual)
 
-  console.log(paginaAtualSelector)
+  useEffect(() => {
+    setPaginaAtual(paginaAtualSelector)
+  }, [paginaAtualSelector])
 
   const pagesOperations = {
     home: (api: string) => {

@@ -4,7 +4,7 @@ import { RootState } from 'store/store'
 export type PageTypes = 'categorias' | 'tags' | 'home' | 'artigo'
 
 interface PaginaState {
-  paginaAtual: string
+  paginaAtual: PageTypes
 }
 
 const initialState: PaginaState = {

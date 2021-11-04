@@ -10,6 +10,7 @@ import { WidgetProps } from 'components/Widget'
 
 import { useAppDispatch, useAppSelector } from 'hooks/Store'
 import { paginaAtual } from 'store/features/pagina/paginaSlice'
+import { useEffect } from 'react'
 
 import * as S from './styles'
 
@@ -38,7 +39,15 @@ const Artigo = ({
     (state) => state.paginaSlice.paginaAtual
   )
   const dispatch = useAppDispatch()
-  dispatch(paginaAtual('artigo'))
+
+  const callEveryRender = () => 'a'
+
+  callEveryRender()
+
+  useEffect(() => {
+    dispatch(paginaAtual('artigo'))
+    console.log('ren-renderizado')
+  }, [callEveryRender])
 
   return (
     <>

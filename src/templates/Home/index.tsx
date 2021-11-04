@@ -22,6 +22,7 @@ import { WidgetProps } from 'components/Widget'
 
 import { paginaAtual } from 'store/features/pagina/paginaSlice'
 import { useAppDispatch } from 'hooks/Store'
+import { useEffect } from 'react'
 
 export type HomeTemplateProps = {
   bannerSliderData: BannerProps[]
@@ -32,7 +33,13 @@ export type HomeTemplateProps = {
 const Home = ({ bannerSliderData, widgets, menuData }: HomeTemplateProps) => {
   const dispatch = useAppDispatch()
 
-  dispatch(paginaAtual('home'))
+  const callEveryRender = () => 'a'
+
+  callEveryRender()
+
+  useEffect(() => {
+    dispatch(paginaAtual('home'))
+  }, [callEveryRender])
 
   return (
     <S.Wrapper>
