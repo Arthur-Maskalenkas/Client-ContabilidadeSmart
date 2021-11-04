@@ -1,4 +1,7 @@
 import IconsWrapper from 'components/IconsWrapper'
+
+import { useAppSelector } from 'hooks/Store'
+
 import {
   API_FACEBOOK,
   API_LINKEDIN,
@@ -16,6 +19,12 @@ export type CompartilheProps = {
 }
 
 const Compartilhe = ({ pageType = 'artigo', slug = '' }: CompartilheProps) => {
+  const paginaAtualSelector = useAppSelector(
+    (state) => state.paginaSlice.paginaAtual
+  )
+
+  console.log(paginaAtualSelector)
+
   const pagesOperations = {
     home: (api: string) => {
       return `${api}${LINK_SITE}`

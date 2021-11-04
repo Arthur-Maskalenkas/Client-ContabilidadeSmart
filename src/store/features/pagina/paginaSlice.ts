@@ -21,6 +21,7 @@ export const paginaSlice = createSlice({
   }
 })
 
+// o reducer que vai ser utilizado para dispath
 export const { paginaAtual } = paginaSlice.actions
 
 export const selectPagina = (state: RootState) => state.paginaSlice.paginaAtual

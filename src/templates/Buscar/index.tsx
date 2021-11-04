@@ -19,6 +19,9 @@ import BuscarButton from 'components/BuscarButton'
 import BuscarPost from 'components/BuscarPost'
 import BuscarPostLoading from 'components/BuscarPostLoading'
 
+import { useAppDispatch, useAppSelector } from 'hooks/Store'
+import { paginaAtual } from 'store/features/pagina/paginaSlice'
+
 export const POSTS_PER_PAGE = 3
 
 type TitleProps = {
@@ -41,6 +44,13 @@ const BuscarTemplate = ({
   menuAsideItems,
   menuData
 }: BuscarTemplateProps) => {
+  const paginaAtualSelector = useAppSelector(
+    (state) => state.paginaSlice.paginaAtual
+  )
+
+  const dispatch = useAppDispatch()
+  dispatch(paginaAtual(title.tipoDeBusca))
+
   const { query } = useRouter()
 
   const { data, loading, fetchMore } = useQueryPosts({

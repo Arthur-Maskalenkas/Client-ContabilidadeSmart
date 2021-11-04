@@ -20,6 +20,9 @@ import WidgetList from 'components/WidgetList'
 import { MenuUnitaryProps } from 'components/Menu'
 import { WidgetProps } from 'components/Widget'
 
+import { paginaAtual } from 'store/features/pagina/paginaSlice'
+import { useAppDispatch } from 'hooks/Store'
+
 export type HomeTemplateProps = {
   bannerSliderData: BannerProps[]
   widgets: WidgetProps[]
@@ -27,6 +30,10 @@ export type HomeTemplateProps = {
 }
 
 const Home = ({ bannerSliderData, widgets, menuData }: HomeTemplateProps) => {
+  const dispatch = useAppDispatch()
+
+  dispatch(paginaAtual('home'))
+
   return (
     <S.Wrapper>
       <Base menuData={menuData}>

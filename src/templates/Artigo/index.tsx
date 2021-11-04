@@ -38,10 +38,7 @@ const Artigo = ({
     (state) => state.paginaSlice.paginaAtual
   )
   const dispatch = useAppDispatch()
-
-  dispatch(paginaAtual('categorias'))
-
-  console.log(paginaAtualSelector)
+  dispatch(paginaAtual('artigo'))
 
   return (
     <>
