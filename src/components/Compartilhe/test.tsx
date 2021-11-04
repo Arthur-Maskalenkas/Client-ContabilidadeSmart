@@ -38,7 +38,7 @@ describe('<Compartilhe />', () => {
     })
 
     it('Vai renderizar um link para categorias no icone do Whatsapp', () => {
-      render(<Compartilhe pageType="categoria" slug="teste" />)
+      render(<Compartilhe pageType="categorias" slug="teste" />)
 
       const whatsappIcon = screen.getByLabelText(/compartilhar no Whatsapp/i)
 
@@ -49,7 +49,7 @@ describe('<Compartilhe />', () => {
     })
 
     it('Vai renderizar um link para tags no icone do Whatsapp', () => {
-      render(<Compartilhe pageType="tag" slug="teste" />)
+      render(<Compartilhe pageType="tags" slug="teste" />)
 
       const whatsappIcon = screen.getByLabelText(/compartilhar no Whatsapp/i)
 
@@ -84,7 +84,7 @@ describe('<Compartilhe />', () => {
     })
 
     it('Vai renderizar um link para categorias no icone do Facebook', () => {
-      render(<Compartilhe pageType="categoria" slug="teste" />)
+      render(<Compartilhe pageType="categorias" slug="teste" />)
 
       const FacebookIcon = screen.getByLabelText(/compartilhar no Facebook/i)
 
@@ -95,7 +95,7 @@ describe('<Compartilhe />', () => {
     })
 
     it('Vai renderizar um link para tags no icone do Facebook', () => {
-      render(<Compartilhe pageType="tag" slug="teste" />)
+      render(<Compartilhe pageType="tags" slug="teste" />)
 
       const FacebookIcon = screen.getByLabelText(/compartilhar no Facebook/i)
 
@@ -130,7 +130,7 @@ describe('<Compartilhe />', () => {
     })
 
     it('Vai renderizar um link para categorias no icone do Linkedin', () => {
-      render(<Compartilhe pageType="categoria" slug="teste" />)
+      render(<Compartilhe pageType="categorias" slug="teste" />)
 
       const LinkedinIcon = screen.getByLabelText(/compartilhar no Linkedin/i)
 
@@ -141,7 +141,7 @@ describe('<Compartilhe />', () => {
     })
 
     it('Vai renderizar um link para tags no icone do Linkedin', () => {
-      render(<Compartilhe pageType="tag" slug="teste" />)
+      render(<Compartilhe pageType="tags" slug="teste" />)
 
       const LinkedinIcon = screen.getByLabelText(/compartilhar no Linkedin/i)
 
