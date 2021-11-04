@@ -46,7 +46,6 @@ const Artigo = ({
 
   useEffect(() => {
     dispatch(paginaAtual('artigo'))
-    console.log('ren-renderizado')
   }, [callEveryRender])
 
   return (

@@ -20,17 +20,15 @@ export type CompartilheProps = {
   slug?: string
 }
 
-const Compartilhe = ({ pageType = 'artigo', slug = '' }: CompartilheProps) => {
+const Compartilhe = ({ slug = '' }: CompartilheProps) => {
   const [paginaAtual, setPaginaAtual] = useState<PageTypes>('categorias')
-
-  const paginaAtualSelector = useAppSelector(
+  const paginaAtualStorageSelector = useAppSelector(
     (state) => state.paginaSlice.paginaAtual
   )
-  console.log(paginaAtual)
 
   useEffect(() => {
-    setPaginaAtual(paginaAtualSelector)
-  }, [paginaAtualSelector])
+    setPaginaAtual(paginaAtualStorageSelector)
+  }, [paginaAtualStorageSelector])
 
   const pagesOperations = {
     home: (api: string) => {
@@ -69,13 +67,12 @@ const Compartilhe = ({ pageType = 'artigo', slug = '' }: CompartilheProps) => {
   }
 
   const resolveShareButton = (
-    pageType: PageTypes,
     socialLink: SocialLinkTypes,
     slug: string
   ): string => {
     const operationDefine = operations[socialLink]
 
-    const operationResolved = operationDefine(pageType, slug)
+    const operationResolved = operationDefine(paginaAtual, slug)
 
     return operationResolved
   }
@@ -86,7 +83,7 @@ const Compartilhe = ({ pageType = 'artigo', slug = '' }: CompartilheProps) => {
 
       <S.ListIconsWrapper>
         <a
-          href={resolveShareButton(pageType, 'facebook', slug)}
+          href={resolveShareButton('facebook', slug)}
           aria-label="Compartilhar no Facebook"
         >
           <S.IconWrapper>
@@ -95,7 +92,7 @@ const Compartilhe = ({ pageType = 'artigo', slug = '' }: CompartilheProps) => {
         </a>
 
         <a
-          href={resolveShareButton(pageType, 'linkedin', slug)}
+          href={resolveShareButton('linkedin', slug)}
           aria-label="Compartilhar no linkedin"
         >
           <S.IconWrapper>
@@ -104,7 +101,7 @@ const Compartilhe = ({ pageType = 'artigo', slug = '' }: CompartilheProps) => {
         </a>
 
         <a
-          href={resolveShareButton(pageType, 'whatsapp', slug)}
+          href={resolveShareButton('whatsapp', slug)}
           aria-label="Compartilhar no Whatsapp"
         >
           <S.IconWrapper>
