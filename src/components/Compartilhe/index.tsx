@@ -16,12 +16,11 @@ export type PageTypes = 'categorias' | 'tags' | 'home' | 'artigo'
 type SocialLinkTypes = 'facebook' | 'linkedin' | 'whatsapp'
 
 export type CompartilheProps = {
-  pageType: PageTypes
   slug?: string
 }
 
 const Compartilhe = ({ slug = '' }: CompartilheProps) => {
-  const [paginaAtual, setPaginaAtual] = useState<PageTypes>('categorias')
+  const [paginaAtual, setPaginaAtual] = useState<PageTypes>('home')
   const paginaAtualStorageSelector = useAppSelector(
     (state) => state.paginaSlice.paginaAtual
   )
