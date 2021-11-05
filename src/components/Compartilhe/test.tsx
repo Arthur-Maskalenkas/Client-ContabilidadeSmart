@@ -55,7 +55,7 @@ describe('<Compartilhe />', () => {
     it('Vai renderizar um link para categorias no icone do Whatsapp', () => {
       render(
         <Provider store={storePaginaCategoriasMock}>
-          <Compartilhe slug="teste" />
+          <Compartilhe />
         </Provider>
       )
 
@@ -70,7 +70,7 @@ describe('<Compartilhe />', () => {
     it('Vai renderizar um link para tags no icone do Whatsapp', () => {
       render(
         <Provider store={storePaginaTagsMock}>
-          <Compartilhe slug="teste" />
+          <Compartilhe />
         </Provider>
       )
 
@@ -85,7 +85,7 @@ describe('<Compartilhe />', () => {
     it('Vai renderizar um link para artigo no icone do Whatsapp', () => {
       render(
         <Provider store={storePaginaArtigoMock}>
-          <Compartilhe slug="teste" />
+          <Compartilhe />
         </Provider>
       )
 
@@ -117,7 +117,7 @@ describe('<Compartilhe />', () => {
     it('Vai renderizar um link para categorias no icone do Facebook', () => {
       render(
         <Provider store={storePaginaCategoriasMock}>
-          <Compartilhe slug="teste" />
+          <Compartilhe />
         </Provider>
       )
 
@@ -132,7 +132,7 @@ describe('<Compartilhe />', () => {
     it('Vai renderizar um link para tags no icone do Facebook', () => {
       render(
         <Provider store={storePaginaTagsMock}>
-          <Compartilhe slug="teste" />
+          <Compartilhe />
         </Provider>
       )
 
@@ -147,7 +147,7 @@ describe('<Compartilhe />', () => {
     it('Vai renderizar um link para artigo no icone do Facebook', () => {
       render(
         <Provider store={storePaginaArtigoMock}>
-          <Compartilhe slug="teste" />
+          <Compartilhe />
         </Provider>
       )
 
@@ -179,7 +179,7 @@ describe('<Compartilhe />', () => {
     it('Vai renderizar um link para categorias no icone do Linkedin', () => {
       render(
         <Provider store={storePaginaCategoriasMock}>
-          <Compartilhe slug="teste" />
+          <Compartilhe />
         </Provider>
       )
 
@@ -194,7 +194,7 @@ describe('<Compartilhe />', () => {
     it('Vai renderizar um link para tags no icone do Linkedin', () => {
       render(
         <Provider store={storePaginaTagsMock}>
-          <Compartilhe slug="teste" />
+          <Compartilhe />
         </Provider>
       )
 
@@ -209,7 +209,7 @@ describe('<Compartilhe />', () => {
     it('Vai renderizar um link para artigo no icone do Linkedin', () => {
       render(
         <Provider store={storePaginaArtigoMock}>
-          <Compartilhe slug="teste" />
+          <Compartilhe />
         </Provider>
       )
 
