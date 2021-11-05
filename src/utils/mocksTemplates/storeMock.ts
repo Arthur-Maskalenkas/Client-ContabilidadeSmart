@@ -37,37 +37,9 @@ function mockPaginaSliceConstructor(paginaAtual: PageTypes) {
   return paginaSlice.reducer
 }
 
-const storePaginaCategoriasMock = configureStore({
-  reducer: {
-    paginaSlice: mockPaginaSliceConstructor('categorias'),
-    slugSlice: mockSlugSliceConstructor()
-  }
-})
-
-const storePaginaTagsMock = configureStore({
-  reducer: {
-    paginaSlice: mockPaginaSliceConstructor('tags'),
-    slugSlice: mockSlugSliceConstructor()
-  }
-})
-
-const storePaginaHomeMock = configureStore({
+export const mockStoreDefault = configureStore({
   reducer: {
     paginaSlice: mockPaginaSliceConstructor('home'),
     slugSlice: mockSlugSliceConstructor()
   }
 })
-
-const storePaginaArtigoMock = configureStore({
-  reducer: {
-    paginaSlice: mockPaginaSliceConstructor('artigo'),
-    slugSlice: mockSlugSliceConstructor()
-  }
-})
-
-export {
-  storePaginaCategoriasMock,
-  storePaginaArtigoMock,
-  storePaginaTagsMock,
-  storePaginaHomeMock
-}

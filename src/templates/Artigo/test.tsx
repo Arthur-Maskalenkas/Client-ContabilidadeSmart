@@ -4,6 +4,8 @@ import Artigo, { ArtigoTemplateProps } from '.'
 import { menuasideMock } from 'utils/mocksTemplates/menuAsideMock'
 import { widgetsMock } from 'utils/mocksTemplates/widgets'
 import { menuDataMock } from 'utils/mocksTemplates/menuDataMock'
+import { Provider } from 'react-redux'
+import { mockStoreDefault } from 'utils/mocksTemplates/storeMock'
 
 jest.mock('templates/BaseUpgraded', () => ({
   __esModule: true,
@@ -43,7 +45,11 @@ const props: ArtigoTemplateProps = {
 
 describe('<Artigo />', () => {
   it('should render the heading', () => {
-    render(<Artigo {...props} />)
+    render(
+      <Provider store={mockStoreDefault}>
+        <Artigo {...props} />
+      </Provider>
+    )
 
     expect(screen.getByTestId(/Mock BaseUpgraded/i)).toBeInTheDocument()
     expect(screen.getByTestId(/mock bannerpage/i)).toBeInTheDocument()

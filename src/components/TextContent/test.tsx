@@ -3,6 +3,9 @@ import theme from 'styles/theme'
 
 import TextContent, { TextContentProps } from '.'
 
+import { Provider } from 'react-redux'
+import { mockStoreDefault } from 'utils/mocksTemplates/storeMock'
+
 const props: TextContentProps = {
   title: 'Description',
   content: '<h1>content</h1>'
@@ -10,7 +13,11 @@ const props: TextContentProps = {
 
 describe('<TextContent />', () => {
   it('vai renderizar o titulo e o conteudo', () => {
-    render(<TextContent {...props} />)
+    render(
+      <Provider store={mockStoreDefault}>
+        <TextContent {...props} />
+      </Provider>
+    )
 
     expect(
       screen.getByRole('heading', {
@@ -24,7 +31,11 @@ describe('<TextContent />', () => {
   })
 
   it('vai renderizar com o titulo e sem o conteudo', () => {
-    render(<TextContent title="um titulo" content={props.content} />)
+    render(
+      <Provider store={mockStoreDefault}>
+        <TextContent title="um titulo" content={props.content} />
+      </Provider>
+    )
 
     expect(
       screen.queryByRole('heading', {
@@ -38,7 +49,11 @@ describe('<TextContent />', () => {
   })
 
   it('vai renderizar ', () => {
-    render(<TextContent {...props} />)
+    render(
+      <Provider store={mockStoreDefault}>
+        <TextContent {...props} />
+      </Provider>
+    )
 
     // É dentro do wrapper que tem os estilos. ELe passa para os outros, mas é ele que tem os estilos
     const wrapper = screen.getByRole('heading', {

@@ -8,6 +8,8 @@ import mockBannerSlider from 'components/BannerSlider/mock'
 
 import { menuDataMock } from 'utils/mocksTemplates/menuDataMock'
 import { widgetsMock } from 'utils/mocksTemplates/widgets'
+import { mockStoreDefault } from 'utils/mocksTemplates/storeMock'
+import { Provider } from 'react-redux'
 
 jest.mock('templates/Base', () => ({
   __esModule: true,
@@ -59,7 +61,11 @@ const props: HomeTemplateProps = {
 
 describe('<Home />', () => {
   it('deve renderizar os componentes e textos', () => {
-    render(<Home {...props} />)
+    render(
+      <Provider store={mockStoreDefault}>
+        <Home {...props} />
+      </Provider>
+    )
 
     expect(screen.getByTestId(/mock Base/i)).toBeInTheDocument()
     expect(screen.getByTestId(/mock Bannerslider/i)).toBeInTheDocument()

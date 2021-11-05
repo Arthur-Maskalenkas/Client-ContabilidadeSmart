@@ -7,6 +7,9 @@ import mockMaisVistos from 'components/MaisVistos/mock'
 
 import MenuAside from '.'
 
+import { Provider } from 'react-redux'
+import { mockStoreDefault } from 'utils/mocksTemplates/storeMock'
+
 jest.mock('components/Logo', () => ({
   __esModule: true,
   default: function Mock() {
@@ -42,11 +45,13 @@ const maisVistosMock = mockMaisVistos
 describe('<MenuAside />', () => {
   it('should render the heading', () => {
     render(
-      <MenuAside
-        maisVistosData={maisVistosMock}
-        menuData={navigationMock.items}
-        tagsData={tagsMock}
-      />
+      <Provider store={mockStoreDefault}>
+        <MenuAside
+          maisVistosData={maisVistosMock}
+          menuData={navigationMock.items}
+          tagsData={tagsMock}
+        />
+      </Provider>
     )
 
     expect(screen.getByTestId('mock tag')).toBeInTheDocument()

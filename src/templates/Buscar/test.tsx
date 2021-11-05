@@ -1,7 +1,9 @@
 import { MockedProvider } from '@apollo/client/testing'
+import { Provider } from 'react-redux'
 
 import { menuasideMock } from 'utils/mocksTemplates/menuAsideMock'
 import { menuDataMock } from 'utils/mocksTemplates/menuDataMock'
+import { mockStoreDefault } from 'utils/mocksTemplates/storeMock'
 import { widgetsMock } from 'utils/mocksTemplates/widgets'
 import { render, screen } from 'utils/test-utils'
 
@@ -53,7 +55,9 @@ describe('<Buscar />', () => {
   it('Vai inciar com um loading', () => {
     render(
       <MockedProvider mocks={[postMock]} addTypename={false}>
-        <Buscar {...props} />
+        <Provider store={mockStoreDefault}>
+          <Buscar {...props} />
+        </Provider>
       </MockedProvider>
     )
 
@@ -63,7 +67,9 @@ describe('<Buscar />', () => {
   it('Vai renderizar o template após o loading', async () => {
     render(
       <MockedProvider mocks={[postMock]}>
-        <Buscar {...props} />
+        <Provider store={mockStoreDefault}>
+          <Buscar {...props} />
+        </Provider>
       </MockedProvider>
     )
 
