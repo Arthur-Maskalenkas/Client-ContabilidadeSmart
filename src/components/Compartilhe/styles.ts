@@ -12,26 +12,52 @@ export const Title = styled.h2`
 
 export const ListIconsWrapper = styled.div`
   display: flex;
+
+  a:not(:first-child) {
+    margin-left: 20px;
+  }
 `
 
 export const IconWrapper = styled.div`
   ${({ theme }) => css`
     position: relative;
-    width: max-content;
     border-radius: 25%;
-    padding: 0.4rem;
+    padding: 0 0.9rem;
     color: ${theme.colors.white};
     background-color: #3dafed;
 
-    cursor: pointer;
-
-    &:not(:first-child) {
-      margin-left: ${theme.spacings.xxxsmall};
+    svg:last-child {
+      width: 2rem;
+      color: ${theme.colors.white};
+      background-color: #3dafed;
     }
-    svg {
-      position: absolute;
-      width: 3rem;
-      top: -0.2rem;
+    &:hover {
+      animation-name: shake;
+      animation-duration: 0.8s;
+      animation-fill-mode: both;
+    }
+
+    @keyframes shake {
+      0%,
+      100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+      10%,
+      30%,
+      50%,
+      70%,
+      90% {
+        -webkit-transform: translate3d(-2px, 0, 0);
+        transform: translate3d(-2px, 0, 0);
+      }
+      20%,
+      40%,
+      60%,
+      80% {
+        -webkit-transform: translate3d(2px, 0, 0);
+        transform: translate3d(2px, 0, 0);
+      }
     }
   `}
 `
