@@ -1,6 +1,7 @@
 import { QueryBannersHome_home_bannerHome } from 'graphql/generated/QueryBannersHome'
 import { QueryMenu_menus } from 'graphql/generated/QueryMenu'
 import {
+  queryMenuAside_menuAsideDestaques,
   queryMenuAside_menuAsideMaisVistos,
   queryMenuAside_menuAsideTags
 } from 'graphql/generated/queryMenuAside'
@@ -104,6 +105,17 @@ export const maisVistosMapper = (
 ) => {
   return maisVistos
     ? maisVistos.map((item) => ({
+        title: item.post?.title,
+        slug: item.post?.slug
+      }))
+    : []
+}
+
+export const destaquesMapper = (
+  destaques: queryMenuAside_menuAsideDestaques[]
+) => {
+  return destaques
+    ? destaques.map((item) => ({
         title: item.post?.title,
         slug: item.post?.slug
       }))

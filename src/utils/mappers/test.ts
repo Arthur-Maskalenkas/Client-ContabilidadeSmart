@@ -1,6 +1,7 @@
 import {
   bannerPageMapper,
   bannerSliderMapper,
+  destaquesMapper,
   maisVistosMapper,
   menuMapper,
   tagsMapper,
@@ -27,6 +28,7 @@ import { MenuUnitaryProps } from 'components/Menu'
 import { QueryBannersHome_home_bannerHome } from 'graphql/generated/QueryBannersHome'
 import { BannerProps } from 'components/Banner'
 import {
+  queryMenuAside_menuAsideDestaques,
   queryMenuAside_menuAsideMaisVistos,
   queryMenuAside_menuAsideTags
 } from 'graphql/generated/queryMenuAside'
@@ -201,6 +203,28 @@ describe('maisVistosMapper()', () => {
     }
 
     expect(maisVistosMapper(valueApi)).toStrictEqual([expectValue])
+  })
+})
+
+describe('destaquesMapper()', () => {
+  it('retorna o valor completamente mapeado de uma sessão de destaques', () => {
+    const valueApi: queryMenuAside_menuAsideDestaques[] = [
+      {
+        __typename: 'Destaques',
+        post: {
+          __typename: 'Post',
+          title: 'o title de uma sessão de destaque',
+          slug: 'o slug de uma sessão de destaque'
+        }
+      }
+    ]
+
+    const expectValue: MaisVistoProps = {
+      title: 'o title de uma sessão de destaque',
+      slug: 'o slug de uma sessão de destaque'
+    }
+
+    expect(destaquesMapper(valueApi)).toStrictEqual([expectValue])
   })
 })
 
