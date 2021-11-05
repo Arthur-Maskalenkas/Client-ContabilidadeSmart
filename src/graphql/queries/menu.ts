@@ -32,6 +32,13 @@ export const QUERY_MENUASIDE = gql`
       }
     }
 
+    menuAsideDestaques: destaques(limit: 5) {
+      post {
+        title
+        slug
+      }
+    }
+
     menuAsideMenu: menus {
       title
       slug

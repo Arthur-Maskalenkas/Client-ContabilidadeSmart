@@ -30,6 +30,17 @@ export interface queryMenuAside_menuAsideMaisVistos {
   post: queryMenuAside_menuAsideMaisVistos_post | null;
 }
 
+export interface queryMenuAside_menuAsideDestaques_post {
+  __typename: "Post";
+  title: string;
+  slug: string;
+}
+
+export interface queryMenuAside_menuAsideDestaques {
+  __typename: "Destaques";
+  post: queryMenuAside_menuAsideDestaques_post | null;
+}
+
 export interface queryMenuAside_menuAsideMenu_menu_options_post {
   __typename: "Post";
   slug: string;
@@ -51,5 +62,6 @@ export interface queryMenuAside_menuAsideMenu {
 export interface queryMenuAside {
   menuAsideTags: queryMenuAside_menuAsideTags[];
   menuAsideMaisVistos: queryMenuAside_menuAsideMaisVistos[];
+  menuAsideDestaques: queryMenuAside_menuAsideDestaques[];
   menuAsideMenu: queryMenuAside_menuAsideMenu[];
 }
