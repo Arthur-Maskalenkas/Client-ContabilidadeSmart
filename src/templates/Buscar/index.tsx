@@ -22,6 +22,7 @@ import BuscarPostLoading from 'components/BuscarPostLoading'
 import { useAppDispatch } from 'hooks/Store'
 import { paginaAtual } from 'store/features/pagina/paginaSlice'
 import { useEffect } from 'react'
+import { slugAtual } from 'store/features/slug/slugSlice'
 
 export const POSTS_PER_PAGE = 3
 
@@ -53,6 +54,7 @@ const BuscarTemplate = ({
 
   useEffect(() => {
     dispatch(paginaAtual(title.tipoDeBusca))
+    dispatch(slugAtual(title.parametroDeBusca))
   }, [callEveryRender])
 
   const { query } = useRouter()

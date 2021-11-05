@@ -8,11 +8,12 @@ import { MenuUnitaryProps } from 'components/Menu'
 import { MenuAsideProps } from 'components/MenuAside'
 import { WidgetProps } from 'components/Widget'
 
-import { useAppDispatch, useAppSelector } from 'hooks/Store'
+import { useAppDispatch } from 'hooks/Store'
 import { paginaAtual } from 'store/features/pagina/paginaSlice'
 import { useEffect } from 'react'
 
 import * as S from './styles'
+import { slugAtual } from 'store/features/slug/slugSlice'
 
 export type ArtigoTemplateProps = {
   slug?: string
@@ -35,9 +36,6 @@ const Artigo = ({
   menuAsideItems,
   menuData
 }: ArtigoTemplateProps) => {
-  const paginaAtualSelector = useAppSelector(
-    (state) => state.paginaSlice.paginaAtual
-  )
   const dispatch = useAppDispatch()
 
   const callEveryRender = () => 'a'
@@ -46,6 +44,7 @@ const Artigo = ({
 
   useEffect(() => {
     dispatch(paginaAtual('artigo'))
+    dispatch(slugAtual(slug || ''))
   }, [callEveryRender])
 
   return (
