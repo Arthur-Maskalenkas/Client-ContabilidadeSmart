@@ -11,14 +11,32 @@
 import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { PageTypes } from 'store/features/pagina/paginaSlice'
 
-function mockSliceConstructor(paginaAtual: PageTypes) {
-  const initialState = {
+function mockSlugSliceConstructor() {
+  const initialStateSlug = {
+    slugAtual: 'teste'
+  }
+
+  const slugSlice = createSlice({
+    name: 'slug',
+    initialState: initialStateSlug,
+    reducers: {
+      slugAtual: (state, action: PayloadAction<string>) => {
+        state.slugAtual = action.payload
+      }
+    }
+  })
+
+  return slugSlice.reducer
+}
+
+function mockPaginaSliceConstructor(paginaAtual: PageTypes) {
+  const initialStatePagina = {
     paginaAtual: paginaAtual
   }
 
   const paginaSlice = createSlice({
     name: 'pagina',
-    initialState,
+    initialState: initialStatePagina,
     reducers: {
       paginaAtual: (state, action: PayloadAction<PageTypes>) => {
         state.paginaAtual = action.payload
@@ -30,19 +48,31 @@ function mockSliceConstructor(paginaAtual: PageTypes) {
 }
 
 const storePaginaCategoriasMock = configureStore({
-  reducer: { paginaSlice: mockSliceConstructor('categorias') }
+  reducer: {
+    paginaSlice: mockPaginaSliceConstructor('categorias'),
+    slugSlice: mockSlugSliceConstructor()
+  }
 })
 
 const storePaginaTagsMock = configureStore({
-  reducer: { paginaSlice: mockSliceConstructor('tags') }
+  reducer: {
+    paginaSlice: mockPaginaSliceConstructor('tags'),
+    slugSlice: mockSlugSliceConstructor()
+  }
 })
 
 const storePaginaHomeMock = configureStore({
-  reducer: { paginaSlice: mockSliceConstructor('home') }
+  reducer: {
+    paginaSlice: mockPaginaSliceConstructor('home'),
+    slugSlice: mockSlugSliceConstructor()
+  }
 })
 
 const storePaginaArtigoMock = configureStore({
-  reducer: { paginaSlice: mockSliceConstructor('artigo') }
+  reducer: {
+    paginaSlice: mockPaginaSliceConstructor('artigo'),
+    slugSlice: mockSlugSliceConstructor()
+  }
 })
 
 export {
