@@ -13,10 +13,10 @@ import MediaWatch from 'components/MediaWatch'
 export type MenuAsideProps = {
   menuData: MenuUnitaryProps[]
   tagsData: TagProps[]
-  maisVistosData: MaisVistoProps[]
+  destaquesData: MaisVistoProps[]
 }
 
-const MenuAside = ({ menuData, tagsData, maisVistosData }: MenuAsideProps) => (
+const MenuAside = ({ menuData, tagsData, destaquesData }: MenuAsideProps) => (
   <S.Wrapper>
     <MediaWatch greaterThan="large">
       <Logo size="small" />
@@ -41,10 +41,10 @@ const MenuAside = ({ menuData, tagsData, maisVistosData }: MenuAsideProps) => (
 
     <S.MenuContainer>
       <S.TitleWrapper>
-        <S.Title>Mais vistos na semana</S.Title>
+        <S.Title>Destaques</S.Title>
       </S.TitleWrapper>
       <S.ContentWrapper>
-        <MaisVistos items={maisVistosData} />
+        <MaisVistos items={destaquesData} />
       </S.ContentWrapper>
     </S.MenuContainer>
 

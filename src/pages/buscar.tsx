@@ -52,10 +52,20 @@ export async function getServerSideProps({
 
   //  Menuaside
   const {
-    data: { menuAsideMaisVistos, menuAsideMenu, menuAsideTags }
+    data: {
+      menuAsideMaisVistos,
+      menuAsideMenu,
+      menuAsideTags,
+      menuAsideDestaques
+    }
   } = await apolloClient.query<queryMenuAside>({ query: QUERY_MENUASIDE })
 
-  const menuAsideData = { menuAsideMaisVistos, menuAsideMenu, menuAsideTags }
+  const menuAsideData = {
+    menuAsideMaisVistos,
+    menuAsideMenu,
+    menuAsideTags,
+    menuAsideDestaques
+  }
 
   // Menu data
   const {
