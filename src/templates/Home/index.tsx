@@ -12,7 +12,6 @@ import RecursosCardsList from 'components/RecursosCardsList'
 
 import mockServicesCards from 'components/ServicesCardsList/mock'
 import mockRecursosCards from 'components/RecursosCardsList/mock'
-import mockSocialBannerSlides from 'components/SocialBannerSlides/mock'
 
 import { BannerProps } from 'components/Banner'
 
@@ -82,7 +81,7 @@ const Home = ({ bannerSliderData, widgets, menuData }: HomeTemplateProps) => {
               informações que vai ajudar no desenvolvimento da sua empresa.
             </S.Description>
 
-            <SocialBannerSlides items={mockSocialBannerSlides} />
+            <SocialBannerSlides />
           </Container>
         </S.SocialBannerSection>
 

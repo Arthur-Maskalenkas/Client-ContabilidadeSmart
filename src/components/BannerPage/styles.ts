@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const ImageWrapper = styled.div`
+export const ImageWrapper = styled.a`
   ${({ theme }) => css`
     position: relative;
     height: 45rem;

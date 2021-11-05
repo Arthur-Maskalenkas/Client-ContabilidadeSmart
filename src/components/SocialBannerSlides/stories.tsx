@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import SocialBannerSlides, { SocialBannerSlidesProps } from '.'
+import SocialBannerSlides from '.'
 
 import items from './mock'
 
@@ -8,7 +8,7 @@ export default {
   component: SocialBannerSlides
 } as Meta
 
-export const Default: Story<SocialBannerSlidesProps> = (args) => (
+export const Default: Story = (args) => (
   <div
     style={{
       width: '90rem',

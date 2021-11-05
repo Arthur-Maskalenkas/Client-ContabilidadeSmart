@@ -6,6 +6,7 @@ import * as LogoStyles from 'components/Logo/styles'
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     background-color: ${theme.colors.darkGray};
+    overflow: hidden;
   `}
 `
 

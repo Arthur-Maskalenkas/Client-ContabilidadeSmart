@@ -4,7 +4,8 @@ import SocialBanner, { SocialBannerProps } from '.'
 
 const props: SocialBannerProps = {
   img: 'img/socialBanners/Facebook.jpg',
-  altImg: 'Facebook'
+  altImg: 'Facebook',
+  SocialLink: 'facebook.com'
 }
 
 describe('<SocialBanner />', () => {
@@ -12,5 +13,10 @@ describe('<SocialBanner />', () => {
     render(<SocialBanner {...props} />)
 
     expect(screen.getByAltText(/facebook/i)).toBeInTheDocument()
+
+    expect(screen.getByAltText(/facebook/i).parentElement).toHaveAttribute(
+      'href',
+      '/facebook.com'
+    )
   })
 })

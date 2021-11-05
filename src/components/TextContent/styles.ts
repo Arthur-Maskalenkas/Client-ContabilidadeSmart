@@ -4,6 +4,7 @@ import * as CompartilheStyles from 'components/Compartilhe/styles'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
+    overflow: hidden;
     color: ${theme.colors.black};
 
     ${CompartilheStyles.Wrapper} {

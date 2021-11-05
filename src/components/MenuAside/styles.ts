@@ -4,15 +4,13 @@ export const Wrapper = styled.aside``
 
 export const MenuContainer = styled.div`
   ${({ theme }) => css`
+    margin-top: ${theme.spacings.small};
+
     background-color: ${theme.colors.white};
 
     box-shadow: ${theme.shadow.card};
 
     margin-bottom: ${theme.spacings.small};
-
-    &:first-child {
-      box-shadow: none;
-    }
   `}
 `
 

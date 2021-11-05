@@ -11,6 +11,7 @@ exports[`<HeadingPage /> vai renderizar o componente 1`] = `
 
 .c0 {
   background-color: #3F4350;
+  overflow: hidden;
 }
 
 .c2 {
