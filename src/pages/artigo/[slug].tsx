@@ -22,23 +22,6 @@ import { QUERY_WIDGETS } from 'graphql/queries/widgets'
 import { queryMenuAside } from 'graphql/generated/queryMenuAside'
 import { menuAsideItemsPropsConstructor } from 'utils/propsNext/menuAsideItems'
 import { widgetItemsPropsConstructor } from 'utils/propsNext/widgetItems'
-import {
-  QueryMaisVistos,
-  QueryMaisVistosVariables
-} from 'graphql/generated/QueryMaisVistos'
-import { QUERY_POSTS_MAIS_VISTO_BY_SLUG } from 'graphql/queries/postsMaisVistos'
-import {
-  MUTATION_CREATE_POSTS_MAIS_VISTO,
-  MUTATION_UPDATE_POSTS_MAIS_VISTO
-} from 'graphql/mutations/postsMaisVistos'
-import {
-  CreatePostsMaisVistos,
-  CreatePostsMaisVistosVariables
-} from 'graphql/generated/CreatePostsMaisVistos'
-import {
-  UpdatePostsMaisVistos,
-  UpdatePostsMaisVistosVariables
-} from 'graphql/generated/UpdatePostsMaisVistos'
 
 // Inicializando por fora para usar no get e no server
 const apolloClient = initializeApollo()
@@ -75,39 +58,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     variables: { slug: `${params?.slug}` },
     fetchPolicy: 'no-cache'
   })
-
-  // MUTATION
-
-  const {
-    data: { postsMaisVistos }
-  } = await apolloClient.query<QueryMaisVistos, QueryMaisVistosVariables>({
-    query: QUERY_POSTS_MAIS_VISTO_BY_SLUG,
-    variables: { slug: `${params?.slug}` },
-    fetchPolicy: 'no-cache'
-  })
-
-  if (!postsMaisVistos.length) {
-    await apolloClient.mutate<
-      CreatePostsMaisVistos,
-      CreatePostsMaisVistosVariables
-    >({
-      mutation: MUTATION_CREATE_POSTS_MAIS_VISTO,
-      variables: { postId: data.posts[0].id, slug: data.posts[0].slug }
-    })
-  } else {
-    await apolloClient.mutate<
-      UpdatePostsMaisVistos,
-      UpdatePostsMaisVistosVariables
-    >({
-      mutation: MUTATION_UPDATE_POSTS_MAIS_VISTO,
-      variables: {
-        postId: postsMaisVistos[0].id,
-        visitas: (postsMaisVistos[0]?.visitas || 1) + 1
-      }
-    })
-  }
-
-  // MUTATION
 
   // Retornando pagina de erro caso não encontre nada na query
   if (!data.posts.length) {

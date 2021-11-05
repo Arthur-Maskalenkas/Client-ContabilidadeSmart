@@ -1,5 +1,6 @@
 import { QueryMenu_menus } from 'graphql/generated/QueryMenu'
 import {
+  queryMenuAside_menuAsideDestaques,
   queryMenuAside_menuAsideMaisVistos,
   queryMenuAside_menuAsideTags
 } from 'graphql/generated/queryMenuAside'
@@ -34,6 +35,17 @@ describe('menuAsideItemsPropsConstructor()', () => {
       }
     ]
 
+    const menuAsideDestaques: queryMenuAside_menuAsideDestaques[] = [
+      {
+        __typename: 'Destaques',
+        post: {
+          __typename: 'Post',
+          title: 'o title de uma sessão de destaque',
+          slug: 'o slug de uma sessão de destaque'
+        }
+      }
+    ]
+
     const menuAsideTags: queryMenuAside_menuAsideTags[] = [
       {
         __typename: 'Tag',
@@ -44,7 +56,12 @@ describe('menuAsideItemsPropsConstructor()', () => {
     ]
 
     // Vai chegar tudo misturado
-    const dataApi = { menuAsideMenu, menuAsideMaisVistos, menuAsideTags }
+    const dataApi = {
+      menuAsideMenu,
+      menuAsideMaisVistos,
+      menuAsideTags,
+      menuAsideDestaques
+    }
 
     const expectValue = menuAsideItemsPropsConstructor(dataApi)
 
@@ -65,6 +82,12 @@ describe('menuAsideItemsPropsConstructor()', () => {
         {
           title: 'o slug de uma sessão de mais visto',
           slug: 'o slug de uma sessão de mais visto'
+        }
+      ],
+      destaquesData: [
+        {
+          title: 'o title de uma sessão de destaque',
+          slug: 'o slug de uma sessão de destaque'
         }
       ],
       tagsData: [
