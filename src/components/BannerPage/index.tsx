@@ -33,7 +33,6 @@ const BannerPage = ({
             src={resolvePathTrue(backgroundImage!, IMAGE_NOT_FOUND)}
             alt={altImage}
             layout="fill"
-            objectFit="cover"
           />
           <S.Overlay />
           <S.ImageDetails>{`${dataFormatada} | By Contabilidade Smart `}</S.ImageDetails>

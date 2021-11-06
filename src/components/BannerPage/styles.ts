@@ -8,14 +8,6 @@ export const ImageWrapper = styled.a`
     display: flex;
     cursor: pointer;
 
-    img {
-      cursor: pointer;
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-    }
-
     ${ImageDetails}, ${Overlay} {
       transition: 0.7s all;
     }
