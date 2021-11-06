@@ -1,7 +1,6 @@
 import { QueryMenu_menus } from 'graphql/generated/QueryMenu'
 import {
   queryMenuAside_menuAsideDestaques,
-  queryMenuAside_menuAsideMaisVistos,
   queryMenuAside_menuAsideTags
 } from 'graphql/generated/queryMenuAside'
 
@@ -22,16 +21,6 @@ describe('menuAsideItemsPropsConstructor()', () => {
             post: { slug: 'um slug do post do dropdown', __typename: 'Post' }
           }
         ]
-      }
-    ]
-    const menuAsideMaisVistos: queryMenuAside_menuAsideMaisVistos[] = [
-      {
-        __typename: 'PostsMaisVistos',
-        post: {
-          __typename: 'Post',
-          title: 'o slug de uma sessão de mais visto',
-          slug: 'o slug de uma sessão de mais visto'
-        }
       }
     ]
 
@@ -58,7 +47,6 @@ describe('menuAsideItemsPropsConstructor()', () => {
     // Vai chegar tudo misturado
     const dataApi = {
       menuAsideMenu,
-      menuAsideMaisVistos,
       menuAsideTags,
       menuAsideDestaques
     }
@@ -76,12 +64,6 @@ describe('menuAsideItemsPropsConstructor()', () => {
               slug: 'um slug do post do dropdown'
             }
           ]
-        }
-      ],
-      maisVistosData: [
-        {
-          title: 'o slug de uma sessão de mais visto',
-          slug: 'o slug de uma sessão de mais visto'
         }
       ],
       destaquesData: [

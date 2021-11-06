@@ -25,13 +25,6 @@ export const QUERY_MENUASIDE = gql`
       }
     }
 
-    menuAsideMaisVistos: postsMaisVistos(limit: 5, sort: "visitas:desc") {
-      post {
-        title
-        slug
-      }
-    }
-
     menuAsideDestaques: destaques(limit: 5) {
       post {
         title

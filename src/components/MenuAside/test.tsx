@@ -3,7 +3,7 @@ import { render, screen } from 'utils/test-utils'
 
 import mockNavigationAside from 'components/NavigationAside/mock'
 import mockTags from 'components/Tags/mock'
-import mockMaisVistos from 'components/MaisVistos/mock'
+import mockDestaques from 'components/Destaques/mock'
 
 import MenuAside from '.'
 
@@ -31,7 +31,7 @@ jest.mock('components/NavigationAside', () => ({
   }
 }))
 
-jest.mock('components/MaisVistos', () => ({
+jest.mock('components/Destaques', () => ({
   __esModule: true,
   default: function Mock() {
     return <div data-testid="mock mais vistos" />
@@ -40,14 +40,14 @@ jest.mock('components/MaisVistos', () => ({
 
 const navigationMock = mockNavigationAside
 const tagsMock = mockTags
-const maisVistosMock = mockMaisVistos
+const destaquesMock = mockDestaques
 
 describe('<MenuAside />', () => {
   it('should render the heading', () => {
     render(
       <Provider store={mockStoreDefault}>
         <MenuAside
-          maisVistosData={maisVistosMock}
+          destaquesData={destaquesMock}
           menuData={navigationMock.items}
           tagsData={tagsMock}
         />

@@ -2,16 +2,16 @@ import LinkLi from 'components/LinkLi'
 import { resolveUrl } from 'utils/resolveUrl'
 import * as S from './styles'
 
-export type MaisVistoProps = {
+export type DestaqueProps = {
   title: string
   slug: string
 }
 
-export type MaisVistosProps = {
-  items: MaisVistoProps[]
+export type DestaquesProps = {
+  items: DestaqueProps[]
 }
 
-const MaisVistos = ({ items }: MaisVistosProps) => (
+const Destaques = ({ items }: DestaquesProps) => (
   <S.Wrapper>
     {items?.map((item, index) => (
       <LinkLi
@@ -24,4 +24,4 @@ const MaisVistos = ({ items }: MaisVistosProps) => (
   </S.Wrapper>
 )
 
-export default MaisVistos
+export default Destaques

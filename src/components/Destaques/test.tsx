@@ -2,11 +2,11 @@ import { render, screen } from 'utils/test-utils'
 
 import mock from './mock'
 
-import MaisVistos from '.'
+import Destaques from '.'
 
-describe('<MaisVistos />', () => {
+describe('<Destaques />', () => {
   it('should render the heading', () => {
-    render(<MaisVistos items={mock} />)
+    render(<Destaques items={mock} />)
 
     expect(
       screen.getByRole('link', {

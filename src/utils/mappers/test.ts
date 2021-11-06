@@ -2,7 +2,6 @@ import {
   bannerPageMapper,
   bannerSliderMapper,
   destaquesMapper,
-  maisVistosMapper,
   menuMapper,
   tagsMapper,
   widgetCategoriasMapper,
@@ -29,13 +28,12 @@ import { QueryBannersHome_home_bannerHome } from 'graphql/generated/QueryBanners
 import { BannerProps } from 'components/Banner'
 import {
   queryMenuAside_menuAsideDestaques,
-  queryMenuAside_menuAsideMaisVistos,
   queryMenuAside_menuAsideTags
 } from 'graphql/generated/queryMenuAside'
 import { TagProps } from 'components/Tags'
-import { MaisVistoProps } from 'components/MaisVistos'
 import { queryPostsBySlug_posts } from 'graphql/generated/queryPostsBySlug'
 import { BannerPageProps } from 'components/BannerPage'
+import { DestaqueProps } from 'components/Destaques'
 
 describe('menuMapper()', () => {
   it('retorna o valor certo completamente mapeado de um menu', () => {
@@ -184,28 +182,6 @@ describe('bannerSliderMapper()', () => {
   })
 })
 
-describe('maisVistosMapper()', () => {
-  it('retorna o valor completamente mapeado de uma sessão de mais vistos', () => {
-    const valueApi: queryMenuAside_menuAsideMaisVistos[] = [
-      {
-        __typename: 'PostsMaisVistos',
-        post: {
-          __typename: 'Post',
-          title: 'o slug de uma sessão de mais visto',
-          slug: 'o slug de uma sessão de mais visto'
-        }
-      }
-    ]
-
-    const expectValue: MaisVistoProps = {
-      title: 'o slug de uma sessão de mais visto',
-      slug: 'o slug de uma sessão de mais visto'
-    }
-
-    expect(maisVistosMapper(valueApi)).toStrictEqual([expectValue])
-  })
-})
-
 describe('destaquesMapper()', () => {
   it('retorna o valor completamente mapeado de uma sessão de destaques', () => {
     const valueApi: queryMenuAside_menuAsideDestaques[] = [
@@ -219,7 +195,7 @@ describe('destaquesMapper()', () => {
       }
     ]
 
-    const expectValue: MaisVistoProps = {
+    const expectValue: DestaqueProps = {
       title: 'o title de uma sessão de destaque',
       slug: 'o slug de uma sessão de destaque'
     }

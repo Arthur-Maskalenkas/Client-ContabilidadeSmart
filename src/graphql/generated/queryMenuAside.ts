@@ -19,17 +19,6 @@ export interface queryMenuAside_menuAsideTags {
   posts: queryMenuAside_menuAsideTags_posts[];
 }
 
-export interface queryMenuAside_menuAsideMaisVistos_post {
-  __typename: "Post";
-  title: string;
-  slug: string;
-}
-
-export interface queryMenuAside_menuAsideMaisVistos {
-  __typename: "PostsMaisVistos";
-  post: queryMenuAside_menuAsideMaisVistos_post | null;
-}
-
 export interface queryMenuAside_menuAsideDestaques_post {
   __typename: "Post";
   title: string;
@@ -61,7 +50,6 @@ export interface queryMenuAside_menuAsideMenu {
 
 export interface queryMenuAside {
   menuAsideTags: queryMenuAside_menuAsideTags[];
-  menuAsideMaisVistos: queryMenuAside_menuAsideMaisVistos[];
   menuAsideDestaques: queryMenuAside_menuAsideDestaques[];
   menuAsideMenu: queryMenuAside_menuAsideMenu[];
 }

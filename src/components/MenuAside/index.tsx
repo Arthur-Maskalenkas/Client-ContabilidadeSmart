@@ -1,6 +1,5 @@
 import NavigationAside from 'components/NavigationAside'
 
-import MaisVistos, { MaisVistoProps } from 'components/MaisVistos'
 import Tags, { TagProps } from 'components/Tags'
 import { MenuUnitaryProps } from 'components/Menu'
 
@@ -9,11 +8,12 @@ import * as S from './styles'
 import Compartilhe from 'components/Compartilhe'
 import Logo from 'components/Logo'
 import MediaWatch from 'components/MediaWatch'
+import Destaques, { DestaqueProps } from 'components/Destaques'
 
 export type MenuAsideProps = {
   menuData: MenuUnitaryProps[]
   tagsData: TagProps[]
-  destaquesData: MaisVistoProps[]
+  destaquesData: DestaqueProps[]
 }
 
 const MenuAside = ({ menuData, tagsData, destaquesData }: MenuAsideProps) => (
@@ -44,7 +44,7 @@ const MenuAside = ({ menuData, tagsData, destaquesData }: MenuAsideProps) => (
         <S.Title>Destaques</S.Title>
       </S.TitleWrapper>
       <S.ContentWrapper>
-        <MaisVistos items={destaquesData} />
+        <Destaques items={destaquesData} />
       </S.ContentWrapper>
     </S.MenuContainer>
 
