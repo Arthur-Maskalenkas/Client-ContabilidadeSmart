@@ -12,13 +12,13 @@ export type LinkLiProps = {
 const LinkLi = ({ title, path, moreWeight }: LinkLiProps) => {
   return (
     <S.Wrapper aria-label={`Opção ${title}`}>
-      <S.LinkTitleWrapper>
-        <Link href={`${path}`} passHref>
+      <Link href={`${path}`} passHref>
+        <S.LinkTitleWrapper>
           <S.LinkTitle role="link" moreWeight={moreWeight}>
             {title}
           </S.LinkTitle>
-        </Link>
-      </S.LinkTitleWrapper>
+        </S.LinkTitleWrapper>
+      </Link>
     </S.Wrapper>
   )
 }

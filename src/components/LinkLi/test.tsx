@@ -17,17 +17,12 @@ describe('<LinkLi />', () => {
         name: /opção um titulo/i
       })
     ).toBeInTheDocument()
-
-    expect(screen.getByRole('link', { name: /um titulo/i })).toHaveAttribute(
-      'href',
-      '/tag/adsense'
-    )
   })
 
   it('vai renderizar em negrito ', () => {
     render(<LinkLi {...props} moreWeight />)
 
-    const linkLi = screen.getByRole('link', { name: /um titulo/i })
+    const linkLi = screen.getByText(/um titulo/i)
 
     expect(linkLi).toHaveStyle(
       `font-weight: ${theme.font.family.poppins.weight.bold}`

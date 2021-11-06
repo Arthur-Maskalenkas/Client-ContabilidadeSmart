@@ -5,7 +5,7 @@ export const Wrapper = styled.li`
   list-style: none;
 `
 
-export const LinkTitleWrapper = styled.div`
+export const LinkTitleWrapper = styled.a`
   ${({ theme }) => css`
     position: relative;
     display: flex;
@@ -29,7 +29,7 @@ const linkTitleModifier = {
   `
 }
 
-export const LinkTitle = styled.a<Pick<LinkLiProps, 'moreWeight'>>`
+export const LinkTitle = styled.p<Pick<LinkLiProps, 'moreWeight'>>`
   ${({ theme, moreWeight }) => css`
     color: ${theme.colors.black};
     font-size: 1.6rem;
