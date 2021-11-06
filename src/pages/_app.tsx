@@ -15,6 +15,8 @@ import { useApollo } from 'utils/apollo'
 import { Provider } from 'react-redux'
 import { rootReducer } from 'store/store'
 
+import NextNprogress from 'nextjs-progressbar'
+
 function App({ Component, pageProps }: AppProps) {
   const client = useApollo(pageProps.initialApolloState)
 
@@ -37,6 +39,13 @@ function App({ Component, pageProps }: AppProps) {
             <DefaultSeo {...SEO} />
             <GlobalStyles />
             <Component {...pageProps} />
+            <NextNprogress
+              color={theme.colors.secondary}
+              startPosition={0.3}
+              stopDelayMs={200}
+              height={3}
+              showOnShallow={true}
+            />
           </ThemeProvider>
         </Provider>
       </ApolloProvider>
