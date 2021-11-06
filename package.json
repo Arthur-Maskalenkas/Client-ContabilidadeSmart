@@ -34,6 +34,7 @@
     "@styled-icons/fa-solid": "^10.34.0",
     "@styled-icons/material-outlined": "^10.34.0",
     "@styled-icons/remix-fill": "^10.18.0",
+    "@styled-icons/remix-line": "^10.18.0",
     "@styled-icons/simple-icons": "^10.41.0",
     "@testing-library/user-event": "^13.2.1",
     "@types/react-redux": "^7.1.20",

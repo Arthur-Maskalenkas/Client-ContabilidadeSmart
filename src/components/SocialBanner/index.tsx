@@ -13,7 +13,13 @@ const SocialBanner = ({ altImg, img, SocialLink }: SocialBannerProps) => (
   <S.Wrapper>
     <Link href={SocialLink} passHref>
       <a>
-        <Image src={`/${img}`} alt={altImg} layout="fill" objectFit="cover" />
+        <Image
+          src={`/${img}`}
+          alt={altImg}
+          layout="fill"
+          objectFit="cover"
+          priority={true}
+        />
       </a>
     </Link>
   </S.Wrapper>
