@@ -31,7 +31,7 @@ const Footer = () => (
       </li>
     </S.ListIcons>
     <S.DetailsWrapper>
-      <S.Details>Uma frase de efeito</S.Details>
+      <S.Details>Nós somos a Criatividade Contábil</S.Details>
       <S.Details>Politicas de Privacidade</S.Details>
       <S.Copyright>© 2021 Contabilidade Smart</S.Copyright>
     </S.DetailsWrapper>

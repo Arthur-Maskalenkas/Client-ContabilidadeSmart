@@ -46,8 +46,6 @@ export async function getServerSideProps({
     query: QUERY_WIDGETS
   })
 
-  console.log(query)
-
   const widgetData = { widgetsCategorias, widgetsPaginas, widgetsPostsRecentes }
 
   //  Menuaside

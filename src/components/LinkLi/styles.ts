@@ -7,6 +7,7 @@ export const Wrapper = styled.li`
 
 export const LinkTitleWrapper = styled.a`
   ${({ theme }) => css`
+    text-decoration: none;
     position: relative;
     display: flex;
     align-items: center;

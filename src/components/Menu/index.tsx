@@ -44,6 +44,7 @@ const Menu = ({ items }: MenuProps) => {
             <LinkMenuDesktop
               key={index}
               title={item.title}
+              slug={item.slug}
               dropdownOptions={item.dropdownOptions}
             />
           ))}
@@ -57,6 +58,7 @@ const Menu = ({ items }: MenuProps) => {
             <LinkMenuMobile
               key={index}
               title={item.title}
+              slug={item.slug}
               dropdownOptions={item.dropdownOptions}
             />
           ))}
