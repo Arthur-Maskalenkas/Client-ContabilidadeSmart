@@ -10,9 +10,7 @@ export default {
   component: Destaques
 } as Meta
 
-export const Default: Story<DestaquesProps> = (args) => (
-  <Destaques {...args} />
-)
+export const Default: Story<DestaquesProps> = (args) => <Destaques {...args} />
 
 Default.args = { items: mock }
 
