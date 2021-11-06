@@ -4,11 +4,18 @@ import Footer from '.'
 
 describe('<Footer />', () => {
   it('vai renderizar os icones', () => {
-    render(<Footer />)
+    const { container } = render(<Footer />)
 
-    expect(screen.getByRole('svg', { name: /Linkedin/i })).toBeInTheDocument()
-    expect(screen.getByRole('svg', { name: /Instagram/i })).toBeInTheDocument()
-    expect(screen.getByRole('svg', { name: /Whatsapp/i })).toBeInTheDocument()
-    expect(screen.getByRole('svg', { name: /Gmail/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('listitem', { name: /Linkedin/i })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('listitem', { name: /Instagram/i })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('listitem', { name: /Whatsapp/i })
+    ).toBeInTheDocument()
+
+    expect(container).toMatchSnapshot()
   })
 })
