@@ -47,7 +47,7 @@ export const RecursosSection = styled.section`
 export const SocialBannerSection = styled.section`
   ${({ theme }) => css`
     padding: 10rem 0;
-    margin-bottom: calc(${theme.spacings.xlarge} * 2);
+    margin-bottom: ${theme.spacings.xlarge};
     /* background by SVGBackgrounds.com */
     background-image: url('img/backgrounds/pattern-randomized.svg');
     & ${Description} {

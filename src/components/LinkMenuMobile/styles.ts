@@ -101,6 +101,7 @@ export const Wrapper = styled.ul<WrapperProps>`
 
 export const Title = styled.h2`
   ${({ theme }) => css`
+    text-decoration: none;
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.family.poppins.weight.normal};
   `}
