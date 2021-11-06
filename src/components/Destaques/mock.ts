@@ -1,6 +1,6 @@
-import { MaisVistoProps } from '.'
+import { DestaqueProps } from '.'
 
-const mock: MaisVistoProps[] = [
+const mock: DestaqueProps[] = [
   {
     title: 'Quais os tipos de lançamentos',
     slug: 'quais_os_tipos_de_lançamentos'

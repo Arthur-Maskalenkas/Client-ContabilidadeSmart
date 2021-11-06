@@ -1,7 +1,7 @@
 import { MenuAsideProps } from 'components/MenuAside'
 
 const menuasideMock: MenuAsideProps = {
-  maisVistosData: [
+  destaquesData: [
     { title: 'MaisVistosData titulo 1', slug: 'MaisVistosData slug 1' }
   ],
   tagsData: [
