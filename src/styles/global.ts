@@ -5,6 +5,8 @@ import {
   GlobalStyleComponent
 } from 'styled-components'
 
+import { darken } from 'polished'
+
 type GlobalStylesProps = {
   removeBg?: boolean
 }
@@ -80,6 +82,25 @@ const GlobalStyles: GlobalStyleComponent<
       font-size: 62.5%;
     }
     body {
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* O caminho da barra de rolagem */
+      ::-webkit-scrollbar-track {
+        background-color: #888;
+      }
+
+      /* O componente que vai rolando o caminho da barra de rolagem */
+      ::-webkit-scrollbar-thumb {
+        background-color: ${theme.colors.secondary};
+        border-radius: 25%;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: ${darken(0.2, theme.colors.secondary)};
+      }
+
       font-family: ${theme.font.family.poppins.font};
       font-size: ${theme.font.sizes.medium};
       ${!removeBg &&
