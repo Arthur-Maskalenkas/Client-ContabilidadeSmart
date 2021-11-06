@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+import * as LogoStyles from 'components/Logo/styles'
+
 import * as LinkMenuDesktopStyles from 'components/LinkMenuDesktop/styles'
 
 export const Wrapper = styled.menu`
@@ -21,18 +23,16 @@ export const Wrapper = styled.menu`
     width: ${theme.grid.container};
       border-bottom: none;
     `}
+
+    ${LogoStyles.Wrapper} {
+      margin-right: auto;
+      margin-left: 0;
+    }
   `}
 `
 
 export const LogoWrapper = styled.div`
   flex-shrink: 0;
-
-  img {
-    width: 100%;
-    height: 100%;
-    /* Essencial */
-    object-fit: cover;
-  }
 `
 
 export const IconWrapper = styled.div`

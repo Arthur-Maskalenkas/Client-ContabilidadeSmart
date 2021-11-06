@@ -7,8 +7,6 @@ export const Wrapper = styled.article`
   grid-template-columns: 1fr 3fr;
   gap: 1.5rem;
 
-  cursor: pointer;
-
   transition: 0.6s all;
 
   ${IconWrapperStyles.Wrapper} {
